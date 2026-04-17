@@ -3,6 +3,8 @@
 Irodori-Studio（VoiceDesign モード）で読み上げるための台本。
 各セリフに `text`（読み上げ本文）と `caption`（声質・演技指示）を定義する。
 
+**声質を出力ごとに揃えるコツ（バッチ合成用）**: キャラごとに **同一の「話者ステム」**（年齢・性別・声の高さ・役名まで固定した1〜2文）を先頭に置き、行ごとの違いは **「このセリフの演技: …」** にだけ書く。乱数はマニフェストで `seed` 固定。シーン3以降の自動生成マニフェストは `Irodori-TTS/scripts/examples/babydoll_ep1_scene3_plus.json`（`build_babydoll_ep1_scene3_plus_manifest.py` で再生成可）。
+
 ---
 
 ## キャラクター音声設計
