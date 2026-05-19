@@ -1,0 +1,366 @@
+{
+  "minagi": {
+    "conversation": {
+      "phase": "conversation",
+      "characterId": "minagi",
+      "introduction": {
+        "speaker": "海凪",
+        "text": "やっほー！あさひなおにーさん！今日もいい天気だね〜♪",
+        "emotion": "happy"
+      },
+      "dialogues": [
+        {
+          "speaker": "海凪",
+          "text": "あたし、この島に来てからもう3ヶ月なのさぁ。最初は寂しかったけど、今はとっても楽しいよ〜",
+          "emotion": "cheerful"
+        },
+        {
+          "speaker": "海凪", 
+          "text": "沖縄の海もきれいだったけど、ここの海もとってもきれいでしょ？みーちゃん、泳ぐのだいとくいなの！",
+          "emotion": "proud"
+        }
+      ],
+      "choices": [
+        {
+          "id": "self_intro",
+          "text": "改めて自己紹介をする",
+          "affectionChange": 3,
+          "response": {
+            "speaker": "海凪",
+            "text": "${playerName}さんっていうんだ！みーちゃん、覚えたよ〜♪ よろしくね、${playerName}おにーさん！",
+            "emotion": "happy"
+          }
+        },
+        {
+          "id": "swimming_talk",
+          "text": "泳ぎが得意なんだね",
+          "affectionChange": 4,
+          "response": {
+            "speaker": "海凪",
+            "text": "そうなのさぁ！おじぃに教わったの。『海凪は魚みたいだ』っておじぃがよく言ってたんだ〜",
+            "emotion": "nostalgic"
+          }
+        },
+        {
+          "id": "hometown_question",
+          "text": "沖縄のことを教えて",
+          "affectionChange": 5,
+          "response": {
+            "speaker": "海凪", 
+            "text": "沖縄はね、とっても暖かくて海がきれいなの。でも...おじぃとおばぁがいる小さな島なんだ。今は...ちょっと寂しいさぁ...",
+            "emotion": "sad"
+          }
+        },
+        {
+          "id": "family_question", 
+          "text": "家族のことを聞く",
+          "affectionChange": 6,
+          "condition": "affection >= 20",
+          "response": {
+            "speaker": "海凪",
+            "text": "おばぁがね...病気になっちゃって。それでお薬代とか...色々お金が必要になったの。だからあたし、ここで頑張るさぁ！",
+            "emotion": "determined"
+          }
+        },
+        {
+          "id": "goal_question",
+          "text": "将来の夢は？",
+          "affectionChange": 4,
+          "condition": "affection >= 15", 
+          "response": {
+            "speaker": "海凪",
+            "text": "おばぁの病気を治して、また3人で沖縄の海で泳ぎたいな〜。それが一番の夢なの！",
+            "emotion": "hopeful"
+          }
+        }
+      ]
+    },
+    "skinship": {
+      "phase": "skinship",
+      "characterId": "minagi",
+      "introduction": {
+        "speaker": "海凪",
+        "text": "おにーさん...もうちょっと近くにいてもいい？ドキドキするけど...嫌じゃないの...",
+        "emotion": "shy"
+      },
+      "choices": [
+        {
+          "id": "gentle_approach",
+          "text": "そっと手を繋ぐ",
+          "affectionChange": 5,
+          "response": {
+            "speaker": "海凪",
+            "text": "わぁ...おにーさんの手、あったかい...あたしの手、小さいでしょ？でもしっかり握ってていいよ〜",
+            "emotion": "happy_shy"
+          }
+        },
+        {
+          "id": "shoulder_touch",
+          "text": "肩に手を置く",
+          "affectionChange": 4,
+          "response": {
+            "speaker": "海凪", 
+            "text": "あっ...優しい手だね。おにーさんって、とっても優しいの。だからあたし...安心するさぁ",
+            "emotion": "comfortable"
+          }
+        },
+        {
+          "id": "cheek_kiss",
+          "text": "頬にそっとキスする",
+          "affectionChange": 8,
+          "condition": "affection >= 50",
+          "response": {
+            "speaker": "海凪",
+            "text": "あっ...！初めて...おにーさん以外にされたことない...でも嬉しい♪ あたしからも...えい！",
+            "emotion": "embarrassed_happy"
+          }
+        },
+        {
+          "id": "hug_request",
+          "text": "抱きしめてもいい？",
+          "affectionChange": 6,
+          "condition": "affection >= 40",
+          "response": {
+            "speaker": "海凪",
+            "text": "うん...お、お願いします...あたしも...おにーさんに抱きしめられたい...",
+            "emotion": "wanting"
+          }
+        },
+        {
+          "id": "progress_intimate",
+          "text": "もっと親密になりたい",
+          "affectionChange": 0,
+          "nextPhase": "foreplay",
+          "condition": "affection >= 70",
+          "response": {
+            "speaker": "海凪", 
+            "text": "あたしも...おにーさんともっと...でも初めてだから...優しくしてね？",
+            "emotion": "nervous_excited"
+          }
+        }
+      ]
+    },
+    "foreplay": {
+      "phase": "foreplay",
+      "characterId": "minagi", 
+      "contentLevel": "adult",
+      "introduction": {
+        "speaker": "海凪",
+        "text": "ドキドキする...でも怖くない。おにーさんと一緒だから...お願いします...",
+        "emotion": "nervous_trusting"
+      },
+      "choices": [
+        {
+          "id": "very_gentle",
+          "text": "とても優しく、ゆっくりと", 
+          "affectionChange": 10,
+          "response": {
+            "speaker": "海凪",
+            "text": "あっ...そんなに優しくしてくれて...あたし、こんなの初めて...でもとっても気持ちいい...",
+            "emotion": "pleasure_innocent"
+          }
+        },
+        {
+          "id": "ask_feelings", 
+          "text": "今の気持ちを聞く",
+          "affectionChange": 8,
+          "response": {
+            "speaker": "海凪",
+            "text": "ちょっと怖いけど...でもおにーさんが側にいてくれるから大丈夫。あたし、頑張るさぁ！",
+            "emotion": "brave"
+          }
+        },
+        {
+          "id": "comfort_priority",
+          "text": "海凪が嫌だったらすぐやめる",
+          "affectionChange": 12,
+          "response": {
+            "speaker": "海凪",
+            "text": "おにーさん...あたしのこと、大切にしてくれるんだね...ありがとう。でも大丈夫、続けて...",
+            "emotion": "grateful_loving"
+          }
+        },
+        {
+          "id": "proceed_main",
+          "text": "メインフェーズへ進む",
+          "nextPhase": "main",
+          "condition": "affection >= 85",
+          "response": {
+            "speaker": "海凪",
+            "text": "あたし...準備できたかも...おにーさん...お願いします...",
+            "emotion": "ready"
+          }
+        }
+      ]
+    },
+    "main": {
+      "phase": "main",
+      "characterId": "minagi",
+      "contentLevel": "adult",
+      "introduction": {
+        "speaker": "海凪", 
+        "text": "初めてで...どうしたらいいかわからないけど...おにーさんと赤ちゃん作るんでしょ？頑張る！",
+        "emotion": "determined_innocent"
+      },
+      "choices": [
+        {
+          "id": "extremely_gentle",
+          "text": "痛くないよう最大限に優しく",
+          "affectionChange": 15,
+          "response": {
+            "speaker": "海凪",
+            "text": "あっ...痛いけど...おにーさんが優しくしてくれるから我慢できる...これで赤ちゃんできるかな？",
+            "emotion": "pain_hope"
+          }
+        },
+        {
+          "id": "constant_check",
+          "text": "常に様子を確認しながら",
+          "affectionChange": 12,
+          "response": {
+            "speaker": "海凪",
+            "text": "だいじょぶ...ちょっと痛いけど、だんだん慣れてきた...おにーさんの優しさが伝わってくる...",
+            "emotion": "adapting"
+          }
+        },
+        {
+          "id": "encourage_minagi",
+          "text": "海凪を励ます", 
+          "affectionChange": 10,
+          "response": {
+            "speaker": "海凪",
+            "text": "うん！あたし頑張る！おばぁのために...そして今は、おにーさんのためにも頑張りたいさぁ！",
+            "emotion": "encouraged"
+          }
+        }
+      ]
+    },
+    "aftercare": {
+      "phase": "aftercare",
+      "characterId": "minagi",
+      "introduction": {
+        "speaker": "海凪",
+        "text": "あたし...大人になったのかな？おにーさんのおかげで...ありがとう...",
+        "emotion": "fulfilled"
+      },
+      "choices": [
+        {
+          "id": "gentle_cuddle",
+          "text": "優しく抱きしめる",
+          "affectionChange": 8,
+          "response": {
+            "speaker": "海凪",
+            "text": "こうしてると...とっても安心する。おにーさんのぬくもり、忘れたくないな〜",
+            "emotion": "peaceful"
+          }
+        },
+        {
+          "id": "talk_future",
+          "text": "これからのことを話す", 
+          "affectionChange": 10,
+          "response": {
+            "speaker": "海凪",
+            "text": "赤ちゃんできたかな...？もしできたら、おばぁに会わせてあげたいな。きっと喜ぶさぁ〜",
+            "emotion": "hopeful"
+          }
+        },
+        {
+          "id": "promise_meeting",
+          "text": "また会う約束をする",
+          "affectionChange": 12,
+          "response": {
+            "speaker": "海凪", 
+            "text": "また来てくれる？約束だよ〜！あたし、ずっと待ってるから。指切りげんまん♪",
+            "emotion": "joyful"
+          }
+        }
+      ]
+    }
+  },
+
+  "hinata": {
+    "conversation": {
+      "phase": "conversation",
+      "characterId": "hinata",
+      "introduction": {
+        "speaker": "ひなた",
+        "text": "あんたが新しいお客さんやね？あたしは柚木ひなた。よろしゅうな〜",
+        "emotion": "confident"
+      },
+      "dialogues": [
+        {
+          "speaker": "ひなた",
+          "text": "大阪から来てん。最初はこの島のこと、よう分からんかったけど、慣れたら案外ええとこやで〜",
+          "emotion": "friendly"
+        }
+      ],
+      "choices": [
+        {
+          "id": "osaka_talk",
+          "text": "大阪のことを聞く",
+          "affectionChange": 3,
+          "response": {
+            "speaker": "ひなた",
+            "text": "大阪はな〜、人情味があってええとこやで！たこ焼き、お好み焼き、うまいもんぎょうさんあるし♪",
+            "emotion": "proud"
+          }
+        },
+        {
+          "id": "family_care",
+          "text": "家族を大切にしてるんだね",
+          "affectionChange": 5,
+          "condition": "affection >= 15",
+          "response": {
+            "speaker": "ひなた",
+            "text": "せやろ？弟2人おんねん。あいつらのためやったら、あたし何でもするわ！",
+            "emotion": "determined"
+          }
+        },
+        {
+          "id": "cooking_hobby",
+          "text": "料理が得意そうだね",
+          "affectionChange": 4,
+          "response": {
+            "speaker": "ひなた",
+            "text": "おお！よう分かったなぁ！弟たちの弁当毎日作ってるんよ。今度、あんたにも作ったろか？",
+            "emotion": "pleased"
+          }
+        }
+      ]
+    }
+  },
+
+  "sakura": {
+    "conversation": {
+      "phase": "conversation",
+      "characterId": "sakura", 
+      "introduction": {
+        "speaker": "さくら",
+        "text": "あの...はじめまして...白石さくらです...よろしくお願いします...",
+        "emotion": "shy"
+      },
+      "choices": [
+        {
+          "id": "gentle_intro",
+          "text": "優しく自己紹介する",
+          "affectionChange": 4,
+          "response": {
+            "speaker": "さくら",
+            "text": "あの...優しい方なんですね...少し安心しました...",
+            "emotion": "relieved"
+          }
+        },
+        {
+          "id": "hokkaido_talk", 
+          "text": "北海道の話を聞く",
+          "affectionChange": 3,
+          "response": {
+            "speaker": "さくら",
+            "text": "雪が...とてもきれいなところです...お父さんと雪だるまを作ったりして...",
+            "emotion": "nostalgic"
+          }
+        }
+      ]
+    }
+  }
+}

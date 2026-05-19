@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>泡児島 - ノベルゲーム</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="game-container">
+        <!-- ローディング画面 -->
+        <div id="loading-screen" class="screen">
+            <div class="loading-content">
+                <h1 class="game-title">泡児島</h1>
+                <p class="game-subtitle">〜楽園での出会い〜</p>
+                <div class="loading-spinner"></div>
+                <p class="loading-text">ゲームを読み込んでいます...</p>
+            </div>
+        </div>
+
+        <!-- タイトル画面 -->
+        <div id="title-screen" class="screen" style="display: none;">
+            <div class="title-content">
+                <h1 class="game-title">泡児島</h1>
+                <p class="game-subtitle">〜楽園での出会い〜</p>
+                <div class="title-menu">
+                    <button class="title-button" id="new-game-btn">新しくはじめる</button>
+                    <button class="title-button" id="continue-game-btn">つづきから</button>
+                    <button class="title-button" id="load-game-btn">ロード</button>
+                    <button class="title-button" id="title-settings-btn">設定</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- メインゲーム画面 -->
+        <div id="main-game" class="screen" style="display: none;">
+            <!-- 背景画像 -->
+            <div id="background-image" class="background"></div>
+
+            <!-- キャラクター画像 -->
+            <div id="character-image" class="character-image" style="display: none;"></div>
+
+            <div id="affection-hud" class="affection-hud" style="display: none;">
+                <div class="affection-hud-inner">
+                    <span id="affection-hud-name" class="affection-hud-name">—</span>
+                    <div class="affection-hud-bar">
+                        <div id="affection-hud-fill" class="affection-hud-fill"></div>
+                    </div>
+                    <span id="affection-hud-text" class="affection-hud-text">0</span>
+                </div>
+            </div>
+            <div id="affection-toast" class="affection-toast" aria-live="polite"></div>
+
+            <div id="intimate-hud" class="intimate-hud" style="display: none;">
+                <div class="intimate-hud-header">
+                    <span id="intimate-stage-label" class="intimate-stage-label">交尾</span>
+                    <span id="intimate-position-label" class="intimate-position-label"></span>
+                </div>
+                <div class="intimate-pleasure-wrap">
+                    <span class="intimate-pleasure-title">快感</span>
+                    <div class="intimate-pleasure-bar">
+                        <div id="intimate-pleasure-fill" class="intimate-pleasure-fill"></div>
+                    </div>
+                    <span id="intimate-pleasure-text" class="intimate-pleasure-text">0%</span>
+                </div>
+                <div id="intimate-log" class="intimate-log" aria-label="シーンログ"></div>
+            </div>
+
+            <!-- UI オーバーレイ -->
+            <div class="ui-overlay">
+                <!-- 上部UI -->
+                <div class="top-ui">
+                    <div class="game-info">
+                        <span class="current-spot">ターミナル</span>
+                        <span class="time-display">朝</span>
+                        <span class="day-display">1日目</span>
+                        <span class="energy-display" id="energy-display">体力 100</span>
+                        <span class="actions-display" id="actions-display">行動 0/3</span>
+                    </div>
+                    <div class="ui-controls" id="ui-controls">
+                        <button class="ui-button" id="menu-button">メニュー</button>
+                        <button class="ui-button" id="save-button">セーブ</button>
+                        <button class="ui-button" id="load-button">ロード</button>
+                        <button class="ui-button" id="settings-button">設定</button>
+                    </div>
+                </div>
+
+                <!-- マップ画面 -->
+                <div id="map-container" class="map-container" style="display: none;">
+                    <h2 class="map-title">島内マップ</h2>
+                    <div class="map-grid">
+                        <div class="map-spot" data-spot="terminal">
+                            <div class="spot-icon">🏢</div>
+                            <div class="spot-name">ターミナル</div>
+                        </div>
+                        <div class="map-spot" data-spot="beach">
+                            <div class="spot-icon">🏖️</div>
+                            <div class="spot-name">ビーチ</div>
+                        </div>
+                        <div class="map-spot" data-spot="beachbar">
+                            <div class="spot-icon">🍹</div>
+                            <div class="spot-name">ビーチバー</div>
+                        </div>
+                        <div class="map-spot" data-spot="cottage">
+                            <div class="spot-icon">🏡</div>
+                            <div class="spot-name">コテージ</div>
+                        </div>
+                        <div class="map-spot" data-spot="hotel">
+                            <div class="spot-icon">🏨</div>
+                            <div class="spot-name">ホテル</div>
+                        </div>
+                        <div class="map-spot" data-spot="restaurant">
+                            <div class="spot-icon">🍽️</div>
+                            <div class="spot-name">レストラン</div>
+                        </div>
+                        <div class="map-spot" data-spot="garden">
+                            <div class="spot-icon">🌺</div>
+                            <div class="spot-name">ガーデン</div>
+                        </div>
+                        <div class="map-spot" data-spot="library">
+                            <div class="spot-icon">📚</div>
+                            <div class="spot-name">ライブラリー</div>
+                        </div>
+                        <div class="map-spot" data-spot="sports_area">
+                            <div class="spot-icon">⚽</div>
+                            <div class="spot-name">スポーツエリア</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- メッセージウィンドウ -->
+                <div id="message-window" class="message-window" style="display: none;">
+                    <div class="message-header">
+                        <span id="speaker-name" class="speaker-name"></span>
+                    </div>
+                    <div class="message-content">
+                        <p id="message-text" class="message-text"></p>
+                    </div>
+                    <div class="message-controls">
+                        <span class="message-hint" id="message-hint">クリック / Enter で進む</span>
+                        <button class="message-btn" id="auto-btn">オート</button>
+                        <button class="message-btn" id="skip-btn">スキップ</button>
+                        <button class="message-btn" id="log-btn">ログ</button>
+                    </div>
+                </div>
+
+                <!-- 選択肢 -->
+                <div id="choices-container" class="choices-container" style="display: none;">
+                </div>
+            </div>
+        </div>
+
+        <!-- セーブ/ロード画面 -->
+        <div id="save-load-screen" class="screen modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="save-load-title">セーブ</h2>
+                    <button class="close-btn" id="close-save-load">&times;</button>
+                </div>
+                <div class="save-slots">
+                    <!-- セーブスロットは動的に生成 -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 設定画面 -->
+        <div id="settings-screen" class="screen modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>設定</h2>
+                    <button class="close-btn" id="close-settings">&times;</button>
+                </div>
+                <div class="settings-content">
+                    <div class="setting-group">
+                        <label>テキスト速度</label>
+                        <div class="setting-control">
+                            <input type="range" id="text-speed" min="0" max="2" value="1">
+                            <div class="setting-labels">
+                                <span>遅い</span>
+                                <span>普通</span>
+                                <span>速い</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="setting-group">
+                        <label>コンテンツレベル</label>
+                        <div class="setting-control">
+                            <select id="content-level">
+                                <option value="0">ソフト</option>
+                                <option value="1" selected>ノーマル</option>
+                                <option value="2">アダルト</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="setting-group">
+                        <label>BGM音量</label>
+                        <div class="setting-control">
+                            <input type="range" id="bgm-volume" min="0" max="100" value="70">
+                            <span class="volume-value">70%</span>
+                        </div>
+                    </div>
+
+                    <div class="setting-group">
+                        <label>効果音音量</label>
+                        <div class="setting-control">
+                            <input type="range" id="se-volume" min="0" max="100" value="80">
+                            <span class="volume-value">80%</span>
+                        </div>
+                    </div>
+
+                    <div class="setting-group">
+                        <label>オートモード速度</label>
+                        <div class="setting-control">
+                            <input type="range" id="auto-speed" min="1" max="5" value="3">
+                            <div class="setting-labels">
+                                <span>遅い</span>
+                                <span>速い</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="setting-buttons">
+                        <button class="setting-btn" id="reset-settings">初期値に戻す</button>
+                        <button class="setting-btn primary" id="save-settings">保存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- キャラクター詳細画面 -->
+        <div id="character-detail-screen" class="screen modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="character-detail-name"></h2>
+                    <button class="close-btn" id="close-character-detail">&times;</button>
+                </div>
+                <div class="character-detail-content">
+                    <div class="character-image-large">
+                        <img id="character-detail-image" src="" alt="">
+                    </div>
+                    <div class="character-info">
+                        <div class="character-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">年齢:</span>
+                                <span id="character-age"></span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">出身:</span>
+                                <span id="character-origin"></span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">好感度:</span>
+                                <div class="affection-bar">
+                                    <div class="affection-fill" id="character-affection"></div>
+                                </div>
+                                <span id="character-affection-text">0%</span>
+                            </div>
+                        </div>
+                        <div class="character-description">
+                            <p id="character-description-text"></p>
+                        </div>
+                        <div class="character-traits">
+                            <h4>特徴</h4>
+                            <ul id="character-traits-list"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 好感度一覧 -->
+        <div id="affection-status-screen" class="screen modal" style="display: none;">
+            <div class="modal-content affection-status-content">
+                <div class="modal-header">
+                    <h2>好感度一覧</h2>
+                    <button class="close-btn" id="close-affection-status">&times;</button>
+                </div>
+                <p class="affection-status-hint">滞在5日・1日3行動。子作りは前戯→交尾→絶頂の本格シーン。快感・好感度が上昇。100＋子作り完走でヒロインエンド。</p>
+                <div id="affection-status-list" class="affection-status-list"></div>
+            </div>
+        </div>
+
+        <!-- エンディング画面 -->
+        <div id="ending-screen" class="screen ending-overlay" style="display: none;">
+            <div class="ending-panel">
+                <p class="ending-label">END</p>
+                <h2 id="ending-title" class="ending-title">エンディング</h2>
+                <p id="ending-subtitle" class="ending-subtitle"></p>
+                <button class="title-button" id="ending-to-title-btn">タイトルに戻る</button>
+            </div>
+        </div>
+
+        <!-- メニュー -->
+        <div id="game-menu-screen" class="screen modal" style="display: none;">
+            <div class="modal-content game-menu-content">
+                <div class="modal-header">
+                    <h2>メニュー</h2>
+                    <button class="close-btn" id="close-game-menu">&times;</button>
+                </div>
+                <div class="game-menu-buttons">
+                    <button class="title-button menu-action-btn" id="menu-affection-btn">好感度一覧</button>
+                    <button class="title-button menu-action-btn" id="menu-save-btn">セーブ</button>
+                    <button class="title-button menu-action-btn" id="menu-load-btn">ロード</button>
+                    <button class="title-button menu-action-btn" id="menu-settings-btn">設定</button>
+                    <button class="title-button menu-action-btn" id="menu-title-btn">タイトルに戻る</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- メッセージログ画面 -->
+        <div id="message-log-screen" class="screen modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>メッセージログ</h2>
+                    <button class="close-btn" id="close-message-log">&times;</button>
+                </div>
+                <div class="log-content" id="log-content">
+                    <!-- ログは動的に生成 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript ファイルの読み込み -->
+    <script src="js/character-data.js"></script>
+    <script src="js/prologue-data.js"></script>
+    <script src="js/affection-system.js"></script>
+    <script src="js/intimate-scene-system.js"></script>
+    <script src="js/intimate-scenes-data.js"></script>
+    <script src="js/ending-data.js"></script>
+    <script src="js/save-system.js"></script>
+    <script src="js/story-manager.js"></script>
+    <script src="js/ui-manager.js"></script>
+    <script src="js/game-engine.js"></script>
+</body>
+</html>
