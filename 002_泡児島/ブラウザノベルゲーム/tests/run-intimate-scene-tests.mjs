@@ -43,6 +43,19 @@ console.log('\n=== 快感・絶頂 ===');
     const act = { id: 'fast', lineKey: 'fast', pleasure: 50 };
     IntimateSceneSystem.applyPistonAction(s, act, scene);
     assert(s.pistonCount === 1, 'ピストン回数');
+
+    const slowAct = { id: 'slow', lineKey: 'slow', pleasure: 14 };
+    const slowResult = IntimateSceneSystem.applyPistonAction(
+        IntimateSceneSystem.createSession('minagi', 'foreplay'),
+        slowAct,
+        scene
+    );
+    assert(slowResult.lines.length >= 1, 'ゆっくり: 台詞あり');
+    assert(
+        typeof slowResult.lines[0].text === 'string',
+        'ゆっくり: textは文字列'
+    );
+    assert(slowResult.lines[0].text.length > 0, 'ゆっくり: 台詞が空でない');
 }
 
 console.log('\n=== 全キャラ台本 ===');

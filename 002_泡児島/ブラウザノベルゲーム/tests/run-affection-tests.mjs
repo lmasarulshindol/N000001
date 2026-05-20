@@ -87,16 +87,23 @@ console.log('\n=== H好感度加算 ===');
     assert(AffectionSystem.getAffection(gs, 'minagi') === 5, 'mainChoice加算');
 }
 
-console.log('\n=== 行動・日数 ===');
+console.log('\n=== 行動・日数（5段階時間帯） ===');
 {
     const gs = createState();
-    AffectionSystem.spendAction(gs);
-    AffectionSystem.spendAction(gs);
-    assert(gs.actionsToday === 2, '2行動消費');
-    const r = AffectionSystem.spendAction(gs);
-    assert(r.dayEnded === true, '3行動で時間進行');
+    const r1 = AffectionSystem.spendAction(gs);
+    assert(r1.timeAdvanced === true, '1行動で時間帯遷移');
     assert(gs.actionsToday === 0, '行動リセット');
-    assert(gs.timeOfDay === 'noon', '朝→昼');
+    assert(gs.timeOfDay === 'afternoon', '午前→午後');
+
+    AffectionSystem.spendAction(gs);
+    assert(gs.timeOfDay === 'evening', '午後→夕方');
+    AffectionSystem.spendAction(gs);
+    assert(gs.timeOfDay === 'night', '夕方→夜');
+    AffectionSystem.spendAction(gs);
+    assert(gs.timeOfDay === 'midnight', '夜→深夜');
+    const r5 = AffectionSystem.spendAction(gs);
+    assert(r5.dayEnded === true, '深夜→翌日（dayEnded）');
+    assert(gs.day === 2 && gs.timeOfDay === 'morning', '翌日 午前から');
 }
 
 console.log('\n=== エンディング候補 ===');

@@ -5,10 +5,10 @@ class GameEngine {
     constructor() {
         this.currentScene = null;
         this.gameState = {
-            currentSpot: 'terminal',
+            currentSpot: 'port',
             timeOfDay: 'morning', // morning, noon, evening, night
             day: 1,
-            playerName: 'プレイヤー',
+            playerName: 'ユウマ',
             energy: 100,
             characterAffections: {},
             unlockedEvents: [],
@@ -42,6 +42,8 @@ class GameEngine {
         this.waitingForStoryClick = false;
         this.activeCharacterId = null;
         this.intimateSession = null;
+        this.characterSelectionState = null;
+        this.CHARACTER_SELECT_PAGE_SIZE = 3;
     }
 
     // 初期化
@@ -154,12 +156,15 @@ class GameEngine {
     }
 
     // 新規ゲーム開始
-    async startNewGame() {
+    async startNewGame(playerName = 'ユウマ') {
+        const normalized = (typeof UIMessageHelpers !== 'undefined')
+            ? UIMessageHelpers.normalizePlayerName(playerName)
+            : ((playerName || '').toString().trim() || 'ユウマ');
         this.gameState = {
-            currentSpot: 'terminal',
+            currentSpot: 'port',
             timeOfDay: 'morning',
             day: 1,
-            playerName: 'プレイヤー',
+            playerName: normalized,
             energy: 100,
             actionsToday: 0,
             characterAffections: {},
@@ -228,6 +233,9 @@ class GameEngine {
 
         await this.showMessage(beat.text, speaker);
         this.waitingForStoryClick = true;
+        if (typeof uiManager !== 'undefined' && uiManager) {
+            uiManager.notifyStoryBeatReady();
+        }
     }
 
     async onStoryAdvance() {
@@ -248,7 +256,7 @@ class GameEngine {
         this.storyMode = null;
         this.waitingForStoryClick = false;
         this.gameState.flags.prologueSeen = true;
-        this.gameState.currentSpot = 'terminal';
+        this.gameState.currentSpot = 'port';
         this.hideCharacterImage();
 
         if (typeof AffectionSystem !== 'undefined') {
@@ -257,16 +265,17 @@ class GameEngine {
             ]);
         }
 
-        await this.changeBackground('terminal');
+        await this.changeBackground('port');
         if (typeof uiManager !== 'undefined' && uiManager) {
             uiManager.updateGameInfo();
             await uiManager.showMessage(
-                '【システム】お出迎えの少女たちと顔合わせした。\n会った子はどこでも「会話」「子作り」可能。子作りは前戯→挿入→交尾→絶頂の流れで快感ゲージが上昇し、行為でも好感度が上がる。（1日3行動・全5日）',
+                '【システム】お出迎えの少女たちと顔合わせした。\n一度会った子とは、島のどこにいても一緒に過ごせる。\n会話をしたり、二人きりの時間を楽しんだり――距離の縮め方はあなた次第。（1日5回行動・全5日）',
                 'システム'
             );
             this.waitingForStoryClick = true;
             this.storyActive = true;
             this.storyMode = 'tutorial';
+            uiManager.notifyStoryBeatReady();
             return;
         }
 
@@ -320,38 +329,44 @@ class GameEngine {
         const gradients = {
             ship: 'linear-gradient(180deg, #1e3c72 0%, #2a5298 40%, #7ec8e3 100%)',
             sea: 'linear-gradient(180deg, #4facfe 0%, #00f2fe 35%, #a8e6cf 70%, #f5d76e 100%)',
-            terminal: 'linear-gradient(160deg, #e8f4fc 0%, #9ec5e8 50%, #5a8fb8 100%)',
+            port: 'linear-gradient(180deg, #1e3c72 0%, #4a76a8 40%, #7ec8e3 70%, #c8e6f0 100%)',
+            inn: 'linear-gradient(180deg, #6d4c41 0%, #b08562 45%, #f4e1c1 100%)',
+            onsen: 'linear-gradient(180deg, #2c3e50 0%, #6b7d92 35%, #d9c5b0 70%, #f0d8be 100%)',
+            observatory: 'linear-gradient(180deg, #ff7e5f 0%, #feb47b 40%, #ffe29f 70%, #fff1c1 100%)',
             beach: 'linear-gradient(180deg, #4facfe 0%, #00f2fe 45%, #f5d76e 100%)',
-            beachbar: 'linear-gradient(180deg, #f6d365 0%, #fda085 100%)',
-            cottage: 'linear-gradient(180deg, #a8e6cf 0%, #88d8b0 50%, #ffeaa7 100%)',
-            hotel: 'linear-gradient(180deg, #dfe9f3 0%, #ffffff 50%, #c9d6df 100%)',
-            restaurant: 'linear-gradient(180deg, #ffecd2 0%, #fcb69f 100%)',
-            garden: 'linear-gradient(180deg, #d4fc79 0%, #96e6a1 100%)',
-            library: 'linear-gradient(180deg, #e0c3fc 0%, #8ec5fc 100%)',
-            sports_area: 'linear-gradient(180deg, #84fab0 0%, #8fd3f4 100%)'
+            forest_shrine: 'linear-gradient(180deg, #2c5530 0%, #5a8a4d 40%, #9bc191 70%, #d4e5a4 100%)'
         };
+        // 旧 ID は SPOT_ALIASES で現行 ID に解決（背景タグ互換用）
+        const resolvedId = (typeof SPOT_ALIASES !== 'undefined' && SPOT_ALIASES[spotId])
+            ? SPOT_ALIASES[spotId]
+            : spotId;
         const el = document.getElementById('background-image');
         if (!el) return;
         el.style.backgroundColor = '#1a4d6d';
-        el.style.backgroundImage = gradients[spotId] || gradients.beach;
+        el.style.backgroundImage = gradients[resolvedId] || gradients.port;
         el.style.backgroundSize = 'cover';
     }
 
     // スポット固有のイベント処理
     async processSpotEvents(spotId) {
-        if (spotId === 'terminal') {
-            const arrived = this.gameState.flags.prologueSeen;
-            await this.showMessage(
-                arrived
-                    ? 'ターミナルロビー。チェックイン済みです。島内マップから行き先を選んでください。'
-                    : '白を基調としたロビー。チェックインは済んでいます。島内マップから好きな場所へ向かいましょう。',
-                'コンシェルジュ'
-            );
+        const introMsg = this.getSpotIntroMessage(spotId);
+        if (introMsg) {
+            await this.showMessage(introMsg.text, introMsg.speaker || 'システム');
+        }
+
+        // デート中なら直接そのキャラに合流
+        const activeDate = this.gameState.flags?.activeDate;
+        if (activeDate && activeDate.spotId === spotId) {
+            const charId = activeDate.characterId;
+            this.gameState.flags.activeDate = null;
+            await this.runDateMeetingIntro(charId, spotId, activeDate.timeOfDay);
+            await this.startCharacterInteraction(charId, false, spotId);
+            return;
         }
 
         // スポットに応じたキャラクター遭遇判定
         const availableCharacters = this.getAvailableCharacters(spotId);
-        
+
         if (availableCharacters.length > 0) {
             await this.showCharacterSelection(availableCharacters, spotId);
         } else {
@@ -362,6 +377,45 @@ class GameEngine {
             await this.showMessage(msg, 'システム');
             this.showMap();
         }
+    }
+
+    /** 各スポットの導入テキストを返す（初回 / 再訪を簡易判定） */
+    getSpotIntroMessage(spotId) {
+        const visited = this.gameState.flags?.[`visited_${spotId}`];
+        const introMap = {
+            port: {
+                first: { speaker: 'コンシェルジュ', text: '潮の香りが鼻先をくすぐる船着き場。出迎えと見送り、すべての出会いはここから始まる。' },
+                revisit: { speaker: 'システム', text: '船着き場。波の音と汽笛だけが時を刻んでいる。' }
+            },
+            inn: {
+                first: { speaker: '女将', text: 'ようこそ「潮汐亭」へ。お部屋、お食事、ご休憩――島の旅、まるごとお任せくださいませ。' },
+                revisit: { speaker: 'システム', text: '旅館「潮汐亭」。畳の匂いと、低く流れる三味線の音。' }
+            },
+            onsen: {
+                first: { speaker: 'システム', text: '湯気が立ち込める「波音の湯」。岩風呂の向こうから、潮騒がうっすらと聞こえてくる。' },
+                revisit: { speaker: 'システム', text: '温泉「波音の湯」。今日も湯気が、肌に纏わりつくように立ち昇っている。' }
+            },
+            observatory: {
+                first: { speaker: 'システム', text: '島を一望できる展望台。眼下に海、頭上に星――時間ごとに表情を変える特等席。' },
+                revisit: { speaker: 'システム', text: '展望台。風が頬を撫で、遥か水平線を眺めるだけで時間を忘れてしまう。' }
+            },
+            beach: {
+                first: { speaker: 'システム', text: 'プライベートビーチ。誰の目もない真っ白な砂浜が、ふたりだけの世界を約束する。' },
+                revisit: { speaker: 'システム', text: '砂浜。足跡をひとつ残すたびに、波がそっと洗い消していく。' }
+            },
+            forest_shrine: {
+                first: { speaker: 'システム', text: '森の奥、苔むした石段の上に建つ古い祠。木漏れ日と虫の声だけが、静寂を彩る。' },
+                revisit: { speaker: 'システム', text: '森の祠。鳥居をくぐると、外界の音がふっと遠ざかる。' }
+            }
+        };
+        const entry = introMap[spotId];
+        if (!entry) return null;
+        if (!visited) {
+            if (!this.gameState.flags) this.gameState.flags = {};
+            this.gameState.flags[`visited_${spotId}`] = true;
+            return entry.first;
+        }
+        return entry.revisit;
     }
 
     characterMatchesSpot(char, spotId) {
@@ -400,28 +454,128 @@ class GameEngine {
     }
 
     async showCharacterSelection(characters, spotId) {
-        const choices = characters.map((char) => {
-            const isFirstMeet = !this.gameState.metCharacters?.[char.id];
-            return {
-                text: isFirstMeet ? `${char.name}と初めて会う` : `${char.name}と過ごす`,
-                action: () => this.startCharacterInteraction(char.id, isFirstMeet)
-            };
-        });
+        this.characterSelectionState = {
+            characters: [...characters],
+            spotId,
+            page: 0,
+            pageSize: this.CHARACTER_SELECT_PAGE_SIZE,
+            pendingId: null,
+            pendingFirstMeet: false
+        };
+        await this.showCharacterSelectionPage();
+    }
+
+    getCharacterIntroText(character) {
+        const meta = [
+            character.age != null ? `${character.age}歳` : '',
+            character.origin || ''
+        ].filter(Boolean).join('・');
+        const body = character.description || `${character.name}です。`;
+        return meta ? `【${meta}】\n${body}` : body;
+    }
+
+    formatCharacterChoiceLabel(char) {
+        const isFirstMeet = !this.gameState.metCharacters?.[char.id];
+        const namePart = char.nickname ? `${char.name}（${char.nickname}）` : char.name;
+        return isFirstMeet ? `${namePart} ★初対面` : namePart;
+    }
+
+    async showCharacterSelectionPage() {
+        const state = this.characterSelectionState;
+        if (!state?.characters?.length) {
+            this.showMap();
+            return;
+        }
+
+        const { characters, pageSize } = state;
+        const totalPages = Math.ceil(characters.length / pageSize);
+        const safePage = ((state.page % totalPages) + totalPages) % totalPages;
+        state.page = safePage;
+
+        const pageChars = characters.slice(
+            safePage * pageSize,
+            safePage * pageSize + pageSize
+        );
+
+        const metCount = AffectionSystem.getMetCharacterIds(this.gameState).length;
+        const pageLabel = totalPages > 1 ? `（${safePage + 1}／${totalPages}）` : '';
+        const prompt = metCount > 0
+            ? `誰と過ごしますか？${pageLabel}\n一度に3人まで表示。ほかの子は「他の子を選ぶ」で切り替え。`
+            : `誰と過ごしますか？${pageLabel}`;
+
+        await this.showMessage(prompt, '');
+
+        const choices = pageChars.map((char) => ({
+            text: this.formatCharacterChoiceLabel(char),
+            action: () => this.previewCharacterSelection(char.id)
+        }));
+
+        if (totalPages > 1) {
+            choices.push({
+                text: '他の子を選ぶ',
+                action: async () => {
+                    state.page = (state.page + 1) % totalPages;
+                    this.hideCharacterImage();
+                    await this.showCharacterSelectionPage();
+                }
+            });
+        }
 
         choices.push({
             text: 'マップに戻る',
-            action: () => this.showMap()
+            action: () => {
+                this.characterSelectionState = null;
+                this.hideCharacterImage();
+                this.showMap();
+            }
         });
 
-        const metCount = this.getMetCharacters().length;
-        const prompt = metCount > 0
-            ? `誰と過ごしますか？（会った${metCount}人はどこでも呼べます）`
-            : '誰と過ごしますか？';
-        await this.showMessage(prompt, '');
         this.showChoices(choices);
     }
 
-    async startCharacterInteraction(characterId, isFirstMeet = false) {
+    async previewCharacterSelection(characterId) {
+        const character = CHARACTERS[characterId];
+        if (!character) return;
+
+        const state = this.characterSelectionState;
+        if (!state) return;
+
+        state.pendingId = characterId;
+        state.pendingFirstMeet = !this.gameState.metCharacters?.[characterId];
+
+        this.showCharacterImage(characterId);
+        await this.showMessage(this.getCharacterIntroText(character), character.name);
+        await this.showMessage('この子を選びますか？', 'システム');
+
+        this.showChoices([
+            {
+                text: 'はい、この子に決める',
+                action: () => this.confirmCharacterSelection()
+            },
+            {
+                text: 'いいえ、別の子を見る',
+                action: async () => {
+                    state.pendingId = null;
+                    this.hideCharacterImage();
+                    await this.showCharacterSelectionPage();
+                }
+            }
+        ]);
+    }
+
+    async confirmCharacterSelection() {
+        const state = this.characterSelectionState;
+        if (!state?.pendingId) return;
+
+        const characterId = state.pendingId;
+        const isFirstMeet = state.pendingFirstMeet;
+        const spotId = state.spotId;
+
+        this.characterSelectionState = null;
+        await this.startCharacterInteraction(characterId, isFirstMeet, spotId);
+    }
+
+    async startCharacterInteraction(characterId, isFirstMeet = false, spotId = null) {
         const character = CHARACTERS[characterId];
         if (!character) {
             console.error('無効なキャラクターID:', characterId);
@@ -442,8 +596,9 @@ class GameEngine {
         }
 
         if (isFirstMeet) {
+            const nn = character.nickname || character.name;
             await this.showMessage(
-                `${character.name}と初めて会った。\nこれからはどの場所からでも会話・子作りができる。`,
+                `${nn}と初めて会った。\nこれからは、島のどこにいても一緒に過ごせるようになる。`,
                 character.name
             );
         }
@@ -456,6 +611,7 @@ class GameEngine {
         const affection = AffectionSystem.getAffection(this.gameState, characterId);
         const rank = AffectionSystem.getRank(affection);
         const mainDone = AffectionSystem.hasCompletedMain(this.gameState, characterId);
+        const nn = character.nickname || character.name;
 
         this.currentPhase = 'hub';
         this.phaseData = {
@@ -464,22 +620,46 @@ class GameEngine {
             phaseType: 'hub'
         };
 
+        const rankLines = {
+            stranger: `${nn}はまだ少し距離を感じさせる表情をしている。`,
+            acquaintance: `${nn}は柔らかい笑みをこちらに向けた。`,
+            friend: `${nn}は嬉しそうに駆け寄ってきた。`,
+            close: `${nn}は甘えるように腕に触れてきた。`,
+            lover: `${nn}はそっと指を絡めてきた。`
+        };
+        const rankLine = rankLines[rank.id] || rankLines.acquaintance;
+
         await this.showMessage(
-            `${character.name}と過ごす。\n（好感度: ${affection}／${rank.label}${mainDone ? '・子作り済' : ''}）\n会話も子作りも、いつでもどこでも。`,
+            `${nn}と二人きりになった。\n${rankLine}`,
             character.name
         );
 
-        this.showChoices([
+        this.showChoices(this.buildHubChoices(characterId));
+    }
+
+    /** インタラクションハブの選択肢（画面設計書 v2.0） */
+    buildHubChoices(characterId) {
+        const mainDone = AffectionSystem.hasCompletedMain(this.gameState, characterId);
+        const choices = [
             { text: '会話する', action: () => this.startPhase('conversation', characterId) },
-            { text: '子作りする', action: () => this.startIntimateScene('main') },
-            { text: '前戯から始める', action: () => this.startIntimateScene('foreplay') },
-            { text: '余韻を楽しむ', action: () => this.startIntimateScene('aftercare') },
-            { text: '別の子を選ぶ／マップへ', action: () => this.leaveToMap() }
-        ]);
+            { text: '二人の時間を過ごす', action: () => this.startIntimateScene('foreplay') }
+        ];
+        if (mainDone) {
+            choices.push({
+                text: '一緒にまどろむ',
+                action: () => this.startIntimateScene('aftercare')
+            });
+        }
+        choices.push({
+            text: 'この場を離れる',
+            action: () => this.leaveToMap()
+        });
+        return choices;
     }
 
     leaveToMap() {
         this.endIntimateScene(false);
+        this.characterSelectionState = null;
         this.hideCharacterImage();
         this.activeCharacterId = null;
         if (typeof uiManager !== 'undefined' && uiManager) {
@@ -518,10 +698,8 @@ class GameEngine {
                 await this.conversationPhase();
                 break;
             case 'skinship':
-                await this.skinshipPhase();
-                break;
             case 'intimate':
-                await this.intimatePhase();
+                await this.startIntimateScene('foreplay');
                 break;
             case 'foreplay':
                 await this.startIntimateScene('foreplay');
@@ -540,11 +718,10 @@ class GameEngine {
 
     async conversationPhase() {
         const character = this.phaseData.character;
-        const affection = AffectionSystem.getAffection(this.gameState, character.id);
-        const rank = AffectionSystem.getRank(affection);
+        const nn = character.nickname || character.name;
 
         await this.showMessage(
-            `${this.gameState.playerName}さん、どうしたの？\n（好感度: ${affection}／${rank.label}）`,
+            `${nn}がこちらを見つめている。何を話そう？`,
             character.name
         );
 
@@ -564,9 +741,10 @@ class GameEngine {
 
     async processDialogueChoice(dialogue) {
         const character = this.phaseData.character;
+        const nn = character.nickname || character.name;
         this.changeAffection(character.id, dialogue.affection);
         await this.showMessage(dialogue.response, character.name);
-        await this.showMessage('（会話で好感度が上がった）', 'システム');
+        await this.showMessage(`${nn}の表情が少し和らいだ気がする。`, 'システム');
         this.showPostActivityChoices(character.id);
     }
 
@@ -608,10 +786,11 @@ class GameEngine {
     }
 
     async playIntimateLines(lineList, character) {
+        const nn = character.nickname || character.name;
         for (const line of lineList) {
             const speaker = typeof resolveSpeaker === 'function'
                 ? resolveSpeaker(line, character)
-                : (line.speaker === 'heroine' ? character.name : '');
+                : (line.speaker === 'heroine' ? nn : '');
             await this.showMessage(line.text, speaker);
             if (typeof uiManager !== 'undefined' && uiManager) {
                 uiManager.pushIntimateLog(speaker, line.text);
@@ -625,10 +804,21 @@ class GameEngine {
         }
     }
 
+    /** 場所×好感度の context をシーン取得に渡すためのヘルパー */
+    buildIntimateSceneContext(characterId) {
+        return {
+            spotId: this.gameState?.currentSpot || null,
+            affection: this.gameState?.characterAffections?.[characterId] ?? 0
+        };
+    }
+
     async runIntimateStage() {
         const session = this.intimateSession;
         const character = this.phaseData.character;
-        const scene = getCharacterIntimateScene(session.characterId);
+        const scene = getCharacterIntimateScene(
+            session.characterId,
+            this.buildIntimateSceneContext(session.characterId)
+        );
         if (!scene) return;
 
         this.updateIntimateHud();
@@ -643,6 +833,9 @@ class GameEngine {
             case 'piston':
                 await this.runPistonStage(scene, character);
                 break;
+            case 'oral':
+                await this.runOralStage(scene, character);
+                break;
             case 'climax':
                 await this.runClimaxStage(scene, character);
                 break;
@@ -654,24 +847,45 @@ class GameEngine {
         }
     }
 
+    /** 行動の requires をチェックする共通ヘルパー */
+    intimateActionAllowed(action, characterId) {
+        const req = action?.requires;
+        if (!req) return true;
+        if (typeof req.affectionMin === 'number') {
+            const aff = this.gameState?.characterAffections?.[characterId] ?? 0;
+            if (aff < req.affectionMin) return false;
+        }
+        return true;
+    }
+
     async runForeplayStage(scene, character) {
         if (this.intimateSession.foreplayCount === 0) {
             await this.playIntimateLines(scene.foreplay.intro, character);
         }
 
-        const choices = scene.foreplay.actions.map((action) => ({
+        const availableActions = scene.foreplay.actions
+            .filter((a) => this.intimateActionAllowed(a, character.id));
+
+        const choices = availableActions.map((action) => ({
             text: action.text,
             action: async () => {
                 const result = IntimateSceneSystem.applyForeplayAction(
                     this.intimateSession,
-                    action
+                    action,
+                    character.id
                 );
                 this.changeAffection(character.id, result.affection);
                 await this.playIntimateLines(result.lines, character);
                 this.updateIntimateHud();
 
-                if (result.goInsert
-                    || this.intimateSession.pleasure >= INTIMATE_CONFIG.foreplayToInsertPleasure) {
+                if (result.goOral) {
+                    this.intimateSession.previousStage = 'foreplay';
+                    IntimateSceneSystem.advanceStage(this.intimateSession, 'oral');
+                    await this.runIntimateStage();
+                    return;
+                }
+
+                if (result.goInsert) {
                     IntimateSceneSystem.advanceStage(this.intimateSession, 'insert');
                     await this.runIntimateStage();
                     return;
@@ -681,13 +895,6 @@ class GameEngine {
             }
         }));
 
-        choices.push({
-            text: '挿入へ進む',
-            action: async () => {
-                IntimateSceneSystem.advanceStage(this.intimateSession, 'insert');
-                await this.runIntimateStage();
-            }
-        });
         choices.push({
             text: 'メニューに戻る',
             action: () => {
@@ -710,8 +917,103 @@ class GameEngine {
             'システム'
         );
 
-        IntimateSceneSystem.advanceStage(session, 'piston');
-        await this.runIntimateStage();
+        // 自動でpistonには進めず、ユーザーが行動を選ぶまで待つ
+        const choices = [
+            {
+                text: '動き始める',
+                action: async () => {
+                    IntimateSceneSystem.advanceStage(session, 'piston');
+                    await this.runIntimateStage();
+                }
+            },
+            {
+                text: 'もう少し、このまま',
+                action: async () => {
+                    await this.playIntimateLines([
+                        { speaker: 'narrator', text: '繋がった熱を確かめるように、しばらく動かずに抱きしめた。' }
+                    ], character);
+                    await this.runInsertStageWaiting(scene, character);
+                }
+            },
+            {
+                text: '前戯に戻る',
+                action: async () => {
+                    IntimateSceneSystem.advanceStage(session, 'foreplay');
+                    await this.runIntimateStage();
+                }
+            },
+            {
+                text: 'メニューに戻る',
+                action: () => {
+                    this.endIntimateScene();
+                    this.showInteractionHub(character.id);
+                }
+            }
+        ];
+        this.showChoices(choices, { compact: true });
+    }
+
+    /** 挿入直後の「もう少し、このまま」を選んだ後の選択肢を再提示 */
+    async runInsertStageWaiting(scene, character) {
+        const session = this.intimateSession;
+        const choices = [
+            {
+                text: '動き始める',
+                action: async () => {
+                    IntimateSceneSystem.advanceStage(session, 'piston');
+                    await this.runIntimateStage();
+                }
+            },
+            {
+                text: 'まだ、このまま',
+                action: async () => {
+                    await this.playIntimateLines([
+                        { speaker: 'narrator', text: '心臓の鼓動だけが響く。互いの吐息で時間が満ちていく。' }
+                    ], character);
+                    await this.runInsertStageWaiting(scene, character);
+                }
+            },
+            {
+                text: '前戯に戻る',
+                action: async () => {
+                    IntimateSceneSystem.advanceStage(session, 'foreplay');
+                    await this.runIntimateStage();
+                }
+            },
+            {
+                text: 'メニューに戻る',
+                action: () => {
+                    this.endIntimateScene();
+                    this.showInteractionHub(character.id);
+                }
+            }
+        ];
+        this.showChoices(choices, { compact: true });
+    }
+
+    async recoverFromChoiceError() {
+        if (!this.intimateSession || !this.phaseData?.character) return;
+        const character = this.phaseData.character;
+        const scene = getCharacterIntimateScene(
+            this.intimateSession.characterId,
+            this.buildIntimateSceneContext(this.intimateSession.characterId)
+        );
+        if (!scene) return;
+
+        switch (this.intimateSession.stage) {
+            case 'foreplay':
+                await this.runForeplayStage(scene, character);
+                break;
+            case 'piston':
+                await this.runPistonStage(scene, character);
+                break;
+            case 'aftercare':
+                await this.runAftercareStage(scene, character);
+                break;
+            default:
+                await this.showInteractionHub(character.id);
+                break;
+        }
     }
 
     async runPistonStage(scene, character) {
@@ -724,36 +1026,41 @@ class GameEngine {
             );
         }
 
-        const actions = getPistonActions();
+        const canClimax = IntimateSceneSystem.canClimax(session);
+        const actions = getPistonActions()
+            // 快感不足の状態では「フィニッシュする ▼」を表示しない（押せても何も起きないため冗長）
+            .filter((a) => !a.finishMenu || canClimax);
         const choices = actions.map((action) => ({
-            text: action.climaxAction
-                ? `${action.text}${IntimateSceneSystem.canClimax(session) ? '' : '（快感不足）'}`
-                : action.text,
+            text: action.text,
             action: async () => {
-                if (action.climaxAction) {
-                    if (!IntimateSceneSystem.canClimax(session)) {
-                        await this.showMessage('まだ射精できるほど快感がたまっていない……', 'システム');
-                        await this.runPistonStage(scene, character);
-                        return;
-                    }
-                    IntimateSceneSystem.advanceStage(session, 'climax');
-                    await this.runIntimateStage();
+                if (action.finishMenu) {
+                    await this.showFinishMenu(scene, character);
                     return;
                 }
 
+                const wasAtClimaxBefore = IntimateSceneSystem.canClimax(session);
                 const result = IntimateSceneSystem.applyPistonAction(
                     session,
                     action,
-                    scene
+                    scene,
+                    character.id
                 );
                 this.changeAffection(character.id, result.affection);
                 await this.playIntimateLines(result.lines, character);
                 this.updateIntimateHud();
 
-                if (result.autoClimax) {
-                    IntimateSceneSystem.advanceStage(session, 'climax');
-                    await this.runIntimateStage();
-                    return;
+                // 自動でフィニッシュに進めず、限界到達時はヒントだけ表示。
+                // ユーザーが「フィニッシュする ▼」を明示選択するまで遷移しない。
+                if (result.autoClimax && !wasAtClimaxBefore) {
+                    await this.showMessage(
+                        '──限界が近い。「フィニッシュする」を選べば射精できる。',
+                        'システム'
+                    );
+                } else if (!wasAtClimaxBefore && IntimateSceneSystem.canClimax(session)) {
+                    await this.showMessage(
+                        '──そろそろフィニッシュできる。',
+                        'システム'
+                    );
                 }
 
                 await this.runPistonStage(scene, character);
@@ -771,6 +1078,188 @@ class GameEngine {
         this.showChoices(choices);
     }
 
+    /** F5: 口での奉仕ステージ */
+    async runOralStage(scene, character) {
+        const session = this.intimateSession;
+        const oralScene = scene.oral;
+
+        if (!oralScene) {
+            IntimateSceneSystem.advanceStage(session, session.previousStage || 'foreplay');
+            await this.runIntimateStage();
+            return;
+        }
+
+        if ((session.oralCount || 0) === 0) {
+            await this.playIntimateLines(oralScene.intro, character);
+        }
+
+        const canClimax = IntimateSceneSystem.canClimax(session);
+        const allowedActions = (oralScene.actions || [])
+            .filter((a) => this.intimateActionAllowed(a, character.id));
+
+        const choices = allowedActions.map((action) => ({
+            text: action.text,
+            action: async () => {
+                const wasAtClimaxBefore = IntimateSceneSystem.canClimax(session);
+                const result = IntimateSceneSystem.applyOralAction(
+                    session,
+                    action,
+                    character.id
+                );
+                this.changeAffection(character.id, result.affection);
+                await this.playIntimateLines(result.lines, character);
+                this.updateIntimateHud();
+
+                // 自動でフィニッシュに進めず、限界到達時はヒントのみ
+                if (result.autoClimax && !wasAtClimaxBefore) {
+                    await this.showMessage(
+                        '──このまま続ければ、口の中で果てる。「フィニッシュする」を選べば射精。',
+                        'システム'
+                    );
+                } else if (!wasAtClimaxBefore && IntimateSceneSystem.canClimax(session)) {
+                    await this.showMessage(
+                        '──そろそろフィニッシュできる。',
+                        'システム'
+                    );
+                }
+                await this.runOralStage(scene, character);
+            }
+        }));
+
+        if (canClimax) {
+            choices.push({
+                text: 'フィニッシュする ▼',
+                action: async () => {
+                    await this.showFinishMenu(scene, character);
+                }
+            });
+        }
+
+        choices.push({
+            text: '挿入に切り替える',
+            action: async () => {
+                IntimateSceneSystem.advanceStage(session, 'insert');
+                await this.runIntimateStage();
+            }
+        });
+
+        choices.push({
+            text: '前戯に戻る',
+            action: async () => {
+                IntimateSceneSystem.advanceStage(session, 'foreplay');
+                await this.runIntimateStage();
+            }
+        });
+
+        choices.push({
+            text: 'メニューに戻る',
+            action: () => {
+                this.endIntimateScene();
+                this.showInteractionHub(character.id);
+            }
+        });
+
+        this.showChoices(choices, { compact: true });
+    }
+
+    /** F2/F6: フィニッシュ着弾先メニュー */
+    async showFinishMenu(scene, character) {
+        const session = this.intimateSession;
+        const profile = typeof getIntimacyProfile === 'function'
+            ? getIntimacyProfile(character.id)
+            : null;
+        const options = typeof getFinishOptions === 'function'
+            ? getFinishOptions(session, profile, this.gameState)
+            : [];
+
+        if (!options.length) {
+            await this.showMessage('身体が限界を迎えていく――', 'システム');
+            const outsideAction = (typeof FINISH_ACTIONS !== 'undefined' && FINISH_ACTIONS.outside)
+                ? FINISH_ACTIONS.outside
+                : null;
+            if (outsideAction) {
+                options.push(outsideAction);
+            }
+        }
+
+        await this.showMessage('身体が限界を迎えていく――どうする？', 'システム');
+
+        const choices = options.map((opt) => ({
+            text: opt.label,
+            action: async () => {
+                await this.executeFinishChoice(opt.id, scene, character);
+            }
+        }));
+
+        this.showChoices(choices, { compact: true });
+    }
+
+    async executeFinishChoice(finishId, scene, character) {
+        const session = this.intimateSession;
+
+        let chosenId = finishId;
+        if (chosenId === 'inside') {
+            const ok = await this.confirmInsideFinish(character);
+            if (!ok) {
+                chosenId = 'outside';
+            }
+        }
+
+        const result = IntimateSceneSystem.applyFinishAction(
+            session,
+            chosenId,
+            character,
+            this.gameState
+        );
+        if (!result) {
+            await this.showMessage('（フィニッシュアクションが解決できなかった）', 'システム');
+            await this.runIntimateStage();
+            return;
+        }
+
+        if (result.type === 'endure') {
+            await this.playIntimateLines(result.lines, character);
+            this.updateIntimateHud();
+            const resumeStage = session.stage; // stage は変えていない
+            if (resumeStage === 'oral') {
+                await this.runOralStage(scene, character);
+            } else {
+                await this.runPistonStage(scene, character);
+            }
+            return;
+        }
+
+        // 通常射精
+        this.changeAffection(character.id, result.affection);
+        await this.playIntimateLines(result.lines, character);
+        AffectionSystem.markRouteProgress(this.gameState, character.id, 'main');
+        this.changeAffection(character.id, AffectionSystem.getIntimateAffection('main'));
+
+        IntimateSceneSystem.advanceStage(session, 'aftercare');
+        await this.runIntimateStage();
+    }
+
+    /** F3/F6: 中出し前の最終確認（初回または未同意時のみ） */
+    async confirmInsideFinish(character) {
+        const route = this.gameState.routeProgress?.[character.id] || {};
+        const isExperienced = character.stats?.experience !== 'virgin';
+        if (route.consentInside || isExperienced) {
+            return true;
+        }
+
+        await this.showMessage('本当に中に出すのか――？', 'システム');
+
+        return new Promise((resolve) => {
+            const finalize = (value) => {
+                resolve(value);
+            };
+            this.showChoices([
+                { text: '中に出す', action: () => finalize(true) },
+                { text: 'やっぱり外に出す', action: () => finalize(false) }
+            ], { compact: true });
+        });
+    }
+
     async runClimaxStage(scene, character) {
         const session = this.intimateSession;
         const result = IntimateSceneSystem.buildClimaxResult(session, scene);
@@ -780,7 +1269,7 @@ class GameEngine {
         AffectionSystem.markRouteProgress(this.gameState, character.id, 'main');
         this.changeAffection(character.id, AffectionSystem.getIntimateAffection('main'));
 
-        await this.showMessage('（絶頂。子作りシーン完了・好感度大幅上昇）', 'システム');
+        await this.showMessage('（絶頂――意識が遠のくほどの快楽が二人を包んだ）', 'システム');
 
         IntimateSceneSystem.advanceStage(session, 'aftercare');
         await this.runIntimateStage();
@@ -840,9 +1329,10 @@ class GameEngine {
 
     // 相互作用終了
     async endInteraction() {
-        const characterName = this.phaseData?.character?.name || '';
-        if (characterName) {
-            await this.showMessage('また今度お話ししましょうね。', characterName);
+        const character = this.phaseData?.character;
+        if (character) {
+            const nn = character.nickname || character.name;
+            await this.showMessage(`${nn}に手を振り、その場を後にした。`, 'システム');
         }
 
         this.hideCharacterImage();
@@ -859,6 +1349,11 @@ class GameEngine {
                     `【${this.gameState.day}日目・${this.getTimeLabel()}】新しい一日が始まった。体力が回復した。`,
                     'システム'
                 );
+            } else if (actionResult.timeAdvanced) {
+                await uiManager.showMessage(
+                    `時間が進んだ。── ${this.getTimeLabel()}`,
+                    'システム'
+                );
             }
         }
 
@@ -867,14 +1362,145 @@ class GameEngine {
         this.autoSave();
 
         const forced = await this.checkForceEnding();
-        if (!forced) {
-            this.showMap();
+        if (forced) return;
+
+        // 時間帯が進んだなら、好感度の高い子からのお誘いを抽選する
+        if (actionResult.timeAdvanced) {
+            const invited = await this.maybeTriggerInvitation();
+            if (invited) return;
         }
+
+        this.showMap();
     }
 
     getTimeLabel() {
-        const map = { morning: '朝', noon: '昼', evening: '夕方', night: '夜' };
-        return map[this.gameState.timeOfDay] || this.gameState.timeOfDay;
+        if (typeof AffectionSystem !== 'undefined'
+            && typeof AffectionSystem.getTimeLabel === 'function') {
+            return AffectionSystem.getTimeLabel(this.gameState.timeOfDay);
+        }
+        return this.gameState.timeOfDay;
+    }
+
+    /** デート合流時の導入演出（時間帯ムード反映） */
+    async runDateMeetingIntro(characterId, spotId, timeOfDay) {
+        const character = (typeof CHARACTERS !== 'undefined') ? CHARACTERS[characterId] : null;
+        const spotName = (typeof SPOTS !== 'undefined' && SPOTS[spotId]) ? SPOTS[spotId] : spotId;
+        if (!character) return;
+
+        const moodMap = {
+            morning: '朝陽が${spot}の景色を柔らかく照らしている。',
+            afternoon: '陽射しが${spot}に降り注ぎ、二人の影をくっきりと描く。',
+            evening: '夕焼けが${spot}を茜色に染めている。',
+            night: '夜風が${spot}を撫で、星明かりが頬を照らす。',
+            midnight: '${spot}の静寂が、ふたりだけの世界を作り出している。'
+        };
+        const mood = (moodMap[timeOfDay] || moodMap.afternoon)
+            .replace('${spot}', spotName);
+
+        await this.showMessage(mood, 'システム');
+
+        const nn = character.nickname || character.name;
+        await this.showMessage(`${spotName}に着くと、${nn}が先に待っていた。`, 'システム');
+
+        const personality = character.personality || 'default';
+        const greetingByPersonality = {
+            active: {
+                morning: `「おっはよー！　早起きは得意なんだ♪」`,
+                afternoon: `「待ってた！　今日は楽しもうね！」`,
+                evening: `「夕焼けきれい……って、見とれてる場合じゃないか！」`,
+                night: `「夜の冒険、ドキドキするね！」`,
+                midnight: `「こんな時間まで一緒……なんか特別だね」`
+            },
+            shy: {
+                morning: `「あ……おはよう、ございます。……来てくれて嬉しい」`,
+                afternoon: `「あの……待ってました。えっと、よろしくお願いします」`,
+                evening: `「夕焼け……綺麗ですね。……あなたと見られて、よかった」`,
+                night: `「こ、こんな時間に二人きりって……緊張します」`,
+                midnight: `「……来てくれた。ずっと、待ってたの」`
+            },
+            cool: {
+                morning: `「おはよう。朝の空気は悪くない――あなたがいればね」`,
+                afternoon: `「待たせたわね……冗談、私が早すぎただけ」`,
+                evening: `「夕焼けに見惚れていたの。……あなたに、じゃないわよ」`,
+                night: `「夜のあなたは、なんだか違って見える……」`,
+                midnight: `「来てくれた……。今夜は、誰にも渡したくない」`
+            },
+            default: {
+                morning: `「おはよう。来てくれて、嬉しい」`,
+                afternoon: `「待ってた。今日は、たっぷり付き合ってもらうから」`,
+                evening: `「夕焼け、見られてよかった――あなたと、一緒に」`,
+                night: `「夜のあなたは、なんだか違って見える……」`,
+                midnight: `「来てくれた……。今夜は、誰にも渡したくない」`
+            }
+        };
+
+        const personalityGreetings = greetingByPersonality[personality] || greetingByPersonality.default;
+        const greeting = personalityGreetings[timeOfDay] || personalityGreetings.afternoon;
+        await this.showMessage(greeting, character.name);
+    }
+
+    /** 時間帯遷移時のお誘い抽選＋演出。発動したら true を返す。 */
+    async maybeTriggerInvitation() {
+        if (typeof tryRollInvitation !== 'function') return false;
+        const invitation = tryRollInvitation(this.gameState, this.gameState.timeOfDay);
+        if (!invitation) return false;
+        await this.runInvitationFlow(invitation);
+        return true;
+    }
+
+    async runInvitationFlow(invitation) {
+        const character = invitation.character;
+        const spotName = (typeof SPOTS !== 'undefined' && SPOTS[invitation.spotId])
+            ? SPOTS[invitation.spotId]
+            : invitation.spotId;
+
+        if (typeof uiManager !== 'undefined' && uiManager) {
+            await uiManager.showMessage(
+                `――${character.name}からメッセージが届いた。`,
+                'システム'
+            );
+            await uiManager.showMessage(invitation.line, character.name);
+            await uiManager.showMessage(
+                `「${spotName}で、待ってる。」`,
+                character.name
+            );
+        }
+
+        // フラグ管理（同人連続防止 + 時間帯1回制）
+        if (!this.gameState.flags) this.gameState.flags = {};
+        const slotKey = `invitedAt_${this.gameState.day}_${invitation.timeOfDay}`;
+        this.gameState.flags[slotKey] = true;
+        this.gameState.flags.lastInviterId = invitation.characterId;
+
+        return new Promise((resolve) => {
+            this.showChoices([
+                {
+                    text: `今すぐ ${spotName} へ向かう`,
+                    action: async () => {
+                        this.gameState.flags.activeDate = {
+                            characterId: invitation.characterId,
+                            spotId: invitation.spotId,
+                            timeOfDay: invitation.timeOfDay
+                        };
+                        await this.changeSpot(invitation.spotId);
+                        resolve();
+                    }
+                },
+                {
+                    text: '今は行けない（断る）',
+                    action: async () => {
+                        await this.showMessage(
+                            `${this.gameState.playerName}はメッセージに短い返事を返した。`,
+                            'システム'
+                        );
+                        this.changeAffection(invitation.characterId, -3);
+                        this.gameState.flags.lastInviterId = null;
+                        this.showMap();
+                        resolve();
+                    }
+                }
+            ]);
+        });
     }
 
     async checkForceEnding() {
@@ -1189,6 +1815,19 @@ class GameEngine {
         this.gameState.energy = this.gameState.energy ?? 100;
         this.gameState.intimateSession = this.gameState.intimateSession || null;
         this.gameState.flags = this.gameState.flags || {};
+
+        // 旧 'noon' / 不正値 を新時間帯体系へ正規化
+        if (typeof AffectionSystem !== 'undefined'
+            && typeof AffectionSystem.normalizeTimeOfDay === 'function') {
+            this.gameState.timeOfDay = AffectionSystem.normalizeTimeOfDay(
+                this.gameState.timeOfDay
+            );
+        }
+        // 旧スポットID（terminal等）を現行IDへ
+        if (typeof SPOT_ALIASES !== 'undefined' && SPOT_ALIASES[this.gameState.currentSpot]) {
+            this.gameState.currentSpot = SPOT_ALIASES[this.gameState.currentSpot];
+        }
+
         if (typeof CHARACTERS !== 'undefined') {
             Object.keys(CHARACTERS).forEach((id) => {
                 if (this.gameState.characterAffections[id] === undefined) {

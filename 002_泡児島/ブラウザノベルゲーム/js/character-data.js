@@ -36,7 +36,7 @@ const CHARACTERS = {
             affection: 0,
             experience: 'virgin',
             specialEvents: ['初回', '海水浴', '夕日観察', '沖縄料理'],
-            preferredSpots: ['beach', 'beachbar', 'cottage']
+            preferredSpots: ['beach', 'port', 'observatory']
         }
     },
 
@@ -74,7 +74,7 @@ const CHARACTERS = {
             affection: 0,
             experience: 'experienced',
             specialEvents: ['料理教室', '家族話', '関西文化紹介'],
-            preferredSpots: ['hotel', 'restaurant', 'cottage']
+            preferredSpots: ['inn', 'beach', 'port']
         }
     },
 
@@ -112,7 +112,7 @@ const CHARACTERS = {
             affection: 0,
             experience: 'virgin',
             specialEvents: ['読書タイム', '音楽鑑賞', '北海道の話'],
-            preferredSpots: ['library', 'garden', 'cottage']
+            preferredSpots: ['forest_shrine', 'observatory', 'inn']
         }
     },
 
@@ -150,7 +150,7 @@ const CHARACTERS = {
             affection: 0,
             experience: 'experienced',
             specialEvents: ['大人の会話', 'ファッション談議', '文学討論'],
-            preferredSpots: ['hotel', 'restaurant', 'library']
+            preferredSpots: ['onsen', 'inn', 'forest_shrine']
         }
     },
 
@@ -188,7 +188,7 @@ const CHARACTERS = {
             affection: 0,
             experience: 'virgin',
             specialEvents: ['花見', '料理作り', '動物の話'],
-            preferredSpots: ['garden', 'restaurant', 'cottage']
+            preferredSpots: ['inn', 'onsen', 'observatory']
         }
     },
 
@@ -226,7 +226,7 @@ const CHARACTERS = {
             affection: 0,
             experience: 'virgin',
             specialEvents: ['スポーツ', '競争', '体力勝負'],
-            preferredSpots: ['beach', 'sports_area', 'cottage']
+            preferredSpots: ['beach', 'port', 'observatory']
         }
     },
 
@@ -264,7 +264,7 @@ const CHARACTERS = {
             affection: 0,
             experience: 'virgin',
             specialEvents: ['茶道体験', '和文化紹介', '季節の行事'],
-            preferredSpots: ['library', 'garden', 'cottage']
+            preferredSpots: ['onsen', 'forest_shrine', 'inn']
         }
     },
 
@@ -302,7 +302,7 @@ const CHARACTERS = {
             affection: 0,
             experience: 'virgin',
             specialEvents: ['料理教室', '家事手伝い', '家族の話'],
-            preferredSpots: ['restaurant', 'hotel', 'cottage']
+            preferredSpots: ['inn', 'onsen', 'beach']
         }
     },
 
@@ -340,7 +340,7 @@ const CHARACTERS = {
             affection: 0,
             experience: 'virgin',
             specialEvents: ['リンゴ収穫', '雪の思い出', '子守唄'],
-            preferredSpots: ['garden', 'library', 'cottage']
+            preferredSpots: ['forest_shrine', 'onsen', 'inn']
         }
     },
 
@@ -378,7 +378,7 @@ const CHARACTERS = {
             affection: 0,
             experience: 'experienced',
             specialEvents: ['深い対話', '哲学的会話', '海辺デート'],
-            preferredSpots: ['beach', 'beachbar', 'cottage']
+            preferredSpots: ['observatory', 'port', 'forest_shrine']
         }
     },
 
@@ -416,7 +416,7 @@ const CHARACTERS = {
             affection: 0,
             experience: 'virgin',
             specialEvents: ['歌とダンス', '島案内', '沖縄文化'],
-            preferredSpots: ['beach', 'beachbar', 'terminal']
+            preferredSpots: ['beach', 'port', 'observatory']
         }
     }
 };
@@ -442,25 +442,30 @@ const EXPERIENCE_LEVELS = {
 };
 
 const SPOTS = {
-    terminal: 'ターミナル',
-    beach: 'ビーチ',
-    beachbar: 'ビーチバー',
-    cottage: 'プライベートコテージ',
-    hotel: 'リゾートホテル',
-    restaurant: 'レストラン',
-    library: 'ライブラリー',
-    garden: 'ガーデン',
-    sports_area: 'スポーツエリア'
+    port: '船着き場',
+    inn: '旅館「潮汐亭」',
+    onsen: '温泉「波音の湯」',
+    observatory: '展望台',
+    beach: '砂浜',
+    forest_shrine: '森の祠'
 };
 
-/** マップに無い旧ID → 現行スポットID */
+/** マップに無い旧ID → 現行スポットID（後方互換用エイリアス） */
 const SPOT_ALIASES = {
-    quiet_garden: 'garden',
-    quiet_area: 'garden',
-    traditional_room: 'library',
-    kitchen: 'restaurant',
-    observation_deck: 'beach',
-    stage_area: 'beachbar'
+    terminal: 'port',
+    beachbar: 'beach',
+    cottage: 'inn',
+    hotel: 'inn',
+    restaurant: 'inn',
+    library: 'forest_shrine',
+    garden: 'forest_shrine',
+    sports_area: 'beach',
+    quiet_garden: 'forest_shrine',
+    quiet_area: 'forest_shrine',
+    traditional_room: 'inn',
+    kitchen: 'inn',
+    observation_deck: 'observatory',
+    stage_area: 'observatory'
 };
 
 // エクスポート（モジュール形式対応）

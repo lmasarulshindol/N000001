@@ -14,18 +14,30 @@ class UIManager {
         this.pendingFullText = '';
         this.pendingResolve = null;
         this.intimateLogEntries = [];
+        this.skipMode = false;
+        this.skipAdvanceTimer = null;
+        // 通常メッセージのユーザー操作待ち（クリック/Enter/Space で解放）
+        this.awaitingUserAdvance = false;
+        this.advanceWaiters = [];
+        this.storyAdvanceLocked = false;
+        this.choiceLocked = false;
+        this.modalIds = [
+            'save-load-screen', 'settings-screen', 'character-detail-screen',
+            'message-log-screen', 'affection-status-screen', 'game-menu-screen'
+        ];
+        this.modalCloseButtonIds = [
+            'close-save-load', 'close-settings', 'close-character-detail',
+            'close-message-log', 'close-affection-status', 'close-game-menu'
+        ];
 
-        // マップスポット設定
+        // マップスポット設定（6ヶ所構成）
         this.mapSpots = {
-            terminal: { name: 'ターミナル', icon: '🏢', available: true },
-            beach: { name: 'ビーチ', icon: '🏖️', available: true },
-            beachbar: { name: 'ビーチバー', icon: '🍹', available: true },
-            cottage: { name: 'コテージ', icon: '🏡', available: true },
-            hotel: { name: 'ホテル', icon: '🏨', available: true },
-            restaurant: { name: 'レストラン', icon: '🍽️', available: true },
-            garden: { name: 'ガーデン', icon: '🌺', available: true },
-            library: { name: 'ライブラリー', icon: '📚', available: true },
-            sports_area: { name: 'スポーツエリア', icon: '⚽', available: true }
+            port: { name: '船着き場', icon: '⛴️', available: true },
+            inn: { name: '旅館「潮汐亭」', icon: '🏯', available: true },
+            onsen: { name: '温泉「波音の湯」', icon: '♨️', available: true },
+            observatory: { name: '展望台', icon: '🌅', available: true },
+            beach: { name: '砂浜', icon: '🏖️', available: true },
+            forest_shrine: { name: '森の祠', icon: '⛩️', available: true }
         };
     }
 
@@ -54,6 +66,7 @@ class UIManager {
     cacheElements() {
         const elementIds = [
             'loading-screen', 'title-screen', 'main-game',
+            'name-input-screen', 'player-name-input', 'player-name-confirm-btn',
             'save-load-screen', 'settings-screen', 'character-detail-screen', 'message-log-screen',
             'new-game-btn', 'continue-game-btn', 'load-game-btn', 'title-settings-btn',
             'background-image', 'character-image', 'map-container', 'message-window',
@@ -67,7 +80,7 @@ class UIManager {
             'game-menu-screen', 'close-game-menu', 'menu-affection-btn', 'menu-save-btn',
             'menu-load-btn', 'menu-settings-btn', 'menu-title-btn',
             'menu-button', 'save-button', 'load-button', 'settings-button',
-            'auto-btn', 'skip-btn', 'log-btn',
+            'auto-btn', 'skip-btn', 'log-btn', 'log-content',
             'close-save-load', 'close-settings', 'close-character-detail', 'close-message-log',
             'text-speed', 'content-level', 'bgm-volume', 'se-volume', 'auto-speed',
             'reset-settings', 'save-settings'
@@ -114,12 +127,11 @@ class UIManager {
             this.elements['settings-button'].addEventListener('click', () => this.showSettingsScreen());
         }
 
-        // メッセージウィンドウ
-        if (this.elements['message-window']) {
-            this.elements['message-window'].addEventListener('click', (e) => {
-                if (e.target === this.elements['message-window'] || e.target === this.elements['message-text']) {
-                    this.advanceMessage();
-                }
+        // 画面全体クリックでメッセージ進行（ボタン等の機能要素はスキップ）
+        if (this.elements['main-game']) {
+            this.elements['main-game'].addEventListener('click', (e) => {
+                if (!this.shouldAdvanceFromClick(e.target)) return;
+                this.advanceMessage();
             });
         }
 
@@ -143,12 +155,30 @@ class UIManager {
             });
         }
 
-        // モーダルの閉じるボタン
-        ['close-save-load', 'close-settings', 'close-character-detail', 'close-message-log',
-            'close-affection-status', 'close-game-menu'].forEach(btnId => {
-            if (this.elements[btnId]) {
-                this.elements[btnId].addEventListener('click', () => this.closeModal());
-            }
+        // モーダル閉じる（イベント委譲で確実に捕捉）
+        const gameContainer = document.getElementById('game-container');
+        if (gameContainer) {
+            gameContainer.addEventListener('click', (e) => {
+                if (e.target.id === 'name-input-screen') {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return;
+                }
+                const closeBtn = e.target.closest('.close-btn');
+                if (closeBtn?.id && this.modalCloseButtonIds.includes(closeBtn.id)) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    this.closeModal();
+                    return;
+                }
+                if (e.target.classList.contains('modal')) {
+                    this.closeModal();
+                }
+            });
+        }
+
+        this.modalCloseButtonIds.forEach((btnId) => {
+            this.bindModalCloseButton(btnId);
         });
 
         if (this.elements['menu-affection-btn']) {
@@ -208,12 +238,17 @@ class UIManager {
         // キーボードショートカット
         document.addEventListener('keydown', (e) => this.handleKeyPress(e));
 
-        // モーダル背景クリックで閉じる
-        document.addEventListener('click', (e) => {
-            if (e.target.classList.contains('modal')) {
-                this.closeModal();
-            }
-        });
+    }
+
+    bindModalCloseButton(btnId) {
+        const btn = this.elements[btnId] || document.getElementById(btnId);
+        if (!btn) return;
+        btn.type = 'button';
+        btn.onclick = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            this.closeModal();
+        };
     }
 
     // 画面表示メソッド群
@@ -257,10 +292,63 @@ class UIManager {
 
     // ゲーム開始・継続
     async startNewGame() {
+        const playerName = await this.promptPlayerName();
         this.showMainGame(false);
         if (gameEngine) {
-            await gameEngine.startNewGame();
+            await gameEngine.startNewGame(playerName);
         }
+    }
+
+    /**
+     * プレイヤー名入力モーダルを表示し、入力確定まで待つ。
+     * 未入力・空白のみの場合は「ユウマ」を返す。
+     * @returns {Promise<string>}
+     */
+    promptPlayerName() {
+        return new Promise((resolve) => {
+            const modal = this.elements['name-input-screen']
+                || document.getElementById('name-input-screen');
+            const input = this.elements['player-name-input']
+                || document.getElementById('player-name-input');
+            const confirmBtn = this.elements['player-name-confirm-btn']
+                || document.getElementById('player-name-confirm-btn');
+
+            if (!modal || !input || !confirmBtn) {
+                resolve('ユウマ');
+                return;
+            }
+
+            input.value = '';
+            input.placeholder = 'ユウマ';
+            modal.style.display = 'flex';
+            setTimeout(() => input.focus(), 0);
+
+            const finalize = () => {
+                const name = (typeof UIMessageHelpers !== 'undefined')
+                    ? UIMessageHelpers.normalizePlayerName(input.value)
+                    : ((input.value || '').trim() || 'ユウマ');
+
+                confirmBtn.removeEventListener('click', onConfirm);
+                input.removeEventListener('keydown', onKey);
+                modal.style.display = 'none';
+                resolve(name);
+            };
+
+            const onConfirm = (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                finalize();
+            };
+            const onKey = (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    finalize();
+                }
+            };
+
+            confirmBtn.addEventListener('click', onConfirm);
+            input.addEventListener('keydown', onKey);
+        });
     }
 
     continueGame() {
@@ -325,13 +413,19 @@ class UIManager {
     async showMessage(text, speaker = '', emotion = 'normal') {
         if (!this.elements['message-window'] || !this.elements['message-text']) return;
 
-        // メッセージログに追加
-        this.messageLog.push({
-            speaker: speaker,
-            text: text,
-            timestamp: new Date(),
-            emotion: emotion
-        });
+        const playerName = (typeof gameEngine !== 'undefined' && gameEngine?.gameState?.playerName)
+            ? gameEngine.gameState.playerName
+            : 'ユウマ';
+        const resolvedText = (typeof UIMessageHelpers !== 'undefined')
+            ? UIMessageHelpers.applyPlayerName(text, playerName)
+            : text;
+        text = resolvedText;
+
+        if (typeof UIMessageHelpers !== 'undefined') {
+            this.messageLog = UIMessageHelpers.appendLogEntry(this.messageLog, { speaker, text, emotion });
+        } else {
+            this.messageLog.push({ speaker, text, timestamp: new Date(), emotion });
+        }
 
         this.hideChoices();
         if (typeof gameEngine !== 'undefined' && gameEngine && gameEngine.storyActive) {
@@ -346,7 +440,72 @@ class UIManager {
         }
 
         // テキスト表示
-        return this.typeText(text);
+        await this.typeText(text);
+
+        // ストーリー再生中はランナー側が次beatを制御するため待機しない
+        if (typeof gameEngine !== 'undefined' && gameEngine?.storyActive) {
+            this.notifyMessageDisplayed();
+            return;
+        }
+
+        // 通常メッセージはユーザー操作（クリック/Enter/Space）を待つ
+        this.awaitingUserAdvance = true;
+        this.updateMessageHint();
+        this.notifyMessageDisplayed();
+        await this.waitForUserAdvance();
+        this.updateMessageHint();
+    }
+
+    waitForUserAdvance() {
+        if (!this.awaitingUserAdvance) return Promise.resolve();
+        return new Promise((resolve) => {
+            this.advanceWaiters.push(resolve);
+        });
+    }
+
+    releaseUserAdvance() {
+        if (!this.awaitingUserAdvance && this.advanceWaiters.length === 0) return false;
+        const waiters = this.advanceWaiters;
+        this.advanceWaiters = [];
+        this.awaitingUserAdvance = false;
+        clearTimeout(this.skipAdvanceTimer);
+        this.skipAdvanceTimer = null;
+        waiters.forEach((resolve) => {
+            try { resolve(); } catch (err) { console.warn(err); }
+        });
+        return true;
+    }
+
+    stopAutoAndSkip() {
+        clearTimeout(this.skipAdvanceTimer);
+        this.skipAdvanceTimer = null;
+        this.skipMode = false;
+        if (gameEngine?.settings) {
+            gameEngine.settings.autoMode = false;
+        }
+
+        const skipButton = this.elements['skip-btn'];
+        if (skipButton) {
+            skipButton.classList.remove('active');
+            skipButton.textContent = 'スキップ';
+        }
+
+        const autoButton = this.elements['auto-btn'];
+        if (autoButton) {
+            autoButton.classList.remove('active');
+            autoButton.textContent = 'オート';
+        }
+    }
+
+    updateMessageHint() {
+        const hint = this.elements['message-hint'] || document.getElementById('message-hint');
+        if (!hint) return;
+        if (this.awaitingUserAdvance) {
+            hint.textContent = 'クリック / Enter で進む';
+            hint.classList.add('waiting');
+        } else {
+            hint.classList.remove('waiting');
+        }
     }
 
     hideMessage() {
@@ -359,6 +518,14 @@ class UIManager {
         if (!this.elements['message-text']) return Promise.resolve();
 
         const displayText = text.replace(/\n/g, '\n');
+        const instant = typeof UIMessageHelpers !== 'undefined'
+            ? UIMessageHelpers.shouldInstantText(this.skipMode)
+            : this.skipMode;
+
+        if (instant) {
+            this.elements['message-text'].textContent = displayText;
+            return Promise.resolve();
+        }
 
         return new Promise((resolve) => {
             const element = this.elements['message-text'];
@@ -386,8 +553,27 @@ class UIManager {
         });
     }
 
+    /**
+     * クリック位置から進行可能か判定する。
+     * ボタン・入力欄・選択肢・マップスポット・モーダル中・名前入力中は進行しない。
+     * `[data-no-advance]` 属性を持つ要素配下もスキップする。
+     * @param {EventTarget} target
+     * @returns {boolean}
+     */
+    shouldAdvanceFromClick(target) {
+        if (!target || !(target instanceof Element)) return false;
+        if (target.closest('button, input, select, textarea, label, a, .map-spot, .choice-button, [data-no-advance]')) {
+            return false;
+        }
+        if (this.areChoicesVisible()) return false;
+        if (this.isModalOpen()) return false;
+        if (this.isNameInputOpen()) return false;
+        if (this.currentScreen !== 'main-game') return false;
+        return true;
+    }
+
     advanceMessage() {
-        // タイピング中なら即座に全文表示
+        // タイピング中なら即座に全文表示（操作待ちはまだ解放しない）
         if (this.typingTimeout) {
             clearTimeout(this.typingTimeout);
             this.typingTimeout = null;
@@ -402,48 +588,153 @@ class UIManager {
             return;
         }
 
+        // 通常メッセージのユーザー操作待ちを最優先で解放
+        if (this.awaitingUserAdvance) {
+            this.releaseUserAdvance();
+            return;
+        }
+
         // プロローグ／シナリオ再生中
         if (gameEngine && gameEngine.storyActive && gameEngine.waitingForStoryClick) {
-            gameEngine.onStoryAdvance();
+            if (this.storyAdvanceLocked) return;
+            this.storyAdvanceLocked = true;
+            Promise.resolve(gameEngine.onStoryAdvance())
+                .finally(() => {
+                    this.storyAdvanceLocked = false;
+                });
             return;
         }
 
         // 会話フェーズ中（将来拡張）
-        if (gameEngine && gameEngine.currentPhase) {
+        if (gameEngine && gameEngine.currentPhase && typeof gameEngine.advanceCurrentPhase === 'function') {
             gameEngine.advanceCurrentPhase();
+            return;
         }
+
+        this.scheduleAutoAdvanceIfNeeded();
+    }
+
+    areChoicesVisible() {
+        const el = this.elements['choices-container'];
+        return !!(el && el.style.display !== 'none' && el.children.length > 0);
+    }
+
+    notifyMessageDisplayed() {
+        this.scheduleAutoAdvanceIfNeeded();
+    }
+
+    notifyStoryBeatReady() {
+        this.scheduleAutoAdvanceIfNeeded();
+    }
+
+    scheduleAutoAdvanceIfNeeded() {
+        if (!gameEngine) return;
+        const delay = typeof UIMessageHelpers !== 'undefined'
+            ? UIMessageHelpers.getAutoAdvanceDelayMs(
+                gameEngine.settings?.autoMode,
+                this.skipMode,
+                gameEngine.settings?.textSpeed
+            )
+            : (this.skipMode ? 30 : (gameEngine.settings?.autoMode ? 2000 : null));
+        if (delay == null) return;
+
+        const storyCanAdvance = typeof UIMessageHelpers !== 'undefined'
+            ? UIMessageHelpers.canAutoAdvanceStory({
+                storyActive: gameEngine.storyActive,
+                waitingForStoryClick: gameEngine.waitingForStoryClick,
+                choicesVisible: this.areChoicesVisible()
+            })
+            : (gameEngine.storyActive && gameEngine.waitingForStoryClick && !this.areChoicesVisible());
+
+        const messageCanAdvance = this.awaitingUserAdvance && !this.areChoicesVisible();
+
+        if (!storyCanAdvance && !messageCanAdvance) return;
+        this.scheduleSkipAdvance(delay);
+    }
+
+    scheduleSkipAdvance(delay = 30) {
+        clearTimeout(this.skipAdvanceTimer);
+        this.skipAdvanceTimer = setTimeout(() => {
+            this.skipAdvanceTimer = null;
+            const storyOK = gameEngine?.storyActive && gameEngine.waitingForStoryClick && !this.areChoicesVisible();
+            const msgOK = this.awaitingUserAdvance && !this.areChoicesVisible();
+            if (storyOK || msgOK) {
+                this.advanceMessage();
+            }
+        }, delay);
     }
 
     // 選択肢関連
-    showChoices(choices) {
+    showChoices(choices, options = {}) {
         if (!this.elements['choices-container'] || !choices || choices.length === 0) return;
 
+        this.stopAutoAndSkip();
+        this.choiceLocked = false;
         const container = this.elements['choices-container'];
         container.innerHTML = '';
+        container.classList.toggle('compact-choices', !!options.compact);
 
         choices.forEach((choice, index) => {
             const button = document.createElement('button');
             button.textContent = choice.text;
             button.className = 'choice-button';
             button.addEventListener('click', () => {
-                this.selectChoice(choice, index);
+                this.selectChoice(choice, index, button);
             });
             container.appendChild(button);
         });
 
-        container.style.display = 'block';
+        container.style.display = 'flex';
+        this.setChoicesLayoutActive(true, !!options.compact);
     }
 
     hideChoices() {
         if (this.elements['choices-container']) {
             this.elements['choices-container'].style.display = 'none';
+            this.elements['choices-container'].classList.remove('compact-choices');
+        }
+        this.setChoicesLayoutActive(false, false);
+    }
+
+    setChoicesLayoutActive(active, compact = false) {
+        const main = this.elements['main-game'];
+        if (main) {
+            main.classList.toggle('choices-active', active);
+            main.classList.toggle('choices-compact', active && compact);
         }
     }
 
-    selectChoice(choice, index) {
+    selectChoiceByNumber(number) {
+        if (this.choiceLocked) return;
+        const container = this.elements['choices-container'];
+        if (!container || container.style.display === 'none') return;
+        const buttons = Array.from(container.querySelectorAll('.choice-button'));
+        const button = buttons[number - 1];
+        if (button && !button.disabled) {
+            button.click();
+        }
+    }
+
+    async selectChoice(choice, index, sourceButton = null) {
+        if (this.choiceLocked) return;
+        this.choiceLocked = true;
+        const container = this.elements['choices-container'];
+        if (container) {
+            Array.from(container.querySelectorAll('.choice-button')).forEach((button) => {
+                button.disabled = true;
+                button.setAttribute('aria-disabled', 'true');
+            });
+        }
         this.hideChoices();
-        if (gameEngine && choice.action) {
-            choice.action();
+        if (!gameEngine || !choice.action) return;
+        try {
+            await Promise.resolve(choice.action());
+        } catch (error) {
+            console.error('選択肢の実行エラー:', error);
+            this.showError('操作の処理中にエラーが発生しました。');
+            if (typeof gameEngine.recoverFromChoiceError === 'function') {
+                await gameEngine.recoverFromChoiceError();
+            }
         }
     }
 
@@ -483,10 +774,12 @@ class UIManager {
         
         if (this.elements['time-display']) {
             const timeNames = {
-                morning: '朝',
-                noon: '昼',
+                morning: '午前',
+                afternoon: '午後',
+                noon: '午後',
                 evening: '夕方',
-                night: '夜'
+                night: '夜',
+                midnight: '深夜'
             };
             this.elements['time-display'].textContent = timeNames[state.timeOfDay] || state.timeOfDay;
         }
@@ -665,24 +958,34 @@ class UIManager {
     }
 
     // モーダル管理
+    isModalOpen() {
+        return this.modalIds.some((id) => {
+            const el = this.elements[id];
+            return el && el.style.display !== 'none';
+        });
+    }
+
+    isNameInputOpen() {
+        const el = this.elements['name-input-screen'];
+        return !!(el && el.style.display !== 'none');
+    }
+
     showModal(modalId) {
-        // 全モーダルを非表示
-        ['save-load-screen', 'settings-screen', 'character-detail-screen', 'message-log-screen',
-            'affection-status-screen', 'game-menu-screen'].forEach(id => {
+        this.stopAutoAndSkip();
+        this.modalIds.forEach((id) => {
             if (this.elements[id]) {
                 this.elements[id].style.display = 'none';
             }
         });
 
-        // 指定モーダルを表示
         if (this.elements[modalId]) {
             this.elements[modalId].style.display = 'flex';
         }
     }
 
     closeModal() {
-        ['save-load-screen', 'settings-screen', 'character-detail-screen', 'message-log-screen',
-            'affection-status-screen', 'game-menu-screen'].forEach(id => {
+        this.stopAutoAndSkip();
+        this.modalIds.forEach((id) => {
             if (this.elements[id]) {
                 this.elements[id].style.display = 'none';
             }
@@ -718,6 +1021,7 @@ class UIManager {
     showMessageLog() {
         this.showModal('message-log-screen');
         this.populateMessageLog();
+        this.bindModalCloseButton('close-message-log');
     }
 
     // セーブスロット生成
@@ -881,6 +1185,7 @@ class UIManager {
 
     // オート・スキップモード
     toggleAutoMode() {
+        if (this.areChoicesVisible() || this.isModalOpen() || this.isNameInputOpen()) return;
         if (gameEngine) {
             gameEngine.settings.autoMode = !gameEngine.settings.autoMode;
             const button = this.elements['auto-btn'];
@@ -892,21 +1197,62 @@ class UIManager {
     }
 
     toggleSkipMode() {
-        // スキップモードの実装
-        console.log('スキップモード切り替え');
+        if (this.areChoicesVisible() || this.isModalOpen() || this.isNameInputOpen()) return;
+        this.skipMode = !this.skipMode;
+        const button = this.elements['skip-btn'];
+        if (button) {
+            button.classList.toggle('active', this.skipMode);
+            button.textContent = this.skipMode ? 'スキップ中' : 'スキップ';
+        }
+        if (this.typingTimeout) {
+            this.advanceMessage();
+            return;
+        }
+        if (this.skipMode) {
+            if (gameEngine?.waitingForStoryClick || this.awaitingUserAdvance) {
+                this.advanceMessage();
+            } else {
+                this.scheduleAutoAdvanceIfNeeded();
+            }
+        } else {
+            clearTimeout(this.skipAdvanceTimer);
+            this.skipAdvanceTimer = null;
+        }
     }
 
     // キー操作
     handleKeyPress(event) {
+        if (this.isNameInputOpen()) {
+            if (event.key === 'Escape') {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            return;
+        }
+
+        if (this.isModalOpen() && event.key !== 'Escape') {
+            return;
+        }
+
+        if (/^[1-9]$/.test(event.key) && this.areChoicesVisible()) {
+            event.preventDefault();
+            this.selectChoiceByNumber(Number(event.key));
+            return;
+        }
+
         switch (event.key) {
             case 'Enter':
             case ' ':
                 event.preventDefault();
+                if (this.areChoicesVisible()) return;
                 this.advanceMessage();
                 break;
             case 'Escape':
                 event.preventDefault();
-                if (this.currentScreen === 'main-game') {
+                this.stopAutoAndSkip();
+                if (this.isModalOpen()) {
+                    this.closeModal();
+                } else if (this.currentScreen === 'main-game') {
                     this.showMenu();
                 } else {
                     this.closeModal();

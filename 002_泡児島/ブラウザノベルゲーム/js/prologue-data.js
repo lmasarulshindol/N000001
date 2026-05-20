@@ -64,6 +64,12 @@ const PROLOGUE_SCRIPT = [
     {
         phase: 'arrival',
         background: 'terminal',
+        text: 'あなたは胸の会員証を見つめた。\n名前――{playerName}。\nこの島で、新しい自分が始まる気がした。',
+        speaker: ''
+    },
+    {
+        phase: 'arrival',
+        background: 'terminal',
         text: '白い大理石の床、ガラス張りの天井。\n空調の効いた涼しい空間に、ボサノバが静かに流れている。\nまるで、国際空港の到着ロビーのようだ。',
         speaker: ''
     },
@@ -151,6 +157,6 @@ const PROLOGUE_SCRIPT = [
         background: 'terminal',
         hideCharacter: true,
         speaker: 'コンシェルジュ',
-        text: 'ようこそ泡児島へ。チェックインは済んでおります。\n島内マップから、お好きな場所へお向かいください。\nどうぞ、楽園をお楽しみください。'
+        text: 'ようこそ泡児島へ、{playerName}様。チェックインは済んでおります。\n島内マップから、お好きな場所へお向かいください。\nどうぞ、楽園をお楽しみください。'
     }
 ];

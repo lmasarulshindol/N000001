@@ -92,42 +92,30 @@
                 <!-- マップ画面 -->
                 <div id="map-container" class="map-container" style="display: none;">
                     <h2 class="map-title">島内マップ</h2>
-                    <div class="map-grid">
-                        <div class="map-spot" data-spot="terminal">
-                            <div class="spot-icon">🏢</div>
-                            <div class="spot-name">ターミナル</div>
+                    <div class="map-grid map-grid--six">
+                        <div class="map-spot" data-spot="port">
+                            <div class="spot-icon">⛴️</div>
+                            <div class="spot-name">船着き場</div>
+                        </div>
+                        <div class="map-spot" data-spot="inn">
+                            <div class="spot-icon">🏯</div>
+                            <div class="spot-name">旅館「潮汐亭」</div>
+                        </div>
+                        <div class="map-spot" data-spot="onsen">
+                            <div class="spot-icon">♨️</div>
+                            <div class="spot-name">温泉「波音の湯」</div>
+                        </div>
+                        <div class="map-spot" data-spot="observatory">
+                            <div class="spot-icon">🌅</div>
+                            <div class="spot-name">展望台</div>
                         </div>
                         <div class="map-spot" data-spot="beach">
                             <div class="spot-icon">🏖️</div>
-                            <div class="spot-name">ビーチ</div>
+                            <div class="spot-name">砂浜</div>
                         </div>
-                        <div class="map-spot" data-spot="beachbar">
-                            <div class="spot-icon">🍹</div>
-                            <div class="spot-name">ビーチバー</div>
-                        </div>
-                        <div class="map-spot" data-spot="cottage">
-                            <div class="spot-icon">🏡</div>
-                            <div class="spot-name">コテージ</div>
-                        </div>
-                        <div class="map-spot" data-spot="hotel">
-                            <div class="spot-icon">🏨</div>
-                            <div class="spot-name">ホテル</div>
-                        </div>
-                        <div class="map-spot" data-spot="restaurant">
-                            <div class="spot-icon">🍽️</div>
-                            <div class="spot-name">レストラン</div>
-                        </div>
-                        <div class="map-spot" data-spot="garden">
-                            <div class="spot-icon">🌺</div>
-                            <div class="spot-name">ガーデン</div>
-                        </div>
-                        <div class="map-spot" data-spot="library">
-                            <div class="spot-icon">📚</div>
-                            <div class="spot-name">ライブラリー</div>
-                        </div>
-                        <div class="map-spot" data-spot="sports_area">
-                            <div class="spot-icon">⚽</div>
-                            <div class="spot-name">スポーツエリア</div>
+                        <div class="map-spot" data-spot="forest_shrine">
+                            <div class="spot-icon">⛩️</div>
+                            <div class="spot-name">森の祠</div>
                         </div>
                     </div>
                 </div>
@@ -150,6 +138,23 @@
 
                 <!-- 選択肢 -->
                 <div id="choices-container" class="choices-container" style="display: none;">
+                </div>
+            </div>
+        </div>
+
+        <!-- 名前入力画面 -->
+        <div id="name-input-screen" class="screen modal" style="display: none;">
+            <div class="modal-content name-input-content">
+                <div class="modal-header">
+                    <h2>あなたのお名前は？</h2>
+                </div>
+                <div class="name-input-body">
+                    <p class="name-input-hint">島の女の子たちがあなたの名前で呼びかけます。<br>未入力の場合は「ユウマ」になります。</p>
+                    <input type="text" id="player-name-input" class="player-name-input"
+                           maxlength="8" placeholder="ユウマ" autocomplete="off">
+                    <div class="name-input-actions">
+                        <button class="title-button" id="player-name-confirm-btn">この名前で始める</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -318,7 +323,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h2>メッセージログ</h2>
-                    <button class="close-btn" id="close-message-log">&times;</button>
+                    <button type="button" class="close-btn" id="close-message-log" aria-label="ログを閉じる">&times;</button>
                 </div>
                 <div class="log-content" id="log-content">
                     <!-- ログは動的に生成 -->
@@ -329,13 +334,19 @@
 
     <!-- JavaScript ファイルの読み込み -->
     <script src="js/character-data.js"></script>
+    <script src="js/character-intimacy-profiles.js"></script>
     <script src="js/prologue-data.js"></script>
     <script src="js/affection-system.js"></script>
+    <script src="js/invitation-system.js"></script>
+    <script src="js/intimate-finish-data.js"></script>
+    <script src="js/intimate-contextual-lines.js"></script>
+    <script src="js/dialogue-state-derivers.js"></script>
     <script src="js/intimate-scene-system.js"></script>
     <script src="js/intimate-scenes-data.js"></script>
     <script src="js/ending-data.js"></script>
     <script src="js/save-system.js"></script>
     <script src="js/story-manager.js"></script>
+    <script src="js/ui-message-helpers.js"></script>
     <script src="js/ui-manager.js"></script>
     <script src="js/game-engine.js"></script>
 </body>

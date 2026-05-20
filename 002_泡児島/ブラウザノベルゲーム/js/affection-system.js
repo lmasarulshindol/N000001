@@ -1,13 +1,23 @@
 // 泡児島ノベルゲーム - 好感度システム
 // オープニング（プロローグ）→ 探索 → ルート進行 → エンディング
 
+/** 1日5時間帯（午前→午後→夕方→夜→深夜） */
+const TIME_OF_DAY_ORDER = ['morning', 'afternoon', 'evening', 'night', 'midnight'];
+const TIME_OF_DAY_LABELS = {
+    morning: '午前',
+    afternoon: '午後',
+    evening: '夕方',
+    night: '夜',
+    midnight: '深夜'
+};
+
 const AFFECTION_CONFIG = {
     min: 0,
     max: 100,
     endingThreshold: 100,
     maxDays: 5,
-    actionsPerDay: 3,
-    energyCostPerAction: 34,
+    actionsPerDay: 1,
+    energyCostPerAction: 20,
     prologueMeetBonus: 8,
     /** H・子作り各段階の好感度加算（会話と同様に上昇） */
     intimateAffection: {
@@ -38,7 +48,7 @@ const AFFECTION_CONFIG = {
 /** キャラ別会話選択肢（好感度変動つき） */
 const CHARACTER_DIALOGUES = {
     minagi: [
-        { id: 'cheer', text: '元気なね、好きだよ', affection: 4, response: 'えへへ、おにーさんも最高！' },
+        { id: 'cheer', text: '元気だね、好きだよ', affection: 4, response: 'えへへ、おにーさんも最高！' },
         { id: 'island', text: '島のこと教えて', affection: 3, response: '海がきれいでしょ？あたし毎日泳いでるの！' },
         { id: 'okinawa', text: '沖縄の話を聞く', affection: 5, response: 'おばぁのこと……でも、ここも好きになったよ。' },
         { id: 'rush', text: '急かす', affection: -2, response: '……ちょっと、ひどい。' }
@@ -51,12 +61,12 @@ const CHARACTER_DIALOGUES = {
     sakura: [
         { id: 'gentle', text: '優しく話しかける', affection: 5, response: '……ありがとう。少し、安心しました。' },
         { id: 'quiet', text: '静かな場所へ誘う', affection: 4, response: 'いいですね……一緒に行きましょう。' },
-        { id: 'loud', text: '大きな声を出す', affection: -3, response: 'ひっ……や、やめてください。' }
+        { id: 'loud', text: '急に話しかける', affection: -3, response: 'ひっ……び、びっくりしました……。' }
     ],
     aoi: [
         { id: 'respect', text: '敬意を持って接する', affection: 5, response: '……分かってくれる人、珍しいわ。' },
         { id: 'intellect', text: '深い話題を振る', affection: 4, response: 'そういう話、好き。もっと聞かせて。' },
-        { id: 'childish', text: '子供扱いする', affection: -4, response: '……失礼ね。' }
+        { id: 'childish', text: '軽い口調で話す', affection: -4, response: '……馴れ馴れしいわ。' }
     ],
     miyu: [
         { id: 'slow', text: 'のんびり合わせる', affection: 4, response: 'そうそう、焦らんとよかばい。' },
@@ -66,7 +76,7 @@ const CHARACTER_DIALOGUES = {
     rin: [
         { id: 'sport', text: '一緒に運動しよう', affection: 5, response: '勝負だ！負けないよ！' },
         { id: 'praise', text: '活発さを褒める', affection: 3, response: '当然！あたし最強！' },
-        { id: 'bore', text: 'つまらなそうにする', affection: -3, response: 'なんだよ、もう帰れよ。' }
+        { id: 'bore', text: 'つまらなそうにする', affection: -3, response: 'ふん、つまらない奴。' }
     ],
     momoka: [
         { id: 'tea', text: 'お茶の話', affection: 4, response: 'お抹茶、淹れましょうか。' },
@@ -210,29 +220,48 @@ class AffectionSystem {
             (gameState.energy || 100) - AFFECTION_CONFIG.energyCostPerAction
         );
 
-        const dayEnded = AffectionSystem.advanceTimeIfNeeded(gameState);
-        return { dayEnded, actionsToday: gameState.actionsToday };
+        const adv = AffectionSystem.advanceTimeIfNeeded(gameState);
+        return {
+            dayEnded: !!adv.dayEnded,
+            timeAdvanced: !!adv.advanced,
+            actionsToday: gameState.actionsToday,
+            timeOfDay: gameState.timeOfDay
+        };
     }
 
     static advanceTimeIfNeeded(gameState) {
         if (gameState.actionsToday < AFFECTION_CONFIG.actionsPerDay) {
-            return false;
+            return { advanced: false, dayEnded: false };
         }
 
-        const times = ['morning', 'noon', 'evening', 'night'];
+        const times = TIME_OF_DAY_ORDER;
+        // 旧 'noon' を 'afternoon' に正規化
+        if (gameState.timeOfDay === 'noon') gameState.timeOfDay = 'afternoon';
         let idx = times.indexOf(gameState.timeOfDay);
         if (idx < 0) idx = 0;
 
+        let dayEnded = false;
         if (idx < times.length - 1) {
             gameState.timeOfDay = times[idx + 1];
         } else {
             gameState.day += 1;
             gameState.timeOfDay = 'morning';
+            dayEnded = true;
         }
 
         gameState.actionsToday = 0;
         gameState.energy = 100;
-        return true;
+        return { advanced: true, dayEnded };
+    }
+
+    static normalizeTimeOfDay(value) {
+        if (value === 'noon') return 'afternoon';
+        if (TIME_OF_DAY_ORDER.includes(value)) return value;
+        return 'morning';
+    }
+
+    static getTimeLabel(timeOfDay) {
+        return TIME_OF_DAY_LABELS[AffectionSystem.normalizeTimeOfDay(timeOfDay)] || timeOfDay;
     }
 
     static isLastDay(gameState) {
@@ -355,6 +384,8 @@ if (typeof module !== 'undefined' && module.exports) {
         AFFECTION_CONFIG,
         AffectionSystem,
         CHARACTER_DIALOGUES,
-        DEFAULT_DIALOGUES
+        DEFAULT_DIALOGUES,
+        TIME_OF_DAY_ORDER,
+        TIME_OF_DAY_LABELS
     };
 }

@@ -129,6 +129,9 @@ body {
 /* メインゲーム画面 */
 #main-game {
     display: block;
+    /* 上: ステータス / 中央: 選択肢 / 下: メッセージ */
+    --layout-top-inset: 72px;
+    --layout-message-reserve: 220px;
 }
 
 .background {
@@ -170,7 +173,7 @@ body {
     pointer-events: auto;
 }
 
-/* 上部UI */
+/* 上部UI（常に上固定） */
 .top-ui {
     position: absolute;
     top: 0;
@@ -182,6 +185,7 @@ body {
     padding: 1rem 2rem;
     background: rgba(0,0,0,0.3);
     backdrop-filter: blur(10px);
+    z-index: 40;
 }
 
 .game-info {
@@ -277,7 +281,7 @@ body {
     text-align: center;
 }
 
-/* メッセージウィンドウ */
+/* メッセージウィンドウ（常に下固定） */
 .message-window {
     position: absolute;
     bottom: 2rem;
@@ -288,6 +292,7 @@ body {
     padding: 0;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255,255,255,0.1);
+    z-index: 35;
 }
 
 .message-header {
@@ -328,6 +333,20 @@ body {
     color: rgba(255, 255, 255, 0.65);
 }
 
+.message-hint.waiting {
+    color: rgba(255, 255, 255, 0.95);
+    animation: messageHintPulse 1.2s ease-in-out infinite;
+}
+
+@keyframes messageHintPulse {
+    0%, 100% {
+        opacity: 0.55;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
 .message-btn {
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
@@ -343,22 +362,41 @@ body {
     background: rgba(255,255,255,0.2);
 }
 
-/* 選択肢 */
+.message-btn.active {
+    background: rgba(255, 120, 160, 0.45);
+    border-color: rgba(255, 180, 200, 0.8);
+}
+
+/* 選択肢表示中: メッセージは下のまま高さを抑える */
+#main-game.choices-active {
+    --layout-message-reserve: 240px;
+}
+
+#main-game.choices-active .message-window {
+    bottom: 2rem;
+    top: auto;
+    max-height: min(32vh, var(--layout-message-reserve));
+    overflow-y: auto;
+}
+
+/* 選択肢（画面の縦横中央に常に配置） */
 .choices-container {
     position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
+    inset: 0;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    min-width: 400px;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
     z-index: 30;
-    max-height: 50vh;
+    pointer-events: none;
     overflow-y: auto;
 }
 
 .choice-button {
+    width: min(520px, calc(100% - 2rem));
+    max-width: 100%;
     padding: 1rem 2rem;
     font-size: 1.1rem;
     color: white;
@@ -368,6 +406,7 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
+    pointer-events: auto;
 }
 
 .choice-button:hover {
@@ -377,7 +416,31 @@ body {
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
-/* モーダル */
+/* フィニッシュ・口奉仕などの compact 表示（選択肢数が多い時の没入感優先） */
+.choices-container.compact-choices {
+    gap: 0.45rem;
+    padding: 0.6rem 1rem;
+}
+
+.choices-container.compact-choices .choice-button {
+    width: min(440px, calc(100% - 2rem));
+    padding: 0.55rem 1.4rem;
+    font-size: 0.98rem;
+    border-radius: 36px;
+}
+
+#main-game.choices-compact .message-window {
+    bottom: 1rem;
+    max-height: min(26vh, var(--layout-message-reserve));
+    background: rgba(20, 10, 30, 0.78);
+}
+
+/* モーダル（メインゲームより前面） */
+.screen.modal {
+    z-index: 500;
+    pointer-events: auto;
+}
+
 .modal {
     background: rgba(0,0,0,0.7);
     backdrop-filter: blur(10px);
@@ -407,6 +470,8 @@ body {
 }
 
 .close-btn {
+    position: relative;
+    z-index: 2;
     font-size: 2rem;
     color: #999;
     background: none;
@@ -414,10 +479,54 @@ body {
     cursor: pointer;
     transition: color 0.3s ease;
     line-height: 1;
+    pointer-events: auto;
+    flex-shrink: 0;
 }
 
 .close-btn:hover {
     color: #333;
+}
+
+/* 名前入力 */
+.name-input-content {
+    width: 480px;
+    max-width: 92%;
+}
+
+.name-input-body {
+    padding: 1.5rem 2rem 2rem;
+    text-align: center;
+}
+
+.name-input-hint {
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
+}
+
+.player-name-input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    font-size: 1.4rem;
+    text-align: center;
+    border: 2px solid #d1c4e9;
+    border-radius: 12px;
+    outline: none;
+    transition: border-color 0.2s ease;
+    background: #fafafa;
+    color: #333;
+}
+
+.player-name-input:focus {
+    border-color: #7e57c2;
+    background: #fff;
+}
+
+.name-input-actions {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
 }
 
 /* セーブ/ロード画面 */

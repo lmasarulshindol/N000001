@@ -135,16 +135,19 @@
         justify-content: center;
     }
     
-    /* 選択肢の調整 */
+    /* 選択肢の調整（中央配置を維持） */
+    #main-game {
+        --layout-top-inset: 120px;
+        --layout-message-reserve: 200px;
+    }
+
     .choices-container {
-        left: 1rem;
-        right: 1rem;
-        transform: none;
-        min-width: auto;
-        width: calc(100% - 2rem);
+        inset: 0;
+        padding: 0.8rem;
     }
     
     .choice-button {
+        width: calc(100% - 1rem);
         padding: 1rem 1.5rem;
         font-size: 1rem;
     }
@@ -316,7 +319,7 @@
     }
     
     .choices-container {
-        bottom: 0.5rem;
+        inset: 0;
     }
     
     .character-image {
