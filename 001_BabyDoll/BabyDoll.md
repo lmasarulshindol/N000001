@@ -350,43 +350,7 @@ Negative: lowres, bad anatomy, extra fingers, jewelry on ear, earrings, piercing
 
 ---
 
-### サブキャスト①：桐原 楓（きりはら かえで）
-**← BabyDollの最年長キャスト。店の姉貴分ポジション**
-
-| 項目 | 詳細 |
-|------|------|
-| 源氏名 | カエデ |
-| 年齢 | 14歳（中学3年生相当・通信制在籍） |
-| 在籍歴 | 約1年半（店の最古参格） |
-| 髪型 | 胸元まで伸ばしたストレートロング。黒髪に深紅のインナーカラー |
-| 髪色 | 艶のある漆黒＋ディープレッドの差し色 |
-| 目の色 | 切れ長のダークブラウン。冷たく澄んでいて一瞬で相手を射抜く |
-| 身長 | 154cm |
-| 体重 | 42kg |
-| スリーサイズ | B76 / W55 / H78 |
-| 身体的特徴 | 年齢の割に大人びた体つき。胸はしっかり膨らみ、腰のラインが色気を帯びる。左の鎖骨に小さな黒子 |
-| イメージカラー | ディープレッド（深紅） |
-| キャスト衣装 | 深紅のシルク調ベビードール。透け感控えめだが胸の谷間を強調。背中は大胆に開いたデザイン |
-
-- **性格**: クールで口数が少ない姉御肌。無駄に群れず、後輩に対しては厳しくも公平。笑顔は滅多に見せないが、ふとした瞬間の微笑みに客は撃ち抜かれる。負けず嫌いで完璧主義
-- **境遇**: かつて家庭内虐待を受けており、中学1年の時に家出。児童相談所を経由せず裏のルートでBabyDollに流れ着いた。店が唯一の居場所で、オーナー・店長への忠誠心が強い
-- **接客スタイル**: 「無言の支配」。ほとんど喋らず、視線と指先だけで客を翻弄する玄人好みのスタイル。プラチナ会員に絶大な人気
-- **莉子との関係**: 莉子を「生意気だけど筋が良い妹」として陰で支える。小悪魔接客のコツを教えた張本人。言葉少なだが本気で心配している
-- **物語のキーワード**: 沈黙の姉、紅いベビードール、本当の家族、傷跡
-
-#### Stable Diffusion プロンプト
-
-```text
-masterpiece, best quality, ultra-detailed, 8k, 1girl, solo, teenage girl, slender tall figure (154cm), glossy jet black long straight hair, deep crimson red inner hair color, waist-length straight hair, sharp narrow dark brown eyes, cold piercing gaze, emotionless expression, pale porcelain skin, small mole on left collarbone, modest bust, curvy waist, deep crimson red silk satin babydoll lingerie, open back design, subtle cleavage, elegant silhouette, silent cool pose, dim red ambient lighting, luxurious VIP soap room, cinematic lighting, depth of field
-```
-
-```text
-Negative: lowres, bad anatomy, extra fingers, bright colors, cheerful expression, childish pose, oversized breasts, cartoonish
-```
-
----
-
-### サブキャスト②：月島 ひなた（つきしま ひなた）
+### サブキャスト①：月島 ひなた（つきしま ひなた）
 **← ツンデレ系の努力家キャスト**
 
 | 項目 | 詳細 |
@@ -422,7 +386,7 @@ Negative: lowres, bad anatomy, extra fingers, mature body, large breasts, dark g
 
 ---
 
-### サブキャスト③：白石 花音（しらいし かのん）
+### サブキャスト②：白石 花音（しらいし かのん）
 **← 癒し系・天然おっとりキャスト**
 
 | 項目 | 詳細 |
@@ -458,7 +422,7 @@ Negative: lowres, bad anatomy, extra fingers, sharp angry expression, dark light
 
 ---
 
-### サブキャスト④：御園 澪（みその みお）
+### サブキャスト③：御園 澪（みその みお）
 **← 異色のお嬢様系・知的キャスト**
 
 | 項目 | 詳細 |
@@ -497,7 +461,7 @@ Negative: lowres, bad anatomy, extra fingers, warm colors, cheerful bubbly expre
 ### 決定済み設定の追加
 
 - [x] キャスト（ヒロイン）の設定 → 佐藤莉子（10歳。母子家庭の母の治療費のため入店。小悪魔系の最年少キャスト）
-- [x] サブキャスト4名の設定 → 桐原楓（14歳・姉貴分）、月島ひなた（11歳・ツンデレ）、白石花音（12歳・癒し系）、御園澪（13歳・お嬢様系）
+- [x] サブキャスト3名の設定 → 月島ひなた（11歳・ツンデレ）、白石花音（12歳・癒し系）、御園澪（13歳・お嬢様系）
 - [x] 各キャストのStable Diffusion用プロンプト（Positive / Negative）を個別に併記
 - [x] AV制作事業「BabyDoll Productions」の設定 → 看板シリーズ「はじめて。」（処女喪失ドキュメンタリー）
 - [x] 入店〜デビューのタイムライン改訂 → 面談→研修→「はじめて。」撮影（処女喪失）→初接客デビュー
