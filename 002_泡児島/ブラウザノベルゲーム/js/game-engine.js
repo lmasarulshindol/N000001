@@ -1314,13 +1314,36 @@ class GameEngine {
         const character = this.phaseData.character;
         this.endIntimateScene();
 
+        // 好感度100＋子作り完走でも即エンディングにはせず、締めくくるかどうかは本人に選ばせる。
+        // （滞在期間を過ぎたら checkForceEnding 側で確実にエンディングへ進む）
         if (AffectionSystem.shouldTriggerEnding(this.gameState, character.id)) {
-            await this.showMessage('……ねえ。最後に、あなたにだけ伝えたいことがある。', character.name);
-            await this.startEndingForCharacter(character.id);
+            await this.offerHeroineEnding(character);
             return;
         }
 
         this.showPostActivityChoices(character.id);
+    }
+
+    /** 好感度MAX到達時、ヒロインエンドへ進むかどうかをプレイヤーに選ばせる */
+    async offerHeroineEnding(character) {
+        const nn = character.nickname || character.name;
+        await this.showMessage(
+            `${nn}との絆は、もうこれ以上ないほど満ちている。\n（望むなら、${nn}との物語をここで締めくくることもできる）`,
+            'システム'
+        );
+        this.showChoices([
+            {
+                text: `${nn}との物語を締めくくる（エンディングへ）`,
+                action: async () => {
+                    await this.showMessage('……ねえ。最後に、あなたにだけ伝えたいことがある。', character.name);
+                    await this.startEndingForCharacter(character.id);
+                }
+            },
+            {
+                text: 'まだ、この子と一緒にいたい',
+                action: () => this.showPostActivityChoices(character.id)
+            }
+        ]);
     }
 
     async completeMainPhase() {
@@ -1402,7 +1425,9 @@ class GameEngine {
         const nn = character.nickname || character.name;
         await this.showMessage(`${spotName}に着くと、${nn}が先に待っていた。`, 'システム');
 
-        const personality = character.personality || 'default';
+        const personality = (typeof getPersonalityBucket === 'function')
+            ? getPersonalityBucket(character)
+            : (character.personality || 'default');
         const greetingByPersonality = {
             active: {
                 morning: `「おっはよー！　早起きは得意なんだ♪」`,
@@ -1424,6 +1449,13 @@ class GameEngine {
                 evening: `「夕焼けに見惚れていたの。……あなたに、じゃないわよ」`,
                 night: `「夜のあなたは、なんだか違って見える……」`,
                 midnight: `「来てくれた……。今夜は、誰にも渡したくない」`
+            },
+            elegant: {
+                morning: `「おはようございます。朝のひととき、ご一緒できて嬉しゅうございます」`,
+                afternoon: `「お待ちしておりました。さ、ゆるりと参りましょう」`,
+                evening: `「夕映え、ほんに綺麗どすなぁ……あなたと見られて、よかった」`,
+                night: `「こんな夜更けに……いけずなお人。でも、来てくださって嬉しい」`,
+                midnight: `「……お待ちしておりました。今宵は、誰にも譲りとうない」`
             },
             default: {
                 morning: `「おはよう。来てくれて、嬉しい」`,
@@ -1508,7 +1540,10 @@ class GameEngine {
         const candidate = AffectionSystem.getEndingCandidate(this.gameState);
         if (!candidate) return false;
 
-        if (candidate.type === 'heroine') {
+        // 好感度100に達していても、滞在期間中はプレイヤーが「締めくくる」を選ぶまで強制終了しない。
+        // 期間（全5日）を過ぎたら、最高好感度の相手でヒロインエンドを迎える。
+        if (candidate.type === 'heroine'
+            && !AffectionSystem.shouldForceEnding(this.gameState)) {
             return false;
         }
 
@@ -1635,9 +1670,9 @@ class GameEngine {
     }
 
     // 選択肢表示
-    showChoices(choices) {
+    showChoices(choices, options = {}) {
         if (typeof uiManager !== 'undefined' && uiManager && uiManager.isInitialized) {
-            uiManager.showChoices(choices);
+            uiManager.showChoices(choices, options);
             return;
         }
         if (!this.elements.choicesContainer) return;

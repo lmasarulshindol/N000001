@@ -254,7 +254,11 @@ function tryRollInvitation(gameState, timeOfDay, opts = {}) {
 
     const spotId = pickDateSpot(theme, character, rng);
 
-    const personality = character.personality || PERSONALITY_MAP[pickedId] || 'shy';
+    // personality（11種）はそのままだと invitationsByPersonality の4キーに合わないため、
+    // 4バケット（active/shy/cool/elegant）へ正規化してから口調を選ぶ。
+    const personality = (typeof getPersonalityBucket === 'function')
+        ? getPersonalityBucket(character)
+        : (PERSONALITY_MAP[pickedId] || 'shy');
     let line;
 
     if (theme.onsenInvitations && spotId === 'onsen') {

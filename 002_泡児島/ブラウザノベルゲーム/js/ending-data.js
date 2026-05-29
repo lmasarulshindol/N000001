@@ -99,7 +99,7 @@ const ENDINGS = {
         title: '別れのターミナル',
         type: 'timeout',
         beats: [
-            { background: 'terminal', speaker: '', text: '滞在的最終日。荷物をまとめながら、ターミナルへ向かう。' },
+            { background: 'terminal', speaker: '', text: '滞在最終日。荷物をまとめながら、ターミナルへ向かう。' },
             { background: 'terminal', speaker: '', text: '会えた時間は短かった。けれど、誰かの笑顔は確かに胸に残っている。' },
             { background: 'ship', speaker: '', text: '船が動き出す。泡児島は小さくなり、やがて水平線の彼方へ消えた。' }
         ]

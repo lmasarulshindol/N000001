@@ -795,10 +795,15 @@ class UIManager {
             this.elements['energy-display'].textContent = `体力 ${state.energy ?? 100}`;
         }
 
-        if (this.elements['actions-display'] && typeof AFFECTION_CONFIG !== 'undefined') {
-            const used = state.actionsToday ?? 0;
+        if (this.elements['actions-display']) {
+            // 1行動ごとに時間帯が1つ進む設計のため、1日 = 5時間帯 = 実質5回行動。
+            // 「行動 N/5」として、その日の何回目の行動中かを表示する。
+            const order = (typeof TIME_OF_DAY_ORDER !== 'undefined')
+                ? TIME_OF_DAY_ORDER
+                : ['morning', 'afternoon', 'evening', 'night', 'midnight'];
+            const slotIndex = Math.max(0, order.indexOf(state.timeOfDay));
             this.elements['actions-display'].textContent =
-                `行動 ${used}/${AFFECTION_CONFIG.actionsPerDay}`;
+                `行動 ${slotIndex + 1}/${order.length}`;
         }
     }
 
@@ -863,7 +868,7 @@ class UIManager {
             this.elements['intimate-pleasure-fill'].style.width = `${session.pleasure}%`;
         }
         if (this.elements['intimate-pleasure-text']) {
-            this.elements['intimate-pleasure-text'].textContent = `快感 ${session.pleasure}%`;
+            this.elements['intimate-pleasure-text'].textContent = `${session.pleasure}%`;
         }
     }
 

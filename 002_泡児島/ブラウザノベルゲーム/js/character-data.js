@@ -129,7 +129,7 @@ const CHARACTERS = {
         personality: 'cool',
         description: 'クールな最年長組。都会的な洗練された雰囲気を持つ大人びた少女。',
         appearance: {
-            hair: 'ミディアムレングth、ダークブラウン',
+            hair: 'ミディアムレングス、ダークブラウン',
             eyes: '鋭い黒い瞳',
             skin: '透明感のある白い肌',
             specialFeatures: ['モデルのようなスタイル', '大人っぽい表情']
@@ -441,6 +441,22 @@ const EXPERIENCE_LEVELS = {
     experienced: '経験あり'
 };
 
+/**
+ * 11種の personality を、セリフ振り分け用の4バケット（active/shy/cool/elegant）へ正規化する。
+ * お誘い文句・デート挨拶など、性格別の口調を出し分ける箇所で共通利用する。
+ */
+const PERSONALITY_BUCKETS = {
+    active: 'active', reliable: 'active', sporty: 'active', cheerful: 'active',
+    shy: 'shy', gentle: 'shy', caring: 'shy', innocent: 'shy',
+    cool: 'cool', mature: 'cool',
+    elegant: 'elegant'
+};
+
+function getPersonalityBucket(character) {
+    const p = (character && character.personality) || '';
+    return PERSONALITY_BUCKETS[p] || 'shy';
+}
+
 const SPOTS = {
     port: '船着き場',
     inn: '旅館「潮汐亭」',
@@ -470,5 +486,8 @@ const SPOT_ALIASES = {
 
 // エクスポート（モジュール形式対応）
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { CHARACTERS, PERSONALITY_TYPES, EXPERIENCE_LEVELS, SPOTS };
+    module.exports = {
+        CHARACTERS, PERSONALITY_TYPES, EXPERIENCE_LEVELS, SPOTS,
+        SPOT_ALIASES, PERSONALITY_BUCKETS, getPersonalityBucket
+    };
 }
