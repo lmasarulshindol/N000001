@@ -1,0 +1,30 @@
+{
+  "title": "莉子4作目 昼——一人の時間",
+  "episode": 8,
+  "character": "riko",
+  "caption": "10歳くらいの女の子の穏やかで静かな独り言。ぼんやりと考え事をしている。水面に浮かんでいる。心の中の声。小さくて、やわらかくて、少し切ない。",
+  "hf_checkpoint": "Aratako/Irodori-TTS-500M-v2-VoiceDesign",
+  "no_ref": true,
+  "num_steps": 40,
+  "seconds": 15.0,
+  "cfg_scale_text": 3.0,
+  "cfg_scale_caption": 3.0,
+  "items": [
+    {
+      "line_index": 1,
+      "role": "riko",
+      "text": "すき",
+      "skip_synthesis": false,
+      "novel_line": 1231,
+      "note": ""
+    },
+    {
+      "line_index": 2,
+      "role": "riko",
+      "text": "好き",
+      "skip_synthesis": false,
+      "novel_line": 1239,
+      "note": ""
+    }
+  ]
+}

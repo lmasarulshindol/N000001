@@ -1,0 +1,206 @@
+{
+  "title": "莉子4作目 午後——三人",
+  "episode": 9,
+  "character": "riko",
+  "caption": "10歳くらいの女の子の壊れかけた甘い声。泣いている。気持ちよすぎて涙が止まらない。おねだりが自動的に出る。声が途切れ途切れで、甘さと嗚咽が混じっている。理性が溶けている状態の声。",
+  "hf_checkpoint": "Aratako/Irodori-TTS-500M-v2-VoiceDesign",
+  "no_ref": true,
+  "num_steps": 40,
+  "seconds": 15.0,
+  "cfg_scale_text": 3.0,
+  "cfg_scale_caption": 3.0,
+  "items": [
+    {
+      "line_index": 1,
+      "role": "riko",
+      "text": "……三人……？　……あと、おっきい人、誰……？",
+      "skip_synthesis": false,
+      "novel_line": 1271,
+      "note": ""
+    },
+    {
+      "line_index": 2,
+      "role": "other",
+      "text": "牧野剛だよ。よろしくね、莉子ちゃん",
+      "skip_synthesis": true,
+      "novel_line": 1275,
+      "note": "非莉子セリフ（スキップ）"
+    },
+    {
+      "line_index": 3,
+      "role": "riko",
+      "text": "……おじさん",
+      "skip_synthesis": false,
+      "novel_line": 1279,
+      "note": ""
+    },
+    {
+      "line_index": 4,
+      "role": "other",
+      "text": "おじさんはやめてくれ",
+      "skip_synthesis": true,
+      "novel_line": 1283,
+      "note": "非莉子セリフ（スキップ）"
+    },
+    {
+      "line_index": 5,
+      "role": "riko",
+      "text": "じゃあ剛さん。……よろしくお願いします",
+      "skip_synthesis": false,
+      "novel_line": 1285,
+      "note": ""
+    },
+    {
+      "line_index": 6,
+      "role": "riko",
+      "text": "挨拶はいいから——始めるぞ",
+      "skip_synthesis": false,
+      "novel_line": 1291,
+      "note": ""
+    },
+    {
+      "line_index": 7,
+      "role": "riko",
+      "text": "んっ——んぐっ",
+      "skip_synthesis": false,
+      "novel_line": 1299,
+      "note": ""
+    },
+    {
+      "line_index": 8,
+      "role": "riko",
+      "text": "はぁっ——！　あ、あっ、タクミさ——速い——！",
+      "skip_synthesis": false,
+      "novel_line": 1307,
+      "note": ""
+    },
+    {
+      "line_index": 9,
+      "role": "riko",
+      "text": "あっ——！",
+      "skip_synthesis": false,
+      "novel_line": 1315,
+      "note": ""
+    },
+    {
+      "line_index": 10,
+      "role": "riko",
+      "text": "あ、あ、あっ、蓮——またっ",
+      "skip_synthesis": false,
+      "novel_line": 1323,
+      "note": ""
+    },
+    {
+      "line_index": 11,
+      "role": "riko",
+      "text": "あ、あ、あっ、タクミさ——またっ——！",
+      "skip_synthesis": false,
+      "novel_line": 1329,
+      "note": ""
+    },
+    {
+      "line_index": 12,
+      "role": "riko",
+      "text": "中にっ……出してっ……もっと、もっとちょうだいっ",
+      "skip_synthesis": false,
+      "novel_line": 1335,
+      "note": ""
+    },
+    {
+      "line_index": 13,
+      "role": "riko",
+      "text": "あっ……蓮……出して、あたしの中に……ぜんぶ",
+      "skip_synthesis": false,
+      "novel_line": 1341,
+      "note": ""
+    },
+    {
+      "line_index": 14,
+      "role": "riko",
+      "text": "あっ……出てる……あったかい……もっと",
+      "skip_synthesis": false,
+      "novel_line": 1345,
+      "note": ""
+    },
+    {
+      "line_index": 15,
+      "role": "riko",
+      "text": "んっ——！",
+      "skip_synthesis": false,
+      "novel_line": 1349,
+      "note": ""
+    },
+    {
+      "line_index": 16,
+      "role": "riko",
+      "text": "あっ——！　また、入って",
+      "skip_synthesis": false,
+      "novel_line": 1355,
+      "note": ""
+    },
+    {
+      "line_index": 17,
+      "role": "riko",
+      "text": "んぁっ……また、きた……おなか、いっぱいなのに……まだ欲しい",
+      "skip_synthesis": false,
+      "novel_line": 1359,
+      "note": ""
+    },
+    {
+      "line_index": 18,
+      "role": "riko",
+      "text": "あっ、あっ、止まらな——またイっ——！",
+      "skip_synthesis": false,
+      "novel_line": 1367,
+      "note": ""
+    },
+    {
+      "line_index": 19,
+      "role": "riko",
+      "text": "いっ……！　ふとい……中、ぱんぱん",
+      "skip_synthesis": false,
+      "novel_line": 1381,
+      "note": ""
+    },
+    {
+      "line_index": 20,
+      "role": "riko",
+      "text": "あ……っ、あ……っ",
+      "skip_synthesis": false,
+      "novel_line": 1389,
+      "note": ""
+    },
+    {
+      "line_index": 21,
+      "role": "riko",
+      "text": "剛さ……中に……ぜんぶ出して……あたしの中、ぜんぶ剛さんので",
+      "skip_synthesis": false,
+      "novel_line": 1393,
+      "note": ""
+    },
+    {
+      "line_index": 22,
+      "role": "riko",
+      "text": "あっ、ああっ——！　いっぱい、出てる、止まらない——！　あたしの中、あふれ",
+      "skip_synthesis": false,
+      "novel_line": 1403,
+      "note": ""
+    },
+    {
+      "line_index": 23,
+      "role": "riko",
+      "text": "……っく、……なんで、泣いてんだろ、あたし……きもちよくて、涙、出る……イきすぎて、涙、出る",
+      "skip_synthesis": false,
+      "novel_line": 1429,
+      "note": ""
+    },
+    {
+      "line_index": 24,
+      "role": "riko",
+      "text": "……だいじょうぶ。気持ちいいなら、泣いていい",
+      "skip_synthesis": false,
+      "novel_line": 1439,
+      "note": ""
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "title": "莉子4作目 朝——おにいさんと二人で",
+  "episode": 13,
+  "character": "riko",
+  "caption": "10歳くらいの女の子の穏やかで幸せそうな声。朝。安心しきっている。甘えた声だが、落ち着いている。笑いながら話している。にこにこしている声。",
+  "hf_checkpoint": "Aratako/Irodori-TTS-500M-v2-VoiceDesign",
+  "no_ref": true,
+  "num_steps": 40,
+  "seconds": 15.0,
+  "cfg_scale_text": 3.0,
+  "cfg_scale_caption": 3.0,
+  "items": [
+    {
+      "line_index": 1,
+      "role": "riko",
+      "text": "……おはよう、おにいさん",
+      "skip_synthesis": false,
+      "novel_line": 1801,
+      "note": ""
+    },
+    {
+      "line_index": 2,
+      "role": "other",
+      "text": "おはよう。最終日だね",
+      "skip_synthesis": true,
+      "novel_line": 1807,
+      "note": "非莉子セリフ（スキップ）"
+    },
+    {
+      "line_index": 3,
+      "role": "riko",
+      "text": "おにいさん……して",
+      "skip_synthesis": false,
+      "novel_line": 1815,
+      "note": ""
+    },
+    {
+      "line_index": 4,
+      "role": "riko",
+      "text": "ゆっくり。優しく。……中に、出してね",
+      "skip_synthesis": false,
+      "novel_line": 1819,
+      "note": ""
+    },
+    {
+      "line_index": 5,
+      "role": "riko",
+      "text": "分かった",
+      "skip_synthesis": false,
+      "novel_line": 1823,
+      "note": ""
+    },
+    {
+      "line_index": 6,
+      "role": "riko",
+      "text": "おにいさん……あたし、この三日間で……変わったかな",
+      "skip_synthesis": false,
+      "novel_line": 1829,
+      "note": ""
+    },
+    {
+      "line_index": 7,
+      "role": "riko",
+      "text": "変わったよ。綺麗になった",
+      "skip_synthesis": false,
+      "novel_line": 1831,
+      "note": ""
+    },
+    {
+      "line_index": 8,
+      "role": "riko",
+      "text": "綺麗……？",
+      "skip_synthesis": false,
+      "novel_line": 1833,
+      "note": ""
+    },
+    {
+      "line_index": 9,
+      "role": "riko",
+      "text": "うん。力が抜けて、柔らかくなった",
+      "skip_synthesis": false,
+      "novel_line": 1835,
+      "note": ""
+    },
+    {
+      "line_index": 10,
+      "role": "riko",
+      "text": "ん……おにいさん……きもちいい……ゆっくりなの、すき……おにいさんの、すき",
+      "skip_synthesis": false,
+      "novel_line": 1841,
+      "note": ""
+    },
+    {
+      "line_index": 11,
+      "role": "riko",
+      "text": "あ……おにいさん……来る……ゆっくり、来てる",
+      "skip_synthesis": false,
+      "novel_line": 1847,
+      "note": ""
+    },
+    {
+      "line_index": 12,
+      "role": "riko",
+      "text": "……出して。おにいさんの、いちばん奥に……ね",
+      "skip_synthesis": false,
+      "novel_line": 1853,
+      "note": ""
+    },
+    {
+      "line_index": 13,
+      "role": "riko",
+      "text": "……ん。あったかい。おにいさんのが、いちばん安心する",
+      "skip_synthesis": false,
+      "novel_line": 1859,
+      "note": ""
+    }
+  ]
+}

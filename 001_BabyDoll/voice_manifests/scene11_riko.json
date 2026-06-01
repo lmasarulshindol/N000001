@@ -1,0 +1,166 @@
+{
+  "title": "莉子4作目 夜——全員集合",
+  "episode": 11,
+  "character": "riko",
+  "caption": "10歳くらいの女の子の完全に蕩けた声。言葉にならない。快感が常態化して、意識が朦朧としている。甘い喘ぎ声と途切れたおねだりだけが残っている。声が裏返ったり、かすれたり、詰まったりする。",
+  "hf_checkpoint": "Aratako/Irodori-TTS-500M-v2-VoiceDesign",
+  "no_ref": true,
+  "num_steps": 40,
+  "seconds": 15.0,
+  "cfg_scale_text": 3.0,
+  "cfg_scale_caption": 3.0,
+  "items": [
+    {
+      "line_index": 1,
+      "role": "other",
+      "text": "莉子ちゃん、大丈夫？　今夜は全員だけど、続けられる？",
+      "skip_synthesis": true,
+      "novel_line": 1519,
+      "note": "非莉子セリフ（スキップ）"
+    },
+    {
+      "line_index": 2,
+      "role": "riko",
+      "text": "……大丈夫。あたしが嫌だったら、ちゃんと言う。——でも、まだ言わない",
+      "skip_synthesis": false,
+      "novel_line": 1523,
+      "note": ""
+    },
+    {
+      "line_index": 3,
+      "role": "riko",
+      "text": "……五人、全員。あたし一人に",
+      "skip_synthesis": false,
+      "novel_line": 1535,
+      "note": ""
+    },
+    {
+      "line_index": 4,
+      "role": "riko",
+      "text": "……来て",
+      "skip_synthesis": false,
+      "novel_line": 1539,
+      "note": ""
+    },
+    {
+      "line_index": 5,
+      "role": "riko",
+      "text": "んっ——あ——っ！",
+      "skip_synthesis": false,
+      "novel_line": 1551,
+      "note": ""
+    },
+    {
+      "line_index": 6,
+      "role": "riko",
+      "text": "中にっ……出してっ",
+      "skip_synthesis": false,
+      "novel_line": 1561,
+      "note": ""
+    },
+    {
+      "line_index": 7,
+      "role": "riko",
+      "text": "もっとちょうだい",
+      "skip_synthesis": false,
+      "novel_line": 1563,
+      "note": ""
+    },
+    {
+      "line_index": 8,
+      "role": "riko",
+      "text": "いっぱい……あたしの中に……ね、ね",
+      "skip_synthesis": false,
+      "novel_line": 1565,
+      "note": ""
+    },
+    {
+      "line_index": 9,
+      "role": "riko",
+      "text": "あ、あっ、んぅ——あっ——ん、んっ",
+      "skip_synthesis": false,
+      "novel_line": 1571,
+      "note": ""
+    },
+    {
+      "line_index": 10,
+      "role": "riko",
+      "text": "ぁ……あったかい……もっと",
+      "skip_synthesis": false,
+      "novel_line": 1587,
+      "note": ""
+    },
+    {
+      "line_index": 11,
+      "role": "riko",
+      "text": "んっ、ああ……出てる……イきながら、出されてる",
+      "skip_synthesis": false,
+      "novel_line": 1597,
+      "note": ""
+    },
+    {
+      "line_index": 12,
+      "role": "riko",
+      "text": "あっ……剛さ……っ",
+      "skip_synthesis": false,
+      "novel_line": 1607,
+      "note": ""
+    },
+    {
+      "line_index": 13,
+      "role": "riko",
+      "text": "あっ……いっぱい……おなか……ぱんぱん",
+      "skip_synthesis": false,
+      "novel_line": 1615,
+      "note": ""
+    },
+    {
+      "line_index": 14,
+      "role": "riko",
+      "text": "もう入んない……のに、もっと欲しい",
+      "skip_synthesis": false,
+      "novel_line": 1619,
+      "note": ""
+    },
+    {
+      "line_index": 15,
+      "role": "riko",
+      "text": "もっと",
+      "skip_synthesis": false,
+      "novel_line": 1625,
+      "note": ""
+    },
+    {
+      "line_index": 16,
+      "role": "riko",
+      "text": "ちょうだい",
+      "skip_synthesis": false,
+      "novel_line": 1625,
+      "note": ""
+    },
+    {
+      "line_index": 17,
+      "role": "riko",
+      "text": "……何回、イったんだろ……何回、出されたんだろ……どっちも数えてない……途中から、ずっとイってた気がする",
+      "skip_synthesis": false,
+      "novel_line": 1635,
+      "note": ""
+    },
+    {
+      "line_index": 18,
+      "role": "riko",
+      "text": "……でも、壊れてない。あたし、まだ、あたしだよ",
+      "skip_synthesis": false,
+      "novel_line": 1639,
+      "note": ""
+    },
+    {
+      "line_index": 19,
+      "role": "riko",
+      "text": "……おやすみ",
+      "skip_synthesis": false,
+      "novel_line": 1645,
+      "note": ""
+    }
+  ]
+}

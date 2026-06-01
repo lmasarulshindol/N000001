@@ -1,0 +1,382 @@
+{
+  "title": "莉子4作目 BBQ——お肉",
+  "episode": 3,
+  "character": "riko",
+  "caption": "10歳くらいの女の子の元気で明るい声。お肉を美味しそうに食べている。口いっぱいに頬張りながら話す。子どもらしい無邪気さ。後半は少し戸惑いながらも受け入れる声色に変わる。",
+  "hf_checkpoint": "Aratako/Irodori-TTS-500M-v2-VoiceDesign",
+  "no_ref": true,
+  "num_steps": 40,
+  "seconds": 15.0,
+  "cfg_scale_text": 3.0,
+  "cfg_scale_caption": 3.0,
+  "items": [
+    {
+      "line_index": 1,
+      "role": "other",
+      "text": "よぉ、莉子。腹減ってんだろ？ いい肉あるぜ",
+      "skip_synthesis": true,
+      "novel_line": 367,
+      "note": "非莉子セリフ（スキップ）"
+    },
+    {
+      "line_index": 2,
+      "role": "riko",
+      "text": "……おにいさん二号",
+      "skip_synthesis": false,
+      "novel_line": 371,
+      "note": ""
+    },
+    {
+      "line_index": 3,
+      "role": "other",
+      "text": "二号ってやめろ。黒川拓海だ。タクミでいい",
+      "skip_synthesis": true,
+      "novel_line": 375,
+      "note": "非莉子セリフ（スキップ）"
+    },
+    {
+      "line_index": 4,
+      "role": "riko",
+      "text": "じゃあタクミさん",
+      "skip_synthesis": false,
+      "novel_line": 377,
+      "note": ""
+    },
+    {
+      "line_index": 5,
+      "role": "riko",
+      "text": "タクミさん、お肉焼いて。あたし、おなかぺこぺこ",
+      "skip_synthesis": false,
+      "novel_line": 381,
+      "note": ""
+    },
+    {
+      "line_index": 6,
+      "role": "other",
+      "text": "おう、任せろ。ちょうど焼けるとこだ",
+      "skip_synthesis": true,
+      "novel_line": 383,
+      "note": "非莉子セリフ（スキップ）"
+    },
+    {
+      "line_index": 7,
+      "role": "other",
+      "text": "初めまして、莉子ちゃん。篠原涼。よろしく",
+      "skip_synthesis": true,
+      "novel_line": 391,
+      "note": "非莉子セリフ（スキップ）"
+    },
+    {
+      "line_index": 8,
+      "role": "riko",
+      "text": "……なんか、静かな人だね",
+      "skip_synthesis": false,
+      "novel_line": 399,
+      "note": ""
+    },
+    {
+      "line_index": 9,
+      "role": "other",
+      "text": "はい、莉子。スペシャルだ",
+      "skip_synthesis": true,
+      "novel_line": 407,
+      "note": "非莉子セリフ（スキップ）"
+    },
+    {
+      "line_index": 10,
+      "role": "riko",
+      "text": "わ——！ すごい！",
+      "skip_synthesis": false,
+      "novel_line": 411,
+      "note": ""
+    },
+    {
+      "line_index": 11,
+      "role": "riko",
+      "text": "んー！ おいしい！ おにく、おいしいー！",
+      "skip_synthesis": false,
+      "novel_line": 417,
+      "note": ""
+    },
+    {
+      "line_index": 12,
+      "role": "riko",
+      "text": "タクミさん、焼き方うまいじゃん。お肉、最高",
+      "skip_synthesis": false,
+      "novel_line": 423,
+      "note": ""
+    },
+    {
+      "line_index": 13,
+      "role": "riko",
+      "text": "焼くのは得意なんだよ",
+      "skip_synthesis": false,
+      "novel_line": 427,
+      "note": ""
+    },
+    {
+      "line_index": 14,
+      "role": "riko",
+      "text": "あっつ——！ でもうま——！",
+      "skip_synthesis": false,
+      "novel_line": 431,
+      "note": ""
+    },
+    {
+      "line_index": 15,
+      "role": "riko",
+      "text": "あ……ありがと、涼さん",
+      "skip_synthesis": false,
+      "novel_line": 435,
+      "note": ""
+    },
+    {
+      "line_index": 16,
+      "role": "riko",
+      "text": "いっぱい食べていいよ。まだたくさんあるから",
+      "skip_synthesis": false,
+      "novel_line": 439,
+      "note": ""
+    },
+    {
+      "line_index": 17,
+      "role": "riko",
+      "text": "おなかいっぱい",
+      "skip_synthesis": false,
+      "novel_line": 453,
+      "note": ""
+    },
+    {
+      "line_index": 18,
+      "role": "other",
+      "text": "まだ食えるだろ？",
+      "skip_synthesis": true,
+      "novel_line": 459,
+      "note": "非莉子セリフ（スキップ）"
+    },
+    {
+      "line_index": 19,
+      "role": "riko",
+      "text": "……タクミさん、手、あったかい",
+      "skip_synthesis": false,
+      "novel_line": 465,
+      "note": ""
+    },
+    {
+      "line_index": 20,
+      "role": "other",
+      "text": "莉子ちゃん、まだデザートがあるよ",
+      "skip_synthesis": true,
+      "novel_line": 473,
+      "note": "非莉子セリフ（スキップ）"
+    },
+    {
+      "line_index": 21,
+      "role": "riko",
+      "text": "デザート？ フルーツ？",
+      "skip_synthesis": false,
+      "novel_line": 477,
+      "note": ""
+    },
+    {
+      "line_index": 22,
+      "role": "riko",
+      "text": "……フルーツも、あるけど",
+      "skip_synthesis": false,
+      "novel_line": 479,
+      "note": ""
+    },
+    {
+      "line_index": 23,
+      "role": "riko",
+      "text": "……デザートって、そっちの意味？",
+      "skip_synthesis": false,
+      "novel_line": 491,
+      "note": ""
+    },
+    {
+      "line_index": 24,
+      "role": "riko",
+      "text": "分かるじゃねぇか",
+      "skip_synthesis": false,
+      "novel_line": 495,
+      "note": ""
+    },
+    {
+      "line_index": 25,
+      "role": "other",
+      "text": "さっきから見てたんだよ。お前が肉にかぶりつく口",
+      "skip_synthesis": true,
+      "novel_line": 503,
+      "note": "非莉子セリフ（スキップ）"
+    },
+    {
+      "line_index": 26,
+      "role": "riko",
+      "text": "——うまそうに食うよな",
+      "skip_synthesis": false,
+      "novel_line": 507,
+      "note": ""
+    },
+    {
+      "line_index": 27,
+      "role": "riko",
+      "text": "……タクミさんのお肉は、焼かなくていいの？",
+      "skip_synthesis": false,
+      "novel_line": 511,
+      "note": ""
+    },
+    {
+      "line_index": 28,
+      "role": "other",
+      "text": "食ってみろよ",
+      "skip_synthesis": true,
+      "novel_line": 519,
+      "note": "非莉子セリフ（スキップ）"
+    },
+    {
+      "line_index": 29,
+      "role": "riko",
+      "text": "ん……んぐ",
+      "skip_synthesis": false,
+      "novel_line": 527,
+      "note": ""
+    },
+    {
+      "line_index": 30,
+      "role": "other",
+      "text": "舌、使え。さっきエビ食った時みたいに",
+      "skip_synthesis": true,
+      "novel_line": 531,
+      "note": "非莉子セリフ（スキップ）"
+    },
+    {
+      "line_index": 31,
+      "role": "other",
+      "text": "こっちも、お願い",
+      "skip_synthesis": true,
+      "novel_line": 539,
+      "note": "非莉子セリフ（スキップ）"
+    },
+    {
+      "line_index": 32,
+      "role": "riko",
+      "text": "ん……んぐ……ふ",
+      "skip_synthesis": false,
+      "novel_line": 549,
+      "note": ""
+    },
+    {
+      "line_index": 33,
+      "role": "riko",
+      "text": "タクミさんの、ふとい……涼さんの、ながい",
+      "skip_synthesis": false,
+      "novel_line": 553,
+      "note": ""
+    },
+    {
+      "line_index": 34,
+      "role": "riko",
+      "text": "もう一回、こっち来い",
+      "skip_synthesis": false,
+      "novel_line": 559,
+      "note": ""
+    },
+    {
+      "line_index": 35,
+      "role": "riko",
+      "text": "んぐっ……んっ……ん",
+      "skip_synthesis": false,
+      "novel_line": 563,
+      "note": ""
+    },
+    {
+      "line_index": 36,
+      "role": "riko",
+      "text": "——飲めよ",
+      "skip_synthesis": false,
+      "novel_line": 569,
+      "note": ""
+    },
+    {
+      "line_index": 37,
+      "role": "riko",
+      "text": "ん——んんっ……！",
+      "skip_synthesis": false,
+      "novel_line": 577,
+      "note": ""
+    },
+    {
+      "line_index": 38,
+      "role": "riko",
+      "text": "……ぷは。タクミさんのお肉、味濃い",
+      "skip_synthesis": false,
+      "novel_line": 587,
+      "note": ""
+    },
+    {
+      "line_index": 39,
+      "role": "other",
+      "text": "莉子ちゃん、こっちも",
+      "skip_synthesis": true,
+      "novel_line": 597,
+      "note": "非莉子セリフ（スキップ）"
+    },
+    {
+      "line_index": 40,
+      "role": "riko",
+      "text": "……上手だね",
+      "skip_synthesis": false,
+      "novel_line": 605,
+      "note": ""
+    },
+    {
+      "line_index": 41,
+      "role": "riko",
+      "text": "ん……んくっ",
+      "skip_synthesis": false,
+      "novel_line": 621,
+      "note": ""
+    },
+    {
+      "line_index": 42,
+      "role": "riko",
+      "text": "……涼さんのは、あっさり味",
+      "skip_synthesis": false,
+      "novel_line": 627,
+      "note": ""
+    },
+    {
+      "line_index": 43,
+      "role": "riko",
+      "text": "……お肉、おなかいっぱい。BBQのも、こっちのも",
+      "skip_synthesis": false,
+      "novel_line": 635,
+      "note": ""
+    },
+    {
+      "line_index": 44,
+      "role": "riko",
+      "text": "おにいさん",
+      "skip_synthesis": false,
+      "novel_line": 639,
+      "note": ""
+    },
+    {
+      "line_index": 45,
+      "role": "riko",
+      "text": "大丈夫。……おにいさんのは、あとで、下から食べるから",
+      "skip_synthesis": false,
+      "novel_line": 643,
+      "note": ""
+    },
+    {
+      "line_index": 46,
+      "role": "riko",
+      "text": "いつでもいいよ",
+      "skip_synthesis": false,
+      "novel_line": 649,
+      "note": ""
+    }
+  ]
+}

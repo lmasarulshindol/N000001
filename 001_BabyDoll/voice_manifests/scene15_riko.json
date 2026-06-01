@@ -1,0 +1,94 @@
+{
+  "title": "莉子4作目 エンディングインタビュー",
+  "episode": 15,
+  "character": "riko",
+  "caption": "10歳くらいの女の子の、はっきりした自信のある声。カメラに向かって宣言している。最初は静かだが、途中から小悪魔モードが復活。いたずらっぽい笑みを含んだ挑発的な口調。舌を出すような軽さ。",
+  "hf_checkpoint": "Aratako/Irodori-TTS-500M-v2-VoiceDesign",
+  "no_ref": true,
+  "num_steps": 40,
+  "seconds": 15.0,
+  "cfg_scale_text": 3.0,
+  "cfg_scale_caption": 3.0,
+  "items": [
+    {
+      "line_index": 1,
+      "role": "other",
+      "text": "莉子ちゃん、三日間お疲れさま。感想は？",
+      "skip_synthesis": true,
+      "novel_line": 2023,
+      "note": "非莉子セリフ（スキップ）"
+    },
+    {
+      "line_index": 2,
+      "role": "riko",
+      "text": "……楽しかった",
+      "skip_synthesis": false,
+      "novel_line": 2033,
+      "note": ""
+    },
+    {
+      "line_index": 3,
+      "role": "riko",
+      "text": "怖いくらい。あたし、こんなに気持ちよくなれるんだって、知らなかった",
+      "skip_synthesis": false,
+      "novel_line": 2037,
+      "note": ""
+    },
+    {
+      "line_index": 4,
+      "role": "riko",
+      "text": "仮面外して三日間過ごして……分かったことがある",
+      "skip_synthesis": false,
+      "novel_line": 2041,
+      "note": ""
+    },
+    {
+      "line_index": 5,
+      "role": "riko",
+      "text": "あたし、エッチ好きだよ",
+      "skip_synthesis": false,
+      "novel_line": 2043,
+      "note": ""
+    },
+    {
+      "line_index": 6,
+      "role": "riko",
+      "text": "……もう認める。好き。気持ちいいのが好き。中に出されるのが好き。イくのが好き。何回イったか数えらんなくなるくらい。『もっとちょうだい』って自分から言ってた。何回出されたか数えらんなくなるくらい。——それが、あたし",
+      "skip_synthesis": false,
+      "novel_line": 2047,
+      "note": ""
+    },
+    {
+      "line_index": 7,
+      "role": "riko",
+      "text": "でもね。これは仕事でもある。好きだから頑張れる。好きだから上手くなれる。……矛盾してないよね？",
+      "skip_synthesis": false,
+      "novel_line": 2051,
+      "note": ""
+    },
+    {
+      "line_index": 8,
+      "role": "riko",
+      "text": "……ね、見てたおじさんたち",
+      "skip_synthesis": false,
+      "novel_line": 2055,
+      "note": ""
+    },
+    {
+      "line_index": 9,
+      "role": "riko",
+      "text": "これが素のあたし。三日間の、全部。——高かったでしょ、この映像。元は取れた？",
+      "skip_synthesis": false,
+      "novel_line": 2059,
+      "note": ""
+    },
+    {
+      "line_index": 10,
+      "role": "riko",
+      "text": "じゃあね。また会おうね",
+      "skip_synthesis": false,
+      "novel_line": 2063,
+      "note": ""
+    }
+  ]
+}
