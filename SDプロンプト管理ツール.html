@@ -134,6 +134,43 @@
   .row2 > div { flex: 1; }
   label.lblsmall { font-size: 11px; color: var(--sub); display:block; margin-bottom:4px; }
   .hidden { display: none !important; }
+
+  /* 人物プリセット */
+  .preset {
+    background: var(--panel2); border: 1px solid var(--line);
+    border-radius: 8px; padding: 9px 11px; margin-bottom: 7px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .preset .pname { font-weight: 600; font-size: 13px; flex: 1; }
+  .preset .ptag { font-size: 10px; color: var(--sub); background:#0f1014; border-radius:10px; padding:1px 7px; }
+  .preset .pbtns { display: flex; gap: 5px; }
+  .preset button { padding: 4px 9px; font-size: 11px; }
+  .preset .apply { background: var(--accent); border-color: var(--accent); color:#fff; font-weight:600; }
+  .preset .apply:hover { background:#ff7099; }
+  .preset-empty { color: var(--sub); font-size: 12px; text-align:center; padding: 8px; }
+
+  /* モーダル */
+  .modal-bg {
+    position: fixed; inset: 0; background: rgba(0,0,0,.6); z-index: 80;
+    display: none; align-items: center; justify-content: center; padding: 20px;
+  }
+  .modal-bg.show { display: flex; }
+  .modal {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
+    width: 560px; max-width: 100%; max-height: 88vh; overflow-y: auto; padding: 20px;
+  }
+  .modal h2 { margin: 0 0 14px; font-size: 16px; }
+  .modal label { display: block; font-size: 12px; color: var(--sub); margin: 12px 0 5px; }
+  .modal input[type=text], .modal textarea {
+    width: 100%; background: #0f1014; border: 1px solid var(--line); color: var(--txt);
+    padding: 9px 11px; border-radius: 8px; outline: none; font-size: 13px;
+  }
+  .modal input[type=text]:focus, .modal textarea:focus { border-color: var(--accent2); }
+  .modal textarea { font-family: "Consolas", monospace; font-size: 12.5px; line-height: 1.5; resize: vertical; }
+  .modal .hint { font-size: 11px; color: var(--sub); margin-top: 4px; }
+  .modal-actions { display: flex; gap: 8px; margin-top: 18px; }
+  .modal-actions .spacer { flex: 1; }
+
   footer { text-align: center; color: var(--sub); font-size: 11px; padding: 20px; }
   @media (max-width: 900px) {
     .layout { flex-direction: column; }
@@ -166,6 +203,30 @@
       </div>
       <div class="meta"><span id="selCount">0</span> 個選択中 ・ <span id="charCount">0</span> 文字</div>
       <div class="chips" id="chips"></div>
+    </div>
+
+    <div class="side-card">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <h2 style="margin:0;">👤 人物プリセット</h2>
+        <button id="addPreset" style="margin-left:auto;padding:4px 10px;font-size:12px;">＋ 新規</button>
+      </div>
+      <div class="row2" style="margin-bottom:8px;">
+        <div>
+          <label class="lblsmall">適用方法</label>
+          <select id="applyMode" class="search" style="width:100%;border-radius:8px;">
+            <option value="replace">置換（選択を入れ替え）</option>
+            <option value="append">追加（現在の選択に足す）</option>
+          </select>
+        </div>
+        <div>
+          <label class="lblsmall">ネガ</label>
+          <select id="applyNeg" class="search" style="width:100%;border-radius:8px;">
+            <option value="yes">プリセットのネガを反映</option>
+            <option value="no">ネガは変更しない</option>
+          </select>
+        </div>
+      </div>
+      <div id="presetList"></div>
     </div>
 
     <div class="side-card">
@@ -203,8 +264,30 @@
   </div>
 </div>
 
-<footer>ローカル動作 / 選択状態は自動保存されます (localStorage)</footer>
+<footer>ローカル動作 / 選択状態・人物プリセットは自動保存されます (localStorage)</footer>
 <div class="toast" id="toast">コピーしました！</div>
+
+<div class="modal-bg" id="modalBg">
+  <div class="modal">
+    <h2 id="modalTitle">人物プリセットを追加</h2>
+    <input type="hidden" id="editId">
+    <label>プリセット名</label>
+    <input type="text" id="pName" placeholder="例: 莉子（BabyDoll）">
+    <label>外見・識別プロンプト (Positive)</label>
+    <textarea id="pPositive" rows="6" placeholder="カンマ区切りで入力 (例: 1girl, very petite, pink blonde hair, ...)"></textarea>
+    <div class="hint">カンマ「,」区切り。適用するとここのタグが選択に反映されます。</div>
+    <label>ネガティブプロンプト (任意)</label>
+    <textarea id="pNegative" rows="3" placeholder="そのキャラ専用のネガティブ (任意)"></textarea>
+    <label>メモ (任意)</label>
+    <input type="text" id="pNote" placeholder="例: 身長133cm・小柄・小悪魔系">
+    <div class="modal-actions">
+      <button id="presetDelete" class="warn" style="display:none;">削除</button>
+      <div class="spacer"></div>
+      <button id="modalCancel">キャンセル</button>
+      <button id="presetSave" class="primary">保存</button>
+    </div>
+  </div>
+</div>
 
 <script>
 // ====== プロンプトデータ (日本語ラベル : 英語プロンプト) ======
@@ -250,6 +333,11 @@ const DATA = [
     ["制服","school uniform"],["メイド服","maid outfit"],["バニー","bunny suit"],
     ["浴衣","yukata"],["着衣","clothed"],["脱ぎかけ","undressing"],["はだけた胸","exposed breasts"],
     ["透け","see-through"],["ボンデージ","bondage outfit"],
+    ["白ビキニ","white bikini"],["三角ビキニ","string bikini"],["マイクロビキニ","micro bikini"],
+    ["水色ビキニ","light blue bikini"],["濡れた水着","wet swimsuit"],["濡れ透け水着","wet, see-through swimsuit"],
+    ["ずらした水着","bikini aside"],["白ワンピ","white sundress"],["サンドレス","sundress"],
+    ["バスローブ","bathrobe"],["ぶかぶかバスローブ","oversized bathrobe, off shoulder"],
+    ["サンダル","sandals"],["キャップ","baseball cap"],["麦わら帽子","sun hat"],
   ]},
   { name: "場所・背景", items: [
     ["寝室","bedroom"],["ベッドの上","on bed"],["ソファ","on couch"],["浴室","bathroom"],
@@ -279,6 +367,8 @@ const DATA = [
     ["舌出し","tongue out"],["目を閉じる","closed eyes"],["上目遣い","looking up"],
     ["流し目","seductive look"],["微笑み","smile"],["恥じらい","shy"],
     ["悶える","writhing in pleasure"],["放心","dazed"],["白目","rolling eyes"],
+    ["快感の涙","crying with pleasure"],["笑顔で絶頂","happy sex, smile"],
+    ["連続絶頂","multiple orgasms"],["イキ過ぎて放心","fucked silly"],
   ]},
   { name: "体の反応", items: [
     ["頬染め","blush"],["汗","sweat"],["大量の汗","heavy sweat"],["涙","tears"],
@@ -300,6 +390,31 @@ const DATA = [
     ["シネマティック","cinematic lighting"],["映画的","movie still"],
     ["水彩風","watercolor"],["厚塗り","thick painting"],["写実的","realistic"],
     ["やわらかい影","soft shadows"],
+  ]},
+  { name: "ロケ・南国旅行 (4作目)", items: [
+    ["プライベートビーチ","private beach"],["白い砂浜","white sand beach"],
+    ["波打ち際","ocean, water"],["海の中","partially submerged, ocean"],
+    ["青空","blue sky"],["真っ青な空","clear sky"],["プールサイド","poolside"],
+    ["プールの中","in pool, water"],["浮き輪","innertube, floating"],
+    ["デッキチェア","deck chair, beach chair"],["BBQ・炭火の夜","barbecue, bonfire, night"],
+    ["ヴィラのテラス","villa terrace, ocean view"],["夕焼けのビーチ","sunset, beach"],
+    ["高級ヴィラ寝室","luxurious bedroom"],["大きなソファ","on couch"],
+    ["キングサイズベッド","large bed, white sheets"],["ガラス張りシャワー","shower, glass, wet, water drops"],
+    ["月明かりの寝室","moonlight, bedroom, night, dim"],["固定カメラ視点","recording, pov"],
+    ["南国・常夏","tropical, summer"],["椰子の木","palm tree"],
+  ]},
+  { name: "複数プレイ・gangbang (4作目)", items: [
+    ["輪姦","gangbang"],["集団セックス","group sex"],["3P(男2)","mmf threesome"],
+    ["複数の男","multiple boys"],["大人数(男たち)","6+boys"],["顔のない男","faceless male"],
+    ["ダブルフェラ","multiple fellatio"],["二本同時手コキ","double handjob, two penises"],
+    ["前後責め","spitroast"],["複数の手で愛撫","multiple hands"],
+    ["口内射精","cum in mouth"],["飲精","cum swallowing, cum in mouth"],
+    ["膣内射精(中出し)","cum in pussy"],["連続中出し","multiple creampies"],
+    ["大量中出し","excessive cum, cum in pussy"],["溢れる精液","cum overflow, overflow"],
+    ["精液まみれ(事後)","after sex, cum on body"],["太ももを伝う精液","cum on thighs, cum drip"],
+    ["顔・口に糸引き","saliva trail, cum string"],["駅弁・抱え上げ","carried sex, suspended"],
+    ["体格差","size difference"],["年齢差","age difference"],
+    ["筋肉質な男","muscular male"],["大柄な男","large man"],["逆光のシルエット","silhouette, backlighting"],
   ]},
 ];
 
@@ -492,9 +607,169 @@ function showToast(msg){
   toastTimer = setTimeout(() => t.classList.remove("show"), 1600);
 }
 
+// ====== 人物プリセット ======
+const PRESET_KEY = "sd_presets_v1";
+// 組み込みデフォルト（莉子 / BabyDoll の確定設定）
+const DEFAULT_PRESETS = [
+  {
+    id: "riko",
+    name: "莉子（BabyDoll）",
+    note: "身長133cm・小柄華奢・小悪魔系・イメージカラーはピンク",
+    positive: "1girl, solo, very petite, short stature (133cm), small delicate frame, pink blonde hair, shoulder-length mid-wavy hair, soft bouncy hair tips, sparkling aqua blue eyes, mischievous upward glance, pale porcelain skin, flat chest, narrow hips, pink sheer chiffon babydoll lingerie, translucent fabric, lace and ribbon trim, playful smirk",
+    negative: "lowres, bad anatomy, extra fingers, jewelry on ear, earrings, piercing, tattoo, muscular, mature body, large breasts, tall, adult woman",
+  },
+  {
+    id: "riko_ep4",
+    name: "莉子4作目（南国・輪姦）",
+    note: "白ビキニ／南国ビーチ・ヴィラ／複数の男に囲まれて連続中出し",
+    positive: "masterpiece, best quality, ultra-detailed, 8k, 1girl, multiple boys, very petite, short stature (133cm), small delicate frame, pink blonde hair, shoulder-length mid-wavy hair, sparkling aqua blue eyes, pale porcelain skin, flat chest, narrow hips, white string bikini, wet swimsuit, see-through, white sand beach, ocean, blue sky, sunlight, gangbang, group sex, faceless male, size difference, age difference, cum in pussy, multiple creampies, cum overflow, cum on body, ahegao, crying with pleasure, tears, drooling, open mouth, blush, heavy sweat",
+    negative: "lowres, bad anatomy, extra fingers, jewelry on ear, earrings, piercing, tattoo, mature body, large breasts, tall, adult woman, solo",
+  },
+];
+
+let presets = [];
+
+function loadPresets(){
+  try {
+    const saved = JSON.parse(localStorage.getItem(PRESET_KEY) || "null");
+    if (saved && Array.isArray(saved)) { presets = saved; }
+    else { presets = JSON.parse(JSON.stringify(DEFAULT_PRESETS)); }
+  } catch(e){ presets = JSON.parse(JSON.stringify(DEFAULT_PRESETS)); }
+  // 組み込みプリセットの補完（既存ユーザーにも未追加のデフォルトを足す）
+  DEFAULT_PRESETS.forEach(dp => {
+    if (!presets.some(p => p.id === dp.id)) presets.push(JSON.parse(JSON.stringify(dp)));
+  });
+  savePresets();
+}
+function savePresets(){ localStorage.setItem(PRESET_KEY, JSON.stringify(presets)); }
+
+function renderPresets(){
+  const list = document.getElementById("presetList");
+  list.innerHTML = "";
+  if (!presets.length){
+    list.innerHTML = '<div class="preset-empty">プリセットがありません。「＋ 新規」で追加してください。</div>';
+    return;
+  }
+  presets.forEach(p => {
+    const tagCount = splitPrompt(p.positive).length;
+    const row = document.createElement("div");
+    row.className = "preset";
+    row.innerHTML = `
+      <div style="flex:1;min-width:0;">
+        <div class="pname">${escapeHtml(p.name)} <span class="ptag">${tagCount}語</span></div>
+        ${p.note ? `<div class="en" style="font-size:11px;color:var(--sub);">${escapeHtml(p.note)}</div>` : ""}
+      </div>
+      <div class="pbtns">
+        <button class="apply" data-id="${p.id}">適用</button>
+        <button class="edit" data-id="${p.id}">編集</button>
+      </div>`;
+    row.querySelector(".apply").addEventListener("click", () => applyPreset(p.id));
+    row.querySelector(".edit").addEventListener("click", () => openModal(p.id));
+    list.appendChild(row);
+  });
+}
+
+function splitPrompt(str){
+  return (str || "").split(",").map(s => s.trim()).filter(Boolean);
+}
+function escapeHtml(s){
+  return (s||"").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+// 日本語ラベル逆引き（既存タグなら日本語名を使う）
+function jaLabelFor(en){
+  for (const cat of DATA){
+    const hit = cat.items.find(([ja, e]) => e === en);
+    if (hit) return hit[0];
+  }
+  return en;
+}
+
+function applyPreset(id){
+  const p = presets.find(x => x.id === id);
+  if (!p) return;
+  const mode = document.getElementById("applyMode").value;
+  const tags = splitPrompt(p.positive);
+  if (mode === "replace") {
+    selected = [];
+    document.querySelectorAll(".tag.on").forEach(t => t.classList.remove("on"));
+  }
+  tags.forEach(en => {
+    if (!selected.some(s => s.en === en)) {
+      selected.push({ ja: jaLabelFor(en), en });
+      const tag = document.querySelector(`.tag[data-en="${CSS.escape(en)}"]`);
+      tag && tag.classList.add("on");
+    }
+  });
+  if (document.getElementById("applyNeg").value === "yes" && p.negative) {
+    document.getElementById("negative").value = p.negative;
+  }
+  refresh();
+  showToast(`「${p.name}」を${mode === "replace" ? "適用" : "追加"}しました`);
+}
+
+// ---- モーダル制御 ----
+const modalBg = document.getElementById("modalBg");
+function openModal(id){
+  const editing = !!id;
+  const p = editing ? presets.find(x => x.id === id) : null;
+  document.getElementById("modalTitle").textContent = editing ? "人物プリセットを編集" : "人物プリセットを追加";
+  document.getElementById("editId").value = editing ? id : "";
+  document.getElementById("pName").value = p ? p.name : "";
+  document.getElementById("pPositive").value = p ? p.positive : "";
+  document.getElementById("pNegative").value = p ? (p.negative || "") : "";
+  document.getElementById("pNote").value = p ? (p.note || "") : "";
+  document.getElementById("presetDelete").style.display = editing ? "inline-block" : "none";
+  modalBg.classList.add("show");
+  document.getElementById("pName").focus();
+}
+function closeModal(){ modalBg.classList.remove("show"); }
+
+document.getElementById("addPreset").addEventListener("click", () => openModal(null));
+document.getElementById("modalCancel").addEventListener("click", closeModal);
+modalBg.addEventListener("click", e => { if (e.target === modalBg) closeModal(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && modalBg.classList.contains("show")) closeModal(); });
+
+document.getElementById("presetSave").addEventListener("click", () => {
+  const name = document.getElementById("pName").value.trim();
+  const positive = document.getElementById("pPositive").value.trim();
+  if (!name){ showToast("プリセット名を入力してください"); return; }
+  if (!positive){ showToast("Positiveプロンプトを入力してください"); return; }
+  const id = document.getElementById("editId").value;
+  const data = {
+    name, positive,
+    negative: document.getElementById("pNegative").value.trim(),
+    note: document.getElementById("pNote").value.trim(),
+  };
+  if (id){
+    const p = presets.find(x => x.id === id);
+    Object.assign(p, data);
+  } else {
+    data.id = "p_" + Date.now().toString(36);
+    presets.push(data);
+  }
+  savePresets();
+  renderPresets();
+  closeModal();
+  showToast("プリセットを保存しました");
+});
+
+document.getElementById("presetDelete").addEventListener("click", () => {
+  const id = document.getElementById("editId").value;
+  const p = presets.find(x => x.id === id);
+  if (!p) return;
+  if (!confirm(`プリセット「${p.name}」を削除しますか？`)) return;
+  presets = presets.filter(x => x.id !== id);
+  savePresets();
+  renderPresets();
+  closeModal();
+  showToast("プリセットを削除しました");
+});
+
 // ====== 初期化 ======
 loadState();
 buildCats();
+loadPresets();
+renderPresets();
 refresh();
 </script>
 </body>
