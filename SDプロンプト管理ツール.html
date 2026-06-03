@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SD プロンプト管理ツール</title>
+<style>
+  :root {
+    --bg: #14151a;
+    --panel: #1d1f27;
+    --panel2: #262934;
+    --line: #343845;
+    --txt: #e8eaf0;
+    --sub: #9aa0b0;
+    --accent: #ff5a8a;
+    --accent2: #6c8cff;
+    --on: #ff5a8a;
+    --radius: 10px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Segoe UI", "Meiryo", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--txt);
+    font-size: 14px;
+  }
+  header {
+    position: sticky; top: 0; z-index: 30;
+    background: linear-gradient(180deg, #1d1f27 0%, #1a1c23 100%);
+    border-bottom: 1px solid var(--line);
+    padding: 12px 18px;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 12px;
+  }
+  header h1 { font-size: 17px; margin: 0; letter-spacing: .5px; }
+  header .spacer { flex: 1; }
+  .toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .search {
+    background: var(--panel2); border: 1px solid var(--line); color: var(--txt);
+    padding: 7px 12px; border-radius: 20px; outline: none; width: 200px;
+  }
+  .search:focus { border-color: var(--accent2); }
+  button {
+    background: var(--panel2); border: 1px solid var(--line); color: var(--txt);
+    padding: 7px 14px; border-radius: 8px; cursor: pointer; font-size: 13px;
+    transition: .12s;
+  }
+  button:hover { border-color: var(--accent2); background: #2f3340; }
+  button.primary { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+  button.primary:hover { background: #ff7099; }
+  button.warn:hover { border-color: #ff6b6b; color: #ff9a9a; }
+
+  .layout { display: flex; align-items: flex-start; gap: 16px; padding: 16px; }
+  .main { flex: 1; min-width: 0; }
+  .side {
+    width: 360px; flex-shrink: 0; position: sticky; top: 70px;
+  }
+
+  .cat {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: var(--radius); margin-bottom: 14px; overflow: hidden;
+  }
+  .cat-head {
+    display: flex; align-items: center; gap: 10px;
+    padding: 11px 14px; cursor: pointer; user-select: none;
+    background: var(--panel2);
+  }
+  .cat-head:hover { background: #2c3040; }
+  .cat-head .ttl { font-weight: 600; font-size: 14px; }
+  .cat-head .cnt { font-size: 12px; color: var(--sub); }
+  .cat-head .badge {
+    margin-left: auto; background: var(--accent); color: #fff;
+    border-radius: 12px; padding: 1px 9px; font-size: 11px; font-weight: 700;
+    min-width: 20px; text-align: center; display: none;
+  }
+  .cat-head .badge.show { display: inline-block; }
+  .cat-head .arrow { color: var(--sub); transition: .15s; }
+  .cat.collapsed .arrow { transform: rotate(-90deg); }
+  .cat.collapsed .tags { display: none; }
+  .tags { display: flex; flex-wrap: wrap; gap: 7px; padding: 13px; }
+  .tag {
+    border: 1px solid var(--line); background: var(--panel2);
+    border-radius: 8px; padding: 6px 11px; cursor: pointer; user-select: none;
+    display: flex; flex-direction: column; line-height: 1.25; transition: .1s;
+  }
+  .tag:hover { border-color: var(--accent2); }
+  .tag.on {
+    background: rgba(255,90,138,.16); border-color: var(--accent);
+  }
+  .tag .ja { font-size: 13px; }
+  .tag .en { font-size: 11px; color: var(--sub); }
+  .tag.on .en { color: var(--accent); }
+
+  .side-card {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 14px; margin-bottom: 14px;
+  }
+  .side-card h2 {
+    font-size: 13px; margin: 0 0 10px; color: var(--sub);
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  textarea {
+    width: 100%; background: #0f1014; border: 1px solid var(--line);
+    color: var(--txt); border-radius: 8px; padding: 10px; resize: vertical;
+    font-family: "Consolas", monospace; font-size: 12.5px; line-height: 1.5;
+    outline: none;
+  }
+  textarea:focus { border-color: var(--accent2); }
+  .out-actions { display: flex; gap: 8px; margin-top: 9px; }
+  .out-actions button { flex: 1; }
+  .meta { font-size: 11px; color: var(--sub); margin-top: 8px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; min-height: 8px; }
+  .chip {
+    background: rgba(108,140,255,.15); border: 1px solid #3a4256;
+    color: #b9c4ff; border-radius: 14px; padding: 3px 9px; font-size: 11px;
+    cursor: pointer; display: flex; gap: 5px; align-items: center;
+  }
+  .chip:hover { border-color: #ff6b6b; color: #ffb3b3; }
+  .chip .x { opacity: .6; }
+  .custom-row { display: flex; gap: 6px; margin-top: 8px; }
+  .custom-row input {
+    flex: 1; background: #0f1014; border: 1px solid var(--line); color: var(--txt);
+    padding: 7px 10px; border-radius: 8px; outline: none;
+  }
+  .custom-row input:focus { border-color: var(--accent2); }
+  .toast {
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(20px);
+    background: var(--accent); color: #fff; padding: 11px 22px; border-radius: 24px;
+    font-weight: 600; opacity: 0; pointer-events: none; transition: .25s; z-index: 99;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  .neg textarea { border-color: #5a3a3a; }
+  .row2 { display: flex; gap: 8px; }
+  .row2 > div { flex: 1; }
+  label.lblsmall { font-size: 11px; color: var(--sub); display:block; margin-bottom:4px; }
+  .hidden { display: none !important; }
+  footer { text-align: center; color: var(--sub); font-size: 11px; padding: 20px; }
+  @media (max-width: 900px) {
+    .layout { flex-direction: column; }
+    .side { width: 100%; position: static; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>🎨 SD プロンプト管理ツール</h1>
+  <input type="text" id="search" class="search" placeholder="🔍 タグ検索 (日本語/英語)">
+  <div class="spacer"></div>
+  <div class="toolbar">
+    <button id="expandAll">全て展開</button>
+    <button id="collapseAll">全て折りたたみ</button>
+    <button id="clearAll" class="warn">全選択解除</button>
+  </div>
+</header>
+
+<div class="layout">
+  <div class="main" id="catContainer"></div>
+
+  <div class="side">
+    <div class="side-card">
+      <h2>出力プロンプト</h2>
+      <textarea id="output" rows="8" placeholder="タグを選択するとここに表示されます"></textarea>
+      <div class="out-actions">
+        <button class="primary" id="copyBtn">📋 コピー</button>
+        <button id="copyNegBtn">ネガコピー</button>
+      </div>
+      <div class="meta"><span id="selCount">0</span> 個選択中 ・ <span id="charCount">0</span> 文字</div>
+      <div class="chips" id="chips"></div>
+    </div>
+
+    <div class="side-card">
+      <h2>出力オプション</h2>
+      <div class="row2" style="margin-bottom:8px;">
+        <div>
+          <label class="lblsmall">区切り文字</label>
+          <select id="sep" class="search" style="width:100%;border-radius:8px;">
+            <option value=", ">, (カンマ)</option>
+            <option value=",">,(スペースなし)</option>
+            <option value="\n">改行</option>
+          </select>
+        </div>
+        <div>
+          <label class="lblsmall">出力</label>
+          <select id="lang" class="search" style="width:100%;border-radius:8px;">
+            <option value="en">英語のみ</option>
+            <option value="enja">英語 (日本語)</option>
+          </select>
+        </div>
+      </div>
+      <div class="custom-row">
+        <input type="text" id="customInput" placeholder="自由タグを追加 (例: 1girl)">
+        <button id="addCustom">追加</button>
+      </div>
+    </div>
+
+    <div class="side-card neg">
+      <h2>ネガティブプロンプト</h2>
+      <textarea id="negative" rows="4"></textarea>
+      <div class="out-actions">
+        <button id="negPreset">標準プリセット挿入</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>ローカル動作 / 選択状態は自動保存されます (localStorage)</footer>
+<div class="toast" id="toast">コピーしました！</div>
+
+<script>
+// ====== プロンプトデータ (日本語ラベル : 英語プロンプト) ======
+const DATA = [
+  { name: "品質・基本", items: [
+    ["masterpiece","masterpiece"],["最高品質","best quality"],["超高精細","ultra-detailed"],
+    ["高解像度","highres"],["8k","8k"],["精細な肌","detailed skin"],["美しい照明","beautiful lighting"],
+    ["フォトリアル","photorealistic"],["アニメ調","anime style"],["イラスト","illustration"],
+    ["繊細な作画","intricate details"],["被写界深度","depth of field"],
+  ]},
+  { name: "人数構成", items: [
+    ["女性1人","1girl"],["男性1人","1boy"],["女2人","2girls"],["男2人","2boys"],
+    ["女1男1","1boy, 1girl"],["女2男1","2girls, 1boy"],["女1男2","1girl, 2boys"],
+    ["複数人","multiple people"],["solo","solo"],["カップル","couple"],
+    ["集団","group"],["男だけ視点","pov male"],
+  ]},
+  { name: "年齢・体型", items: [
+    ["成人女性","mature female"],["若い女性","young woman"],["お姉さん","onee-san"],
+    ["スレンダー","slim"],["グラマー","curvy"],["むっちり","plump"],["小柄","petite"],
+    ["長身","tall"],["筋肉質","muscular"],["細身の男性","slim man"],["ガタイの良い男性","large man"],
+  ]},
+  { name: "髪", items: [
+    ["黒髪","black hair"],["茶髪","brown hair"],["金髪","blonde hair"],["銀髪","silver hair"],
+    ["赤髪","red hair"],["青髪","blue hair"],["ピンク髪","pink hair"],
+    ["ロング","long hair"],["セミロング","medium hair"],["ショート","short hair"],
+    ["ツインテール","twintails"],["ポニーテール","ponytail"],["ボブ","bob cut"],
+    ["前髪","blunt bangs"],["濡れ髪","wet hair"],["乱れ髪","messy hair"],
+  ]},
+  { name: "目・顔", items: [
+    ["青い目","blue eyes"],["緑の目","green eyes"],["茶色の目","brown eyes"],["赤い目","red eyes"],
+    ["金色の目","golden eyes"],["大きな瞳","large eyes"],["半目","half-closed eyes"],
+    ["とろけた目","seductive eyes"],["うるんだ瞳","teary eyes"],["美しい顔","beautiful face"],
+  ]},
+  { name: "胸・体の特徴", items: [
+    ["小さい胸","small breasts"],["普通の胸","medium breasts"],["大きい胸","large breasts"],
+    ["巨乳","huge breasts"],["美乳","perfect breasts"],["くびれ","narrow waist"],
+    ["桃尻","large ass"],["美脚","beautiful legs"],["太もも","thighs"],
+    ["うなじ","nape"],["鎖骨","collarbone"],["へそ","navel"],["汗ばんだ肌","sweaty skin"],
+  ]},
+  { name: "服装・露出", items: [
+    ["全裸","nude"],["半裸","topless"],["下着","lingerie"],["ブラ","bra"],["パンティ","panties"],
+    ["ガーターベルト","garter belt"],["ニーソックス","thighhighs"],["はだけた服","open clothes"],
+    ["制服","school uniform"],["メイド服","maid outfit"],["バニー","bunny suit"],
+    ["浴衣","yukata"],["着衣","clothed"],["脱ぎかけ","undressing"],["はだけた胸","exposed breasts"],
+    ["透け","see-through"],["ボンデージ","bondage outfit"],
+  ]},
+  { name: "場所・背景", items: [
+    ["寝室","bedroom"],["ベッドの上","on bed"],["ソファ","on couch"],["浴室","bathroom"],
+    ["風呂場","bath"],["教室","classroom"],["保健室","infirmary"],["ホテル","hotel room"],
+    ["和室","japanese room"],["屋外","outdoors"],["森の中","forest"],["ビーチ","beach"],
+    ["プール","pool"],["電車内","train interior"],["オフィス","office"],
+    ["車内","car interior"],["更衣室","locker room"],["薄暗い部屋","dimly lit room"],
+  ]},
+  { name: "体位", items: [
+    ["正常位","missionary"],["騎乗位","cowgirl position"],["背面騎乗位","reverse cowgirl"],
+    ["後背位","doggystyle"],["立ちバック","standing sex"],["側位","spooning"],
+    ["駅弁","suspended congress"],["対面座位","sitting sex"],["寝バック","prone bone"],
+    ["足コキ","footjob"],["手コキ","handjob"],["フェラ","oral"],["パイズリ","paizuri"],
+    ["クンニ","cunnilingus"],["素股","intergluteal sex"],["指入れ","fingering"],
+    ["M字開脚","spread legs"],["開脚","legs spread"],["四つん這い","all fours"],
+  ]},
+  { name: "行為・状況", items: [
+    ["セックス","sex"],["挿入","penetration"],["挿入中","vaginal"],["フィニッシュ","orgasm"],
+    ["中出し","creampie"],["顔射","facial"],["射精","ejaculation"],["前戯","foreplay"],
+    ["キス","kiss"],["ディープキス","french kiss"],["愛撫","caressing"],["乳揉み","grabbing breasts"],
+    ["抱き合う","hug"],["押し倒し","pinned down"],["拘束","restrained"],["複数プレイ","group sex"],
+    ["自慰","masturbation"],["羞恥","embarrassed"],
+  ]},
+  { name: "表情", items: [
+    ["恍惚","ecstasy"],["快感の表情","pleasure expression"],["とろけ顔","ahegao"],
+    ["紅潮","blush"],["涙目","tears"],["喘ぎ","moaning"],["口を開ける","open mouth"],
+    ["舌出し","tongue out"],["目を閉じる","closed eyes"],["上目遣い","looking up"],
+    ["流し目","seductive look"],["微笑み","smile"],["恥じらい","shy"],
+    ["悶える","writhing in pleasure"],["放心","dazed"],["白目","rolling eyes"],
+  ]},
+  { name: "体の反応", items: [
+    ["頬染め","blush"],["汗","sweat"],["大量の汗","heavy sweat"],["涙","tears"],
+    ["よだれ","drooling"],["紅潮した肌","flushed skin"],["鳥肌","goosebumps"],
+    ["体液","bodily fluids"],["愛液","pussy juice"],["濡れた股間","wet pussy"],
+    ["精液","cum"],["糸引き","saliva trail"],["震える脚","trembling legs"],
+    ["反り返る","arched back"],["力む手","clenched hands"],["つま先","curled toes"],
+    ["乳首勃起","erect nipples"],["息切れ","panting"],
+  ]},
+  { name: "アングル・構図", items: [
+    ["俯瞰","from above"],["煽り","from below"],["真横","from side"],["背後から","from behind"],
+    ["クローズアップ","close-up"],["全身","full body"],["上半身","upper body"],
+    ["顔アップ","face focus"],["股間アップ","crotch focus"],["主観視点","pov"],
+    ["ダイナミックアングル","dynamic angle"],["広角","wide shot"],
+  ]},
+  { name: "照明・画風", items: [
+    ["やわらかい光","soft lighting"],["逆光","backlighting"],["夕暮れ","sunset light"],
+    ["夜","night"],["ろうそくの光","candlelight"],["ネオン","neon lights"],
+    ["シネマティック","cinematic lighting"],["映画的","movie still"],
+    ["水彩風","watercolor"],["厚塗り","thick painting"],["写実的","realistic"],
+    ["やわらかい影","soft shadows"],
+  ]},
+];
+
+// 標準ネガティブプリセット
+const NEG_PRESET = "lowres, bad anatomy, bad hands, missing fingers, extra digit, fewer digits, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry, deformed, mutated, bad proportions, extra limbs, malformed";
+
+// ====== 状態 ======
+const STORE_KEY = "sd_prompt_tool_v1";
+let selected = []; // {ja, en}
+let openState = {}; // catName -> bool(collapsed)
+
+function loadState(){
+  try {
+    const s = JSON.parse(localStorage.getItem(STORE_KEY) || "{}");
+    selected = s.selected || [];
+    openState = s.open || {};
+    if (s.negative !== undefined) document.getElementById("negative").value = s.negative;
+    if (s.sep) document.getElementById("sep").value = s.sep;
+    if (s.lang) document.getElementById("lang").value = s.lang;
+  } catch(e){}
+}
+function saveState(){
+  localStorage.setItem(STORE_KEY, JSON.stringify({
+    selected, open: openState,
+    negative: document.getElementById("negative").value,
+    sep: document.getElementById("sep").value,
+    lang: document.getElementById("lang").value,
+  }));
+}
+
+// ====== 描画 ======
+const container = document.getElementById("catContainer");
+function buildCats(){
+  container.innerHTML = "";
+  DATA.forEach(cat => {
+    const collapsed = openState[cat.name] === true;
+    const div = document.createElement("div");
+    div.className = "cat" + (collapsed ? " collapsed" : "");
+    div.dataset.cat = cat.name;
+
+    const head = document.createElement("div");
+    head.className = "cat-head";
+    head.innerHTML = `<span class="arrow">▼</span>
+      <span class="ttl">${cat.name}</span>
+      <span class="cnt">(${cat.items.length})</span>
+      <span class="badge"></span>`;
+    head.addEventListener("click", () => {
+      div.classList.toggle("collapsed");
+      openState[cat.name] = div.classList.contains("collapsed");
+      saveState();
+    });
+
+    const tags = document.createElement("div");
+    tags.className = "tags";
+    cat.items.forEach(([ja, en]) => {
+      const t = document.createElement("div");
+      const isOn = selected.some(s => s.en === en);
+      t.className = "tag" + (isOn ? " on" : "");
+      t.dataset.ja = ja; t.dataset.en = en;
+      t.innerHTML = `<span class="ja">${ja}</span><span class="en">${en}</span>`;
+      t.addEventListener("click", () => toggleTag(ja, en, t));
+      tags.appendChild(t);
+    });
+
+    div.appendChild(head);
+    div.appendChild(tags);
+    container.appendChild(div);
+  });
+  updateBadges();
+}
+
+function toggleTag(ja, en, el){
+  const idx = selected.findIndex(s => s.en === en);
+  if (idx >= 0){ selected.splice(idx,1); el && el.classList.remove("on"); }
+  else { selected.push({ja,en}); el && el.classList.add("on"); }
+  refresh();
+}
+
+function updateBadges(){
+  document.querySelectorAll(".cat").forEach(div => {
+    const cat = DATA.find(c => c.name === div.dataset.cat);
+    const n = cat.items.filter(([ja,en]) => selected.some(s => s.en === en)).length;
+    const badge = div.querySelector(".badge");
+    badge.textContent = n;
+    badge.classList.toggle("show", n > 0);
+  });
+}
+
+function buildOutput(){
+  const sepRaw = document.getElementById("sep").value;
+  const sep = sepRaw === "\\n" ? "\n" : sepRaw;
+  const lang = document.getElementById("lang").value;
+  return selected.map(s => lang === "enja" ? `${s.en} /*${s.ja}*/` : s.en).join(sep);
+}
+
+function refresh(){
+  document.getElementById("output").value = buildOutput();
+  document.getElementById("selCount").textContent = selected.length;
+  document.getElementById("charCount").textContent = document.getElementById("output").value.length;
+  // chips
+  const chips = document.getElementById("chips");
+  chips.innerHTML = "";
+  selected.forEach(s => {
+    const c = document.createElement("span");
+    c.className = "chip";
+    c.innerHTML = `${s.ja}<span class="x">✕</span>`;
+    c.title = s.en;
+    c.addEventListener("click", () => {
+      const idx = selected.findIndex(x => x.en === s.en);
+      if (idx>=0) selected.splice(idx,1);
+      const tag = document.querySelector(`.tag[data-en="${CSS.escape(s.en)}"]`);
+      tag && tag.classList.remove("on");
+      refresh();
+    });
+    chips.appendChild(c);
+  });
+  updateBadges();
+  saveState();
+}
+
+// ====== 検索 ======
+document.getElementById("search").addEventListener("input", e => {
+  const q = e.target.value.trim().toLowerCase();
+  document.querySelectorAll(".cat").forEach(div => {
+    let visibleCount = 0;
+    div.querySelectorAll(".tag").forEach(t => {
+      const hit = !q || t.dataset.ja.toLowerCase().includes(q) || t.dataset.en.toLowerCase().includes(q);
+      t.classList.toggle("hidden", !hit);
+      if (hit) visibleCount++;
+    });
+    div.classList.toggle("hidden", visibleCount === 0);
+    if (q) div.classList.remove("collapsed");
+  });
+});
+
+// ====== ボタン ======
+document.getElementById("copyBtn").addEventListener("click", () => {
+  copyText(document.getElementById("output").value, "プロンプトをコピーしました！");
+});
+document.getElementById("copyNegBtn").addEventListener("click", () => {
+  copyText(document.getElementById("negative").value, "ネガティブをコピーしました！");
+});
+document.getElementById("negPreset").addEventListener("click", () => {
+  document.getElementById("negative").value = NEG_PRESET;
+  saveState();
+});
+document.getElementById("clearAll").addEventListener("click", () => {
+  if (!confirm("全ての選択を解除しますか？")) return;
+  selected = [];
+  document.querySelectorAll(".tag.on").forEach(t => t.classList.remove("on"));
+  refresh();
+});
+document.getElementById("expandAll").addEventListener("click", () => {
+  document.querySelectorAll(".cat").forEach(d => { d.classList.remove("collapsed"); openState[d.dataset.cat]=false; });
+  saveState();
+});
+document.getElementById("collapseAll").addEventListener("click", () => {
+  document.querySelectorAll(".cat").forEach(d => { d.classList.add("collapsed"); openState[d.dataset.cat]=true; });
+  saveState();
+});
+document.getElementById("addCustom").addEventListener("click", addCustomTag);
+document.getElementById("customInput").addEventListener("keydown", e => { if(e.key==="Enter") addCustomTag(); });
+document.getElementById("sep").addEventListener("change", refresh);
+document.getElementById("lang").addEventListener("change", refresh);
+document.getElementById("negative").addEventListener("input", saveState);
+
+function addCustomTag(){
+  const inp = document.getElementById("customInput");
+  const v = inp.value.trim();
+  if (!v) return;
+  if (selected.some(s => s.en === v)) { showToast("既に追加済みです"); inp.value=""; return; }
+  selected.push({ja: v, en: v});
+  inp.value = "";
+  refresh();
+}
+
+function copyText(text, msg){
+  if (!text){ showToast("コピーする内容がありません"); return; }
+  navigator.clipboard.writeText(text).then(() => showToast(msg)).catch(() => {
+    const ta = document.getElementById("output");
+    ta.select(); document.execCommand("copy"); showToast(msg);
+  });
+}
+
+let toastTimer;
+function showToast(msg){
+  const t = document.getElementById("toast");
+  t.textContent = msg; t.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove("show"), 1600);
+}
+
+// ====== 初期化 ======
+loadState();
+buildCats();
+refresh();
+</script>
+</body>
+</html>
