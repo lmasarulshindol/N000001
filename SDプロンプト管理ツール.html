@@ -271,10 +271,15 @@
   <div class="modal">
     <h2 id="modalTitle">人物プリセットを追加</h2>
     <input type="hidden" id="editId">
+    <label>種類</label>
+    <select id="pType" style="margin-bottom:8px;">
+      <option value="appearance">👤 外見</option>
+      <option value="situation">🎬 シチュエーション</option>
+    </select>
     <label>プリセット名</label>
     <input type="text" id="pName" placeholder="例: 莉子（BabyDoll）">
-    <label>外見・識別プロンプト (Positive)</label>
-    <textarea id="pPositive" rows="6" placeholder="カンマ区切りで入力 (例: 1girl, very petite, pink blonde hair, ...)"></textarea>
+    <label>Positive プロンプト</label>
+    <textarea id="pPositive" rows="6" placeholder="カンマ区切りで入力"></textarea>
     <div class="hint">カンマ「,」区切り。適用するとここのタグが選択に反映されます。</div>
     <label>ネガティブプロンプト (任意)</label>
     <textarea id="pNegative" rows="3" placeholder="そのキャラ専用のネガティブ (任意)"></textarea>
@@ -305,6 +310,7 @@ const DATA = [
     ["集団","group"],["男だけ視点","pov male"],
   ]},
   { name: "年齢・体型", items: [
+    ["loli","loli"],["小学生","elementary school girl, child"],["中学生","middle school girl, young teen"],["高校生","high school girl, teenage"],
     ["成人女性","mature female"],["若い女性","young woman"],["お姉さん","onee-san"],
     ["スレンダー","slim"],["グラマー","curvy"],["むっちり","plump"],["小柄","petite"],
     ["長身","tall"],["筋肉質","muscular"],["細身の男性","slim man"],["ガタイの良い男性","large man"],
@@ -332,7 +338,7 @@ const DATA = [
     ["ガーターベルト","garter belt"],["ニーソックス","thighhighs"],["はだけた服","open clothes"],
     ["制服","school uniform"],["メイド服","maid outfit"],["バニー","bunny suit"],
     ["浴衣","yukata"],["着衣","clothed"],["脱ぎかけ","undressing"],["はだけた胸","exposed breasts"],
-    ["透け","see-through"],["ボンデージ","bondage outfit"],
+    ["透け","see-through"],["透けベビードール","sheer babydoll, see-through lingerie, lace trim, ribbon"],["ノーパン","no panties"],["ノーブラ","no bra"],["ボンデージ","bondage outfit"],
     ["白ビキニ","white bikini"],["三角ビキニ","string bikini"],["マイクロビキニ","micro bikini"],
     ["水色ビキニ","light blue bikini"],["濡れた水着","wet swimsuit"],["濡れ透け水着","wet, see-through swimsuit"],
     ["ずらした水着","bikini aside"],["白ワンピ","white sundress"],["サンドレス","sundress"],
@@ -371,12 +377,16 @@ const DATA = [
     ["連続絶頂","multiple orgasms"],["イキ過ぎて放心","fucked silly"],
   ]},
   { name: "体の反応", items: [
-    ["頬染め","blush"],["汗","sweat"],["大量の汗","heavy sweat"],["涙","tears"],
+    ["頬染め","blush"],["汗","sweat"],["大量の汗","heavy sweat"],["肌を伝う汗","sweat dripping down skin"],
+    ["汗で光る肌","glistening skin, sweaty"],["涙","tears"],["快感の涙","tears of pleasure"],
     ["よだれ","drooling"],["紅潮した肌","flushed skin"],["鳥肌","goosebumps"],
+    ["吐息","visible breath, exhaling"],["荒い呼吸","heavy breathing, panting"],["息切れ","panting, out of breath"],
     ["体液","bodily fluids"],["愛液","pussy juice"],["濡れた股間","wet pussy"],
     ["精液","cum"],["糸引き","saliva trail"],["震える脚","trembling legs"],
     ["反り返る","arched back"],["力む手","clenched hands"],["つま先","curled toes"],
-    ["乳首勃起","erect nipples"],["息切れ","panting"],
+    ["乳首勃起","erect nipples"],["体の痙攣","convulsing, trembling body"],
+    ["モーションブラー","motion blur, speed lines"],["激しい動き","dynamic motion, motion lines"],
+    ["腰振り","hip movement, thrusting motion"],
   ]},
   { name: "アングル・構図", items: [
     ["俯瞰","from above"],["煽り","from below"],["真横","from side"],["背後から","from behind"],
@@ -624,23 +634,106 @@ function showToast(msg){
   toastTimer = setTimeout(() => t.classList.remove("show"), 1600);
 }
 
-// ====== 人物プリセット ======
-const PRESET_KEY = "sd_presets_v1";
-// 組み込みデフォルト（莉子 / BabyDoll の確定設定）
+// ====== プリセット（外見／シチュエーション 2系統） ======
+const PRESET_KEY = "sd_presets_v2";
 const DEFAULT_PRESETS = [
+  // --- 外見プリセット ---
   {
-    id: "riko",
-    name: "莉子（BabyDoll）",
-    note: "身長133cm・小柄華奢・小悪魔系・イメージカラーはピンク",
-    positive: "1girl, solo, very petite, short stature (133cm), small delicate frame, pink blonde hair, shoulder-length mid-wavy hair, soft bouncy hair tips, sparkling aqua blue eyes, mischievous upward glance, pale porcelain skin, flat chest, narrow hips, pink sheer chiffon babydoll lingerie, translucent fabric, lace and ribbon trim, playful smirk",
-    negative: "lowres, bad anatomy, extra fingers, jewelry on ear, earrings, piercing, tattoo, muscular, mature body, large breasts, tall, adult woman",
+    id: "riko_base",
+    type: "appearance",
+    name: "莉子（基本）",
+    note: "身長133cm・小柄華奢・ピンク髪・碧眼・色白",
+    positive: "1girl, loli, elementary school girl, child, very petite, short stature (133cm), small delicate frame, flat chest, narrow hips, pink blonde hair, shoulder-length mid-wavy hair, medium hair, hair down, hair falling naturally, blue eyes, pale porcelain skin, small human ears",
+    negative: "mature body, large breasts, tall, adult woman, muscular, animal ears, cat ears, elf ears, kemonomimi, hair ornament, hair ribbon, headband, hair antenna, ahoge, feathers, wings, horns, jewelry, earrings, piercing, tattoo",
   },
   {
-    id: "riko_ep4",
-    name: "莉子4作目（南国・輪姦）",
-    note: "白ビキニ／南国ビーチ・ヴィラ／複数の男に囲まれて連続中出し",
-    positive: "masterpiece, best quality, ultra-detailed, 8k, 1girl, multiple boys, very petite, short stature (133cm), small delicate frame, pink blonde hair, shoulder-length mid-wavy hair, sparkling aqua blue eyes, pale porcelain skin, flat chest, narrow hips, white string bikini, wet swimsuit, see-through, white sand beach, ocean, blue sky, sunlight, gangbang, group sex, faceless male, size difference, age difference, cum in pussy, multiple creampies, cum overflow, cum on body, ahegao, crying with pleasure, tears, drooling, open mouth, blush, heavy sweat",
-    negative: "lowres, bad anatomy, extra fingers, jewelry on ear, earrings, piercing, tattoo, mature body, large breasts, tall, adult woman, solo",
+    id: "riko_babydoll_outfit",
+    type: "appearance",
+    name: "莉子：透けピンクベビードール",
+    note: "ピンクシフォン透けベビードール＋ノーパンノーブラ",
+    positive: "1girl, loli, elementary school girl, child, very petite, short stature (133cm), small delicate frame, flat chest, narrow hips, pink blonde hair, shoulder-length mid-wavy hair, medium hair, hair down, hair falling naturally, blue eyes, pale porcelain skin, small human ears, pink sheer chiffon babydoll lingerie, sheer babydoll, see-through lingerie, translucent fabric, lace trim, no panties, no bra, nipples visible through fabric, pussy visible through fabric",
+    negative: "mature body, large breasts, tall, adult woman, muscular, animal ears, cat ears, elf ears, kemonomimi, hair ornament, hair ribbon, headband, hair antenna, ahoge, feathers, wings, horns, blue accessories, glowing accessories, jewelry, earrings, piercing, tattoo",
+  },
+  {
+    id: "riko_white_bikini",
+    type: "appearance",
+    name: "莉子：白ビキニ（南国）",
+    note: "白三角ビキニ・濡れ透け・南国仕様",
+    positive: "1girl, loli, elementary school girl, child, very petite, short stature (133cm), small delicate frame, flat chest, narrow hips, pink blonde hair, shoulder-length mid-wavy hair, medium hair, hair down, hair falling naturally, blue eyes, pale porcelain skin, small human ears, white triangle string bikini, wet swimsuit, see-through",
+    negative: "mature body, large breasts, tall, adult woman, muscular, animal ears, cat ears, elf ears, kemonomimi, hair ornament, hair ribbon, headband, hair antenna, ahoge, feathers, wings, horns, jewelry, earrings, piercing, tattoo",
+  },
+  // --- シチュエーションプリセット ---
+  {
+    id: "sit_surrounded",
+    type: "situation",
+    name: "①男性に囲まれる",
+    note: "裸の男優が取り囲む／体格差／勃起ペニスから先走り／赤面見上げ",
+    positive: "surrounded by men, multiple boys, 5boys, nude males, muscular males, tall males, large men standing around girl, circle formation, male bodies visible, bare chest, abs, full body males, erect penises, precum dripping, precum, size difference, height difference, age difference, blushing, embarrassed, flushed face, red cheeks, looking up at men, small girl among large men",
+    negative: "disembodied penis, floating penis, penis only, no body",
+  },
+  {
+    id: "sit_kiss_tip",
+    type: "situation",
+    name: "②ペニス先端にキス",
+    note: "囲まれたまま自分から先端に唇を寄せる／上目遣い",
+    positive: "multiple boys, 5boys, nude males, muscular males, male bodies visible, bare chest, gangbang, size difference, age difference, kneeling, on knees, kissing penis tip, lips on glans, gentle kiss on penis, looking up, upturned eyes, submissive smile, holding penis with both hands, other penises surrounding, men standing around",
+    negative: "disembodied penis, floating penis, penis only, no body",
+  },
+  {
+    id: "sit_fellatio_handjob",
+    type: "situation",
+    name: "③フェラ＋手コキ同時",
+    note: "囲まれたまま口で咥えつつ両手で別の二本を扱く",
+    positive: "multiple boys, 5boys, nude males, muscular males, male bodies visible, bare chest, gangbang, size difference, age difference, fellatio, oral sex, penis in mouth, sucking, double handjob, hand on penis, holding two penises, one in mouth, two in hands, kneeling, on knees, looking up, eager expression, saliva, wet, sweat, heavy breathing, other men watching and waiting",
+    negative: "disembodied penis, floating penis, penis only, no body",
+  },
+  {
+    id: "sit_cum_shower",
+    type: "situation",
+    name: "④口内射精＋顔射＋胸射",
+    note: "複数男から同時に出される／口・顔・胸にかかる",
+    positive: "multiple boys, 5boys, nude males, muscular males, male bodies visible, bare chest, gangbang, bukkake, size difference, age difference, cum in mouth, facial, cum on face, cum on breasts, cum on chest, cum string, multiple ejaculations, multiple penises ejaculating, mouth open, eyes closed happily, kneeling, satisfied expression, cum dripping from chin, men surrounding",
+    negative: "disembodied penis, floating penis, penis only, no body",
+  },
+  {
+    id: "sit_missionary_pinned",
+    type: "situation",
+    name: "⑤正常位で組み敷かれる",
+    note: "一人が組み敷いて正常位／他の男が周りで見ている・待機",
+    positive: "multiple boys, 5boys, nude males, muscular males, male bodies visible, bare chest, gangbang, size difference, age difference, missionary position:1.4, vaginal sex:1.3, man on top:1.3, girl lying on back, pinned down, wrists held, legs spread wide, penis in pussy, deep penetration, on bed, white sheets, girl gasping, mouth open, eyes wide, overwhelmed, sweat, glistening skin, heavy breathing, motion blur, other men watching around bed, waiting their turn",
+    negative: "doggy style, cowgirl, standing sex, girl on top, riding, disembodied penis",
+  },
+  {
+    id: "sit_ecstasy_begging",
+    type: "situation",
+    name: "⑥恍惚として男性を求める",
+    note: "とろけた顔で次を求める／周りの男に手を伸ばす",
+    positive: "multiple boys, 5boys, nude males, muscular males, male bodies visible, bare chest, gangbang, size difference, age difference, missionary position:1.3, vaginal sex:1.3, girl lying on back, on bed, white sheets, ecstasy, pleasure face, half-lidded eyes, melting expression, arms reaching up, pulling man closer, legs wrapped around waist, begging for more, blush, heavy sweat, glistening skin, sweat dripping, panting, visible breath, motion blur, other men touching her, hands on her body from multiple directions",
+    negative: "doggy style, cowgirl, standing sex, girl on top, riding, emotionless, disembodied penis",
+  },
+  {
+    id: "sit_creampie_orgasm",
+    type: "situation",
+    name: "⑦中出し同時絶頂",
+    note: "中出しされてイク／周囲の男も射精準備",
+    positive: "multiple boys, 5boys, nude males, muscular males, male bodies visible, bare chest, gangbang, size difference, age difference, missionary position:1.4, vaginal sex:1.3, cum in pussy:1.3, creampie:1.2, nakadashi, simultaneous orgasm, girl orgasm, body arching, back arched off bed, toes curled tight, open mouth scream, trembling, convulsing, man pressing deep, on bed, white sheets, heavy sweat, glistening skin, sweat dripping, panting, motion blur, speed lines, tears of pleasure, other men stroking around her, cum on body",
+    negative: "doggy style, cowgirl, standing sex, girl on top, riding, after sex, disembodied penis",
+  },
+  {
+    id: "sit_gangbang_beach",
+    type: "situation",
+    name: "南国ビーチ輪姦",
+    note: "白砂浜・青空・複数男・連続中出し",
+    positive: "multiple boys, white sand beach, ocean, blue sky, sunlight, gangbang, group sex, faceless male, size difference, age difference, cum in pussy, multiple creampies, cum overflow, cum on body, crying with pleasure, tears, open mouth, blush, heavy sweat",
+    negative: "indoor",
+  },
+  {
+    id: "sit_love_hotel",
+    type: "situation",
+    name: "高級ラブホ・スイートルーム",
+    note: "キングサイズベッド・暖色照明・夜",
+    positive: "luxury hotel room, king size bed, dim warm lighting, interior, night, expensive room, modern interior",
+    negative: "outdoor, beach, ocean, daylight",
   },
 ];
 
@@ -663,27 +756,42 @@ function savePresets(){ localStorage.setItem(PRESET_KEY, JSON.stringify(presets)
 function renderPresets(){
   const list = document.getElementById("presetList");
   list.innerHTML = "";
+  const appearances = presets.filter(p => p.type === "appearance");
+  const situations = presets.filter(p => p.type === "situation");
+  const others = presets.filter(p => !p.type);
+
+  function renderSection(title, items, typeLabel){
+    if (!items.length && !title) return;
+    const header = document.createElement("div");
+    header.style.cssText = "font-size:12px;font-weight:bold;color:var(--acc);margin:10px 0 4px;border-bottom:1px solid var(--border);padding-bottom:3px;";
+    header.textContent = title;
+    list.appendChild(header);
+    items.forEach(p => {
+      const tagCount = splitPrompt(p.positive).length;
+      const row = document.createElement("div");
+      row.className = "preset";
+      row.innerHTML = `
+        <div style="flex:1;min-width:0;">
+          <div class="pname">${escapeHtml(p.name)} <span class="ptag">${tagCount}語</span></div>
+          ${p.note ? `<div class="en" style="font-size:11px;color:var(--sub);">${escapeHtml(p.note)}</div>` : ""}
+        </div>
+        <div class="pbtns">
+          <button class="apply" data-id="${p.id}">適用</button>
+          <button class="edit" data-id="${p.id}">編集</button>
+        </div>`;
+      row.querySelector(".apply").addEventListener("click", () => applyPreset(p.id));
+      row.querySelector(".edit").addEventListener("click", () => openModal(p.id));
+      list.appendChild(row);
+    });
+  }
+
   if (!presets.length){
     list.innerHTML = '<div class="preset-empty">プリセットがありません。「＋ 新規」で追加してください。</div>';
     return;
   }
-  presets.forEach(p => {
-    const tagCount = splitPrompt(p.positive).length;
-    const row = document.createElement("div");
-    row.className = "preset";
-    row.innerHTML = `
-      <div style="flex:1;min-width:0;">
-        <div class="pname">${escapeHtml(p.name)} <span class="ptag">${tagCount}語</span></div>
-        ${p.note ? `<div class="en" style="font-size:11px;color:var(--sub);">${escapeHtml(p.note)}</div>` : ""}
-      </div>
-      <div class="pbtns">
-        <button class="apply" data-id="${p.id}">適用</button>
-        <button class="edit" data-id="${p.id}">編集</button>
-      </div>`;
-    row.querySelector(".apply").addEventListener("click", () => applyPreset(p.id));
-    row.querySelector(".edit").addEventListener("click", () => openModal(p.id));
-    list.appendChild(row);
-  });
+  renderSection("👤 外見プリセット", appearances);
+  renderSection("🎬 シチュエーションプリセット", situations);
+  if (others.length) renderSection("📦 その他", others);
 }
 
 function splitPrompt(str){
@@ -706,10 +814,26 @@ function applyPreset(id){
   if (!p) return;
   const mode = document.getElementById("applyMode").value;
   const tags = splitPrompt(p.positive);
+
   if (mode === "replace") {
-    selected = [];
-    document.querySelectorAll(".tag.on").forEach(t => t.classList.remove("on"));
+    // 同じtypeの既存プリセットタグだけクリアし、他typeのタグは保持
+    const sameTypePresets = presets.filter(x => x.type === p.type && x.id !== p.id);
+    const sameTypeTags = new Set();
+    sameTypePresets.forEach(sp => splitPrompt(sp.positive).forEach(t => sameTypeTags.add(t)));
+    // 現在選択中のうち、同typeプリセット由来と思われるものを除去
+    const prevTags = splitPrompt(tags.join(", "));
+    selected = selected.filter(s => {
+      // 新プリセットに含まれるタグは後で追加するので一旦除去
+      if (prevTags.includes(s.en)) return false;
+      // 同typeの他プリセットのタグも除去
+      if (sameTypeTags.has(s.en)) return false;
+      return true;
+    });
+    document.querySelectorAll(".tag.on").forEach(t => {
+      if (!selected.some(s => s.en === t.dataset.en)) t.classList.remove("on");
+    });
   }
+
   tags.forEach(en => {
     if (!selected.some(s => s.en === en)) {
       selected.push({ ja: jaLabelFor(en), en });
@@ -718,10 +842,19 @@ function applyPreset(id){
     }
   });
   if (document.getElementById("applyNeg").value === "yes" && p.negative) {
-    document.getElementById("negative").value = p.negative;
+    const existNeg = document.getElementById("negative").value.trim();
+    if (existNeg) {
+      // 既存ネガとマージ（重複排除）
+      const existSet = new Set(existNeg.split(",").map(s => s.trim()));
+      p.negative.split(",").map(s => s.trim()).forEach(t => existSet.add(t));
+      document.getElementById("negative").value = [...existSet].join(", ");
+    } else {
+      document.getElementById("negative").value = p.negative;
+    }
   }
   refresh();
-  showToast(`「${p.name}」を${mode === "replace" ? "適用" : "追加"}しました`);
+  const typeLabel = p.type === "situation" ? "シチュ" : "外見";
+  showToast(`[${typeLabel}]「${p.name}」を適用しました`);
 }
 
 // ---- モーダル制御 ----
@@ -729,9 +862,10 @@ const modalBg = document.getElementById("modalBg");
 function openModal(id){
   const editing = !!id;
   const p = editing ? presets.find(x => x.id === id) : null;
-  document.getElementById("modalTitle").textContent = editing ? "人物プリセットを編集" : "人物プリセットを追加";
+  document.getElementById("modalTitle").textContent = editing ? "プリセットを編集" : "プリセットを追加";
   document.getElementById("editId").value = editing ? id : "";
   document.getElementById("pName").value = p ? p.name : "";
+  document.getElementById("pType").value = p ? (p.type || "appearance") : "appearance";
   document.getElementById("pPositive").value = p ? p.positive : "";
   document.getElementById("pNegative").value = p ? (p.negative || "") : "";
   document.getElementById("pNote").value = p ? (p.note || "") : "";
@@ -754,6 +888,7 @@ document.getElementById("presetSave").addEventListener("click", () => {
   const id = document.getElementById("editId").value;
   const data = {
     name, positive,
+    type: document.getElementById("pType").value,
     negative: document.getElementById("pNegative").value.trim(),
     note: document.getElementById("pNote").value.trim(),
   };
