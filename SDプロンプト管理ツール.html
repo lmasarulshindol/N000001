@@ -344,7 +344,7 @@ const DATA = [
     ["風呂場","bath"],["教室","classroom"],["保健室","infirmary"],["ホテル","hotel room"],
     ["和室","japanese room"],["屋外","outdoors"],["森の中","forest"],["ビーチ","beach"],
     ["プール","pool"],["電車内","train interior"],["オフィス","office"],
-    ["車内","car interior"],["更衣室","locker room"],["薄暗い部屋","dimly lit room"],
+    ["車内","car interior"],["更衣室","locker room"],["薄暗い部屋","dimly lit room"],["海","ocean"],
   ]},
   { name: "体位", items: [
     ["正常位","missionary"],["騎乗位","cowgirl position"],["背面騎乗位","reverse cowgirl"],
@@ -488,8 +488,25 @@ function buildCats(){
 
 function toggleTag(ja, en, el){
   const idx = selected.findIndex(s => s.en === en);
-  if (idx >= 0){ selected.splice(idx,1); el && el.classList.remove("on"); }
-  else { selected.push({ja,en}); el && el.classList.add("on"); }
+  if (idx >= 0){
+    selected.splice(idx,1);
+    // 複数プロンプト内包時、個別タグも削除
+    if (en.includes(",")) {
+      const subs = en.split(",").map(s => s.trim());
+      subs.forEach(sub => {
+        const si = selected.findIndex(s => s.en === sub);
+        if (si >= 0) selected.splice(si, 1);
+      });
+      // 他ボタンのON状態も同期
+      document.querySelectorAll(".tag.on").forEach(t => {
+        if (subs.includes(t.dataset.en)) t.classList.remove("on");
+      });
+    }
+    el && el.classList.remove("on");
+  } else {
+    selected.push({ja,en});
+    el && el.classList.add("on");
+  }
   refresh();
 }
 
