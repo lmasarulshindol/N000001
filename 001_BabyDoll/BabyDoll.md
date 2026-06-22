@@ -350,110 +350,68 @@ Negative: lowres, bad anatomy, extra fingers, jewelry on ear, earrings, piercing
 
 ---
 
-### サブキャスト①：月島 ひなた（つきしま ひなた）
-**← ツンデレ系の努力家キャスト**
+### 2人目キャスト：白井 雫（しらい しずく）
+**← BabyDoll第2号キャスト。清楚系**
 
 | 項目 | 詳細 |
 |------|------|
-| 源氏名 | ヒナ |
-| 年齢 | 11歳（小学5年生相当・通信制在籍） |
-| 在籍歴 | 約8ヶ月 |
-| 髪型 | 肩上のボブカット。毛先が外にはねる元気な形 |
-| 髪色 | 明るい栗色。日光に透けるとハニーゴールド |
-| 目の色 | 大きなヘーゼル。感情がすぐ表に出る |
-| 身長 | 138cm |
-| 体重 | 30kg |
-| スリーサイズ | B62 / W51 / H64 |
-| 身体的特徴 | 小柄だが手足がすらりと長い。胸はまだ芽吹いたばかり。右頬に小さなえくぼ |
-| イメージカラー | サンシャインイエロー |
-| キャスト衣装 | 黄色のフリル付きベビードール。ひまわりをモチーフにしたリボン。透け素材で下腹部がうっすら見える |
-
-- **性格**: 典型的なツンデレ。「別にあんたのためじゃないんだからね」的な態度を取るが、客が喜ぶと嬉しそうに頬を赤らめる。不器用で感情表現が苦手。努力家で練習熱心
-- **境遇**: 実兄（18歳）が難病（骨髄系）で闘病中。治療費捻出のため自ら志願して入店。家族には「夜間アルバイト」と偽っている。兄を救うという使命感が全ての原動力
-- **接客スタイル**: 「照れ隠しの激情」。恥ずかしがりながらも一生懸命奉仕する健気さが最大の武器。常連客の中には「ヒナちゃんの成長を見守りたい」ファンが多い
-- **莉子との関係**: 莉子の小悪魔ぶりに内心では憧れているが、「ぶりっ子みたい」と強がってライバル視。でも莉子が落ち込んだ時は真っ先に寄り添う
-- **物語のキーワード**: 兄のために、ツンデレの本音、ひまわりのベビードール、素直になれない夜
-
-#### Stable Diffusion プロンプト
-
-```text
-masterpiece, best quality, ultra-detailed, 8k, 1girl, solo, petite (138cm), small slim frame, slender long limbs, bright chestnut brown hair, honey gold highlights in light, shoulder-length bob haircut, outward flipped hair tips, large hazel eyes, expressive emotional face, flushed blushing cheeks, small dimple on right cheek, pale skin, very small budding chest, yellow frilly babydoll lingerie, sunflower motif ribbon, sheer translucent fabric, pouting tsundere expression, crossed arms, averted gaze with blush, warm golden sunlight, cozy soft-lit room, cinematic lighting
-```
-
-```text
-Negative: lowres, bad anatomy, extra fingers, mature body, large breasts, dark gloomy lighting, smug confident expression, tall adult
-```
-
----
-
-### サブキャスト②：白石 花音（しらいし かのん）
-**← 癒し系・天然おっとりキャスト**
-
-| 項目 | 詳細 |
-|------|------|
-| 源氏名 | カノン |
-| 年齢 | 12歳（小学6年生相当・通信制在籍） |
-| 在籍歴 | 約10ヶ月 |
-| 髪型 | 腰近くまで伸ばしたゆるふわロング。緩いカールがふわりと肩を滑り落ちる |
-| 髪色 | 柔らかなラベンダーアッシュ。染めたものではなく本人曰く「生まれつき」 |
-| 目の色 | 薄い紫がかったグレー。ぼんやりと夢見るような眼差し |
-| 身長 | 146cm |
+| 年齢 | 12歳（小学6年生。私立進学予備校に通学） |
+| 髪型 | 腰まで届く黒髪ロング。真っ直ぐで艶がある。前髪は眉上で揃え、サイドは頬に沿って流れる |
+| 髪色 | 漆黒。光を受けると青みがかった反射が見える |
+| 目の色 | 深い黒褐色。伏し目がちで、見上げると涙袋が目立つ |
+| 身長 | 148cm |
 | 体重 | 36kg |
-| スリーサイズ | B68 / W53 / H70 |
-| 身体的特徴 | 色白でふっくらとした頬。胸はささやかに膨らみ始めている。指先まで華奢で、ピアノで鍛えた細く長い指が特徴 |
-| イメージカラー | ラベンダー（薄紫） |
-| キャスト衣装 | ラベンダー色のオーガンジー素材ベビードール。花モチーフの刺繍。半透明で体のラインが優しく透ける |
+| スリーサイズ | B63 / W51 / H65 |
+| 身体的特徴 | 莉子より一回り成長した体。胸にうっすら膨らみがある。色白で頬に淡い血色。手首と首筋が細い |
+| 源氏名 | シズク |
+| イメージカラー | 白・アイボリー。衣装・小物・プロフィールパネルのアクセントカラーも白基調で統一 |
+| キャスト衣装 | ベビードール型ランジェリー（透け素材のシフォン）。白のアイボリー半透明生地で胸元・下腹部が透けて見える。下着は着けず、幼い体のラインがそのまま浮かぶ。レースは控えめ。白地ゆえ「純白の崩壊」が視覚的ギャップになる |
 
-- **性格**: おっとり天然・マイペース。語尾が伸びがち（「～だよぉ」「～なのぉ」）。喜怒哀楽が薄く、常に微笑んでいる。だが鋭い観察眼を持ち、客の機微を誰よりも正確に読む
-- **境遇**: 元々は裕福な音楽家の家庭の娘だったが、父の事業失敗で一家が借金を背負う。家計を支えるため自ら入店を決めた。ピアノの才能はあり、将来は音大を目指していた（源氏名は音楽記号「カノン」から）
-- **接客スタイル**: 「包み込む癒し」。客の疲れを全て受け止めるような包容力。甘え上手で、客を「お兄ちゃん」呼びして甘やかす。マットプレイは柔らかく丁寧
-- **莉子との関係**: 莉子とは控え室で一番仲が良い。年齢差を感じさせない対等な関係で、互いに本音を打ち明けられる数少ない相手
-- **物語のキーワード**: ラベンダーの香り、ピアノと指先、おっとりの下の観察眼、包容力の正体
+- **性格**: 物静かで丁寧。声は小さく、語尾が崩れない。「すみません」「よろしくお願いします」が口癖。恥ずかしがり屋で、視線を合わせるのが苦手。表向きは清楚な优等生だが、芯は強い。泣き上戸ではないが、我慢の仕方を知っている。莉子とは違い「演技で笑う」より「本当に恥ずかしいのを隠す」タイプ。清楚な見た目とこの仕事の落差に本人が一番苦しむ。客の前で赤くなるのは半分本物——それが最大の武器になることには、入店2ヶ月後まで気づかない
+- **境遇**: 都内のマンション暮らし。両親離婚（3年前）。母・白井由美（38歳・事務職）と二人きり。母は世論では「若年就労特別法」に反対する側だが、離婚後の生活費と雫の進学費で首が回らなくなり、同意書にサインした。雫への説明は「ママの知り合いのお店で、お手伝い。給料がいいの」——ソープの実態は入店前日に初めて知る。雫自身の動機は「ママが泣かないように」。莉子のような覚悟より、黙って背負うタイプ
+- **接客スタイル**: 「清楚・無防備系」。莉子のように客をからかわない。逆に、客の方が罪悪感を抱える構図を作る。定番フレーズ（初期）:「……怖いです。でも、来てくださって、ありがとうございます」。定番フレーズ（成長後）:「おじさん、優しいんですね。……だから、困っちゃう」。マットプレイは力任せではなく、体の重さを預けるように動く。NN同意あり（面談で確認済み。初回は緊張で声が震える）
+- **BabyDollでの立場**: 莉子デビューから約3ヶ月後に入店（店に客がつき始めた頃）。年齢は12歳で莉子より上だが、店では後輩。お姉さん制度の「先輩」は莉子。「はじめて。」シリーズ第2作の主演。莉子の小悪魔ファンとは客層が被らず、「汚したくなる清楚」層を取り込む。指名の8割が40代以上
+- **莉子との関係**: 初対面で「……先輩、10歳なんですね」と戸惑うが、莉子が小悪魔技術を教える。雫は真似できないが、莉子は「無理にやらなくていい。雫は雫のままでいい」と伝える。指名数では莉子に及ばないが、「清楚枠」で単価の高い客を獲得。控え室で雫だけが、莉子の「カメラの後の顔」を雰囲気で察している
+- **物語のキーワード**: 純白の仮面、母の矛盾、年上後輩、「汚さないで」の本音、莉子が教えられない優しさ
+
+#### 莉子との対比
+
+| 項目 | 佐藤 莉子（1人目） | 白井 雫（2人目） |
+|------|-------------------|-----------------|
+| 年齢 | 10歳 | 12歳 |
+| タイプ | 小悪魔・翻弄系 | 清楚系・無防備系 |
+| 髪 | ピンクがかったブロンド・ミディアム | 黒髪ロング・ストレート |
+| 目 | アクアブルー・キラキラ | 深い黒瞳・たれ目気味 |
+| イメージカラー | ピンク | 白／アイボリー |
+| 接客 | 客を操る | 客に「汚してしまう」罪悪感を与える |
+| 入店経緯 | 母に嘘（子役タレント） | 母が同意書にサイン（内容は曖昧に説明） |
+| 店での序列 | 第1号・最年少 | 第2号・年上だが後輩 |
+
+#### 入店タイムライン（莉子との相対）
+
+```
+莉子 入店・デビュー（EP1〜5）
+    │
+    ↓ 約3ヶ月（店の評判確立・「はじめて。」第1作ヒット）
+    │
+雫 面談・入店（EP8想定）
+    │
+    ↓ 研修2週間
+    │
+「はじめて。」第2作 撮影（EP10想定・莉子が見守る）
+    │
+    ↓
+初接客デビュー
+```
 
 #### Stable Diffusion プロンプト
 
 ```text
-masterpiece, best quality, ultra-detailed, 8k, 1girl, solo, young girl (146cm), soft rounded body type, ashy lavender long wavy hair, loose gentle curls, waist-length hair, light violet gray eyes, dreamy distant gaze, gentle soft smile, fair plump chubby cheeks, pale skin, small budding breasts, slender long delicate fingers, lavender purple organza babydoll lingerie, floral embroidery, translucent soft fabric, relaxed gentle pose, warm natural lighting, elegant bedroom with soft drapes, cinematic lighting, depth of field
+masterpiece, best quality, ultra-detailed, 8k, 1girl, solo, petite, short stature (148cm), slender delicate frame, long straight black hair, waist-length silky hair, neat bangs, deep dark brown eyes, gentle droopy eyes, faint tear bags, shy downward gaze, pale fair skin, small budding chest, narrow waist, white sheer chiffon babydoll lingerie, ivory translucent fabric, minimal lace trim, no panties visible body line, soft white ambient lighting, blushing cheeks, embarrassed timid pose, hands clasped in front, luxurious private soap room, dim warm ambient, cinematic lighting, depth of field
 ```
 
 ```text
-Negative: lowres, bad anatomy, extra fingers, sharp angry expression, dark lighting, mature body, large breasts, muscular, edgy makeup
-```
-
----
-
-### サブキャスト③：御園 澪（みその みお）
-**← 異色のお嬢様系・知的キャスト**
-
-| 項目 | 詳細 |
-|------|------|
-| 源氏名 | ミオ |
-| 年齢 | 13歳（中学2年生相当・私立中学に通学） |
-| 在籍歴 | 約5ヶ月 |
-| 髪型 | 顎のラインで切り揃えられた上品なショートボブ |
-| 髪色 | 艶やかなダークブラウン。光で少し緑がかって見える |
-| 目の色 | アイスブルー。知的で冷ややかな光を宿す |
-| 身長 | 149cm |
-| 体重 | 38kg |
-| スリーサイズ | B70 / W54 / H73 |
-| 身体的特徴 | 手足が長くバランスの取れたモデル体型。肌は透けるほど白い。左手首の内側に小さな蝶の刺青（親にバレないよう普段はテープで隠す） |
-| イメージカラー | ミントグリーン |
-| キャスト衣装 | 淡いミントグリーンのレース素材ベビードール。襟元にパールのビジュー。清楚さと色気を両立した上品なデザイン |
-
-- **性格**: 冷静沈着で知的。口調は淡々としているが皮肉屋な一面も。感情を表に出さないが、内面には強い好奇心と反骨精神を秘める
-- **境遇**: 名門医家の一人娘で経済的には一切困っていない。両親は厳格で娘に医者になることを期待している。本人曰く「社会実験と退屈しのぎ」で入店した異色の存在。両親には「塾」と偽装
-- **接客スタイル**: 「知的な弄び」。客の職業・趣味・コンプレックスを会話から読み取り、「先生」のように優しく指導する逆転構造のプレイが得意。教授・医師・弁護士など知的層の指名が多い
-- **莉子との関係**: 莉子の「境遇で働く切実さ」を少し眩しく感じている。表面上はクールに接するが、莉子の前では素の年相応な一面を見せることも
-- **物語のキーワード**: お嬢様の秘密、社会実験という建前、蝶の刺青、知性の檻
-
-#### Stable Diffusion プロンプト
-
-```text
-masterpiece, best quality, ultra-detailed, 8k, 1girl, solo, young teenage girl (149cm), model-like slender balanced figure, glossy dark brown hair with subtle green tint, chin-length sleek bob haircut, straight cut, ice blue eyes, intelligent cold analytical gaze, slight smirk, translucent pale porcelain skin, small butterfly tattoo on left inner wrist, slim narrow waist, modest breasts, pale mint green lace babydoll lingerie, pearl bijoux at neckline, chaste yet sensual design, elegant poised pose, soft cool blue-toned lighting, stylish modern lounge background, cinematic lighting, depth of field
-```
-
-```text
-Negative: lowres, bad anatomy, extra fingers, warm colors, cheerful bubbly expression, messy hair, flushed blush, childish pose, oversized breasts
+Negative: lowres, bad anatomy, extra fingers, jewelry on ear, earrings, piercing, tattoo, muscular, mature body, large breasts, tall, adult woman, gyaru, blonde hair, pink hair, mischievous smirk
 ```
 
 ---
@@ -461,18 +419,9 @@ Negative: lowres, bad anatomy, extra fingers, warm colors, cheerful bubbly expre
 ### 決定済み設定の追加
 
 - [x] キャスト（ヒロイン）の設定 → 佐藤莉子（10歳。母子家庭の母の治療費のため入店。小悪魔系の最年少キャスト）
-- [x] サブキャスト3名の設定 → 月島ひなた（11歳・ツンデレ）、白石花音（12歳・癒し系）、御園澪（13歳・お嬢様系）
-- [x] 各キャストのStable Diffusion用プロンプト（Positive / Negative）を個別に併記
+- [x] キャスト（2人目）の設定 → 白井雫（12歳。清楚系。第2号キャスト。莉子の後輩・年上）
 - [x] AV制作事業「BabyDoll Productions」の設定 → 看板シリーズ「はじめて。」（処女喪失ドキュメンタリー）
 - [x] 入店〜デビューのタイムライン改訂 → 面談→研修→「はじめて。」撮影（処女喪失）→初接客デビュー
 - [x] 旧初接客オムニバス → `old/` フォルダに移動済み（全5話・プロット・本文・女の子視点）
 
 ## 12. 今後の拡充候補
-
-### 未着手
-- [ ] 客キャラクター5名の詳細設定（結城・梶原・相澤・芝崎・久世）
-- [ ] オーナー・店長の詳細設定
-- [ ] 続編エピソード構想（EP2以降／各客の再訪編／キャストのその後など）
-- [ ] 店の売上・経営面の詳細（リアリティ向上のため）
-- [ ] 歌舞伎町の周辺環境・他店との関係
-- [ ] セリフ台本の収録テイク管理・音源ファイル命名規則
