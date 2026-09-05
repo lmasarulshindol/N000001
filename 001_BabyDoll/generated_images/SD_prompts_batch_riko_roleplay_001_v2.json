@@ -1,0 +1,109 @@
+{
+  "defaults": {
+    "prompt_prefix": "masterpiece, best quality, amazing quality, newest, absurdres, highres, very aesthetic, uncensored, explicit",
+    "negative_prompt": "worst quality, low quality, bad quality, bad details, bad anatomy, bad hands, missing fingers, extra digits, multiple views, jpeg artifacts, watermark, text, logo, censored, mosaic censorship, bar censor, cross-section, x-ray, disembodied penis, floating penis, penis only, no body, second male, extra male, animal ears, cat ears, dog ears, bunny ears, fox ears, kemonomimi, jewelry, earrings, hair ornament, hair clip, hairpin, hairband, headband, hair ribbon, tiara, crown, ahoge, hair antenna, multicolored hair, gradient hair, very long hair, short hair, bob cut, ponytail, twintails, braid",
+    "steps": 28,
+    "width": 1024,
+    "height": 1024,
+    "cfg_scale": 5,
+    "sampler_name": "Euler a",
+    "scheduler": "automatic",
+    "seed": -1,
+    "batch_size": 5,
+    "n_iter": 1,
+    "save_images": false,
+    "send_images": true,
+    "override_settings": {
+      "sd_model_checkpoint": "waiIllustriousSDXL_v160.safetensors",
+      "CLIP_stop_at_last_layers": 2
+    },
+    "override_settings_restore_afterwards": false
+  },
+  "comment_riko": "莉子（10歳）: ピンクがかったブロンドのふわりとした肩丈髪、アクアブルーの瞳、透けピンクベビードール",
+  "jobs": [
+    {
+      "id": "rp01_intro",
+      "filename_prefix": "rp01_riko_intro",
+      "prompt": "1girl, solo, (riko satou:1.1), (10 years old loli:1.3), (very petite:1.2), 133cm, (flat chest:1.3), (light pink blonde hair:1.4), (shoulder-length wavy fluffy hair:1.3), (hair down:1.2), (aqua blue eyes:1.3), (mischievous eyes:1.1), pale porcelain skin, (pink sheer babydoll lingerie:1.3), see-through fabric, tiny pink nipples visible through fabric, standing with hands on hips, head tilt, (playful smirk:1.2), looking at viewer, BabyDoll standard room, pink interior, soft pink ambient lighting, king bed background, waiting for customer, confident pose, full body, depth of field",
+      "negative_prompt": "worst quality, low quality, bad anatomy, censored, mosaic, mature body, large breasts, medium breasts, teenager, middle school student, high school student, very long hair, short hair, nude, animal ears, cat ears, hair ornament, ponytail, twintails"
+    },
+    {
+      "id": "rp02_pushdown_kiss",
+      "filename_prefix": "rp02_pushdown_kiss",
+      "prompt": "2people, hetero, 1boy, 1girl, exactly two people, age difference, size difference, kissing, french kiss, pushed down, (riko satou:1.1), (10 years old loli:1.3), (very petite:1.2), 133cm, (flat chest:1.3), (light pink blonde wavy hair:1.4), (shoulder-length fluffy hair spread on bed:1.2), (aqua blue eyes wide surprised:1.2), (pink sheer babydoll lingerie:1.3), lying on back, being kissed by man on top, small hands pushing against chest weakly, (blushing:1.2), trembling, (1boy, adult man on top kissing:1.2), BabyDoll standard room, white sheets pink bed, soft pink lighting, sudden kiss scene, from side angle",
+      "negative_prompt": "worst quality, low quality, bad anatomy, censored, mosaic, second male, mature body on girl, large breasts, teenager, animal ears, hair ornament, ponytail"
+    },
+    {
+      "id": "rp03_finger_touch",
+      "filename_prefix": "rp03_finger_touch",
+      "prompt": "2people, hetero, 1boy, 1girl, exactly two people, age difference, fingering, pussy, clitoris stimulation, (riko satou:1.1), (10 years old loli:1.3), (very petite:1.2), 133cm, (flat chest:1.3), (light pink blonde wavy hair messy:1.4), (shoulder-length fluffy hair:1.2), (aqua blue eyes teary embarrassed:1.2), (pink sheer babydoll pushed up:1.2), nude lower body, lying on back legs spread, being fingered, wet pussy, love juice, (blushing face turned away:1.2), gripping sheets, trembling thighs, (1boy, adult man hand between legs fingering:1.3), BabyDoll bed white sheets, pink ambient light, intimate scene, close-up lower body focus",
+      "negative_prompt": "worst quality, low quality, bad anatomy, censored, mosaic, second male, insertion, penetration, mature body, large breasts, animal ears, hair ornament"
+    },
+    {
+      "id": "rp04_finger_insert",
+      "filename_prefix": "rp04_finger_insert",
+      "prompt": "2people, hetero, 1boy, 1girl, exactly two people, age difference, fingering, finger insertion, vaginal fingering, two fingers inside, (riko satou:1.1), (10 years old loli:1.3), (very petite:1.2), 133cm, (flat chest:1.3), (light pink blonde wavy hair disheveled:1.4), (shoulder-length fluffy hair:1.2), (aqua blue eyes half-closed pleasure:1.2), nude babydoll bunched at waist, lying on back, two fingers deep inside, wet dripping, open mouth gasping, (heavy blush:1.2), tears of pleasure, arched back, gripping man's wrist, legs trembling spread wide, (1boy, adult man inserting two fingers:1.3), BabyDoll bed, messy sheets, warm pink lighting, orgasm approaching",
+      "negative_prompt": "worst quality, low quality, bad anatomy, censored, mosaic, second male, penis, mature body, large breasts, animal ears, hair ornament"
+    },
+    {
+      "id": "rp05_finger_orgasm",
+      "filename_prefix": "rp05_finger_orgasm",
+      "prompt": "2people, hetero, 1boy, 1girl, exactly two people, age difference, fingering, orgasm, climax, squirting, (riko satou:1.1), (10 years old loli:1.3), (very petite:1.2), 133cm, (flat chest:1.3), (light pink blonde wavy hair wild messy:1.4), (shoulder-length fluffy hair:1.2), (aqua blue eyes rolled back:1.2), nude, back arched high, toes curled, legs shaking, open mouth screaming pleasure, tears streaming, heavy sweat, convulsing, clinging to sheets, love juice squirting, (1boy, adult man fingers deep stimulating:1.2), BabyDoll bed stained sheets, pink warm lighting, finger orgasm climax moment, dynamic angle",
+      "negative_prompt": "worst quality, low quality, bad anatomy, censored, mosaic, second male, penis, mature body, large breasts, animal ears, hair ornament"
+    },
+    {
+      "id": "rp06_fellatio",
+      "filename_prefix": "rp06_fellatio",
+      "prompt": "2people, hetero, 1boy, 1girl, exactly two people, age difference, fellatio, oral sex, blowjob, licking penis, (riko satou:1.1), (10 years old loli:1.3), (very petite:1.2), 133cm, (flat chest:1.3), (light pink blonde wavy hair:1.4), (shoulder-length fluffy hair:1.2), (aqua blue eyes looking up at viewer:1.2), kneeling between legs, small hands holding penis base, tongue out licking shaft, saliva dripping, (blushing:1.2), eager expression, (1boy, adult man sitting penis erect:1.3), BabyDoll room floor, kneeling position, from above POV angle, warm lighting",
+      "negative_prompt": "worst quality, low quality, bad anatomy, censored, mosaic, second male, deepthroat, mature body, large breasts, animal ears, hair ornament"
+    },
+    {
+      "id": "rp07_fellatio_balls",
+      "filename_prefix": "rp07_fellatio_balls",
+      "prompt": "2people, hetero, 1boy, 1girl, exactly two people, age difference, fellatio, licking testicles, ball licking, oral service, (riko satou:1.1), (10 years old loli:1.3), (very petite:1.2), 133cm, (flat chest:1.3), (light pink blonde wavy hair:1.4), (shoulder-length fluffy hair:1.2), (aqua blue eyes upturned devoted:1.2), kneeling position, small tongue licking balls, one hand stroking shaft, saliva wet, (heavy blush embarrassed:1.2), (1boy, adult man testicles being licked:1.3), BabyDoll room, intimate oral service, from side angle, warm pink lighting",
+      "negative_prompt": "worst quality, low quality, bad anatomy, censored, mosaic, second male, mature body, large breasts, animal ears, hair ornament"
+    },
+    {
+      "id": "rp08_missionary_insert",
+      "filename_prefix": "rp08_missionary_insert",
+      "prompt": "2people, hetero, 1boy, 1girl, exactly two people, age difference, size difference, missionary position, vaginal sex, penis insertion, initial penetration, (riko satou:1.1), (10 years old loli:1.3), (very petite:1.2), 133cm, (flat chest:1.3), (light pink blonde wavy hair spread on sheets:1.4), (shoulder-length fluffy hair:1.2), (aqua blue eyes wide staring up:1.2), nude, tiny body under large man, legs spread wide, penis entering pussy, belly bulge slight, gasping open mouth, (blushing:1.2), gripping sheets, (1boy, adult man on top inserting penis:1.3), BabyDoll bed white sheets, pink ambient light, first penetration moment, from side angle",
+      "negative_prompt": "worst quality, low quality, bad anatomy, censored, mosaic, second male, mature body, large breasts, teenager, animal ears, hair ornament"
+    },
+    {
+      "id": "rp09_missionary_thrust",
+      "filename_prefix": "rp09_missionary_thrust",
+      "prompt": "2people, hetero, 1boy, 1girl, exactly two people, age difference, missionary position, vaginal sex, intense thrusting, deep penetration, penis in pussy, (riko satou:1.1), (10 years old loli:1.3), (very petite:1.2), 133cm, (flat chest:1.3), (light pink blonde wavy hair messy wild:1.4), (shoulder-length fluffy hair:1.2), (aqua blue eyes half-closed pleasure:1.2), nude, small body bouncing under man, belly bulge visible, open mouth moaning, heavy sweat, tears of pleasure, legs wrapped around waist, arms around neck, (1boy, adult man thrusting on top:1.3), BabyDoll bed messy sheets, motion blur, dynamic thrusting, warm lighting",
+      "negative_prompt": "worst quality, low quality, bad anatomy, censored, mosaic, second male, mature body, large breasts, animal ears, hair ornament"
+    },
+    {
+      "id": "rp10_missionary_creampie",
+      "filename_prefix": "rp10_missionary_creampie",
+      "prompt": "2people, hetero, 1boy, 1girl, exactly two people, age difference, missionary position, vaginal sex, cum in pussy, creampie, nakadashi, ejaculation, (riko satou:1.1), (10 years old loli:1.3), (very petite:1.2), 133cm, (flat chest:1.3), (light pink blonde wavy hair disheveled sweaty:1.4), (shoulder-length fluffy hair:1.2), (aqua blue eyes teary happy:1.2), nude, back arched, toes curled, cum overflow dripping, legs locked around waist, arms clinging tight, satisfied smile through tears, (1boy, adult man deep inside ejaculating:1.3), BabyDoll bed stained sheets, climax moment, creampie scene, warm pink lighting",
+      "negative_prompt": "worst quality, low quality, bad anatomy, censored, mosaic, second male, mature body, large breasts, animal ears, hair ornament"
+    },
+    {
+      "id": "rp11_doggy_insert",
+      "filename_prefix": "rp11_doggy_insert",
+      "prompt": "2people, hetero, 1boy, 1girl, exactly two people, age difference, doggystyle, sex from behind, vaginal sex, penis insertion, (riko satou:1.1), (10 years old loli:1.3), (very petite:1.2), 133cm, (flat chest:1.3), (light pink blonde wavy hair hanging down:1.4), (shoulder-length fluffy hair:1.2), (aqua blue eyes looking back over shoulder:1.2), nude, on all fours, small round ass presented, penis entering from behind, cum from earlier dripping from pussy, gasping, (blushing:1.2), gripping sheets, (1boy, adult man behind inserting:1.3), BabyDoll bed, second round penetration, from side angle, pink lighting",
+      "negative_prompt": "worst quality, low quality, bad anatomy, censored, mosaic, second male, anal, mature body, large breasts, animal ears, hair ornament"
+    },
+    {
+      "id": "rp12_doggy_thrust",
+      "filename_prefix": "rp12_doggy_thrust",
+      "prompt": "2people, hetero, 1boy, 1girl, exactly two people, age difference, doggystyle, sex from behind, vaginal sex, intense thrusting, deep penetration, (riko satou:1.1), (10 years old loli:1.3), (very petite:1.2), 133cm, (flat chest:1.3), (light pink blonde wavy hair wild bouncing:1.4), (shoulder-length fluffy hair:1.2), (aqua blue eyes rolled back:1.2), nude, on all fours being pounded, small body rocking forward, open mouth screaming pleasure, heavy sweat, tears, previous cum and love juice mixing, gripping sheets desperately, (1boy, adult man pounding from behind holding hips:1.3), BabyDoll bed messy, motion blur, rough doggy style, dynamic angle",
+      "negative_prompt": "worst quality, low quality, bad anatomy, censored, mosaic, second male, anal, mature body, large breasts, animal ears, hair ornament"
+    },
+    {
+      "id": "rp13_doggy_creampie",
+      "filename_prefix": "rp13_doggy_creampie",
+      "prompt": "2people, hetero, 1boy, 1girl, exactly two people, age difference, doggystyle, sex from behind, vaginal sex, cum in pussy, creampie, nakadashi, second creampie, (riko satou:1.1), (10 years old loli:1.3), (very petite:1.2), 133cm, (flat chest:1.3), (light pink blonde wavy hair messy sweaty:1.4), (shoulder-length fluffy hair:1.2), (aqua blue eyes teary blissful:1.2), nude, collapsed forward on bed, ass still raised, double creampie cum overflowing, trembling convulsing, happy exhausted smile, drool, (1boy, adult man ejaculating deep from behind:1.3), BabyDoll bed heavily stained, second climax, cum dripping scene, warm lighting",
+      "negative_prompt": "worst quality, low quality, bad anatomy, censored, mosaic, second male, anal, mature body, large breasts, animal ears, hair ornament"
+    },
+    {
+      "id": "rp14_afterglow",
+      "filename_prefix": "rp14_afterglow",
+      "prompt": "2people, hetero, 1boy, 1girl, exactly two people, age difference, after sex, afterglow, lying together, (riko satou:1.1), (10 years old loli:1.3), (very petite:1.2), 133cm, (flat chest:1.3), (light pink blonde wavy hair messy disheveled:1.4), (shoulder-length fluffy hair:1.2), (aqua blue eyes soft loving gaze:1.2), nude, lying on bed exhausted satisfied, cum leaking from pussy pooling on sheets, cuddling against man, happy sleepy smile, sweat glistening skin, (1boy, adult man lying beside:1.1), BabyDoll bed stained sheets, post-coital intimacy, warm soft lighting, depth of field",
+      "negative_prompt": "worst quality, low quality, bad anatomy, censored, mosaic, second male, mature body, large breasts, animal ears, hair ornament"
+    }
+  ]
+}

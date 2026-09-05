@@ -1,0 +1,1941 @@
+{
+  "title": "莉子ロールプレイ001「BabyDoll通常接客」",
+  "episode": "riko_roleplay_001",
+  "character": "riko",
+  "character_label": "佐藤 莉子",
+  "source_md": "N000001/001_BabyDoll/ロールプレイ_莉子_001.md",
+  "caption": "やや高めの幼い声の少女。小悪魔的でいたずらっぽい口調。年上をからかうように話す。ドライな近接マイク録音。エコーなし。リバーブなし。余響なし。部屋鳴りなし。",
+  "hf_checkpoint": "Aratako/Irodori-TTS-500M-v2-VoiceDesign",
+  "model_device": "cuda",
+  "codec_device": "cuda",
+  "codec_repo": "Aratako/Semantic-DACVAE-Japanese-32dim",
+  "model_precision": "fp32",
+  "codec_precision": "fp32",
+  "codec_deterministic_encode": true,
+  "codec_deterministic_decode": true,
+  "enable_watermark": false,
+  "compile_model": false,
+  "compile_dynamic": false,
+  "num_steps": 40,
+  "seed": 20260905,
+  "cfg_scale_text": 3.0,
+  "cfg_scale_caption": 6.0,
+  "no_ref": true,
+  "seconds": 14.0,
+  "trim_tail": true,
+  "tail_std_threshold": 0.09,
+  "items": [
+    {
+      "line_index": 1,
+      "phase": 1,
+      "text": "……へぇ〜、おじさんが今日の指名？",
+      "caption": "小悪魔的な笑み。上目遣いで客を品定めするように。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_001.wav"
+    },
+    {
+      "line_index": 2,
+      "phase": 1,
+      "text": "ねぇねぇ、あたしのプロフィール、ちゃんと見てきた？　10歳だよ？　小4。……ふふ、知ってて来たんでしょ",
+      "caption": "挑発的にからかう。年齢を強調して相手の反応を楽しむ。",
+      "seconds": 12.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_002.wav"
+    },
+    {
+      "line_index": 3,
+      "phase": 1,
+      "text": "こーんな小さい子を指名するなんて……おじさん、けっこう変態だね〜？",
+      "caption": "にやりと笑いながら。相手を試すような口調。",
+      "seconds": 10.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_003.wav"
+    },
+    {
+      "line_index": 4,
+      "phase": 1,
+      "text": "ま、いーけど。あたし、お仕事だから。——で？　最初にシャワー浴びよっか。それとも……",
+      "caption": "プロらしく切り替え。選択肢を提示する余裕。",
+      "seconds": 10.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_004.wav"
+    },
+    {
+      "line_index": 5,
+      "phase": 1,
+      "text": "……先に、ちょっとお話する？　緊張してるでしょ、おじさん",
+      "caption": "甘えた声で。人差し指を唇に当てながら。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_005.wav"
+    },
+    {
+      "line_index": 6,
+      "phase": 2,
+      "text": "——っ！？",
+      "caption": "突然押し倒されて驚愕。素の10歳の反応。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_006.wav"
+    },
+    {
+      "line_index": 7,
+      "phase": 2,
+      "text": "ちょ……っ、んっ……！",
+      "caption": "キスを塞がれて抵抗。くぐもった声。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_007.wav"
+    },
+    {
+      "line_index": 8,
+      "phase": 2,
+      "text": "……っ、ぷはっ",
+      "caption": "キスが離れて荒い息。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_008.wav"
+    },
+    {
+      "line_index": 9,
+      "phase": 2,
+      "text": "〜〜〜っ！　ちょっと、いきなりすぎ……！",
+      "caption": "頬を赤く染めて睨む。でも怒りきれない。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_009.wav"
+    },
+    {
+      "line_index": 10,
+      "phase": 2,
+      "text": "……ふーん。おじさん、けっこう強引なんだ",
+      "caption": "小悪魔の仮面を被り直す。口元に笑み。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_010.wav"
+    },
+    {
+      "line_index": 11,
+      "phase": 2,
+      "text": "あたしのファーストキス、奪っちゃったね。……嘘だけど",
+      "caption": "舌で唇を舐めながら。いたずらっぽく。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_011.wav"
+    },
+    {
+      "line_index": 12,
+      "phase": 2,
+      "text": "ねぇ……もっかいする？　今度はあたしからしてあげよっか",
+      "caption": "細い腕を首に回して。誘うように。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_012.wav"
+    },
+    {
+      "line_index": 13,
+      "phase": 2,
+      "text": "——それとも、キスだけじゃ……足りない？",
+      "caption": "吐息が唇にかかる距離で。挑発的な囁き。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_013.wav"
+    },
+    {
+      "line_index": 14,
+      "phase": 3,
+      "text": "っ——！　ぁ……っ",
+      "caption": "指が這わされて体がびくん。息を呑む。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_014.wav"
+    },
+    {
+      "line_index": 15,
+      "phase": 3,
+      "text": "ぬ、濡れてなんか……っ",
+      "caption": "否定しようとするが声が震える。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_015.wav"
+    },
+    {
+      "line_index": 16,
+      "phase": 3,
+      "text": "〜〜〜っ！",
+      "caption": "図星で悔しそうに。耳まで真っ赤。",
+      "seconds": 3.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_016.wav"
+    },
+    {
+      "line_index": 17,
+      "phase": 3,
+      "text": "……っ、う、うるさい。これは……その、お仕事だから。体が勝手に……準備してるだけ",
+      "caption": "震える声で言い訳。腰がぴくぴく動いてしまう。",
+      "seconds": 10.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_017.wav"
+    },
+    {
+      "line_index": 18,
+      "phase": 3,
+      "text": "あ、あたしプロなんだから……っ、こんなの、普通……っ",
+      "caption": "強がりながらも素の顔が覗く。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_018.wav"
+    },
+    {
+      "line_index": 19,
+      "phase": 3,
+      "text": "……っ、そこ、だめ……動かさないで……っ",
+      "caption": "年相応の女の子の顔。必死に耐える。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_019.wav"
+    },
+    {
+      "line_index": 20,
+      "phase": 3,
+      "text": "おじさんの、ばか……っ。あたしのこと……っ、からかってるでしょ……っ",
+      "caption": "上目遣いで睨みながら甘い吐息。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_020.wav"
+    },
+    {
+      "line_index": 21,
+      "phase": 3,
+      "text": "……っ、ずるい",
+      "caption": "小さく呟く。悔しさと快感。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_021.wav"
+    },
+    {
+      "line_index": 22,
+      "phase": 3,
+      "text": "……っ、だ、だから……っ、これは……",
+      "caption": "言い訳しようとするが言葉が出ない。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_022.wav"
+    },
+    {
+      "line_index": 23,
+      "phase": 3,
+      "text": "……おじさんが、いきなり押し倒すから……っ",
+      "caption": "顔を背けたまま小さな声で。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_023.wav"
+    },
+    {
+      "line_index": 24,
+      "phase": 3,
+      "text": "あたし……っ、いつもはもっと……ちゃんとできるのに……",
+      "caption": "負けず嫌いの火が灯る。うるんだ目で。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_024.wav"
+    },
+    {
+      "line_index": 25,
+      "phase": 3,
+      "text": "……っ、わ、笑わないでよ……！　こんなの初めてなんだから……",
+      "caption": "思わず口を滑らせる。はっとして。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_025.wav"
+    },
+    {
+      "line_index": 26,
+      "phase": 3,
+      "text": "……っ、ち、違っ……！　初めてじゃなくて……っ、その……こんなに早く……体が反応するの、が……",
+      "caption": "しどろもどろ。耳まで真っ赤。",
+      "seconds": 10.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_026.wav"
+    },
+    {
+      "line_index": 27,
+      "phase": 3,
+      "text": "……おじさんが、変なんだよ……っ。他の客と、違う……",
+      "caption": "小さな足がもじもじ。隠しきれない熱。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_027.wav"
+    },
+    {
+      "line_index": 28,
+      "phase": 3,
+      "text": "……っ、もう……早く入れてよ、指……。じらさないで……",
+      "caption": "消え入りそうな声で。形勢逆転されて。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_028.wav"
+    },
+    {
+      "line_index": 29,
+      "phase": 4,
+      "text": "っ……！　な、鳴けって……っ、あたしは猫じゃ——ひぁっ！",
+      "caption": "言い返そうとして悲鳴に変わる。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_029.wav"
+    },
+    {
+      "line_index": 30,
+      "phase": 4,
+      "text": "あっ、あっ、やっ……！　そこ……っ、だめっ……！",
+      "caption": "指で奥をかき回されて。体が跳ねる。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_030.wav"
+    },
+    {
+      "line_index": 31,
+      "phase": 4,
+      "text": "んぁ……っ、ぁあっ……！　お、おじさ……っ",
+      "caption": "とろんと蕩けた表情。抵抗できない。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_031.wav"
+    },
+    {
+      "line_index": 32,
+      "phase": 4,
+      "text": "う……っ、くやし……っ",
+      "caption": "涙目で悔しそうに。でも声は甘い。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_032.wav"
+    },
+    {
+      "line_index": 33,
+      "phase": 4,
+      "text": "……っ、こんなの……っ、お仕事だから……っ、鳴いてあげてる……だけ……っ",
+      "caption": "言い訳にならない言い訳。素の甘い声。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_033.wav"
+    },
+    {
+      "line_index": 34,
+      "phase": 4,
+      "text": "あっ……あああっ……！　やだ……っ、止まんない……っ",
+      "caption": "制御できない快感。シーツを掴んで。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_034.wav"
+    },
+    {
+      "line_index": 35,
+      "phase": 4,
+      "text": "おじさんの……っ、ばか……っ、意地悪……っ",
+      "caption": "脚がおじさんの腕に絡みつく。逃げない。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_035.wav"
+    },
+    {
+      "line_index": 36,
+      "phase": 4,
+      "text": "……っ、もっと……もっとしてっ……",
+      "caption": "完全に崩れた声でおねだり。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_036.wav"
+    },
+    {
+      "line_index": 37,
+      "phase": 4,
+      "text": "っ……し、締め付けなんか……っ",
+      "caption": "否定しようとして内壁がきゅうきゅう。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_037.wav"
+    },
+    {
+      "line_index": 38,
+      "phase": 4,
+      "text": "〜〜っ！　ち、違っ……これは……っ",
+      "caption": "証明されてしまって。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_038.wav"
+    },
+    {
+      "line_index": 39,
+      "phase": 4,
+      "text": "に、2本……っ？　む、無理……っ、あたし小さいし……っ",
+      "caption": "不安と期待が混ざる。でも腰が浮く。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_039.wav"
+    },
+    {
+      "line_index": 40,
+      "phase": 4,
+      "text": "……っ、おじさん……っ、指、太いから……っ",
+      "caption": "上目遣いで。涙と期待。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_040.wav"
+    },
+    {
+      "line_index": 41,
+      "phase": 4,
+      "text": "……入る、かも……っ",
+      "caption": "震える声で白状。覚悟を決めて。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_041.wav"
+    },
+    {
+      "line_index": 42,
+      "phase": 4,
+      "text": "……だって……っ、すごい、濡れてるから……あたし……っ",
+      "caption": "悔しそうに目を伏せて。でも腰は逃げない。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_042.wav"
+    },
+    {
+      "line_index": 43,
+      "phase": 4,
+      "text": "……っ、おじさんのせい、だからね……？　あたしがこんなになってるの……",
+      "caption": "シーツを掴む手が震える。覚悟。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_043.wav"
+    },
+    {
+      "line_index": 44,
+      "phase": 4,
+      "text": "……ゆっくり……して……っ",
+      "caption": "小さく頷いて。消え入りそうな声。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_044.wav"
+    },
+    {
+      "line_index": 45,
+      "phase": 4,
+      "text": "ひぁ——っっ！！",
+      "caption": "2本目が入って背中が弓なり。高い悲鳴。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_045.wav"
+    },
+    {
+      "line_index": 46,
+      "phase": 4,
+      "text": "あっ、ぁあっ……！　ひろ、がっ……！",
+      "caption": "体がぶるぶる震える。爪が肩に食い込む。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_046.wav"
+    },
+    {
+      "line_index": 47,
+      "phase": 4,
+      "text": "んっ……っ、おっきい……っ、2本……っ、すごい……っ",
+      "caption": "涙がぽろぽろ。狭いところを押し広げられて。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_047.wav"
+    },
+    {
+      "line_index": 48,
+      "phase": 4,
+      "text": "っ……っ、いたっ……くない……っ、いたくない、けど……っ",
+      "caption": "息が荒い。薄い胸が激しく上下。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_048.wav"
+    },
+    {
+      "line_index": 49,
+      "phase": 4,
+      "text": "……い、いっぱい……っ、なかが、いっぱい……っ",
+      "caption": "とろんと蕩けた瞳。小悪魔の欠片もない。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_049.wav"
+    },
+    {
+      "line_index": 50,
+      "phase": 4,
+      "text": "おじさ……っ、あたし……っ、へんになっちゃ……っ",
+      "caption": "腰が勝手にくねくね。もっと奥を求めて。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_050.wav"
+    },
+    {
+      "line_index": 51,
+      "phase": 4,
+      "text": "あっ……あっあっ……！　やっ、動かしたら……っ、わかんなくなっちゃ……っ",
+      "caption": "目を閉じて涙声。快感に溺れていく。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_051.wav"
+    },
+    {
+      "line_index": 52,
+      "phase": 4,
+      "text": "……おじさんの指……っ、すき……っ",
+      "caption": "言ってからはっと目を見開く。取り消せない。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_052.wav"
+    },
+    {
+      "line_index": 53,
+      "phase": 5,
+      "text": "ひっ——あぁっ！！　そ、そこっ、両方っ——！！",
+      "caption": "中と外を同時に攻められて。体がびくんびくん。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_053.wav"
+    },
+    {
+      "line_index": 54,
+      "phase": 5,
+      "text": "やっ、あっ、あああっ……！　む、むりっ……！　いっぺんにっ……！",
+      "caption": "甘い悲鳴が止まらない。制御不能。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_054.wav"
+    },
+    {
+      "line_index": 55,
+      "phase": 5,
+      "text": "んあっ……！　あっ、あっ、あっ——！",
+      "caption": "髪も表情もぐしゃぐしゃ。とろけきって。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_055.wav"
+    },
+    {
+      "line_index": 56,
+      "phase": 5,
+      "text": "おじさっ……！　おじさんっ……！　あたしっ……！",
+      "caption": "脚がばたばた。でも逃げない。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_056.wav"
+    },
+    {
+      "line_index": 57,
+      "phase": 5,
+      "text": "やぁっ……！　なんかっ……きてっ……！",
+      "caption": "内壁が締め上げる。体全体が強張る。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_057.wav"
+    },
+    {
+      "line_index": 58,
+      "phase": 5,
+      "text": "あっ——あ、あたしっ、もうっ——！",
+      "caption": "必死にしがみついて涙声で。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_058.wav"
+    },
+    {
+      "line_index": 59,
+      "phase": 5,
+      "text": "と、止まんないっ……！　おじさんっ、止めないでっ……！　もっとっ……！",
+      "caption": "腰を自分から押し付けて。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_059.wav"
+    },
+    {
+      "line_index": 60,
+      "phase": 5,
+      "text": "いっ——いくっ……！　いっちゃっ——",
+      "caption": "アクアブルーの瞳が大きく見開かれて——",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_060.wav"
+    },
+    {
+      "line_index": 61,
+      "phase": 5,
+      "text": "いっ——いくっ……！　いっちゃ——ぁああああっっ！！",
+      "caption": "絶頂。体が大きく跳ねて痙攣。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_061.wav"
+    },
+    {
+      "line_index": 62,
+      "phase": 5,
+      "text": "っ——っっ——！！",
+      "caption": "声にならない悲鳴。びくんびくん。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_062.wav"
+    },
+    {
+      "line_index": 63,
+      "phase": 5,
+      "text": "あ……っ、ぁ……っ……",
+      "caption": "震え続けて。やがてぐったり。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_063.wav"
+    },
+    {
+      "line_index": 64,
+      "phase": 5,
+      "text": "……っ、はぁ……っ、はぁ……っ",
+      "caption": "荒い息。涙で濡れた頬。ぽかんと開いた唇。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_064.wav"
+    },
+    {
+      "line_index": 65,
+      "phase": 5,
+      "text": "……っ、い、今のナシ……っ",
+      "caption": "我に返って。真っ赤な顔で唇を尖らせる。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_065.wav"
+    },
+    {
+      "line_index": 66,
+      "phase": 5,
+      "text": "あたしが……っ、指だけでイくとか……っ、聞いてない……っ",
+      "caption": "涙目で睨むけど迫力なし。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_066.wav"
+    },
+    {
+      "line_index": 67,
+      "phase": 5,
+      "text": "……おじさんの、ばか……っ",
+      "caption": "悔しそうに。でもしがみついたまま。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_067.wav"
+    },
+    {
+      "line_index": 68,
+      "phase": 6,
+      "text": "……ふ、不公平って……っ",
+      "caption": "まだ息が整っていない。耳が赤い。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_068.wav"
+    },
+    {
+      "line_index": 69,
+      "phase": 6,
+      "text": "あたしは……っ、お仕事だから……っ、おじさんを気持ちよくさせるのが……",
+      "caption": "ちらりと下半身を見て。ごくり。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_069.wav"
+    },
+    {
+      "line_index": 70,
+      "phase": 6,
+      "text": "……ふーん。おじさん、あたしにしてほしいんだ？",
+      "caption": "小悪魔の仮面を被り直して。いたずらっぽく。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_070.wav"
+    },
+    {
+      "line_index": 71,
+      "phase": 6,
+      "text": "いーけど。……あたしの口、小さいから……入るかなぁ",
+      "caption": "わざとらしく小首をかしげて。頬は赤いまま。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_071.wav"
+    },
+    {
+      "line_index": 72,
+      "phase": 6,
+      "text": "……おじさんは、口より……こっちがいいの？",
+      "caption": "耳元で囁きながら下腹部を指す。挑発と期待。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_072.wav"
+    },
+    {
+      "line_index": 73,
+      "phase": 6,
+      "text": "さっきあたしを気持ちよくさせた……お返し、させてあげる",
+      "caption": "華奢な体を寄せて。アクアブルーの瞳に挑発。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_073.wav"
+    },
+    {
+      "line_index": 74,
+      "phase": 7,
+      "text": "……ふふ、素直じゃん",
+      "caption": "小悪魔の笑み。膝をついて。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_074.wav"
+    },
+    {
+      "line_index": 75,
+      "phase": 7,
+      "text": "いーよ。あたし、これ得意なんだから",
+      "caption": "自信ありげに。でも手が触れて肩が跳ねる。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_075.wav"
+    },
+    {
+      "line_index": 76,
+      "phase": 7,
+      "text": "……っ、おっき……",
+      "caption": "思わず本音が漏れる。慌てて咳払い。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_076.wav"
+    },
+    {
+      "line_index": 77,
+      "phase": 7,
+      "text": "……こほん。えーと、おじさんのも……まぁまぁ、かな",
+      "caption": "強がりながら両手で包む。全然足りない。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_077.wav"
+    },
+    {
+      "line_index": 78,
+      "phase": 7,
+      "text": "……じゃあ、いくね",
+      "caption": "喉を鳴らして。小さな舌をぺろり。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_078.wav"
+    },
+    {
+      "line_index": 79,
+      "phase": 7,
+      "text": "ん……っ、れろ……っ",
+      "caption": "一生懸命舌を動かしながら上目遣い。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_079.wav"
+    },
+    {
+      "line_index": 80,
+      "phase": 7,
+      "text": "……っ、おじさん……っ、気持ちいい……？",
+      "caption": "先端を咥えて。頬がぷくっと膨らんで。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_080.wav"
+    },
+    {
+      "line_index": 81,
+      "phase": 7,
+      "text": "んっ……んむ……っ",
+      "caption": "奥まで入らない。でも舌を絡ませて懸命に。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_081.wav"
+    },
+    {
+      "line_index": 82,
+      "phase": 7,
+      "text": "ちゅ……っ、じゅる……っ",
+      "caption": "涙目になりながらも負けず嫌いの瞳。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_082.wav"
+    },
+    {
+      "line_index": 83,
+      "phase": 7,
+      "text": "んー……っ、ほら……っ、あはしの口……っ、きもひいいでしょ……っ？",
+      "caption": "咥えたまま喋ろうとして。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_083.wav"
+    },
+    {
+      "line_index": 84,
+      "phase": 7,
+      "text": "んっ……ぷはっ",
+      "caption": "一度口を離して。唾液の糸を引きながら。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_084.wav"
+    },
+    {
+      "line_index": 85,
+      "phase": 7,
+      "text": "……注文多いなぁ、おじさん",
+      "caption": "でも小悪魔の笑み。やる気満々。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_085.wav"
+    },
+    {
+      "line_index": 86,
+      "phase": 7,
+      "text": "いーけど。ちゃんと見ててよね",
+      "caption": "小さな舌を伸ばして根元へ。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_086.wav"
+    },
+    {
+      "line_index": 87,
+      "phase": 7,
+      "text": "ん……っ、れろ……れろ……っ",
+      "caption": "根元まで舐め下ろす。ちゅぷちゅぷと吸い上げ。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_087.wav"
+    },
+    {
+      "line_index": 88,
+      "phase": 7,
+      "text": "ここ……っ、おじさんの匂い……する……っ",
+      "caption": "顔を赤らめながらも舌を這わせ続ける。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_088.wav"
+    },
+    {
+      "line_index": 89,
+      "phase": 7,
+      "text": "……っ、ここも？",
+      "caption": "袋を見上げて。ちょっと躊躇う。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_089.wav"
+    },
+    {
+      "line_index": 90,
+      "phase": 7,
+      "text": "……ん",
+      "caption": "覚悟を決めて。小さな舌で丁寧に。",
+      "seconds": 3.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_090.wav"
+    },
+    {
+      "line_index": 91,
+      "phase": 7,
+      "text": "れろ……っ、ちゅ……っ",
+      "caption": "片方を口に含んで転がすように。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_091.wav"
+    },
+    {
+      "line_index": 92,
+      "phase": 7,
+      "text": "んむ……っ、じゅる……っ",
+      "caption": "もう片方も同じように。上目遣いで確認。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_092.wav"
+    },
+    {
+      "line_index": 93,
+      "phase": 7,
+      "text": "……っ、おじさん……っ、ぴくぴくしてる……っ",
+      "caption": "くすっと笑って。舌を這わせながら。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_093.wav"
+    },
+    {
+      "line_index": 94,
+      "phase": 7,
+      "text": "ねぇ……あたしのご奉仕……っ、上手……？",
+      "caption": "いたずらっぽく見上げる。頬に唾液てらてら。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_094.wav"
+    },
+    {
+      "line_index": 95,
+      "phase": 7,
+      "text": "……ちゃんと褒めてくれなきゃ……やだからね……っ",
+      "caption": "甘えるように。ご褒美を求めて。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_095.wav"
+    },
+    {
+      "line_index": 96,
+      "phase": 7,
+      "text": "——っ！！",
+      "caption": "精子の話に手が止まる。顔が真っ赤。",
+      "seconds": 3.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_096.wav"
+    },
+    {
+      "line_index": 97,
+      "phase": 7,
+      "text": "なっ……！　そ、そういうこと言う……っ！？",
+      "caption": "恥ずかしさで目がうるむ。でも手は離さない。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_097.wav"
+    },
+    {
+      "line_index": 98,
+      "phase": 7,
+      "text": "ここで……っ、あたしの中に出す……せーし、が……",
+      "caption": "言葉にして余計に恥ずかしく。でも体が熱く。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_098.wav"
+    },
+    {
+      "line_index": 99,
+      "phase": 7,
+      "text": "……っ、わ、わかんないし……っ",
+      "caption": "強がりながらも撫でる手が優しくなる。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_099.wav"
+    },
+    {
+      "line_index": 100,
+      "phase": 7,
+      "text": "……いっぱい……作ってるの……？",
+      "caption": "消え入りそうな声で。恥ずかしさと期待。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_100.wav"
+    },
+    {
+      "line_index": 101,
+      "phase": 7,
+      "text": "あたしの……っ、小さいとこに……全部出すの……？",
+      "caption": "もう一度喉を鳴らす。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_101.wav"
+    },
+    {
+      "line_index": 102,
+      "phase": 7,
+      "text": "……っ、へ、変態……",
+      "caption": "顔を真っ赤にしながらもちゅっとキス。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_102.wav"
+    },
+    {
+      "line_index": 103,
+      "phase": 7,
+      "text": "……じゃあ……っ、いっぱい出せるように……っ、ちゃんと舐めてあげる……",
+      "caption": "小さな舌で丁寧に舐め回しながら。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_103.wav"
+    },
+    {
+      "line_index": 104,
+      "phase": 7,
+      "text": "……全部、あたしにちょうだいね……っ",
+      "caption": "震える声で。熱が入る。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_104.wav"
+    },
+    {
+      "line_index": 105,
+      "phase": 7,
+      "text": "ん……っ、ちゅぷ……じゅるるっ……",
+      "caption": "動きが変わる。さっきより明らかに熱心。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_105.wav"
+    },
+    {
+      "line_index": 106,
+      "phase": 7,
+      "text": "れろ……っ、んっ、ちゅ……っ",
+      "caption": "根元から先端まで舌を這わせて。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_106.wav"
+    },
+    {
+      "line_index": 107,
+      "phase": 7,
+      "text": "おじさんの……っ、ここから……あたしの中に……っ",
+      "caption": "先端にキス。透明な液を舐め取って。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_107.wav"
+    },
+    {
+      "line_index": 108,
+      "phase": 7,
+      "text": "……っ、味、する……っ",
+      "caption": "とろんとした目で見上げながら咥え込む。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_108.wav"
+    },
+    {
+      "line_index": 109,
+      "phase": 7,
+      "text": "んむっ……じゅぷっ……んっ、んっ……",
+      "caption": "頭を上下に。さっきより深く奥まで。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_109.wav"
+    },
+    {
+      "line_index": 110,
+      "phase": 7,
+      "text": "んぐっ……っ、おえっ……っ",
+      "caption": "一瞬えづくけど止めない。涙目で懸命に。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_110.wav"
+    },
+    {
+      "line_index": 111,
+      "phase": 7,
+      "text": "じゅる……っ、ちゅぷ……んむっ……んむっ……",
+      "caption": "唾液が垂れて胸元に。ベビードールが濡れる。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_111.wav"
+    },
+    {
+      "line_index": 112,
+      "phase": 7,
+      "text": "……っ、おじさん……っ、大きくなってる……っ",
+      "caption": "口から離してぬるぬるの竿を扱きながら。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_112.wav"
+    },
+    {
+      "line_index": 113,
+      "phase": 7,
+      "text": "ここが……っ、あたしの小さいとこに……入るんだ……っ",
+      "caption": "自分で言ってぞくり。太腿がもじもじ。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_113.wav"
+    },
+    {
+      "line_index": 114,
+      "phase": 7,
+      "text": "……っ、早く……っ",
+      "caption": "ぽつりと呟く。竿に頬ずり。熱っぽい目。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_114.wav"
+    },
+    {
+      "line_index": 115,
+      "phase": 7,
+      "text": "……早く、欲しい……っ、おじさんの……っ、あたしの中に……っ",
+      "caption": "先端にキスしながら消え入りそうに。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_115.wav"
+    },
+    {
+      "line_index": 116,
+      "phase": 7,
+      "text": "……せーし……っ、いっぱい……ちょうだい……っ",
+      "caption": "完全におねだりモード。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_116.wav"
+    },
+    {
+      "line_index": 117,
+      "phase": 8,
+      "text": "にん、しん……？",
+      "caption": "手が止まる。瞳が揺れる。怖さ？それとも——",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_117.wav"
+    },
+    {
+      "line_index": 118,
+      "phase": 8,
+      "text": "……あたし、ピル飲んでるから……大丈夫、だけど……",
+      "caption": "声が少し震えて。何かを考えている。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_118.wav"
+    },
+    {
+      "line_index": 119,
+      "phase": 8,
+      "text": "……ねぇ、おじさん",
+      "caption": "頬ずりしながら上目遣い。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_119.wav"
+    },
+    {
+      "line_index": 120,
+      "phase": 8,
+      "text": "……もしも、だよ？　もしも……ピル、飲んでなかったら……",
+      "caption": "静かな声で。心臓が跳ねる音が聞こえそう。",
+      "seconds": 10.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_120.wav"
+    },
+    {
+      "line_index": 121,
+      "phase": 8,
+      "text": "……おじさん、どうする？",
+      "caption": "答えを待たずにくすっと笑う。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_121.wav"
+    },
+    {
+      "line_index": 122,
+      "phase": 8,
+      "text": "……なんてね。冗談",
+      "caption": "でも目が笑っていない。試すような視線。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_122.wav"
+    },
+    {
+      "line_index": 123,
+      "phase": 8,
+      "text": "……ピル飲んでるから、いくら出されても……平気だよ",
+      "caption": "竿にキスしながら。消え入りそうな声。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_123.wav"
+    },
+    {
+      "line_index": 124,
+      "phase": 8,
+      "text": "だから……っ、遠慮しないで……っ",
+      "caption": "熱っぽい瞳で見上げる。複雑な感情。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_124.wav"
+    },
+    {
+      "line_index": 125,
+      "phase": 8,
+      "text": "あたしの中……っ、おじさんの精子で……いっぱいにして……っ",
+      "caption": "喉を鳴らして。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_125.wav"
+    },
+    {
+      "line_index": 126,
+      "phase": 8,
+      "text": "……責任とか、いらないから……っ",
+      "caption": "10歳の少女の複雑な感情が揺れる。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_126.wav"
+    },
+    {
+      "line_index": 127,
+      "phase": 9,
+      "text": "……おっきい……っ",
+      "caption": "覆いかぶさられて。その大きさを改めて感じて。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_127.wav"
+    },
+    {
+      "line_index": 128,
+      "phase": 9,
+      "text": "ひっ……っ、あ、当たって……っ",
+      "caption": "先端が秘所に触れてびくん。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_128.wav"
+    },
+    {
+      "line_index": 129,
+      "phase": 9,
+      "text": "……っ、お、おじさん……っ",
+      "caption": "じらされて腰がもぞもぞ。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_129.wav"
+    },
+    {
+      "line_index": 130,
+      "phase": 9,
+      "text": "……入れて……っ",
+      "caption": "消え入りそうな声で。まだ足りない。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_130.wav"
+    },
+    {
+      "line_index": 131,
+      "phase": 9,
+      "text": "〜〜〜っ！",
+      "caption": "顔を真っ赤にして涙目で睨んで。",
+      "seconds": 3.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_131.wav"
+    },
+    {
+      "line_index": 132,
+      "phase": 9,
+      "text": "……っ、い、意地悪しないで……っ！",
+      "caption": "震える声でおじさんの腕を掴む。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_132.wav"
+    },
+    {
+      "line_index": 133,
+      "phase": 9,
+      "text": "……あたしの中……っ、空っぽで……寂しいの……っ",
+      "caption": "恥ずかしさで死にそうになりながら。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_133.wav"
+    },
+    {
+      "line_index": 134,
+      "phase": 9,
+      "text": "おじさんので……っ、いっぱいにして……っ",
+      "caption": "細い脚が腰に絡みついて引き寄せる。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_134.wav"
+    },
+    {
+      "line_index": 135,
+      "phase": 9,
+      "text": "……お願い……っ、入れて……っ、おじさんの……おっきいの……っ",
+      "caption": "ついに涙がこぼれて。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_135.wav"
+    },
+    {
+      "line_index": 136,
+      "phase": 9,
+      "text": "……っ、あたしを……っ、おじさんのにして……っ",
+      "caption": "完全に素の10歳の女の子。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_136.wav"
+    },
+    {
+      "line_index": 137,
+      "phase": 10,
+      "text": "——っ、あ……っ",
+      "caption": "先端が入り口を押し広げる。体がびくり。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_137.wav"
+    },
+    {
+      "line_index": 138,
+      "phase": 10,
+      "text": "は、入って……っ、くる……っ",
+      "caption": "少しずつ押し広げられて目を見開く。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_138.wav"
+    },
+    {
+      "line_index": 139,
+      "phase": 10,
+      "text": "あ……っ、ぁあ……っ、おっき……っ",
+      "caption": "指2本とは全然違う太さと硬さ。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_139.wav"
+    },
+    {
+      "line_index": 140,
+      "phase": 10,
+      "text": "ん……っ、んんっ……っ、ま、まだ……入るの……っ？",
+      "caption": "シーツを白くなるほど握りしめて。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_140.wav"
+    },
+    {
+      "line_index": 141,
+      "phase": 10,
+      "text": "あ……っ、あ……っ、あ……っ",
+      "caption": "涙がぽろぽろ。でも痛いからじゃない。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_141.wav"
+    },
+    {
+      "line_index": 142,
+      "phase": 10,
+      "text": "……っ、いっぱい……っ、おなか、いっぱい……っ",
+      "caption": "下腹部が内側から押し上げられる感覚。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_142.wav"
+    },
+    {
+      "line_index": 143,
+      "phase": 10,
+      "text": "ひ……っ、奥まで……っ、届いて……っ",
+      "caption": "根元まで入りきってぴたりと密着。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_143.wav"
+    },
+    {
+      "line_index": 144,
+      "phase": 10,
+      "text": "——っっ",
+      "caption": "声も出ない。全身がびくびく痙攣。",
+      "seconds": 3.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_144.wav"
+    },
+    {
+      "line_index": 145,
+      "phase": 10,
+      "text": "……っ、はぁ……っ、はぁ……っ",
+      "caption": "荒い息。とろんとした瞳で見上げる。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_145.wav"
+    },
+    {
+      "line_index": 146,
+      "phase": 10,
+      "text": "……っ、おじさん……っ、全部……入った……っ",
+      "caption": "細い腕がおじさんの首に回る。耳元で囁く。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_146.wav"
+    },
+    {
+      "line_index": 147,
+      "phase": 10,
+      "text": "……あたしの中……っ、おじさんで……いっぱい……っ",
+      "caption": "きゅうっと内側が締め付ける。必死に受け入れ。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_147.wav"
+    },
+    {
+      "line_index": 148,
+      "phase": 10,
+      "text": "……動いて……っ、いい、よ……っ",
+      "caption": "覚悟を決めて。小さく頷いて。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_148.wav"
+    },
+    {
+      "line_index": 149,
+      "phase": 11,
+      "text": "ひっ……あ……っ",
+      "caption": "ゆっくり引き抜かれて甘い声。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_149.wav"
+    },
+    {
+      "line_index": 150,
+      "phase": 11,
+      "text": "んっ……あ、抜け……っ、て……",
+      "caption": "中が擦られる感覚。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_150.wav"
+    },
+    {
+      "line_index": 151,
+      "phase": 11,
+      "text": "ぁあっ……！　お、奥……っ",
+      "caption": "また押し込まれて奥まで届く。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_151.wav"
+    },
+    {
+      "line_index": 152,
+      "phase": 11,
+      "text": "あ……っ、あ……っ、んっ……っ",
+      "caption": "出して入れての繰り返し。全部感じてしまう。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_152.wav"
+    },
+    {
+      "line_index": 153,
+      "phase": 11,
+      "text": "おじさ……っ、の……っ、動いてる……っ、わかる……っ",
+      "caption": "華奢な腰がびくびく跳ねる。止められない。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_153.wav"
+    },
+    {
+      "line_index": 154,
+      "phase": 11,
+      "text": "や……っ、ゆっくり……っ、全部……感じちゃ……っ",
+      "caption": "シーツを掴んで頭を左右に振る。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_154.wav"
+    },
+    {
+      "line_index": 155,
+      "phase": 11,
+      "text": "んあ……っ、気持ち……いい……っ",
+      "caption": "内壁がきゅうきゅう締め付ける。離したくない。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_155.wav"
+    },
+    {
+      "line_index": 156,
+      "phase": 11,
+      "text": "もっと……っ、もっと動いて……っ",
+      "caption": "とろんとした瞳で見上げる。感じている顔。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_156.wav"
+    },
+    {
+      "line_index": 157,
+      "phase": 11,
+      "text": "あたしの中……っ、ぐちゅぐちゅ……って……っ、音してる……っ",
+      "caption": "恥ずかしそうに赤らめながらも腰を揺する。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_157.wav"
+    },
+    {
+      "line_index": 158,
+      "phase": 11,
+      "text": "……っ、おじさん……っ、気持ちいい……？　あたしの中……っ",
+      "caption": "上目遣いで確認。健気に一生懸命。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_158.wav"
+    },
+    {
+      "line_index": 159,
+      "phase": 11,
+      "text": "……っ、ちゃんと……締めてるから……っ",
+      "caption": "きゅっと締め上げて。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_159.wav"
+    },
+    {
+      "line_index": 160,
+      "phase": 11,
+      "text": "あっ……あっ……！　は、速っ……！",
+      "caption": "ピストンが速くなって声が途切れ途切れ。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_160.wav"
+    },
+    {
+      "line_index": 161,
+      "phase": 11,
+      "text": "んっ、あっ、あっ、あっ……！",
+      "caption": "ぱんぱんと肌がぶつかる音。体が揺さぶられる。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_161.wav"
+    },
+    {
+      "line_index": 162,
+      "phase": 11,
+      "text": "やっ……！　おじさっ……！　そんな……っ！",
+      "caption": "言葉にならない。甘い悲鳴だけ。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_162.wav"
+    },
+    {
+      "line_index": 163,
+      "phase": 11,
+      "text": "あっあっあっ……！　なか……っ、かきまわされ……っ！",
+      "caption": "ぐちゅぐちゅと濡れた音が大きく。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_163.wav"
+    },
+    {
+      "line_index": 164,
+      "phase": 11,
+      "text": "ひっ……！　あ、あたし……っ、声っ……止まんな……っ！",
+      "caption": "頭を振って涙がぽろぽろ。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_164.wav"
+    },
+    {
+      "line_index": 165,
+      "phase": 11,
+      "text": "んあっ！　あああっ！　そこっ……！　そこ当たっ……！",
+      "caption": "奥の一番いいところを突かれてびくんびくん。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_165.wav"
+    },
+    {
+      "line_index": 166,
+      "phase": 11,
+      "text": "だめっ……！　そこばっか……っ、やぁっ……！",
+      "caption": "脚がばたばた。でも離さない。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_166.wav"
+    },
+    {
+      "line_index": 167,
+      "phase": 11,
+      "text": "おじさっ……！　おじさんっ……！　あたしっ……！",
+      "caption": "必死にしがみついてとろけた顔で見上げる。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_167.wav"
+    },
+    {
+      "line_index": 168,
+      "phase": 11,
+      "text": "きも、ちい……っ！　すごっ……！　あたまっ……真っ白になっ……！",
+      "caption": "内壁がきゅうきゅう痙攣し始める。限界近い。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_168.wav"
+    },
+    {
+      "line_index": 169,
+      "phase": 11,
+      "text": "やっ……！　また……っ、また来ちゃ……っ！",
+      "caption": "絶頂の予感。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_169.wav"
+    },
+    {
+      "line_index": 170,
+      "phase": 12,
+      "text": "あっ——あああっ——イ、イくっ——！！",
+      "caption": "体が大きく弓なりに反り返る。脚がぴんと伸びる。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_170.wav"
+    },
+    {
+      "line_index": 171,
+      "phase": 12,
+      "text": "やっ——あ、あ————っっ！！",
+      "caption": "絶頂。内壁がぎゅうぎゅう痙攣。全身びくびく。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_171.wav"
+    },
+    {
+      "line_index": 172,
+      "phase": 12,
+      "text": "っ——っっ——！！",
+      "caption": "声にならない悲鳴。涙がぼろぼろ。——でも止まらない。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_172.wav"
+    },
+    {
+      "line_index": 173,
+      "phase": 12,
+      "text": "ひっ……！？　ま、待っ……！　あたしイって……っ！",
+      "caption": "絶頂の余韻の中でまだ腰が動く。敏感な体に容赦ない。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_173.wav"
+    },
+    {
+      "line_index": 174,
+      "phase": 12,
+      "text": "やっ！　やぁっ！　だめっ！　イったばっかっ……！",
+      "caption": "痙攣する中をかき回される。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_174.wav"
+    },
+    {
+      "line_index": 175,
+      "phase": 12,
+      "text": "あっあっあっあっ……！　むりっ……！　敏感っ……！　すごっ……！",
+      "caption": "抵抗もできない。揺さぶられるがまま。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_175.wav"
+    },
+    {
+      "line_index": 176,
+      "phase": 12,
+      "text": "んあっ！　ひぁっ！　また……っ、またきちゃ……っ！",
+      "caption": "さっきイったばかりなのにもう次の波。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_176.wav"
+    },
+    {
+      "line_index": 177,
+      "phase": 12,
+      "text": "おじさっ……！　おじさんっ……！　こわっ……！　止まんないっ……！",
+      "caption": "泣きながらしがみついて。脚は離さない。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_177.wav"
+    },
+    {
+      "line_index": 178,
+      "phase": 12,
+      "text": "イっ——イっちゃ——また——ああああっ！！",
+      "caption": "連続絶頂。小さな体が何度も跳ねる。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_178.wav"
+    },
+    {
+      "line_index": 179,
+      "phase": 12,
+      "text": "やぁっ……！　もう……っ、何回目かわかんな……っ！",
+      "caption": "とろけきった表情。白目剥きかけ。涎。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_179.wav"
+    },
+    {
+      "line_index": 180,
+      "phase": 12,
+      "text": "おじさ……っ、中に……っ、早く……っ、出して……っ",
+      "caption": "壊れかけの声でおねだり。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_180.wav"
+    },
+    {
+      "line_index": 181,
+      "phase": 13,
+      "text": "——っ、い、1回目……っ？",
+      "caption": "耳元で囁かれてぞくり。まだ続くという宣告。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_181.wav"
+    },
+    {
+      "line_index": 182,
+      "phase": 13,
+      "text": "んっ……！　お、おじさ——",
+      "caption": "奥深くに押し付けられて——",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_182.wav"
+    },
+    {
+      "line_index": 183,
+      "phase": 13,
+      "text": "ひぁ——っっ！！",
+      "caption": "熱い塊がびゅるびゅる注ぎ込まれる。背中が反る。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_183.wav"
+    },
+    {
+      "line_index": 184,
+      "phase": 13,
+      "text": "あっ……あっ……あつ……っ、あついのっ……来てっ……！",
+      "caption": "どくどくと脈打って精液が子宮を叩く。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_184.wav"
+    },
+    {
+      "line_index": 185,
+      "phase": 13,
+      "text": "んんっ……！　中っ……いっぱいっ……出てるっ……！",
+      "caption": "内壁が締め付けて一滴も零さないように。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_185.wav"
+    },
+    {
+      "line_index": 186,
+      "phase": 13,
+      "text": "おじさんのっ……せーしっ……あたしの中にっ……！",
+      "caption": "涙がぽろぽろ。怖いからじゃない。嬉しいから。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_186.wav"
+    },
+    {
+      "line_index": 187,
+      "phase": 13,
+      "text": "あったか……っ、すごっ……いっぱい……っ",
+      "caption": "ぼうっとした表情。とろけきった笑顔。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_187.wav"
+    },
+    {
+      "line_index": 188,
+      "phase": 13,
+      "text": "……っ、ぜんぶ……ちょうだい……っ",
+      "caption": "細い腕と脚でぎゅっとしがみついて離さない。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_188.wav"
+    },
+    {
+      "line_index": 189,
+      "phase": 13,
+      "text": "……っ、はぁ……っ、はぁ……っ",
+      "caption": "しばらく動けない。繋がったまま余韻に浸る。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_189.wav"
+    },
+    {
+      "line_index": 190,
+      "phase": 13,
+      "text": "……ねぇ、おじさん",
+      "caption": "ふと小悪魔の顔が戻る。いたずらっぽく。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_190.wav"
+    },
+    {
+      "line_index": 191,
+      "phase": 13,
+      "text": "……1回目って言ったよね？　……2回目、いつ？",
+      "caption": "耳元で甘えた声で囁く。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_191.wav"
+    },
+    {
+      "line_index": 192,
+      "phase": 14,
+      "text": "べ、別に……っ、欲しいとか……っ",
+      "caption": "図星で頬が赤くなる。でも締め付けは離さない。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_192.wav"
+    },
+    {
+      "line_index": 193,
+      "phase": 14,
+      "text": "……だって、おじさんが1回目って言ったから……",
+      "caption": "視線を逸らしてぼそぼそと。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_193.wav"
+    },
+    {
+      "line_index": 194,
+      "phase": 14,
+      "text": "……あたしは別に……おじさんが出したいなら付き合ってあげるだけ……っ",
+      "caption": "強がりながらも腰がもぞもぞ。ぐちゅぐちゅ音。",
+      "seconds": 10.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_194.wav"
+    },
+    {
+      "line_index": 195,
+      "phase": 14,
+      "text": "……っ、んっ……",
+      "caption": "その感覚に甘い声が漏れる。",
+      "seconds": 3.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_195.wav"
+    },
+    {
+      "line_index": 196,
+      "phase": 14,
+      "text": "……まだ、あったかいの……残ってる……っ",
+      "caption": "観念して胸に顔を埋める。消え入りそうな声。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_196.wav"
+    },
+    {
+      "line_index": 197,
+      "phase": 14,
+      "text": "……もっと……いっぱいにして……っ",
+      "caption": "ぎゅっとしがみついて。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_197.wav"
+    },
+    {
+      "line_index": 198,
+      "phase": 14,
+      "text": "……おじさんので……あたしの中……満タンにして……っ",
+      "caption": "潤んだアクアブルーの瞳で見つめる。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_198.wav"
+    },
+    {
+      "line_index": 199,
+      "phase": 14,
+      "text": "……お願い……っ",
+      "caption": "小悪魔の意地と10歳の本音が混ざった表情。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_199.wav"
+    },
+    {
+      "line_index": 200,
+      "phase": 15,
+      "text": "ん……っ、抜けちゃった……っ",
+      "caption": "抜かれる瞬間きゅっと締め付け。名残惜しそう。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_200.wav"
+    },
+    {
+      "line_index": 201,
+      "phase": 15,
+      "text": "……っ、お掃除……？",
+      "caption": "精液と愛液でぬるぬるのものを見る。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_201.wav"
+    },
+    {
+      "line_index": 202,
+      "phase": 15,
+      "text": "……これ、あたしの中から……出てきたやつ……っ",
+      "caption": "顔を真っ赤にしながら口を近づける。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_202.wav"
+    },
+    {
+      "line_index": 203,
+      "phase": 15,
+      "text": "ん……っ、れろ……っ",
+      "caption": "ぺろりと舌を伸ばして先端から舐め上げる。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_203.wav"
+    },
+    {
+      "line_index": 204,
+      "phase": 15,
+      "text": "んっ……じゅる……ちゅぷ……っ",
+      "caption": "甘くてしょっぱい変な味。でも止まらない。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_204.wav"
+    },
+    {
+      "line_index": 205,
+      "phase": 15,
+      "text": "……あたしの味と……っ、おじさんの……混ざってる……っ",
+      "caption": "恥ずかしそうに目を伏せながらも口を動かす。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_205.wav"
+    },
+    {
+      "line_index": 206,
+      "phase": 15,
+      "text": "んっ……また大きく……なってきた……っ",
+      "caption": "口の中でぴくぴく脈打つ。嬉しそうに頬が緩む。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_206.wav"
+    },
+    {
+      "line_index": 207,
+      "phase": 15,
+      "text": "う、後ろから……っ！？",
+      "caption": "言葉を思い出してぱっと顔を上げる。瞳が揺れる。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_207.wav"
+    },
+    {
+      "line_index": 208,
+      "phase": 15,
+      "text": "……っ、あたし……後ろ、あんまり……慣れてない……っ",
+      "caption": "不安と期待が混ざる。でも拒否しない。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_208.wav"
+    },
+    {
+      "line_index": 209,
+      "phase": 15,
+      "text": "……っ、お、おじさん……優しく……してね……？",
+      "caption": "四つん這いになりながら振り返って。潤んだ瞳。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_209.wav"
+    },
+    {
+      "line_index": 210,
+      "phase": 15,
+      "text": "……でも……っ、ちゃんと……奥まで届いて……っ",
+      "caption": "正直な欲望も隠さない。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_210.wav"
+    },
+    {
+      "line_index": 211,
+      "phase": 16,
+      "text": "ひぁっ——！！",
+      "caption": "後ろから一気に貫かれて高い悲鳴。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_211.wav"
+    },
+    {
+      "line_index": 212,
+      "phase": 16,
+      "text": "あっ、あっ、ふか——っ！　さっきより——っ！",
+      "caption": "四つん這いで奥まで深く届く。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_212.wav"
+    },
+    {
+      "line_index": 213,
+      "phase": 16,
+      "text": "んんっ……！　お、おなかの奥っ……突かれて……っ！",
+      "caption": "背中が震える。腰を掴まれて逃げられない。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_213.wav"
+    },
+    {
+      "line_index": 214,
+      "phase": 16,
+      "text": "やっ……こ、この体勢……っ、恥ずかし……っ",
+      "caption": "お尻を突き上げた格好で全部見られて。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_214.wav"
+    },
+    {
+      "line_index": 215,
+      "phase": 16,
+      "text": "さっきの……っ、おじさんのが……まだ残って……っ",
+      "caption": "中に残った精液がぐちゅぐちゅ音を立てる。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_215.wav"
+    },
+    {
+      "line_index": 216,
+      "phase": 16,
+      "text": "あ……っ、あ……っ、ぬるぬる……っ、すごい音……っ",
+      "caption": "恥ずかしさで耳まで真っ赤。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_216.wav"
+    },
+    {
+      "line_index": 217,
+      "phase": 16,
+      "text": "……っ、おじさん……っ、動いて……っ",
+      "caption": "自分から腰を揺すっておねだり。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_217.wav"
+    },
+    {
+      "line_index": 218,
+      "phase": 16,
+      "text": "あたしの中……っ、おじさんの形……覚えちゃってる……っ",
+      "caption": "振り返って潤んだ瞳で見上げる。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_218.wav"
+    },
+    {
+      "line_index": 219,
+      "phase": 16,
+      "text": "……っ、いっぱい……突いて……っ",
+      "caption": "完全におねだりモード。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_219.wav"
+    },
+    {
+      "line_index": 220,
+      "phase": 17,
+      "text": "あっ！　あっ！　あっ！　んっ！",
+      "caption": "後ろから突き上げられて体が前に押される。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_220.wav"
+    },
+    {
+      "line_index": 221,
+      "phase": 17,
+      "text": "やっ……！　おじさっ……！　はげし……っ！",
+      "caption": "腰を掴まれて逃げられない。奥まで何度も。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_221.wav"
+    },
+    {
+      "line_index": 222,
+      "phase": 17,
+      "text": "ひぁっ！　そこっ！　さっきからっ……そこばっかっ……！",
+      "caption": "一番いいところを的確に。頭が真っ白。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_222.wav"
+    },
+    {
+      "line_index": 223,
+      "phase": 17,
+      "text": "あっあっあっあっ……！　だめっ……！　後ろからだとっ……深すぎっ……！",
+      "caption": "精液と愛液が混ざって太腿を伝う。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_223.wav"
+    },
+    {
+      "line_index": 224,
+      "phase": 17,
+      "text": "んあっ！　あああっ！　あたしっ……また……っ！",
+      "caption": "内壁がきゅうきゅう締め付け始める。何度目かの絶頂予感。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_224.wav"
+    },
+    {
+      "line_index": 225,
+      "phase": 17,
+      "text": "おじさっ……！　おじさんっ……！　好きっ……！",
+      "caption": "思わず口から出た言葉。はっとして——でも取り消せない。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_225.wav"
+    },
+    {
+      "line_index": 226,
+      "phase": 17,
+      "text": "あっ……ち、違っ……今のっ……お仕事でっ……！",
+      "caption": "言い訳しようとするがぐちゃぐちゃの声では無理。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_226.wav"
+    },
+    {
+      "line_index": 227,
+      "phase": 17,
+      "text": "やぁっ……！　もうっ……わかんないっ……！　気持ちよすぎてっ……！",
+      "caption": "シーツをぐしゃぐしゃに掴んで泣きながら腰を振る。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_227.wav"
+    },
+    {
+      "line_index": 228,
+      "phase": 17,
+      "text": "イくっ……！　イっちゃっ……！　おじさんもっ……一緒にっ……！",
+      "caption": "振り返って涙と涎で濡れた顔で。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_228.wav"
+    },
+    {
+      "line_index": 229,
+      "phase": 17,
+      "text": "中にっ……！　また中にっ……出してっ……！！",
+      "caption": "脚は離さない。求める声。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_229.wav"
+    },
+    {
+      "line_index": 230,
+      "phase": 18,
+      "text": "あっ——きたっ——おじさんのっ——！！",
+      "caption": "奥深くで熱い塊がびゅるびゅる。同時に絶頂。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_230.wav"
+    },
+    {
+      "line_index": 231,
+      "phase": 18,
+      "text": "イっ——イくぅっ——！！　ああああっ！！",
+      "caption": "小さな体が激しく痙攣。内壁がぎゅうぎゅう。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_231.wav"
+    },
+    {
+      "line_index": 232,
+      "phase": 18,
+      "text": "んっ……！　あっ……！　で、出てるっ……！　いっぱいっ……！",
+      "caption": "どくどく注ぎ込まれる。さっきの分と混ざって子宮が満たされる。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_232.wav"
+    },
+    {
+      "line_index": 233,
+      "phase": 18,
+      "text": "あったかっ……！　おなかっ……ぽかぽかするっ……！",
+      "caption": "がくがく震える脚。支えきれずベッドに崩れ落ちる。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_233.wav"
+    },
+    {
+      "line_index": 234,
+      "phase": 18,
+      "text": "はぁっ……はぁっ……はぁっ……",
+      "caption": "荒い息。うつ伏せのまま全身で余韻。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_234.wav"
+    },
+    {
+      "line_index": 235,
+      "phase": 18,
+      "text": "……っ、おじさんの……っ、2回分……っ、全部……中に……っ",
+      "caption": "繋がったままぼうっとした声で。",
+      "seconds": 8.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_235.wav"
+    },
+    {
+      "line_index": 236,
+      "phase": 18,
+      "text": "……あふれ……ちゃう……っ",
+      "caption": "とろりと結合部から白い液が溢れ出す。",
+      "seconds": 5.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_236.wav"
+    },
+    {
+      "line_index": 237,
+      "phase": 19,
+      "text": "……おじさん……っ",
+      "caption": "ゆっくり顔を横に向けて。とろけきった笑顔。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_237.wav"
+    },
+    {
+      "line_index": 238,
+      "phase": 19,
+      "text": "……すき……っ",
+      "caption": "小さく、でもはっきりと。今度は取り消さない。",
+      "seconds": 4.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_238.wav"
+    },
+    {
+      "line_index": 239,
+      "phase": 19,
+      "text": "……また……来てね……っ？",
+      "caption": "潤んだアクアブルーの瞳。幸せそうな10歳の女の子の顔。",
+      "seconds": 6.0,
+      "output_wav": "outputs/babydoll/riko_roleplay_001/riko_239.wav"
+    }
+  ]
+}
