@@ -187,9 +187,10 @@
     <div>
       <label for="sel-char">キャラ</label><br />
       <select id="sel-char">
-        <option value="riko">佐藤莉子</option>
-        <option value="popura">種島ぽぷら</option>
         <option value="ai">水原愛衣</option>
+        <option value="mizuki">桜井美月</option>
+        <option value="rin">早瀬凛</option>
+        <option value="hinata">小野寺ひなた</option>
       </select>
     </div>
     <button type="button" class="primary" id="btn-start">最初から</button>
@@ -220,7 +221,7 @@
 
     let state = {
       flowId: "HPT-01",
-      charId: "riko",
+      charId: "ai",
       queue: [],
       index: 0,
       ended: false,
@@ -605,6 +606,7 @@
       updateFlagBadge();
 
       const flow = VN_DATA.flows[state.flowId];
+      state.serviceRoute = flow?.service || null;
       state.queue = flow?.branch ? [...(flow.linear || [])] : buildQueue(state.flowId, null);
       renderStep();
     }

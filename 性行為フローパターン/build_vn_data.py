@@ -9,6 +9,14 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 
+# (char_key, フォルダ名, 表示名)。全員成人（18歳以上）。
+CHARACTERS: list[tuple[str, str, str]] = [
+    ("ai", "水原愛衣", "水原愛衣"),
+    ("mizuki", "桜井美月", "桜井美月"),
+    ("rin", "早瀬凛", "早瀬凛"),
+    ("hinata", "小野寺ひなた", "小野寺ひなた"),
+]
+
 NODE_LABELS = {
     "ST01": "ST01(イベント・会話進行)",
     "ST02": "ST02(雰囲気・関係性の変化)",
@@ -30,6 +38,14 @@ NODE_LABELS = {
     "FP10": "FP10(素股)",
     "FP11": "FP11(両手コキ)",
     "FP12": "FP12(フェラと手コキ同時)",
+    "FP13": "FP13(ディープキス)",
+    "FP14": "FP14(キスしながら愛撫)",
+    "FP15": "FP15(キスで達する)",
+    "FP16": "FP16(クンニリングス)",
+    "FP17": "FP17(パイズリ奉仕)",
+    "FP18": "FP18(手コキしながらキス・乳首責め)",
+    "FP19": "FP19(喉奥奉仕)",
+    "FP20": "FP20(シックスナイン)",
     "MN00": "MN00(生で挿入)",
     "MN01": "MN01(挿入)",
     "MN02": "MN02(ゆっくりした抽送)",
@@ -46,6 +62,12 @@ NODE_LABELS = {
     "MN21": "MN21(正常位＋お掃除フェラ)",
     "MN22": "MN22(抽送・お掃除継続)",
     "MN27": "MN27(中出しと口内射精同時)",
+    "MN31": "MN31(交代・2人目挿入)",
+    "MN32": "MN32(三人同時・騎乗＋口＋手)",
+    "MN33": "MN33(連続中出し)",
+    "MN34": "MN34(最後の一人・ぶっかけ)",
+    "MN35": "MN35(二人同時ぶっかけ)",
+    "MN36": "MN36(口内射精・ごっくん)",
     "AF01": "AF01(余韻・呼吸を整える)",
     "AF02": "AF02(抱き合い・会話)",
     "AF03": "AF03(後始末・着衣)",
@@ -90,6 +112,17 @@ BRANCH_POINTS = {
             {"id": "hold", "label": "我慢する（奉仕継続）", "dialogueKey": "FIN:我慢", "loop": True},
         ],
     },
+    "FIN_HAND": {
+        "title": "手コキフィニッシュ",
+        "atNode": "FIN",
+        "promptKey": "FIN:prompt",
+        "choices": [
+            {"id": "hand", "label": "手に出す", "actKey": "FIN:act:手", "dialogueKey": "FIN:手"},
+            {"id": "chest", "label": "胸にかける", "actKey": "FIN:act:胸", "dialogueKey": "FIN:胸"},
+            {"id": "face", "label": "顔にかける", "actKey": "FIN:act:顔", "dialogueKey": "FIN:顔"},
+            {"id": "hold", "label": "我慢する（奉仕継続）", "dialogueKey": "FIN:我慢", "loop": True},
+        ],
+    },
     "FIN_PAIZURI": {
         "title": "パイズリフィニッシュ",
         "atNode": "FIN",
@@ -106,11 +139,13 @@ DEFAULT_FIN_ACT = {
     "FIN:act:口": "（口の中で射精する）",
     "FIN:act:顔": "（顔にかけて射精する）",
     "FIN:act:胸": "（胸にかけて射精する）",
+    "FIN:act:手": "（握られた手の中で射精する）",
 }
 
 SERVICE_ROUTE_BRANCH = {
     "FP05": "FIN_ORAL",
     "FP08": "FIN_PAIZURI",
+    "FP09": "FIN_HAND",
 }
 
 # MN07 フィニッシュ直後に、中出し/外出しで差し替えるノード
@@ -129,112 +164,49 @@ OUTSIDE_ROUTE_RE = re.compile(
 )
 
 # 各 HPT の進行定義: linear または branch
+# finish: MN07 が無いフローで AF を解決する向き（"中"=中出し済み / "外"=外・奉仕のみ）
+# service: 本番なしフローの奉仕ルート（FIN 分岐の種類を決める）
 FLOWS: dict[str, dict] = {
     "HPT-01": {
-        "title": "HPT-01(一本道スタンダード)",
+        "title": "HPT-01(ノーマル)",
         "linear": [
-            "IN00", "IN01", "IN02", "IN03",
-            "FP01", "FP02", "FP03", "FP04", "FP05", "FP06", "FP07",
-            "MN01", "MN02", "MN03", "MN05", "MN06", "MN07",
-            "AF01", "AF02", "AF03", "AF99",
+            "IN00", "IN02", "IN03", "FP01", "FP03", "FP16", "FP04", "FP09", "FP05", "FP07",
+            "MN01", "MN02", "MN04", "MN03", "MN05", "MN06", "MN07", "AF01", "AF02", "AF99",
         ],
     },
     "HPT-02": {
-        "title": "HPT-02(前戯短縮)",
+        "title": "HPT-02(男2女1)",
+        "finish": "中",
         "linear": [
-            "IN00", "IN01", "IN02", "IN03", "FP06", "FP07",
-            "MN01", "MN02", "MN03", "MN05", "MN06", "MN07", "AF01", "AF99",
+            "IN00", "IN02", "IN03", "FP01", "FP04", "FP11", "FP12", "FP17",
+            "MN11", "MN12", "MN16", "MN17", "MN21", "MN22", "MN27", "MN35", "AF01", "AF02", "AF99",
+        ],
+    },
+    "HPT-03": {
+        "title": "HPT-03(輪姦プレイ・合意/3人以上)",
+        "finish": "中",
+        "linear": [
+            "IN00", "IN01", "IN02", "IN03", "FP01", "FP16", "FP11", "FP12",
+            "MN11", "MN12", "MN17", "MN31", "MN16", "MN32", "MN36", "MN33", "MN34", "AF01", "AF02", "AF99",
         ],
     },
     "HPT-04": {
-        "title": "HPT-04(口先行)",
-        "linear": [
-            "IN00", "IN01", "IN02", "IN03",
-            "FP01", "FP02", "FP05", "FP04", "FP06", "FP07",
-            "MN01", "MN02", "MN03", "MN05", "MN06", "MN07",
-            "AF01", "AF02", "AF03", "AF99",
-        ],
+        "title": "HPT-04(キス)",
+        "finish": "外",
+        "linear": ["IN00", "IN02", "FP13", "IN03", "FP01", "FP14", "FP15", "FP16", "AF01", "AF02", "AF99"],
     },
-    "HPT-17": {
-        "title": "HPT-17(奉仕フィニッシュ)",
-        "linear": ["IN00", "IN01", "IN02", "IN03", "FP01", "FP02", "FP03"],
-        "branch": {
-            "at": "FP03",
-            "choices": [
-                {"label": "FP08(パイズリ)", "next": "FP08"},
-                {"label": "FP05(口での愛撫)", "next": "FP05"},
-                {"label": "FP09(手コキ)", "next": "FP09"},
-                {"label": "FP10(素股)", "next": "FP10"},
-            ],
-            "tail": ["FIN", "AF01", "AF02", "AF03", "AF99"],
-        },
+    "HPT-05": {
+        "title": "HPT-05(手コキ)",
+        "finish": "外",
+        "service": "FP09",
+        "linear": ["IN00", "IN02", "IN03", "FP09", "FP18", "FP11", "FP04", "FIN", "AF01", "AF02", "AF99"],
     },
-    "HPT-15": {
-        "title": "HPT-15(ドキュメンター)+HPT-04体部",
-        "linear": [
-            "ST01", "ST02", "ST03",
-            "IN00", "IN01", "IN02", "IN03",
-            "FP01", "FP02", "FP05", "FP04", "FP06", "FP07",
-            "MN01", "MN02", "MN03", "MN05", "MN06", "MN07",
-            "AF01", "AF02", "AF03", "AF99", "AF11",
-        ],
+    "HPT-06": {
+        "title": "HPT-06(フェラチオ)",
+        "finish": "外",
+        "service": "FP05",
+        "linear": ["IN00", "IN02", "IN03", "FP05", "FP19", "FP20", "FP12", "FIN", "AF01", "AF02", "AF99"],
     },
-}
-
-_std_mn = ["MN01", "MN02", "MN03", "MN05", "MN06", "MN07"]
-_std_af = ["AF01", "AF02", "AF03", "AF99"]
-_in = ["IN00", "IN01", "IN02", "IN03"]
-_fp_full = ["FP01", "FP02", "FP03", "FP04", "FP05", "FP06", "FP07"]
-
-FLOWS["HPT-03"] = {"title": "HPT-03(前戯フル)", "linear": _in + _fp_full + _std_mn + _std_af}
-FLOWS["HPT-05"] = {
-    "title": "HPT-05(指・絶頂優先)",
-    "linear": _in + ["FP01", "FP02", "FP03", "FP04", "FP06", "FP07"] + _std_mn + _std_af,
-}
-FLOWS["HPT-06"] = {
-    "title": "HPT-06(体位変更1回)",
-    "linear": _in + _fp_full + ["MN01", "MN02", "MN03", "MN04", "MN05", "MN06", "MN07"] + _std_af,
-}
-FLOWS["HPT-07"] = {
-    "title": "HPT-07(騎乗位主導)",
-    "linear": _in + _fp_full + _std_mn + _std_af,
-}
-FLOWS["HPT-08"] = {
-    "title": "HPT-08(後背位フィニッシュ)",
-    "linear": _in + _fp_full + ["MN01", "MN02", "MN03", "MN04", "MN05", "MN06", "MN07"] + _std_af,
-}
-FLOWS["HPT-09"] = {
-    "title": "HPT-09(二回戦)",
-    "linear": _in + _fp_full + _std_mn + ["AF01"] + _std_mn + _std_af,
-}
-FLOWS["HPT-10"] = {
-    "title": "HPT-10(事後厚め)",
-    "linear": _in + _fp_full + _std_mn + ["AF01", "AF02", "AF10", "AF03", "AF99"],
-}
-FLOWS["HPT-11"] = {
-    "title": "HPT-11(多回戦)",
-    "linear": _in + _fp_full + _std_mn + ["AF01", "AF10"] + _std_mn + ["AF01", "AF10"] + _std_mn + _std_af,
-}
-FLOWS["HPT-12"] = {
-    "title": "HPT-12(体位多段)",
-    "linear": _in + _fp_full + ["MN01", "MN02", "MN03", "MN04", "MN03", "MN04", "MN05", "MN06", "MN07"] + _std_af,
-}
-FLOWS["HPT-13"] = {"title": "HPT-13(対面座位フィニッシュ)", "linear": _in + _fp_full + _std_mn + _std_af}
-FLOWS["HPT-14"] = {
-    "title": "HPT-14(入浴から)",
-    "linear": ["IN00", "IN10", "IN01", "IN02", "IN03"] + _fp_full + _std_mn + _std_af,
-}
-FLOWS["HPT-16"] = {
-    "title": "HPT-16(パイズリ経由)",
-    "linear": _in + ["FP01", "FP02", "FP03", "FP08", "FP06", "FP07"] + _std_mn + _std_af,
-}
-
-# HPT-18: 男2女1・同時奉仕
-_hpt18_fp = ["FP01", "FP02", "FP03", "FP11", "FP12", "FP06", "FP07"]
-_hpt18_mn = ["MN11", "MN12", "MN15", "MN16", "MN17", "MN21", "MN22", "MN27"]
-FLOWS["HPT-18"] = {
-    "title": "HPT-18(男2女1・同時奉仕)",
-    "linear": _in + _hpt18_fp + _hpt18_mn + _std_af,
 }
 
 
@@ -436,6 +408,18 @@ def parse_dialogue_file(path: Path, char_dir: Path | None = None, seen: set[Path
                     out["MN01:生"] = raw
                 if raw and not main:
                     _append_node_line(out, "MN01", raw)
+        elif node_id == "FIN":
+            main_lines: list[str] = []
+            for line in body.splitlines():
+                m_fin = re.match(r"^※(口|顔|胸|手|我慢)\s*[:：]\s*(.+)$", line.strip())
+                if m_fin:
+                    out[f"FIN:{m_fin.group(1)}"] = m_fin.group(2).strip()
+                else:
+                    main_lines.append(line)
+            main = "\n".join(main_lines).strip()
+            if main:
+                out["FIN"] = main
+                out["FIN:prompt"] = main
         elif node_id in POST_MN07_VARIANT_NODES:
             main, note_in, note_out = _split_route_footnotes(body)
             if note_in:
@@ -480,23 +464,6 @@ DEFAULT_MN00_ACT = {
 }
 
 DEFAULT_MN00: dict[str, dict[str, str]] = {
-    "riko": {
-        "MN00:prompt": "（息を整え、下を見やる）\n\n「……入れて……っ……生で……っ」",
-        # 選択「後」は反応のみ（許可・指示禁止）
-        "MN00:生": "「ん……っ……熱い……っ……直接……っ」",
-        "MN01:生": "「っ……あ……っ……生……入っ……た……っ……熱い……っ」",
-        "MN07:prompt:生": "「中……出して……っ……全部……ちょうだい……っ」",
-        "MN07:中:生": "「あっ……あったかい……っ……中、いっぱい……んぅっ……」",
-        "MN07:外:生": "「……あ、外……っ……んあっ……！　……お腹……熱い……っ……う、ぅっ……」",
-    },
-    "popura": {
-        "MN00:prompt": "（息を整え、小さくうなずく）\n\n「……入れ……ますか……？　……生……で……っ」",
-        "MN00:生": "「ん……っ……熱い……です……っ……直接……っ」",
-        "MN01:生": "「っ……あ……っ……生……入っ……た……っ……熱い……っ」",
-        "MN07:prompt:生": "「中……にっ……！　出して……ください……っ……全部……っ」",
-        "MN07:中:生": "「あっ……あったかい……っ……中、いっぱい……んぅっ……ごちそう……さま……っ」",
-        "MN07:外:生": "「……あ、外……っ……んあっ……！　……お腹……熱い……っ……う、ぅっ……」",
-    },
     "ai": {
         "MN00:prompt": "（息を整え、目線だけ上げる）\n\n「……入れる……とき……っ……生……で……いい……？……っ」",
         "MN00:生": "「ん……っ……熱い……っ……直接……っ」",
@@ -505,36 +472,70 @@ DEFAULT_MN00: dict[str, dict[str, str]] = {
         "MN07:中:生": "「あっ……あったかい……っ……中、いっぱい……んぅっ……」",
         "MN07:外:生": "「……あ、外……っ……んあっ……！　……お腹……熱い……っ……う、ぅっ……」",
     },
+    "mizuki": {
+        "MN00:prompt": "（膝裏を抱えたまま、挑発するように見上げる）\n\n「……そのまま、でいいって。……生で、して」",
+        "MN00:生": "「ん……っ、あっつ……っ、直接……っ」",
+        "MN01:生": "「っ……あ……っ、生……っ、ぜんぶ、わかる……っ」",
+        "MN07:prompt:生": "「……センパイ、このまま……っ、中で、いいから……っ」",
+        "MN07:中:生": "「あっ……あったかい……っ、中、いっぱい……っ、やば……っ」",
+        "MN07:外:生": "「あっ……外、に……っ、お腹、あっつ……っ、う、ぅ……っ」",
+    },
+    "rin": {
+        "MN00:prompt": "（相手の手首を掴んで止める）\n\n「……いらない。……そのまま」",
+        "MN00:生": "「……っ、……熱い」",
+        "MN01:生": "「……っ、……直接、……わかる」",
+        "MN07:prompt:生": "「……抜かないで。……このまま」",
+        "MN07:中:生": "「……っ、あったかい……。……中、いっぱい……」",
+        "MN07:外:生": "「……っ、外……。……お腹、熱い……」",
+    },
+    "hinata": {
+        "MN00:prompt": "（そっと手を重ねて、ふにゃりと笑う）\n\n「……今日は、そのまま……がいいです……。……生で、ください……」",
+        "MN00:生": "「ん……っ、あったか……っ、直接、です……っ」",
+        "MN01:生": "「ん……っ、生……っ、かたち、ぜんぶ、わかります……っ」",
+        "MN07:prompt:生": "「……悠真さん……っ、なかに、ください……っ」",
+        "MN07:中:生": "「……あったかい……っ、なか、いっぱい、です……っ」",
+        "MN07:外:生": "「……あ……そと、に……っ。……おなか、あっつい、です……っ」",
+    },
 }
 
 DEFAULT_MN07_INSIDE: dict[str, str] = {
-    "riko": "「あっ……あったかい……。……中、いっぱい……ん……」",
-    "popura": "「あっ……あったかい……。……中、いっぱい……ん……。……ごちそう、さま……でした……」",
     "ai": "「あっ……あったかい……。……中、いっぱい……ん……」",
+    "mizuki": "「あっ……あったかい……っ。……中、いっぱい……。……やば……」",
+    "rin": "「……あったかい……。……中、いっぱい……」",
+    "hinata": "「……あったかい……。……なか、いっぱい、です……」",
 }
 
 DEFAULT_MN07_OUTSIDE: dict[str, str] = {
-    "riko": "「……外、……？　……ん、っ……。……まだ、中、熱いのに……。……汚した、でしょ……」",
-    "popura": "「……あ、外、に……。……んっ……。……か、顔、に……？　……う、うぅ……」",
     "ai": "「……あ、外……っ。……んっ……。……お腹の上、……熱い……。……う、うぅ……」",
+    "mizuki": "「……あ、外……っ。……お腹、あっつ……。……う、ぅ……」",
+    "rin": "「……外……。……お腹、熱い……」",
+    "hinata": "「……あ、そと……。……おなか、あっつい、です……」",
 }
 
 DEFAULT_AF_AFTER: dict[str, dict[str, str]] = {
-    "riko": {
-        "AF01:中:生": "「はぁ……はぁ……。……重い。……まだ、抜かないで。……ちょっとだけ」",
-        "AF01:外:生": "「はぁ……はぁ……。……外、出したのに……。……離れないで。……まだ、余韻……」",
-        "AF02:中:生": "「……どうだった？ あたし、可愛かった？ ……当たり前ね」",
-        "AF02:外:生": "「……外、汚したくせに。……どうだった？ ……当たり前、可愛いでしょ」",
-        "AF03:中:生": "「タオル、取って。……ベビードール、着直すの手伝って。……リボン、後ろで結べる？」",
-        "AF03:外:生": "「タオル、取って。……顔、拭いて。……ベビードール、着直すの手伝って」",
+    "mizuki": {
+        "AF01:中:生": "「はぁ……はぁ……っ、重……っ。……まだ、抜かないで。……ちょっとだけ」",
+        "AF01:外:生": "「はぁ……はぁ……っ。……離れんな、ばか。……まだ、余韻……」",
+        "AF02:中:生": "「……今の、ノーカンだから。……あたしが本気出したら、もっとすごいし」",
+        "AF02:外:生": "「……外とか、気ぃ遣いすぎ。……次は、ちゃんと最後まで、して」",
+        "AF03:中:生": "「……腰、抜けた。……センパイのせいだかんね」",
+        "AF03:外:生": "「お腹、べとべと。……タオル取って。……あと、責任取って」",
     },
-    "popura": {
-        "AF01:中:生": "「はぁ……はぁ……。……重い……です。……まだ、抜かないで……ください。……ちょっと、だけ……」",
-        "AF01:外:生": "「はぁ……はぁ……。……外、に……出しました、ね……。……離れないで……ください……」",
-        "AF02:中:生": "「……どう、でしたか？　私、可愛かった……？　……か、可愛くないです……っ」",
-        "AF02:外:生": "「……外、に……。……どう、でしたか？　……可愛かった……です、よね……？」",
-        "AF03:中:生": "「タオル、取ってください。……制服、着直すの、手伝って……。」",
-        "AF03:外:生": "「タオル、取ってください。……顔、拭いて……。……制服、着直すの、手伝って……。」",
+    "rin": {
+        "AF01:中:生": "「……はぁ……っ、……まだ、抜かないで」",
+        "AF01:外:生": "「……はぁ……っ、……離れないで。……もうちょっと」",
+        "AF02:中:生": "「……うるさい。……見ないで。……でも、……よかった」",
+        "AF02:外:生": "「……外、……別に、いいのに。……次は、最後まで」",
+        "AF03:中:生": "「……シャワー、借りる」",
+        "AF03:外:生": "「……お腹、べたべた。……タオル」",
+    },
+    "hinata": {
+        "AF01:中:生": "「はぁ……はぁ……っ、……まだ、抜かないで、ください……。……このまま、ぎゅーって……」",
+        "AF01:外:生": "「はぁ……はぁ……っ、……離れないで、ください……。……ぎゅーって……」",
+        "AF02:中:生": "「……えへへ。……とろとろ、です……。……お腹、すきましたねぇ」",
+        "AF02:外:生": "「……えへへ。……次は、なかにも、ほしいです……」",
+        "AF03:中:生": "「……立てないです……。……悠真さんの、せいですよぉ」",
+        "AF03:外:生": "「……お腹、べとべとです……。……タオル、ください……」",
     },
     "ai": {
         "AF01:中:生": "「はぁ……はぁ……。……重い……です。……まだ、抜かないで……ください。……ちょっと、だけ……」",
@@ -547,9 +548,34 @@ DEFAULT_AF_AFTER: dict[str, dict[str, str]] = {
 }
 
 DEFAULT_FIN_PROMPT: dict[str, str] = {
-    "riko": "（息を荒げながら、目線だけ上げる）\n\n「……出す、前に言って。……どこ、がいい？」",
-    "popura": "（奉仕を続けながら、小さくうなずく）\n\n「……出す、時、言って、ください。……口と、顔と、胸、どれ、が、いい、ですか？」",
     "ai": "（息を整えながら、目線だけ上げる）\n\n「……出す、とき、……どこ、が、いい、ですか……？」",
+    "mizuki": "（咥えたまま、八重歯を覗かせて見上げる）\n\n「……ねえセンパイ、どこに出したいの？　言ってみ？」",
+    "rin": "（無表情のまま、目線だけ上げる）\n\n「……どこ」",
+    "hinata": "（ふにゃりと笑って見上げる）\n\n「……悠真さん、どこに、ほしいですかぁ……？」",
+}
+
+FIN_REACTIONS: dict[str, dict[str, str]] = {
+    "mizuki": {
+        "FIN:口": "「んっ……！ ……ごくん。……にっが。……でも、センパイのだし」",
+        "FIN:顔": "「んあっ……！ ……顔、あったかい……っ。……メイク、崩れたんだけど」",
+        "FIN:胸": "「んっ……！ ……谷間、いっぱい……っ。……あったか……」",
+        "FIN:我慢": "「……まだ我慢すんの？ ……ふふ、じゃあ、もっとしたげる」",
+        "FIN:手": "「わっ……！ ……手、あったかい……。……どろどろなんだけど」",
+    },
+    "rin": {
+        "FIN:口": "「……ん……っ。……ごくん。……しょっぱ」",
+        "FIN:顔": "「……っ。……顔、あったかい。……汚した」",
+        "FIN:胸": "「……っ。……胸、あったかい」",
+        "FIN:我慢": "「……まだ。……続ける」",
+        "FIN:手": "「……っ。……手、あったかい。……べとべと」",
+    },
+    "hinata": {
+        "FIN:口": "「んっ……！ ……ごくん。……えへへ、ぜんぶ、のんじゃいました……」",
+        "FIN:顔": "「んぁっ……！ ……顔、あったかい、です……っ」",
+        "FIN:胸": "「んっ……！ ……おっぱい、いっぱい……っ。……あったかい、です……」",
+        "FIN:我慢": "「……まだ、がまん、ですかぁ……？ ……じゃあ、もっと、しますね……」",
+        "FIN:手": "「わぁ……っ！ ……手、あったかい、です……。……どろどろ……」",
+    },
 }
 
 
@@ -679,7 +705,7 @@ def split_branch_dialogues(d: dict[str, str | list[str]], char_key: str) -> dict
 
     for k, v in DEFAULT_MN00_ACT.items():
         out.setdefault(k, v)
-    for k, v in DEFAULT_MN00.get(char_key, DEFAULT_MN00["riko"]).items():
+    for k, v in DEFAULT_MN00.get(char_key, DEFAULT_MN00["ai"]).items():
         out.setdefault(k, v)
 
     fp05_raw = out.get("FP05")
@@ -708,7 +734,7 @@ def split_branch_dialogues(d: dict[str, str | list[str]], char_key: str) -> dict
 def split_post_mn07_dialogues(d: dict[str, str | list[str]], char_key: str) -> dict[str, str | list[str]]:
     """AF01 等を 中/外 × 生/ゴム へ展開（未記述はデフォルト補完）。"""
     out = deepcopy(d)
-    defaults = DEFAULT_AF_AFTER.get(char_key, DEFAULT_AF_AFTER["riko"])
+    defaults = DEFAULT_AF_AFTER.get(char_key, DEFAULT_AF_AFTER["ai"])
 
     for nid in POST_MN07_VARIANT_NODES:
         # レガシー AF01:中 / AF01:ゴム → フラグ付きへ
@@ -769,7 +795,7 @@ def validate_branch_consistency(
                 f"[{char_name}/{hpt}] {key} が許可セリフのままです（射精後のリアクションに差し替えてください）"
             )
 
-    if hpt == "HPT-17":
+    if FLOWS.get(hpt, {}).get("service") == "FP05":
         fp05 = d.get("FP05")
         if fp05 and RESULT_AFTER_RE.search(str(fp05)):
             warnings.append(
@@ -840,19 +866,14 @@ def augment_branch_dialogues(d: dict[str, str | list[str]], char_key: str) -> di
         "FIN:顔": "「んあっ……！ ……顔……あったかい……っ……汚した……っ」",
         "FIN:胸": "「んっ……！ ……胸……あったかい……っ……受け止めた……っ」",
         "FIN:我慢": "「……ん、んっ……。……まだ……続ける……っ」",
+        "FIN:手": "「んっ……！ ……手、あったかい……っ……どろどろ……」",
     }
-    if char_key == "popura":
-        fin_oral = {
-            "FIN:口": "「んっ……！ ……ごくん。……ごちそう、さま……です……っ」",
-            "FIN:顔": "「んあっ……！ ……顔……あったかい……っ……汚され……ました……っ」",
-            "FIN:胸": "「んっ……！ ……谷間……いっぱい……っ……あったかい……っ」",
-            "FIN:我慢": "「……ん、んっ……。……まだ……奉仕……続けます……っ」",
-        }
+    fin_oral = FIN_REACTIONS.get(char_key, fin_oral)
 
     for k, v in DEFAULT_FIN_ACT.items():
         out.setdefault(k, v)
 
-    if fp05 or out.get("FP08"):
+    if fp05 or out.get("FP08") or out.get("FP09"):
         for k, v in fin_oral.items():
             # 許可セリフが残っていたら上書き
             existing = out.get(k)
@@ -906,17 +927,24 @@ def load_character(char_key: str, folder: str, display_name: str) -> dict:
         merged = augment_branch_dialogues(merged, char_key)
         merged = split_branch_dialogues(merged, char_key)
         merged = split_post_mn07_dialogues(merged, char_key)
+        hint = FLOWS[hpt].get("finish")
+        if hint and "MN07" not in FLOWS[hpt]["linear"]:
+            other = "外" if hint == "中" else "中"
+            for nid in POST_MN07_VARIANT_NODES:
+                if nid in overlay:
+                    merged[nid] = overlay[nid]
+                    continue
+                for cand in (f"{nid}:{hint}", f"{nid}:{other}"):
+                    if cand in overlay:
+                        merged[nid] = overlay[cand]
+                        break
         dialogues[hpt] = merged
     return {"name": display_name, "dialogues": dialogues}
 
 
 def main() -> None:
     all_warnings: list[str] = []
-    chars = {
-        "riko": load_character("riko", "佐藤莉子", "佐藤莉子"),
-        "popura": load_character("popura", "種島ぽぷら", "種島ぽぷら"),
-        "ai": load_character("ai", "水原愛衣", "水原愛衣"),
-    }
+    chars = {key: load_character(key, folder, name) for key, folder, name in CHARACTERS}
     for ck, cdata in chars.items():
         for hpt, dlg in cdata["dialogues"].items():
             all_warnings.extend(validate_branch_consistency(cdata["name"], hpt, dlg))

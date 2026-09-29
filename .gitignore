@@ -2,3 +2,14 @@
 *.pyc
 *.pyo
 
+# llm artifacts
+llm/data/*.jsonl
+llm/data/*.json
+llm/outputs/**
+!llm/outputs/.gitkeep
+llm/adapters/**
+!llm/adapters/.gitkeep
+*.bin
+*.safetensors
+*.gguf
+

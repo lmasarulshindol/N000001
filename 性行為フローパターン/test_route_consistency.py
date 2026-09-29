@@ -89,18 +89,19 @@ def enumerate_routes(chars: dict, flows: dict) -> list[dict]:
                 service_opts = [c["next"] for c in branch["choices"]]
 
             for service in service_opts:
+                service = service or flow.get("service")
                 q = inject_done(build_queue(flow, service))
-                protections = ["raw"] if ("MN00" in q or has_mn) and hpt != "HPT-17" else [None]
+                protections = ["raw"] if ("MN00" in q or has_mn) else [None]
                 finishes = ["creampie", "pullout"] if "MN07" in q else [None]
                 fin_oral = [None]
                 if "FIN" in q and service == "FP05":
                     fin_oral = ["口", "顔", "胸"]
                 elif "FIN" in q and service == "FP08":
                     fin_oral = ["胸", "顔"]
+                elif "FIN" in q and service == "FP09":
+                    fin_oral = ["手", "胸", "顔"]
 
                 for prot, fin, oral in itertools.product(protections, finishes, fin_oral):
-                    if hpt == "HPT-17":
-                        prot, fin = None, None
                     routes.append(
                         {
                             "char": char_id,
@@ -270,11 +271,7 @@ def check_static_keys(chars: dict) -> list[str]:
 def main() -> int:
     print("=== VN データ生成 ===")
     b.main()
-    chars = {
-        "riko": b.load_character("riko", "佐藤莉子", "佐藤莉子"),
-        "popura": b.load_character("popura", "種島ぽぷら", "種島ぽぷら"),
-        "ai": b.load_character("ai", "水原愛衣", "水原愛衣"),
-    }
+    chars = {key: b.load_character(key, folder, name) for key, folder, name in b.CHARACTERS}
     flows = b.FLOWS
 
     print("=== 静的キー検査 ===")
