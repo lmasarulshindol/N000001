@@ -395,10 +395,15 @@ def parse_dialogue_file(path: Path, char_dir: Path | None = None, seen: set[Path
         if "AF01" in title and "AF99" in title:
             _parse_inline_nodes(body, out)
             continue
+        # AF01 + AF10 など複合見出し
+        if "AF01" in title and "AF10" in title:
+            _parse_inline_nodes(body, out)
+            continue
 
         id_m = re.match(r"([A-Z]+\d+)", title) or re.search(r"([A-Z]+\d+)", title)
 
-        if "**" in body and re.search(r"\*\*[A-Z]+\d+\*\*", body):
+        # **AF10:** 形式
+        if "**" in body and re.search(r"\*\*[A-Z]+\d+[:：]\*\*", body):
             _parse_inline_nodes(body, out)
             continue
 
