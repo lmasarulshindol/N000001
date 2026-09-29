@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HPT フロー VN テスト</title>
+  <style>
+    :root {
+      --bg: #1a1520;
+      --panel: #2a2233;
+      --accent: #e8a0c0;
+      --text: #f5eef2;
+      --muted: #a89aa8;
+      --border: #4a3d52;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Yu Gothic UI", "Meiryo", sans-serif;
+      background: linear-gradient(160deg, #120e18 0%, #1f1828 50%, #15121c 100%);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      padding: 12px 16px;
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+    header label { font-size: 0.85rem; color: var(--muted); }
+    select, button {
+      font: inherit;
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: #1a1520;
+      color: var(--text);
+    }
+    button {
+      cursor: pointer;
+      background: #3d2a40;
+    }
+    button:hover { background: #523552; }
+    button.primary { background: #6b3a55; border-color: var(--accent); }
+    main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 0;
+      min-height: 0;
+    }
+    @media (max-width: 800px) {
+      main { grid-template-columns: 1fr; }
+      aside { max-height: 180px; }
+    }
+    #stage {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px;
+      position: relative;
+    }
+    #stage::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 80%, rgba(232, 160, 192, 0.08), transparent 60%);
+      pointer-events: none;
+    }
+    #node-badge {
+      position: absolute;
+      top: 16px;
+      left: 24px;
+      font-size: 0.75rem;
+      color: var(--accent);
+      background: rgba(0,0,0,0.4);
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+    }
+    #progress {
+      position: absolute;
+      top: 16px;
+      right: 24px;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    #flag-badge {
+      position: absolute;
+      top: 44px;
+      left: 24px;
+      font-size: 0.7rem;
+      color: var(--muted);
+      background: rgba(0,0,0,0.35);
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+    .vn-box {
+      position: relative;
+      background: rgba(20, 16, 28, 0.92);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 20px 48px;
+      min-height: 200px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    #char-name {
+      display: inline-block;
+      background: var(--accent);
+      color: #1a1020;
+      font-weight: bold;
+      font-size: 0.9rem;
+      padding: 4px 14px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+    #branch-title {
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin: 8px 0 4px;
+      display: none;
+    }
+    #branch-title.visible { display: block; }
+    #dialogue {
+      line-height: 1.75;
+      white-space: pre-wrap;
+      font-size: 1.05rem;
+      min-height: 4em;
+    }
+    #hint {
+      position: absolute;
+      bottom: 12px;
+      right: 16px;
+      font-size: 0.75rem;
+      color: var(--muted);
+      animation: pulse 1.5s ease infinite;
+    }
+    @keyframes pulse { 50% { opacity: 0.5; } }
+    #choices {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    #choices button { flex: 1 1 auto; min-width: 140px; }
+    aside {
+      background: var(--panel);
+      border-left: 1px solid var(--border);
+      padding: 12px;
+      overflow-y: auto;
+      font-size: 0.8rem;
+    }
+    aside h2 { margin: 0 0 8px; font-size: 0.9rem; color: var(--accent); }
+    #log { list-style: none; padding: 0; margin: 0; }
+    #log li {
+      padding: 4px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+    }
+    #log li.current { color: var(--accent); font-weight: bold; }
+    #log li.done { color: #6a8a6a; }
+    .end-screen {
+      text-align: center;
+      padding: 24px;
+      color: var(--accent);
+      font-size: 1.2rem;
+    }
+    #error {
+      color: #ff8888;
+      padding: 8px 16px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <label for="sel-flow">パターン</label><br />
+      <select id="sel-flow"></select>
+    </div>
+    <div>
+      <label for="sel-char">キャラ</label><br />
+      <select id="sel-char">
+        <option value="riko">佐藤莉子</option>
+        <option value="popura">種島ぽぷら</option>
+        <option value="ai">水原愛衣</option>
+      </select>
+    </div>
+    <button type="button" class="primary" id="btn-start">最初から</button>
+    <button type="button" id="btn-reset">リセット</button>
+  </header>
+  <p id="error"></p>
+  <main>
+    <div id="stage">
+      <span id="node-badge">—</span>
+      <span id="flag-badge">フラグ: —</span>
+      <span id="progress">0 / 0</span>
+      <div class="vn-box" id="vn-box">
+        <div id="char-name">—</div>
+        <div id="branch-title"></div>
+        <div id="dialogue">「最初から」を押してテスト開始</div>
+        <div id="choices"></div>
+        <span id="hint">クリック / Space で次へ</span>
+      </div>
+    </div>
+    <aside>
+      <h2>進行ログ</h2>
+      <ol id="log"></ol>
+    </aside>
+  </main>
+  <script src="vn-data.js"></script>
+  <script>
+    const $ = (id) => document.getElementById(id);
+
+    let state = {
+      flowId: "HPT-01",
+      charId: "riko",
+      queue: [],
+      index: 0,
+      ended: false,
+      waitingChoice: false,
+      waitingBranch: false,
+      pendingBranchId: null,
+      nodeVisitCount: {},
+      serviceRoute: null,
+      /** @type {"raw"} 生固定（ゴム選択肢なし） */
+      protection: "raw",
+      /** @type {null|"creampie"|"pullout"} MN07 で設定するフィニッシュ種別 */
+      finish: null,
+      branchResolved: {},
+      lastVisitIndex: -1,
+    };
+
+    function protectionTag() {
+      if (state.protection === "raw") return "生";
+      return null;
+    }
+
+    function finishTag() {
+      if (state.finish === "pullout") return "外";
+      if (state.finish === "creampie") return "中";
+      return null;
+    }
+
+    /** baseKey + :生 を試し、無ければ baseKey（既に :生 付きならそのまま） */
+    function pickProtectedKey(dlgMap, baseKey) {
+      if (!baseKey) return baseKey;
+      if (/:生$/.test(baseKey)) return baseKey;
+      const tag = protectionTag();
+      if (tag) {
+        const tagged = `${baseKey}:${tag}`;
+        if (dlgMap[tagged] != null) return tagged;
+      }
+      if (dlgMap[baseKey] != null) return baseKey;
+      return tag ? `${baseKey}:${tag}` : baseKey;
+    }
+
+    function showError(msg) {
+      const el = $("error");
+      el.textContent = msg;
+      el.style.display = msg ? "block" : "none";
+    }
+
+    function initSelectors() {
+      if (!window.VN_DATA) {
+        showError("vn-data.js が読み込めません。build_vn_data.py を実行し、flow-vn-test.html と同じフォルダに vn-data.js を置いてください。");
+        return;
+      }
+      showError("");
+      const sel = $("sel-flow");
+      sel.innerHTML = "";
+      Object.entries(VN_DATA.flows).forEach(([id, f]) => {
+        const o = document.createElement("option");
+        o.value = id;
+        o.textContent = f.title || id;
+        sel.appendChild(o);
+      });
+      sel.value = state.flowId;
+    }
+
+    function buildQueue(flowId, branchNext) {
+      const flow = VN_DATA.flows[flowId];
+      if (!flow) return [];
+      const q = [...(flow.linear || [])];
+      if (flow.branch && branchNext) {
+        const at = flow.branch.at;
+        const idx = q.indexOf(at);
+        if (idx >= 0) {
+          const tail = flow.branch.tail || [];
+          return [...q.slice(0, idx + 1), branchNext, ...tail];
+        }
+      }
+      return q;
+    }
+
+    function visitKey(nodeId) {
+      const n = state.nodeVisitCount[nodeId] || 0;
+      state.nodeVisitCount[nodeId] = n + 1;
+      return n;
+    }
+
+    function pickDialogueValue(raw, nodeId, dialogueKey) {
+      if (raw == null) return null;
+      if (Array.isArray(raw)) {
+        const countKey =
+          (dialogueKey || nodeId).startsWith("MN07") ? "MN07" : dialogueKey || nodeId;
+        const idx = (state.nodeVisitCount[countKey] || 1) - 1;
+        return raw[Math.min(idx, raw.length - 1)];
+      }
+      return raw;
+    }
+
+    function resolveDialogueKey(nodeId, dialogueKey, dlgMap) {
+      if (dialogueKey) {
+        return pickProtectedKey(dlgMap, dialogueKey);
+      }
+      if (nodeId === "MN01") {
+        return pickProtectedKey(dlgMap, "MN01");
+      }
+      if (nodeId === "MN00") {
+        if (dlgMap["MN00"] != null) return "MN00";
+        if (dlgMap["MN00:生"] != null) return "MN00:生";
+        return pickProtectedKey(dlgMap, "MN00:prompt");
+      }
+      const postNodes = VN_DATA.postMn07VariantNodes || ["AF01", "AF02", "AF03", "AF10"];
+      if (postNodes.includes(nodeId)) {
+        const ft = finishTag();
+        if (!ft) return nodeId;
+        // AF01:中:生 / AF01:外:生 など
+        const base = `${nodeId}:${ft}`;
+        return pickProtectedKey(dlgMap, base);
+      }
+      return nodeId;
+    }
+
+    function getLine(charId, flowId, nodeId, dialogueKey) {
+      const char = VN_DATA.characters[charId];
+      const labels = VN_DATA.nodeLabels || {};
+      const dlgMap = char?.dialogues?.[flowId] || {};
+      const key = resolveDialogueKey(nodeId, dialogueKey, dlgMap);
+      let dlg = pickDialogueValue(dlgMap[key], nodeId, key);
+      if (!dlg && dialogueKey) {
+        dlg = pickDialogueValue(dlgMap[dialogueKey], nodeId, dialogueKey);
+      }
+      if (dlg) return dlg;
+      if (key !== nodeId) {
+        const fallback = pickDialogueValue(dlgMap[nodeId], nodeId, nodeId);
+        if (fallback) return fallback;
+      }
+      if (nodeId === "FIN") {
+        return "（フィニッシュ演出）\n\n「……出していい？ ……どこがいい？」";
+      }
+      const label = labels[nodeId] || nodeId;
+      return `（${label} — セリフ未登録。ノード到達のみ確認）`;
+    }
+
+    function updateFlagBadge() {
+      const el = $("flag-badge");
+      if (!el) return;
+      const parts = [];
+      if (state.protection === "raw") parts.push("フラグ:生");
+      if (state.finish === "creampie") parts.push("中出し");
+      else if (state.finish === "pullout") parts.push("外出し");
+      el.textContent = parts.length ? parts.join(" / ") : "フラグ: —";
+    }
+
+    function renderLog() {
+      const logEl = $("log");
+      logEl.innerHTML = "";
+      state.queue.forEach((nid, i) => {
+        const li = document.createElement("li");
+        const label = VN_DATA.nodeLabels[nid] || nid;
+        li.textContent = label;
+        if (i < state.index) li.className = "done";
+        if (i === state.index) li.className = "current";
+        logEl.appendChild(li);
+      });
+    }
+
+    function atFlowBranchPoint() {
+      const flow = VN_DATA.flows[state.flowId];
+      if (!flow?.branch) return false;
+      return (
+        state.queue[state.index] === flow.branch.at &&
+        state.queue.length === (flow.linear?.length || 0)
+      );
+    }
+
+    function branchKeyForNode(nodeId) {
+      if (nodeId === "MN07") return "MN07";
+      if (nodeId === "FIN" && state.serviceRoute) {
+        const map = VN_DATA.serviceRouteBranch || {};
+        return map[state.serviceRoute] || null;
+      }
+      return null;
+    }
+
+    function clearChoices() {
+      $("choices").innerHTML = "";
+      $("branch-title").textContent = "";
+      $("branch-title").classList.remove("visible");
+    }
+
+    function showFlowRouteChoices() {
+      const flow = VN_DATA.flows[state.flowId];
+      const box = $("choices");
+      box.innerHTML = "";
+      if (!atFlowBranchPoint()) return;
+
+      state.waitingChoice = true;
+      $("hint").textContent = "ルートを選択";
+      $("branch-title").textContent = "【分岐】奉仕ルート";
+      $("branch-title").classList.add("visible");
+
+      flow.branch.choices.forEach((c) => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.textContent = c.label;
+        b.addEventListener("click", (e) => {
+          e.stopPropagation();
+          state.serviceRoute = c.next;
+          state.queue = buildQueue(state.flowId, c.next);
+          state.index = state.queue.indexOf(flow.branch.at) + 1;
+          state.waitingChoice = false;
+          clearChoices();
+          renderStep();
+        });
+        box.appendChild(b);
+      });
+    }
+
+    function showBranchChoices(branchId) {
+      const bp = VN_DATA.branchPoints?.[branchId];
+      const box = $("choices");
+      box.innerHTML = "";
+      if (!bp) return;
+
+      state.waitingBranch = true;
+      state.pendingBranchId = branchId;
+      $("hint").textContent = "フィニッシュを選択";
+      $("branch-title").textContent = `【分岐】${bp.title || branchId}`;
+      $("branch-title").classList.add("visible");
+
+      bp.choices.forEach((c) => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.textContent = c.label;
+        b.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const nodeId = state.queue[state.index];
+          const stepKey = `${state.index}:${nodeId}:${branchId}`;
+          if (c.protection) state.protection = c.protection;
+          if (c.finish) state.finish = c.finish;
+          updateFlagBadge();
+          if (!c.loop) {
+            state.branchResolved[stepKey] = c.dialogueKey;
+          }
+          const parts = [];
+          if (c.actKey) {
+            const act = getLine(state.charId, state.flowId, nodeId, c.actKey);
+            if (act && !act.includes("未登録")) parts.push(act);
+          }
+          const reaction = getLine(
+            state.charId,
+            state.flowId,
+            nodeId,
+            c.dialogueKey
+          );
+          if (reaction) parts.push(reaction);
+          $("dialogue").textContent = parts.join("\n\n");
+          if (c.loop) {
+            $("hint").textContent = "奉仕継続 — フィニッシュするまで選び直せます";
+            showBranchChoices(branchId);
+            return;
+          }
+          state.waitingBranch = false;
+          state.pendingBranchId = null;
+          clearChoices();
+          $("branch-title").textContent = "";
+          $("branch-title").classList.remove("visible");
+          $("hint").textContent = "クリック / Space で次へ";
+        });
+        box.appendChild(b);
+      });
+    }
+
+    function openBranchPrompt(nodeId) {
+      const branchId = branchKeyForNode(nodeId);
+      if (!branchId) return false;
+      const stepKey = `${state.index}:${nodeId}:${branchId}`;
+      if (state.branchResolved[stepKey]) return false;
+
+      const bp = VN_DATA.branchPoints?.[branchId];
+      let promptKey = bp?.promptKey || (branchId.startsWith("FIN") ? "FIN:prompt" : "MN07:prompt");
+      if (bp?.protectSuffix || nodeId === "MN07") {
+        const dlgMap = VN_DATA.characters[state.charId]?.dialogues?.[state.flowId] || {};
+        promptKey = pickProtectedKey(dlgMap, promptKey);
+      }
+      $("dialogue").textContent = getLine(
+        state.charId,
+        state.flowId,
+        nodeId,
+        promptKey
+      );
+      showBranchChoices(branchId);
+      return true;
+    }
+
+    function needsBranchPrompt(nodeId) {
+      const branchId = branchKeyForNode(nodeId);
+      if (!branchId) return false;
+      const stepKey = `${state.index}:${nodeId}:${branchId}`;
+      if (state.branchResolved[stepKey]) return false;
+      if (nodeId === "FIN") {
+        const map = VN_DATA.serviceRouteBranch || {};
+        if (!map[state.serviceRoute]) return false;
+      }
+      return true;
+    }
+
+    function renderStep() {
+      if (state.ended) return;
+
+      const char = VN_DATA.characters[state.charId];
+      $("char-name").textContent = char?.name || state.charId;
+      clearChoices();
+
+      if (state.index >= state.queue.length) {
+        state.ended = true;
+        $("dialogue").innerHTML = '<div class="end-screen">Hシーン終了（AF99）<br><small>フロー完走</small></div>';
+        $("node-badge").textContent = "END";
+        $("progress").textContent = `${state.queue.length} / ${state.queue.length}`;
+        $("hint").textContent = "";
+        renderLog();
+        return;
+      }
+
+      const nodeId = state.queue[state.index];
+      if (state.lastVisitIndex !== state.index) {
+        visitKey(nodeId);
+        state.lastVisitIndex = state.index;
+      }
+
+      const branchId = branchKeyForNode(nodeId);
+      const stepKey = branchId ? `${state.index}:${nodeId}:${branchId}` : null;
+      const resolvedKey = stepKey ? state.branchResolved[stepKey] : null;
+
+      $("node-badge").textContent = VN_DATA.nodeLabels[nodeId] || nodeId;
+      $("progress").textContent = `${state.index + 1} / ${state.queue.length}`;
+
+      if (resolvedKey) {
+        $("dialogue").textContent = getLine(state.charId, state.flowId, nodeId, resolvedKey);
+        $("hint").textContent = state.index >= state.queue.length - 1 ? "クリックで終了" : "クリック / Space で次へ";
+      } else if (atFlowBranchPoint()) {
+        $("dialogue").textContent = getLine(state.charId, state.flowId, nodeId);
+        showFlowRouteChoices();
+        renderLog();
+        return;
+      } else if (needsBranchPrompt(nodeId)) {
+        openBranchPrompt(nodeId);
+        renderLog();
+        return;
+      } else {
+        $("dialogue").textContent = getLine(state.charId, state.flowId, nodeId);
+        $("hint").textContent = state.index >= state.queue.length - 1 ? "クリックで終了" : "クリック / Space で次へ";
+      }
+      renderLog();
+    }
+
+    function advance() {
+      if (state.ended || state.waitingChoice || state.waitingBranch) return;
+
+      const nodeId = state.queue[state.index];
+      if (needsBranchPrompt(nodeId) && !state.branchResolved[`${state.index}:${nodeId}:${branchKeyForNode(nodeId)}`]) {
+        openBranchPrompt(nodeId);
+        return;
+      }
+
+      state.index += 1;
+      renderStep();
+    }
+
+    function startRun() {
+      if (!window.VN_DATA) return;
+      state.flowId = $("sel-flow").value;
+      state.charId = $("sel-char").value;
+      state.index = 0;
+      state.ended = false;
+      state.waitingChoice = false;
+      state.waitingBranch = false;
+      state.pendingBranchId = null;
+      state.nodeVisitCount = {};
+      state.serviceRoute = null;
+      state.protection = "raw";
+      state.finish = null;
+      state.branchResolved = {};
+      state.lastVisitIndex = -1;
+      clearChoices();
+      updateFlagBadge();
+
+      const flow = VN_DATA.flows[state.flowId];
+      state.queue = flow?.branch ? [...(flow.linear || [])] : buildQueue(state.flowId, null);
+      renderStep();
+    }
+
+    function resetAll() {
+      state.index = 0;
+      state.ended = false;
+      state.waitingChoice = false;
+      state.waitingBranch = false;
+      state.queue = [];
+      state.nodeVisitCount = {};
+      state.serviceRoute = null;
+      state.protection = "raw";
+      state.finish = null;
+      state.branchResolved = {};
+      $("dialogue").textContent = "「最初から」を押してテスト開始";
+      $("char-name").textContent = "—";
+      $("node-badge").textContent = "—";
+      $("progress").textContent = "0 / 0";
+      updateFlagBadge();
+      clearChoices();
+      $("log").innerHTML = "";
+      $("hint").textContent = "クリック / Space で次へ";
+    }
+
+    $("btn-start").addEventListener("click", startRun);
+    $("btn-reset").addEventListener("click", resetAll);
+    $("vn-box").addEventListener("click", advance);
+    document.addEventListener("keydown", (e) => {
+      if (e.code === "Space" || e.code === "Enter") {
+        e.preventDefault();
+        advance();
+      }
+    });
+
+    initSelectors();
+  </script>
+</body>
+</html>
