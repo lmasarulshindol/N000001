@@ -1,0 +1,725 @@
+{
+  "hf_checkpoint": "Aratako/Irodori-TTS-v4.1-Small",
+  "model_device": "cuda",
+  "codec_device": "cuda",
+  "codec_repo": "Aratako/Semantic-DACVAE-Japanese-32dim",
+  "model_precision": "fp32",
+  "codec_precision": "fp32",
+  "codec_deterministic_encode": true,
+  "codec_deterministic_decode": true,
+  "enable_watermark": false,
+  "compile_model": false,
+  "compile_dynamic": false,
+  "num_steps": 40,
+  "cfg_scale_text": 3.0,
+  "cfg_scale_caption": 4.0,
+  "no_ref": true,
+  "caption": "22歳の小柄な女性の声。やや高めではきはきしていて、人懐っこい口調。近い距離感。クリアな音質。",
+  "max_seconds": 14,
+  "trim_tail": true,
+  "tail_std_threshold": 0.05,
+  "items": [
+    {
+      "text": "……はい",
+      "caption": "小さく許可する。息は近い。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h001.wav"
+    },
+    {
+      "text": "……おでこのカメラ、近い……",
+      "caption": "ささやきに近い小ささ。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h002.wav"
+    },
+    {
+      "text": "モリさんの目と、カメラの目と……両方に見られちゃうんだ……",
+      "caption": "近い距離で、声を細くする。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h003.wav"
+    },
+    {
+      "text": "……ん",
+      "caption": "唇がふれた拍子に、小さな声が漏れる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h004.wav"
+    },
+    {
+      "text": "……モリさんのキスも、やさしい……。こんなの、ずるいです……",
+      "caption": "キスのあと、甘くて少し困っている。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h005.wav"
+    },
+    {
+      "text": "……なんか、ぽわってしてます。えへへ……さっきまで、指先つめたかったのに",
+      "caption": "ぼんやりして、やわらかく話す。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h006.wav"
+    },
+    {
+      "text": "はい。にかい、ですね",
+      "caption": "はっきり短く確かめる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h007.wav"
+    },
+    {
+      "text": "……お、お口で……モリさんのを、いっぱい気持ちよくしてあげます……。じゃあ、失礼します",
+      "caption": "恥ずかしさで声が細く、途切れがち。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h008.wav"
+    },
+    {
+      "text": "……おっきい、です。それに、あったかい……。ひよりのお口に、ちゃんと入るかなぁ……？",
+      "caption": "消え入りそうに小さい。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h009.wav"
+    },
+    {
+      "text": "ちゅ……っ",
+      "caption": "先っぽに唇だけ。浅いキス。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h010.wav"
+    },
+    {
+      "text": "🤤れろ……ん、ちゅ……れろぉ……",
+      "caption": "舌先で転がし、間にキスを挟む。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h011.wav"
+    },
+    {
+      "text": "ん、ちゅぷ……しょっぱい……",
+      "caption": "舐めながら、短い言葉が混じる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h012.wav"
+    },
+    {
+      "text": "🥵んむ……っ、ん、ふ……っ",
+      "caption": "先っぽから咥え、頬が窪んでくぐもる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h013.wav"
+    },
+    {
+      "text": "👅んむぅ……っ、じゅるっ……じゅるっ……",
+      "caption": "唇で扱いて、水音が立つ。くぐもり。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h014.wav"
+    },
+    {
+      "text": "ん、んむ……ひもひ、いい……れふか……？",
+      "caption": "口をふさがれ、言葉が遮られる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h015.wav"
+    },
+    {
+      "text": "んぅ……っ、ふぁい……",
+      "caption": "咥えたまま、短くうなずく。くぐもり。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h016.wav"
+    },
+    {
+      "text": "👅じゅるっ……ん、ちゅぷ……じゅるっ……",
+      "caption": "浅く深く唇で扱く。くぐもり。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h017.wav"
+    },
+    {
+      "text": "😮‍💨ぷはっ……はぁ……っ",
+      "caption": "唇を離して、荒い息。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h018.wav"
+    },
+    {
+      "text": "はぁ……っ。んっ……モリさん、気持ちいい……？顔、ちゃんと見せてね……",
+      "caption": "息は近いが、言葉ははっきり。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h019.wav"
+    },
+    {
+      "text": "🥵んぐ……っ、んむ……ちゅぷ、じゅるっ……",
+      "caption": "深く咥えて、嗚咽が混じる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h020.wav"
+    },
+    {
+      "text": "んっ、んぅ……っ",
+      "caption": "咥えたまま、詰まった短い声。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h021.wav"
+    },
+    {
+      "text": "んっ……ん、んむ……っ",
+      "caption": "口の中で受け止めて、唇を閉じている。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h022.wav"
+    },
+    {
+      "text": "ん……ぁ……",
+      "caption": "口を開けたまま、声にならない。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h023.wav"
+    },
+    {
+      "text": "……ぷは……っ。……いっぱい、出ました。ぜんぶ、飲んじゃいました……えへへ",
+      "caption": "飲み下したあと、照れて小さい。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h024.wav"
+    },
+    {
+      "text": "……ちょっとだけ、にがいです。",
+      "caption": "照れながら、言葉はまだはっきり。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h025.wav"
+    },
+    {
+      "text": "喉に、まだからんでる……。",
+      "caption": "照れながら、言葉はまだはっきり。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h026.wav"
+    },
+    {
+      "text": "でも、モリさんが気持ちよくなってくれた証拠だから……出しちゃうの、なんかもったいなくて",
+      "caption": "照れながら、言葉はまだはっきり。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h027.wav"
+    },
+    {
+      "text": "うぅ……ひより、いま絶対まっかですよね……？",
+      "caption": "顔を押さえて、細く尋ねる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h028.wav"
+    },
+    {
+      "text": "うぅ……ひより、すぐ声出ちゃうから、恥ずかしい……",
+      "caption": "これからのことで、声を細くする。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h029.wav"
+    },
+    {
+      "text": "えっ……見てたんですか……！",
+      "caption": "驚いて、声が上ずる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h030.wav"
+    },
+    {
+      "text": "🌬️ひゃっ……",
+      "caption": "耳を触れられ、声が跳ねる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h031.wav"
+    },
+    {
+      "text": "や、耳……だめ、です……っ",
+      "caption": "我慢が漏れて、途切れがち。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h032.wav"
+    },
+    {
+      "text": "……やめない、で……。耳、ほんとに弱いの……インタビューで言ったこと、ぜんぶばれちゃってる……",
+      "caption": "拒んだあと、小さく頼む。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h033.wav"
+    },
+    {
+      "text": "首も……っ、ぞくぞくする……",
+      "caption": "首筋を這われ、息が混じる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h034.wav"
+    },
+    {
+      "text": "……は、はい",
+      "caption": "小さく許可する。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h035.wav"
+    },
+    {
+      "text": "や、やっぱり……恥ずかしい……",
+      "caption": "胸を隠して、声が細い。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h036.wav"
+    },
+    {
+      "text": "……ほんと？ひより、ちっちゃいのに胸だけおっきくて……変じゃない？",
+      "caption": "不安げに、小さく確かめる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h037.wav"
+    },
+    {
+      "text": "モリさんの手、おっきい……あったかい……",
+      "caption": "胸を包まれ、息が近い。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h038.wav"
+    },
+    {
+      "text": "……ボディクリーム、毎日がんばって塗ってるから……",
+      "caption": "照れて、小さく説明する。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h039.wav"
+    },
+    {
+      "text": "🌬️んっ……",
+      "caption": "先端をかすめられ、短い漏れ。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h040.wav"
+    },
+    {
+      "text": "……す、すき……です……",
+      "caption": "我慢して、細く答える。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h041.wav"
+    },
+    {
+      "text": "🌬️ひぁっ……！や、そこ……っ",
+      "caption": "声が高く跳ねて、短い。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h042.wav"
+    },
+    {
+      "text": "やだ……腰、かってに浮いちゃう……っ。そこ、されると……ひより、だめになる……っ",
+      "caption": "腰が浮いて、言葉が途切れる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h043.wav"
+    },
+    {
+      "text": "い、言わないでくださいぃ……っ",
+      "caption": "顔を覆い、早口で拒む。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h044.wav"
+    },
+    {
+      "text": "いまの声……マイクさんに、ぜんぶ録られちゃった……",
+      "caption": "照れて、こぼすように言う。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h045.wav"
+    },
+    {
+      "text": "……ぜんぶ、脱がされちゃった……。なのに、恥ずかしいより、どきどきのほうが大きいの……",
+      "caption": "脱がされて、どきどきが声に出る。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h046.wav"
+    },
+    {
+      "text": "だいじょぶ、です……くすぐったい、だけ……。でも、そこ、ちょっとぞわってする……",
+      "caption": "くすぐったそうに、息が混じる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h047.wav"
+    },
+    {
+      "text": "そんな近くで……見ちゃ、やです……っ",
+      "caption": "近づかれて、声が細く跳ねる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h048.wav"
+    },
+    {
+      "text": "🌬️ひぁっ……あ、んっ……！",
+      "caption": "舌を当てられ、声が跳ねて切れる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h049.wav"
+    },
+    {
+      "text": "やっ……舌、そんなとこ……っ、なめちゃやぁ……っ",
+      "caption": "舐められて、言葉が崩れて拒む。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h050.wav"
+    },
+    {
+      "text": "🌬️あっ、あ……っ、やぁ……っ",
+      "caption": "口をふさがず、声が漏れ続ける。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h051.wav"
+    },
+    {
+      "text": "……な、なめられてます……モリさんに、あそこ……いっぱい……。あったかくて、とけちゃいそう……",
+      "caption": "息が混じるが、言葉はまだわかる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h052.wav"
+    },
+    {
+      "text": "……はい。ゆっくり、ね……？",
+      "caption": "覚悟して、小さく頼む。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h053.wav"
+    },
+    {
+      "text": "ゆび、はいってる……っ。そこ、らめ……っ。そこ、きもちぃ……っ",
+      "caption": "指が入って、声が甘く途切れる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h054.wav"
+    },
+    {
+      "text": "らめじゃ、ない……っ。きもちぃの……すぐ、きちゃう……っ",
+      "caption": "快感で、言葉が崩れる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h055.wav"
+    },
+    {
+      "text": "ふぁ……っ、やぁ……いったとおりに、なっちゃう……っ。モリさん、モリさぁん……っ",
+      "caption": "頭がぼんやりして、甘い声が絡む。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h056.wav"
+    },
+    {
+      "text": "きもちぃ……っ、きもちぃよぉ……っ。ひより、もう、らめ……っ",
+      "caption": "甘く崩れて、途切れがち。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h057.wav"
+    },
+    {
+      "text": "🥵やっ、あ、イく、イっちゃう……っ！",
+      "caption": "初めてのイきで、声が跳ねて途切れる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h058.wav"
+    },
+    {
+      "text": "……だいじょぶ、です。……いま、ひより、すぐイっちゃいましたよね……？",
+      "caption": "絶頂のあと、息が近く力が抜けている。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h059.wav"
+    },
+    {
+      "text": "うぅ……言ったとおりに、なっちゃった……。はずかしい……",
+      "caption": "顔を覆って、細い。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h060.wav"
+    },
+    {
+      "text": "……今度は、ひよりの番",
+      "caption": "少し息が残るが、言葉ははっきり。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h061.wav"
+    },
+    {
+      "text": "さっき、いっぱい気持ちよくしてもらったから……お返し、です。モリさんは、寝ててください",
+      "caption": "甘く、はっきり頼む。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h062.wav"
+    },
+    {
+      "text": "んむ……っ、ちゅぷ……じゅるっ……",
+      "caption": "ためらず咥え、くぐもる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h063.wav"
+    },
+    {
+      "text": "ん、ふ……じゅるっ……んむぅ……",
+      "caption": "頭を上下させて、くぐもる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h064.wav"
+    },
+    {
+      "text": "🤤ふ、ぅ……んっ、ちゅぷ……れろ……",
+      "caption": "舌先でくすぐり、唇で吸う。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h065.wav"
+    },
+    {
+      "text": "んむ……？んふふ……",
+      "caption": "咥えたまま、鼻で笑う。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h066.wav"
+    },
+    {
+      "text": "😮‍💨ぷはっ……はぁ……っ。モリさんの、もうこんなにおっきい……。さっき出したばっかりなのに",
+      "caption": "唇を離した息のあと、言葉ははっきり。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h067.wav"
+    },
+    {
+      "text": "……どんな顔、してました？",
+      "caption": "息が少し残って、小さく尋ねる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h068.wav"
+    },
+    {
+      "text": "……もう、モリさんってば。そういうこと、さらっと言うんだから",
+      "caption": "照れて、軽い文句。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h069.wav"
+    },
+    {
+      "text": "怖くない、です。お薬も、毎朝ちゃんと飲んでるから……。それに、ひより、このままがいいの",
+      "caption": "覚悟を決め、小声ではっきり受け入れる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h070.wav"
+    },
+    {
+      "text": "……はい。そのまま、ください",
+      "caption": "小さく、はっきり許可する。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h071.wav"
+    },
+    {
+      "text": "痛くない、です……っ。モリさんの、はいってくる……",
+      "caption": "入ってきて、息が混じる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h072.wav"
+    },
+    {
+      "text": "生の、熱い……ぜんぶ伝わってくる……",
+      "caption": "繋がって、息が近い。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h073.wav"
+    },
+    {
+      "text": "……えへへ。おそろい、ですね",
+      "caption": "繋がったまま、小さく笑う。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h074.wav"
+    },
+    {
+      "text": "🌬️ひぁ……っ！お、奥……とどいてる……っ",
+      "caption": "奥に届いて、声が跳ねる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h075.wav"
+    },
+    {
+      "text": "か、監督さん、いじわる……",
+      "caption": "照れて、はっきり文句。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h076.wav"
+    },
+    {
+      "text": "……モリさんのおちんちんが……生で、ひよりの中に……ぜんぶ、はいってます……",
+      "caption": "恥ずかしさで声が細く、途切れがち。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h077.wav"
+    },
+    {
+      "text": "い、言わないでぇ……っ",
+      "caption": "締まったのを指摘され、顔を背けるように。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h078.wav"
+    },
+    {
+      "text": "あっ……モリさん……っ、ゆっくりなのに奥、こすれて……っ。声、とまんない……",
+      "caption": "腰の動きに合わせて、声が漏れ続ける。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h079.wav"
+    },
+    {
+      "text": "あの……モリさん。ひより、上、乗ってもいいですか……？",
+      "caption": "息が少し混じるが、はっきり頼む。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h080.wav"
+    },
+    {
+      "text": "モリさんの顔……上から、見てみたくて",
+      "caption": "期待して、近い声。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h081.wav"
+    },
+    {
+      "text": "ふ、ぁ……っ、ふかい……っ。さっきより、奥まで来てる……",
+      "caption": "深く入って、声が抜ける。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h082.wav"
+    },
+    {
+      "text": "えへへ……モリさんの顔、ぜんぶ見える。ここ、とくとうせきだ……",
+      "caption": "見下ろして、明るく少し息が混じる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h083.wav"
+    },
+    {
+      "text": "や……っ、それは、ずるい……",
+      "caption": "照れて、短い。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h084.wav"
+    },
+    {
+      "text": "モリさん、いま……すっごい顔してる……",
+      "caption": "見下ろして、息が近い。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h085.wav"
+    },
+    {
+      "text": "ほんと……？えっ、うれしい……っ。じゃあ、もっと……",
+      "caption": "うれしくて、動きながら途切れる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h086.wav"
+    },
+    {
+      "text": "だって……ひよりが動くと、モリさんの顔、変わるんです。それが、もっと見たくて……",
+      "caption": "自分から動いて、言葉はまだはっきり。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h087.wav"
+    },
+    {
+      "text": "……かわいい、です。気持ちよさそうで、かわいい……",
+      "caption": "とろけかけて、小さい。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h088.wav"
+    },
+    {
+      "text": "🌬️ひぁんっ……！そこ……っ、おく、あたって……っ",
+      "caption": "弱いところに当たって、声が跳ねる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h089.wav"
+    },
+    {
+      "text": "そこ、らめなのに……っ。こし、とまんにゃい……っ",
+      "caption": "腰が勝手に動いて、言葉が崩れる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h090.wav"
+    },
+    {
+      "text": "おく、とんとんって……しゅきぃ……っ。モリさんの、しゅき……っ。きもちぃ、きもちぃの……っ",
+      "caption": "頭が真っ白で、とろけた声が切れ切れ。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h091.wav"
+    },
+    {
+      "text": "🥵みてて……っ、ひより、またイっちゃう……っ。イく、イっちゃ……っ！",
+      "caption": "絶頂で声が跳ね、途切れる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h092.wav"
+    },
+    {
+      "text": "ん……だいじょぶ……。ひより、今日、イってばっかり……",
+      "caption": "力が抜けて、甘い。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h093.wav"
+    },
+    {
+      "text": "モリさんの心臓も、どきどきしてる……",
+      "caption": "胸に顔を埋めて、小さい。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h094.wav"
+    },
+    {
+      "text": "あ……抜けちゃう……",
+      "caption": "抜ける感触に、小さい。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h095.wav"
+    },
+    {
+      "text": "ふぁ……っ、ちがうとこ、当たって……っ。うしろからだと、こんな……っ",
+      "caption": "後ろから当たって、声が抜ける。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h096.wav"
+    },
+    {
+      "text": "気持ちいい、のに……モリさんの顔、見えない……っ",
+      "caption": "気持ちよくて、少し不満が混じる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h097.wav"
+    },
+    {
+      "text": "……うしろからでも、顔、見えた……",
+      "caption": "鏡を見つけて、息が近い。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h098.wav"
+    },
+    {
+      "text": "見えてます……モリさんの顔、ちゃんと……っ",
+      "caption": "鏡越しに見て、途切れがち。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h099.wav"
+    },
+    {
+      "text": "すき……だいすき……っ。モリさんの、いまの顔も……",
+      "caption": "甘く崩れて、途切れる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h100.wav"
+    },
+    {
+      "text": "あっ、あ……っ、はやい……っ。はげしいの、きもちぃ……っ",
+      "caption": "速く突かれて、声が跳ね続ける。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h101.wav"
+    },
+    {
+      "text": "らいじょぶ……っ、もっと……もっと、して……っ",
+      "caption": "頭が真っ白で、切れ切れに頼む。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h102.wav"
+    },
+    {
+      "text": "かがみの、モリさん……っ、かおすごい……っ。しゅき、そのかお、しゅき……っ",
+      "caption": "鏡の顔を見て、とろけた声が絡む。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h103.wav"
+    },
+    {
+      "text": "🥵また、きちゃう……っ。とまんないよぉ……っ、ひより、またイっちゃう……っ！",
+      "caption": "絶頂で声が跳ね、途切れる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h104.wav"
+    },
+    {
+      "text": "ううん……だいじょぶ。最後は、モリさんの顔、見ながらがいい……",
+      "caption": "力が抜けたあと、小さく頼む。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h105.wav"
+    },
+    {
+      "text": "だって……これ、しゅき……。ぎゅってされて、おく、ずっと……しゅき……",
+      "caption": "抱きつかれて、とろけた声が絡む。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h106.wav"
+    },
+    {
+      "text": "モリさん……もっと、ぎゅって……。ひよりのおく、モリさんで、いっぱいにして……",
+      "caption": "頭が真っ白で、切れ切れに頼む。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h107.wav"
+    },
+    {
+      "text": "モリさんも……っ、いまのかお、しゅき……っ。しゅき、しゅき……っ",
+      "caption": "とろけた声が切れ切れに絡む。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h108.wav"
+    },
+    {
+      "text": "おく、ずんってされるの……きもちぃ……っ。もう、わかんにゃい……っ",
+      "caption": "突かれるたびに、言葉が溶ける。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h109.wav"
+    },
+    {
+      "text": "でるとき……め、そらしちゃ、やぁ……っ。ひより、みてる、から……っ",
+      "caption": "余裕がなく、途切れながら頼む。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h110.wav"
+    },
+    {
+      "text": "🥵あ……っ、モリさん……いっしょ、いっしょにイく……っ！",
+      "caption": "絶頂で声が跳ねる。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h111.wav"
+    },
+    {
+      "text": "……でてる……モリさんの、いちばんおくに……ぜんぶ……",
+      "caption": "注がれて、とろけた声が絡む。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h112.wav"
+    },
+    {
+      "text": "……見ちゃった。モリさんの、いちばん気持ちいい顔。えへへ",
+      "caption": "余韻で、力が抜けて明るい。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h113.wav"
+    },
+    {
+      "text": "ひよりは、うれしかったです。すっごく",
+      "caption": "余韻で、素直に小さい。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h114.wav"
+    },
+    {
+      "text": "だって……そらしちゃやだって言ったの、ひよりのほうだもん",
+      "caption": "余韻で、少し甘くはっきり。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h115.wav"
+    },
+    {
+      "text": "うぅ……そこ、撮っちゃうんですかぁ……？",
+      "caption": "照れて、顔を覆うように細い。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h116.wav"
+    },
+    {
+      "text": "うぅ……はい……っ",
+      "caption": "照れて、小さい。",
+      "seed": 4142,
+      "output_wav": "c:\\Users\\lmasa\\Cursor\\N000001\\010_LovelyBloom\\audio\\02_1回目_sex\\h117.wav"
+    }
+  ]
+}

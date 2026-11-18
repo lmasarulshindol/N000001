@@ -1,0 +1,902 @@
+00_プロローグ.md	001	hiyori	self	talk	おはようございます！　星野ひよりです、今日はよろしくお願いします！
+00_プロローグ.md	002	manami	greet	talk	おはよう、ひよりちゃん。今日は一日、わたしがずっと横にいるからね
+00_プロローグ.md	003	manami	before	talk	ゆうべは眠れた？　朝ごはんは？
+00_プロローグ.md	004	hiyori	self	talk	えへへ、ちょっと寝不足です。でも、おにぎりはちゃんと食べてきました！
+00_プロローグ.md	005	manami	focus	talk	ピルは？
+00_プロローグ.md	006	hiyori	expect	talk	今朝も飲みました。体調、ばっちりです
+00_プロローグ.md	007	director	before	talk	NGのところは、理由まで書いてくれてるね。『出すときの顔、目を開けてちゃんと見ていたいから』
+00_プロローグ.md	008	hiyori	wa	talk	わっ、読まないでくださいぃ……
+00_プロローグ.md	009	director	chan	talk	当日判断のところは、そのときのひよりちゃんの気持ちで決めていいからね。無理はしなくていいし、したくなったらしてもいい
+00_プロローグ.md	010	hiyori	ack	talk	はい
+00_プロローグ.md	011	director	focus	talk	それから、いちばん大事なこと。やめたくなったら、いつでも『ストップ』って言ってね。お口がふさがってて声が出せないときは、シーツか男優さんの体を2回、軽く叩いてみて
+00_プロローグ.md	012	manami	before	talk	こうね。合図があったら、わたしがすぐに止めるから。それだけは忘れないで
+00_プロローグ.md	013	manami	focus	talk	うん、完璧。今日はよろしくね
+00_プロローグ.md	014	hiyori	self	talk	はいっ！　ひより、がんばります！
+00_プロローグ.md	015	director	focus	talk	その元気、カメラの前までとっておいてね
+00_プロローグ.md	016	yui	before	talk	ひよりちゃん、肌きれいだから、ベースは薄めにしとくね。今日はナチュラルでいこ
+00_プロローグ.md	017	yui	focus	talk	緊張してる？
+00_プロローグ.md	018	hiyori	self	talk	してます……でも、ちょっとだけ楽しみなんです。えへへ、変ですか？
+00_プロローグ.md	019	yui	focus	talk	全然。そういう子のほうが、いい顔するんだよ
+00_プロローグ.md	020	yui	before	talk	そのネックレス、かわいいね。撮影中も着けとく？
+00_プロローグ.md	021	hiyori	expect	talk	はい。初めてのお給料で、自分に買ったんです。お守りみたいなものなので
+00_プロローグ.md	022	director	prompt	sex	ひよりちゃん、準備いい？
+00_プロローグ.md	023	hiyori	expect	sex	は、はいっ
+00_プロローグ.md	024	director	cue	sex	じゃあ、回すね
+01_オープニングインタビュー.md	001	hiyori	polite	talk	じゃあ、まずはお名前と年齢を教えてください
+01_オープニングインタビュー.md	002	hiyori	self	talk	星野ひよりです、22歳です！　……えへへ、カメラいっぱいあって緊張する
+01_オープニングインタビュー.md	003	director	focus	talk	何台あるか、わかる？
+01_オープニングインタビュー.md	004	hiyori	expect	talk	えっと……正面のと横で動いてるのと、2台ですか？
+01_オープニングインタビュー.md	005	director	focus	talk	正解。緊張してるの？　そうは見えないけど
+01_オープニングインタビュー.md	006	hiyori	expect	talk	してますよぉ。さっきから手のひら、ずっとぐーぱーしてるもん
+01_オープニングインタビュー.md	007	director	focus	talk	今朝は何時に起きたの？
+01_オープニングインタビュー.md	008	hiyori	expect	talk	6時です！　楽しみすぎて、目覚ましより先に起きちゃいました
+01_オープニングインタビュー.md	009	director	focus	talk	スタジオに来るまでは、どうだった？
+01_オープニングインタビュー.md	010	hiyori	expect	talk	電車の中で、ずっとそわそわしてました。窓に映った自分の顔が、もうにやけてて
+01_オープニングインタビュー.md	011	director	focus	talk	チャームポイントは？
+01_オープニングインタビュー.md	012	hiyori	expect	talk	えくぼです！　右のほっぺにだけ出るんですよ。ほら
+01_オープニングインタビュー.md	013	director	focus	talk	ほんとだ。ネイルもかわいいね
+01_オープニングインタビュー.md	014	hiyori	polite	talk	わ、気づいてくれた！　ゆうべ自分で塗ったんです。ネイルも趣味なので
+01_オープニングインタビュー.md	015	director	focus	talk	ほかの趣味は？
+01_オープニングインタビュー.md	016	hiyori	expect	talk	カフェ巡りと、韓国ドラマです。休みの日は一日中ドラマ見ちゃう。最近はプリンがおいしいカフェを探して、電車でちょっと遠くまで行ったりもしてます
+01_オープニングインタビュー.md	017	director	focus	talk	ドラマは、どんなのが好き？
+01_オープニングインタビュー.md	018	hiyori	expect	talk	ラブコメです！　最初はケンカばっかりのふたりが、だんだん好きになっていくやつ。最後にぎゅってするシーンで、毎回泣いちゃうんです
+01_オープニングインタビュー.md	019	director	focus	talk	プリンも好きなんだ
+01_オープニングインタビュー.md	020	hiyori	polite	talk	大好きです！　固めのやつが好きなんですよ。カラメルがちょっと苦いと、もっと好き
+01_オープニングインタビュー.md	021	director	focus	talk	前はどんなお仕事を？
+01_オープニングインタビュー.md	022	hiyori	expect	talk	アパレルで販売してました。お洋服、大好きなんです。今日のこれも、自分で選んできました
+01_オープニングインタビュー.md	023	director	focus	talk	似合ってるね
+01_オープニングインタビュー.md	024	hiyori	tic	talk	えっ、うれしい！
+01_オープニングインタビュー.md	025	director	focus	talk	好きな食べ物は？　プリン以外で
+01_オープニングインタビュー.md	026	hiyori	expect	talk	唐揚げ！　あとレモンサワー。お仕事のあとの一杯が、もう最高なんです
+01_オープニングインタビュー.md	027	director	focus	talk	お酒は強いの？
+01_オープニングインタビュー.md	028	hiyori	expect	talk	うーん、2杯でほっぺが真っ赤になっちゃいます。でも、好きなんです
+01_オープニングインタビュー.md	029	director	focus	talk	どんな子って、よく言われる？
+01_オープニングインタビュー.md	030	hiyori	expect	talk	『ひよりちゃんといると元気出る』って言われるのが、いちばんうれしいです！
+01_オープニングインタビュー.md	031	director	focus	talk	今日の意気込みも聞かせて
+01_オープニングインタビュー.md	032	hiyori	self	talk	ひより、がんばります！
+01_オープニングインタビュー.md	033	director	focus	talk	すらすら言えたね。もしかして、練習してきた？
+01_オープニングインタビュー.md	034	hiyori	expect	talk	えっ、バレました？　ゆうべ鏡の前で、3回も練習したんです
+01_オープニングインタビュー.md	035	director	focus	talk	今度は、恋愛のお話も聞いていいかな。今、彼氏はいるの？
+01_オープニングインタビュー.md	036	hiyori	self	talk	いないです。……いたら、このお仕事してないかも。えへへ
+01_オープニングインタビュー.md	037	director	focus	talk	初体験はいつ？
+01_オープニングインタビュー.md	038	hiyori	expect	talk	えっ、もうそういうの聞くんですか？
+01_オープニングインタビュー.md	039	hiyori	cont	talk	……19歳のとき、です。服飾の専門学校に通ってて、そのときの彼氏の部屋で……すっごく緊張しました
+01_オープニングインタビュー.md	040	director	focus	talk	どんな感じだった？
+01_オープニングインタビュー.md	041	hiyori	self	talk	えっと……ひよりも緊張してたんですけど、彼のほうがもっとガチガチで。途中でふたりして笑っちゃいました。でも、優しくしてくれて……うれしかったな
+01_オープニングインタビュー.md	042	director	focus	talk	経験人数は？　お店のお客さんは抜きにして
+01_オープニングインタビュー.md	043	hiyori	expect	talk	えっと……
+01_オープニングインタビュー.md	044	hiyori	cont	talk	……3人、です
+01_オープニングインタビュー.md	045	director	focus	talk	多いと思う？　少ないと思う？
+01_オープニングインタビュー.md	046	hiyori	expect	talk	わかんないです……でも、ひよりにとっては、みんな大事な人でした
+01_オープニングインタビュー.md	047	director	focus	talk	好きなデートは？
+01_オープニングインタビュー.md	048	hiyori	expect	talk	カフェ巡り！　あと、手をつないでお洋服を見て歩くのも好きです
+01_オープニングインタビュー.md	049	director	focus	talk	彼氏ができたら、してあげたいことは？
+01_オープニングインタビュー.md	050	hiyori	expect	talk	膝まくらで、耳かきしてあげたいです！　あと、お弁当を作ってピクニックとか
+01_オープニングインタビュー.md	051	hiyori	tic	talk	男の人に言われて、うれしい言葉は？
+01_オープニングインタビュー.md	052	hiyori	tic	talk	『かわいい』もうれしいけど……『ありがとう』って言われるのが、いちばん好きかも
+01_オープニングインタビュー.md	053	director	focus	talk	好きなタイプは？
+01_オープニングインタビュー.md	054	hiyori	expect	talk	優しくて、甘えさせてくれる人。あと、甘えてくれる人も好き
+01_オープニングインタビュー.md	055	director	focus	talk	甘えてくれる人も？
+01_オープニングインタビュー.md	056	hiyori	expect	talk	はい。男の人が甘えてくるときって、ちょっとかわいい顔するじゃないですか。ああいうの見ると、きゅんってしちゃいます
+01_オープニングインタビュー.md	057	director	focus	talk	男の人の、どこを見ちゃう？
+01_オープニングインタビュー.md	058	hiyori	expect	talk	顔、です。笑った顔とか、困った顔とか……表情がくるくる変わるとこ、ずっと見てられるんです
+01_オープニングインタビュー.md	059	director	focus	talk	次は、お店のことも聞かせてね。働きはじめて、どれくらい？
+01_オープニングインタビュー.md	060	hiyori	expect	talk	3ヶ月です。まだまだ新人です！
+01_オープニングインタビュー.md	061	director	focus	talk	お店の名前は、言っても大丈夫？
+01_オープニングインタビュー.md	062	hiyori	self	talk	はい！　Lovely Bloom っていうお店です。……えへへ、宣伝しちゃった
+01_オープニングインタビュー.md	063	director	focus	talk	働きはじめたきっかけは？
+01_オープニングインタビュー.md	064	hiyori	expect	talk	奨学金の返済が大変で……アパレルのお給料だと、ちょっと厳しかったんです。それで、友達に紹介してもらいました
+01_オープニングインタビュー.md	065	director	focus	talk	迷わなかった？
+01_オープニングインタビュー.md	066	hiyori	expect	talk	迷いました……！　でも、面接のときに真奈美さんがとっても優しくて。ここなら大丈夫かもって思えたんです
+01_オープニングインタビュー.md	067	director	focus	talk	将来の夢はあるの？
+01_オープニングインタビュー.md	068	hiyori	self	talk	あります！　いつか、自分のセレクトショップを開きたいんです。ひよりが好きなお洋服だけを並べた、ちっちゃいお店
+01_オープニングインタビュー.md	069	director	focus	talk	お店では、どんな衣装を着てるの？
+01_オープニングインタビュー.md	070	hiyori	expect	talk	コーラルピンクのドレスです。ひよりのイメージカラーなんです
+01_オープニングインタビュー.md	071	director	focus	talk	お客さんには、どんなふうに接してるの？
+01_オープニングインタビュー.md	072	hiyori	expect	talk	えっと、彼女みたいに……って言ったら変かな。いっぱいお話しして、いっぱい甘えて、いっぱい甘えさせてあげる感じです
+01_オープニングインタビュー.md	073	director	focus	talk	お客さんのことは、なんて呼んでるの？
+01_オープニングインタビュー.md	074	hiyori	expect	talk	お兄さん、です。そう呼ぶと、みんなちょっとうれしそうな顔するんですよ
+01_オープニングインタビュー.md	075	director	focus	talk	得意なことは？
+01_オープニングインタビュー.md	076	hiyori	expect	talk	マッサージです！　肩とか、すぐほぐれちゃうってよく言われます
+01_オープニングインタビュー.md	077	director	focus	talk	お仕事は楽しい？
+01_オープニングインタビュー.md	078	hiyori	expect	talk	楽しいです！　お客さんが帰るときに『また来るね』って言ってくれると、もう、すっごくうれしくて
+01_オープニングインタビュー.md	079	director	chan	talk	お店のひよりちゃんと普段のひよりちゃんは、ちがうの？
+01_オープニングインタビュー.md	080	hiyori	expect	talk	うーん……お店のほうが、ちょっとだけ大胆かも
+01_オープニングインタビュー.md	081	director	focus	talk	この撮影の話が来たときは、どう思った？
+01_オープニングインタビュー.md	082	hiyori	expect	talk	びっくりしました……！　でも、ちょっとだけ、やってみたいなって思っちゃったんです
+01_オープニングインタビュー.md	083	director	focus	talk	お客さんからよく言われることは？
+01_オープニングインタビュー.md	084	hiyori	expect	talk	えっ……えっと
+01_オープニングインタビュー.md	085	hiyori	cont	talk	……感じやすいね、って。よく言われちゃいます……
+01_オープニングインタビュー.md	086	director	focus	talk	感じやすいんだ？
+01_オープニングインタビュー.md	087	hiyori	expect	talk	じ、自分じゃわかんないです……でも、すぐ声とか出ちゃうみたいで……
+01_オープニングインタビュー.md	088	director	after	talk	そのへん、もう少し詳しく聞いていこうかな
+01_オープニングインタビュー.md	089	director	focus	talk	感じやすい場所は？
+01_オープニングインタビュー.md	090	hiyori	expect	talk	耳と……胸の先っぽと……
+01_オープニングインタビュー.md	091	hiyori	cont	talk	……あと、奥のほう……
+01_オープニングインタビュー.md	092	director	focus	talk	耳は、どうされるのが好きなの？
+01_オープニングインタビュー.md	093	hiyori	expect	talk	ふーって息をかけられるのとか……それだけで、背中がぞくってなっちゃうんです
+01_オープニングインタビュー.md	094	director	focus	talk	胸は？
+01_オープニングインタビュー.md	095	hiyori	expect	talk	……舐められると、腰が勝手に浮いちゃいます
+01_オープニングインタビュー.md	096	director	focus	talk	舐められるだけで？
+01_オープニングインタビュー.md	097	hiyori	expect	talk	……はい。自分でもびっくりするくらい
+01_オープニングインタビュー.md	098	director	focus	talk	奥って、どこの奥？
+01_オープニングインタビュー.md	099	hiyori	expect	talk	そ、それは……言わなくてもわかるじゃないですかぁ……
+01_オープニングインタビュー.md	100	director	focus	talk	キスは好き？
+01_オープニングインタビュー.md	101	hiyori	moan	talk	大好きです。キスだけで、とろんってなっちゃう
+01_オープニングインタビュー.md	102	director	focus	talk	どんなキスが好き？
+01_オープニングインタビュー.md	103	hiyori	expect	talk	ゆっくりなのが好きです。ちゅってして、離れて、またちゅってするやつ
+01_オープニングインタビュー.md	104	director	focus	talk	お口でするのは？
+01_オープニングインタビュー.md	105	hiyori	expect	talk	得意かどうかはわかんないけど……好きです
+01_オープニングインタビュー.md	106	director	focus	talk	お口に出されたら、飲めそう？
+01_オープニングインタビュー.md	107	hiyori	expect	talk	えっ……それは、まだわかんないです。そのときの気分で、決めてもいいですか？
+01_オープニングインタビュー.md	108	director	focus	talk	もちろん。感じてるとき、声は出ちゃうほう？
+01_オープニングインタビュー.md	109	hiyori	expect	talk	……出ちゃいます。我慢しようとしても、勝手に高くなっちゃって
+01_オープニングインタビュー.md	110	hiyori	moan	talk	イくときは、どうなっちゃうの？
+01_オープニングインタビュー.md	111	hiyori	polite	climax	つま先が、きゅってなって……頭の中が、真っ白になっちゃいます
+01_オープニングインタビュー.md	112	director	focus	climax	そのとき自分がどんな顔をしてるかは、知ってる？
+01_オープニングインタビュー.md	113	hiyori	expect	climax	えっ……知らないです。見たことないもん……
+01_オープニングインタビュー.md	114	director	focus	climax	今日は、それも撮れるね
+01_オープニングインタビュー.md	115	hiyori	echo	climax	うぅ……
+01_オープニングインタビュー.md	116	director	focus	climax	好きな体位は？
+01_オープニングインタビュー.md	117	hiyori	expect	climax	正常位です。男の人の顔が、いちばんよく見えるから
+01_オープニングインタビュー.md	118	director	focus	climax	ほかには？
+01_オープニングインタビュー.md	119	hiyori	expect	climax	騎乗位も、好きです。上から、男の人の顔を見下ろせるから
+01_オープニングインタビュー.md	120	director	focus	climax	顔を見るのが好きなんだね
+01_オープニングインタビュー.md	121	hiyori	polite	climax	はい。……すっごく、好きです
+01_オープニングインタビュー.md	122	director	focus	climax	じゃあ、えっちでいちばん好きな瞬間は？
+01_オープニングインタビュー.md	123	hiyori	expect	climax	……男の人が、ひよりの中で出すときの、すっごく気持ちよさそうな顔。あれ見るの、大好きなんです
+01_オープニングインタビュー.md	124	director	focus	climax	どうして、そんなに好きなの？
+01_オープニングインタビュー.md	125	hiyori	expect	climax	だって……男の人が、いちばん無防備になる顔だから。ひよりで気持ちよくなってくれてるんだって、ぜんぶ伝わってくるんです
+01_オープニングインタビュー.md	126	director	chan	climax	ひよりちゃん自身は？　そうされるのも、好きなの？
+01_オープニングインタビュー.md	127	hiyori	expect	climax	……好き、です
+01_オープニングインタビュー.md	128	director	focus	climax	お店で、印象に残ってるお客さんはいる？
+01_オープニングインタビュー.md	129	hiyori	expect	climax	お店で初めて中に出してくれたお兄さんがいて……鏡越しに見た顔、まだ覚えてます
+01_オープニングインタビュー.md	130	director	focus	climax	ひとりでもする？
+01_オープニングインタビュー.md	131	hiyori	expect	climax	……たまに。週に2回くらい……って、なんでそんなこと聞くんですかぁ！
+01_オープニングインタビュー.md	132	director	chan	climax	ごめんね。質問はこれでおしまい。このあと何をされるのか、ひよりちゃんの言葉で説明して
+01_オープニングインタビュー.md	133	hiyori	self	climax	えっ……ひよりが、説明するんですか？
+01_オープニングインタビュー.md	134	director	focus	climax	うん。台本はないから、思ったとおりに言ってみて。最初は何をするの？
+01_オープニングインタビュー.md	135	hiyori	expect	climax	えっと……男優さんのを、お口で……
+01_オープニングインタビュー.md	136	director	focus	climax	何を？　ちゃんと言ってみて
+01_オープニングインタビュー.md	137	hiyori	self	climax	うぅ……男優さんの、お、おちんちんを……ひよりがお口でいっぱい舐めて、気持ちよくしてあげます。それで、そのまま……お口の中に、せーし、出してもらいます……
+01_オープニングインタビュー.md	138	director	rundown	climax	そのあとは？
+01_オープニングインタビュー.md	139	hiyori	self	climax	そのあとは、ひよりが攻められる番で……からだじゅう触られて、舌とか指で、あそこをいっぱいいじられて……たぶん、すぐイっちゃいます……
+01_オープニングインタビュー.md	140	director	focus	climax	最後は？
+01_オープニングインタビュー.md	141	hiyori	expect	climax	もう一回お口でおっきくしてあげて……ゴムなしの生で、ひよりの中に入れてもらって……いちばん奥に、中出し……してもらいます
+01_オープニングインタビュー.md	142	hiyori	polite	climax	……そのとき、男優さんの顔、ちゃんと見ててもいいですか？
+01_オープニングインタビュー.md	143	hiyori	polite	climax	もちろん。男優さんにも伝えておくね。よく言えました
+01_オープニングインタビュー.md	144	hiyori	tic	climax	……えっ、うれしい……
+01_オープニングインタビュー.md	145	director	chan	climax	ありがとう。それから、ひよりちゃんの体も見せてもらおうかな。立ってみて
+01_オープニングインタビュー.md	146	hiyori	echo	climax	は、はいっ
+01_オープニングインタビュー.md	147	director	focus	climax	そのランジェリーも、自分で選んだの？
+01_オープニングインタビュー.md	148	hiyori	expect	climax	はい！　お店のドレスと、おそろいの色にしたくて……
+01_オープニングインタビュー.md	149	director	focus	climax	手、下ろしてみて。身長はいくつ？
+01_オープニングインタビュー.md	150	hiyori	expect	climax	152センチです。ちっちゃいって、よく言われます……
+01_オープニングインタビュー.md	151	director	focus	climax	でも、スタイルいいよね。胸は何カップ？
+01_オープニングインタビュー.md	152	hiyori	expect	climax	……E、です
+01_オープニングインタビュー.md	153	director	focus	climax	小柄なのに、Eなんだ
+01_オープニングインタビュー.md	154	hiyori	polite	climax	そうなんです……お洋服を選ぶとき、ちょっと大変で。ニットとか、胸のとこだけすぐ伸びちゃって
+01_オープニングインタビュー.md	155	director	focus	climax	自分でいちばん自信があるのは？
+01_オープニングインタビュー.md	156	director	focus	climax	えっ……えっと、くびれ、かな……？
+01_オープニングインタビュー.md	157	hiyori	expect	climax	うん、くびれもきれいだね。くるっと回ってみて
+01_オープニングインタビュー.md	158	hiyori	polite	climax	ま、回るんですか？
+01_オープニングインタビュー.md	159	director	focus	climax	うん。ゆっくりでいいよ
+01_オープニングインタビュー.md	160	hiyori	self	climax	えへへ……回っちゃいました。うしろを見られてると、背中がくすぐったいです
+01_オープニングインタビュー.md	161	director	focus	climax	見られてるの、どう？
+01_オープニングインタビュー.md	162	hiyori	tic	climax	恥ずかしいです……でも、ちょっとだけ、うれしいかも
+01_オープニングインタビュー.md	163	director	focus	climax	すごくきれいだよ。じゃあ、寝室のセットに移動しようか
+01_オープニングインタビュー.md	164	hiyori	ack	climax	はいっ
+02_1回目.md	001	yui	before	talk	よし、かわいい。いってらっしゃい、ひよりちゃん
+02_1回目.md	002	staff	cue	sex	Aカメ、回りました
+02_1回目.md	003	staff	cue	sex	Bカメ、オッケーです
+02_1回目.md	004	staff	before	sex	ひよりちゃん、準備いい？
+02_1回目.md	005	hiyori	self	sex	はいっ。ひより、がんばります！
+02_1回目.md	006	director	focus	talk	寝室のセットはどう？　さっきのリビングと、ずいぶん雰囲気ちがうでしょ
+02_1回目.md	007	hiyori	expect	talk	はい……照明があったかくて、なんか、急に本番って感じがします。ベッドがあるだけで、こんなにドキドキするんだ……
+02_1回目.md	008	director	cue	talk	じゃあ森さん、お願いします
+02_1回目.md	009	mori	intro	talk	はじめまして、森です。今日はよろしくね、ひよりちゃん
+02_1回目.md	010	hiyori	self	talk	ほ、星野ひよりです！　よろしくお願いします！
+02_1回目.md	011	director	prompt	talk	ひよりちゃん、森さんの第一印象は？
+02_1回目.md	012	hiyori	polite	talk	えっと……声が、すっごくやさしいです。あと、おっきい……あっ、背が！　背がおっきいって意味です！
+02_1回目.md	013	mori	focus	talk	うん、背だよね。わかってるよ
+02_1回目.md	014	director	prompt	talk	森さんは、ひよりちゃんの第一印象どう？
+02_1回目.md	015	mori	expect	talk	よく笑う子だなって。右のほっぺのえくぼ、すごくいいね
+02_1回目.md	016	hiyori	polite	talk	えっ……そんなとこまで、見てくれてたんですか
+02_1回目.md	017	hiyori	polite	sex	わ……森さん、いい匂い。石鹸ですか？
+02_1回目.md	018	mori	focus	sex	さっきシャワー浴びてきたからね。……そのネックレス、かわいいね。お花？
+02_1回目.md	019	hiyori	tic	sex	えっ、うれしい！　これ、初めてのお給料で自分に買ったの。撮影のあいだもずっと着けてていいって言ってもらえて……今日のお守りなんです
+02_1回目.md	020	mori	focus	sex	よく似合ってる。……緊張してる？
+02_1回目.md	021	hiyori	expect	sex	……ちょっとだけ。カメラ、こんなにいっぱいあると思わなくて
+02_1回目.md	022	mori	care	sex	俺もね、最初のころは膝が笑ってたよ。大丈夫。ゆっくりね
+02_1回目.md	023	mori	focus	sex	えっ、森さんも？　ぜんぜん見えない……
+02_1回目.md	024	hiyori	expect	sex	ずっと昔の話だけどね
+02_1回目.md	025	mori	focus	sex	キス、してもいい？
+02_1回目.md	026	hiyori	expect	sex	……はい
+02_1回目.md	027	hiyori	cont	sex	……おでこのカメラ、近い……
+02_1回目.md	028	mori	focus-chan	sex	ひよりちゃんの顔、いちばん近くで撮ってるからね
+02_1回目.md	029	mori	focus	sex	森さんの目と、カメラの目と……両方に見られちゃうんだ……
+02_1回目.md	030	mori	focus	sex	力、抜いて。大丈夫だから
+02_1回目.md	031	mori	focus	sex	……ん
+02_1回目.md	032	mori	focus	sex	唇、やわらかいね
+02_1回目.md	033	hiyori	polite	sex	……森さんのキスも、やさしい……。こんなの、ずるいです……
+02_1回目.md	034	director	after	sex	ひよりちゃん、いま、どんな気持ち？
+02_1回目.md	035	hiyori	self	sex	……なんか、ぽわってしてます。えへへ……さっきまで、指先つめたかったのに
+02_1回目.md	036	mori	focus-chan	sex	ひよりちゃんのペースでいいからね。苦しくなったら、こう
+02_1回目.md	037	hiyori	polite	sex	はい。二回、ですね
+02_1回目.md	038	director	prompt	sex	ひよりちゃん、最初は何するんだっけ？
+02_1回目.md	039	hiyori	expect	sex	……お、お口で……森さんのを、いっぱい気持ちよくしてあげます……。じゃあ、失礼します
+02_1回目.md	040	director	prompt	sex	ひよりちゃん、森さんの、どう？
+02_1回目.md	041	hiyori	moan	sex	……おっきい、です。それに、あったかい……。ひよりのお口に、ちゃんと入るかなぁ……
+02_1回目.md	042	director	focus	sex	ちゅ……っ
+02_1回目.md	043	hiyori	moan	sex	れろ……ん、ちゅ……れろぉ……
+02_1回目.md	044	hiyori	cont	sex	……っ、ひよりちゃん、それ……
+02_1回目.md	045	hiyori	moan	sex	ん、ちゅぷ……しょっぱい……
+02_1回目.md	046	hiyori	moan	sex	んむ……っ、ん、ふ……っ
+02_1回目.md	047	hiyori	moan	sex	じゅぷ……っ、ん、んむぅ……じゅぽっ……
+02_1回目.md	048	mori	focus	sex	無理しないでね
+02_1回目.md	049	hiyori	moan	sex	ん、んむ……ひもひ、いい……れふか……？
+02_1回目.md	050	mori	focus	sex	うん……すごく上手だよ
+02_1回目.md	051	hiyori	moan	sex	んぅ……っ、ふぁい……
+02_1回目.md	052	mori	focus-chan	sex	ひよりちゃん、そのまま森さんの目、見ながらしてみて
+02_1回目.md	053	hiyori	moan	sex	じゅぷ、じゅぽっ……ん、ちゅぷ……ぢゅるっ……
+02_1回目.md	054	hiyori	moan	sex	くぽっ……ぷはっ……はぁ……っ
+02_1回目.md	055	hiyori	moan	sex	はぁ……っ。んっ……森さん、気持ちいい……？　顔、ちゃんと見せてね……
+02_1回目.md	056	hiyori	moan	sex	んぐ……っ、んむ……ちゅぷ、じゅるっ……じゅぽっ……
+02_1回目.md	057	mori	focus-chan	sex	ひよりちゃん……ごめん、もう出そう。……いい？
+02_1回目.md	058	hiyori	moan	sex	んっ、んぅ……っ
+02_1回目.md	059	hiyori	moan	sex	んっ……ん、んむ……っ
+02_1回目.md	060	hiyori	self	sex	うぅ……男優さんの、お、おちんちんを……ひよりがお口でいっぱい舐めて、気持ちよくしてあげます。それで、そのまま……お口の中に、せーし、出してもらいます……
+02_1回目.md	061	mori	focus-chan	sex	ひよりちゃん、お口の中、カメラに見せてみて
+02_1回目.md	062	mori	focus	sex	ん……ぁ……
+02_1回目.md	063	director	after	sex	わ、ほんとにいっぱいだね
+02_1回目.md	064	director	after	sex	無理しなくていいよ。出しちゃっていいからね
+02_1回目.md	065	director	chan	sex	どうするかは、ひよりちゃんが決めていいよ
+02_1回目.md	066	hiyori	self	sex	……ぷは……っ。……いっぱい、出ました。ぜんぶ、飲んじゃいました……えへへ
+02_1回目.md	067	director	focus	sex	え、飲んでくれたの？　どんな味だった？
+02_1回目.md	068	hiyori	expect	sex	……ちょっとだけ、にがいです。喉に、まだからんでる……。でも、森さんが気持ちよくなってくれた証拠だから……出しちゃうの、なんかもったいなくて
+02_1回目.md	069	hiyori	self	sex	うぅ……ひより、いま絶対まっかですよね……？
+02_1回目.md	070	director	focus	sex	うん。耳まで真っ赤だね
+02_1回目.md	071	yui	focus	talk	リップ、ちょっとだけ直すね。はい、お口ちょっとあけて
+02_1回目.md	072	hiyori	polite	talk	真奈美さん、ありがとうございます。……つめたくて、おいしい
+02_1回目.md	073	manami	focus	talk	大丈夫？　続けられそう？
+02_1回目.md	074	hiyori	self	talk	はい。……えへへ、楽しいです。ひより、ちゃんとできてました？
+02_1回目.md	075	manami	focus	talk	ばっちり。すごくいい顔してたよ。つらくなったら、いつでも止めていいからね
+02_1回目.md	076	hiyori	self	talk	はい。でも、ひより、まだまだいけます！
+02_1回目.md	077	manami	focus-chan	talk	じゃあ、次は交代ね。今度はひよりちゃんが気持ちよくしてもらう番
+02_1回目.md	078	hiyori	self	talk	うぅ……ひより、すぐ声出ちゃうから、恥ずかしい……
+02_1回目.md	079	mori	focus	talk	いいよ。いっぱい聞かせて
+02_1回目.md	080	mori	focus	talk	さっきのインタビュー、モニターで見てたよ。耳、弱いんだよね
+02_1回目.md	081	hiyori	polite	talk	えっ……見てたんですか……！
+02_1回目.md	082	hiyori	moan	talk	ひゃっ……
+02_1回目.md	083	hiyori	polite	talk	や、耳……だめ、です……っ
+02_1回目.md	084	mori	focus	talk	だめ？　やめとこうか
+02_1回目.md	085	hiyori	expect	talk	……やめない、で……。耳、ほんとに弱いの……インタビューで言ったこと、ぜんぶばれちゃってる……
+02_1回目.md	086	mori	focus	talk	首も……っ、ぞくぞくする……
+02_1回目.md	087	mori	focus	talk	これ、外してもいい？
+02_1回目.md	088	hiyori	expect	talk	……は、はい
+02_1回目.md	089	hiyori	moan	foreplay	や、やっぱり……恥ずかしい……
+02_1回目.md	090	mori	focus	foreplay	隠さなくて大丈夫。きれいだよ
+02_1回目.md	091	hiyori	self	foreplay	……ほんと？　ひより、ちっちゃいのに胸だけおっきくて……変じゃない？
+02_1回目.md	092	mori	focus-chan	foreplay	変じゃないよ。ぜんぶ、ひよりちゃんの魅力
+02_1回目.md	093	hiyori	moan	foreplay	森さんの手、おっきい……あったかい……
+02_1回目.md	094	mori	focus-chan	foreplay	ひよりちゃんの肌、すべすべだね
+02_1回目.md	095	mori	focus	foreplay	……ボディクリーム、毎日がんばって塗ってるから……
+02_1回目.md	096	hiyori	moan	foreplay	んっ……
+02_1回目.md	097	mori	focus	foreplay	ここ、好き？
+02_1回目.md	098	hiyori	expect	foreplay	……す、すき……です……
+02_1回目.md	099	mori	focus	foreplay	ひぁっ……！　や、そこ……っ
+02_1回目.md	100	hiyori	self	foreplay	やだ……腰、かってに浮いちゃう……っ。そこ、されると……ひより、だめになる……っ
+02_1回目.md	101	mori	focus-chan	foreplay	すごい反応だね、ひよりちゃん
+02_1回目.md	102	hiyori	polite	foreplay	い、言わないでくださいぃ……っ
+02_1回目.md	103	mori	focus	foreplay	いまの声……マイクさんに、ぜんぶ録られちゃった……
+02_1回目.md	104	mori	focus	foreplay	脱がしてもいい？
+02_1回目.md	105	hiyori	expect	sex	……ぜんぶ、脱がされちゃった……。なのに、恥ずかしいより、どきどきのほうが大きいの……
+02_1回目.md	106	mori	focus	sex	脚、震えてる。大丈夫？
+02_1回目.md	107	hiyori	expect	sex	だいじょぶ、です……くすぐったい、だけ……。でも、そこ、ちょっとぞわってする……
+02_1回目.md	108	hiyori	polite	sex	そんな近くで……見ちゃ、やです……っ
+02_1回目.md	109	hiyori	moan	sex	ひぁっ……あ、んっ……！
+02_1回目.md	110	hiyori	moan	sex	やっ……舌、そんなとこ……っ、なめちゃやぁ……っ
+02_1回目.md	111	mori	focus-chan	sex	かわいいよ、ひよりちゃん。ぜんぶ
+02_1回目.md	112	director	after	sex	ひよりちゃん、声、我慢しなくていいよ
+02_1回目.md	113	hiyori	moan	sex	あっ、あ……っ、やぁ……っ
+02_1回目.md	114	director	focus	sex	いま、なにされてるの？
+02_1回目.md	115	hiyori	expect	sex	……な、なめられてます……森さんに、あそこ……いっぱい……。あったかくて、とけちゃいそう……
+02_1回目.md	116	mori	focus	sex	指、入れるね。痛かったら言って
+02_1回目.md	117	mori	focus	sex	……はい。ゆっくり、ね……？
+02_1回目.md	118	hiyori	moan	sex	ゆび、はいってる……っ。そこ、らめ……っ。そこ、きもちぃ……っ♡
+02_1回目.md	119	mori	focus	climax	だめ？
+02_1回目.md	120	hiyori	moan	climax	らめじゃ、ない……っ。きもちぃの……すぐ、きちゃう……っ
+02_1回目.md	121	hiyori	self	climax	そのあとは、ひよりが攻められる番で……からだじゅう触られて、舌とか指で、あそこをいっぱいいじられて……たぶん、すぐイっちゃいます……
+02_1回目.md	122	hiyori	moan	climax	ふぁ……っ、やぁ……いったとおりに、なっちゃう……っ。もりさん、もりさぁん……っ♡
+02_1回目.md	123	hiyori	self	climax	きもちぃ……っ、きもちぃよぉ……っ。ひより、もう、らめ……っ♡
+02_1回目.md	124	mori	focus	climax	いいよ。そのまま
+02_1回目.md	125	hiyori	moan	climax	やっ、あ、イく、イっちゃう……っ！
+02_1回目.md	126	mori	focus	climax	大丈夫？
+02_1回目.md	127	hiyori	self	climax	……だいじょぶ、です。……いま、ひより、すぐイっちゃいましたよね……？
+02_1回目.md	128	mori	focus	climax	うん。すぐだったね
+02_1回目.md	129	mori	focus	climax	うぅ……言ったとおりに、なっちゃった……。はずかしい……
+02_1回目.md	130	mori	focus	climax	……今度は、ひよりの番
+02_1回目.md	131	mori	focus-chan	climax	え、ひよりちゃん？
+02_1回目.md	132	hiyori	expect	climax	さっき、いっぱい気持ちよくしてもらったから……お返し、です。森さんは、寝ててください
+02_1回目.md	133	hiyori	moan	climax	んむ……っ、ちゅぷ……じゅるっ……
+02_1回目.md	134	hiyori	moan	climax	ん、ふ……ぢゅるっ、じゅぽっ……んむぅ……
+02_1回目.md	135	hiyori	wa	climax	ふ、ぅ……んっ、ちゅぷ……れろ……
+02_1回目.md	136	hiyori	cont	climax	……っ、ひよりちゃん、さっきより……すごいね
+02_1回目.md	137	hiyori	moan	climax	んむ……？　んふふ……
+02_1回目.md	138	mori	focus	climax	ぷはっ……はぁ……っ。森さんの、もうこんなにおっきい……。さっき出したばっかりなのに
+02_1回目.md	139	mori	focus-chan	climax	ひよりちゃんが、あんな顔見せるからだよ
+02_1回目.md	140	mori	focus	climax	……どんな顔、してました？
+02_1回目.md	141	hiyori	expect	climax	すごく、かわいい顔
+02_1回目.md	142	hiyori	moan	climax	……もう、森さんってば。そういうこと、さらっと言うんだから
+02_1回目.md	143	mori	focus	climax	このまま入れるよ。……怖くない？
+02_1回目.md	144	hiyori	self	climax	怖くない、です。お薬も、毎朝ちゃんと飲んでるから……。それに、ひより、このままがいいの
+02_1回目.md	145	mori	care	climax	ありがとう。じゃあ、ゆっくりね
+02_1回目.md	146	hiyori	polite	climax	もう一回お口でおっきくしてあげて……ゴムなしの生で、ひよりの中に入れてもらって……いちばん奥に、中出し……してもらいます
+02_1回目.md	147	hiyori	cont	climax	……はい。そのまま、ください
+02_1回目.md	148	mori	focus	climax	こっち、見てて
+02_1回目.md	149	mori	focus	climax	痛くない？
+02_1回目.md	150	hiyori	expect	climax	痛くない、です……っ。森さんの、はいってくる……
+02_1回目.md	151	mori	focus	climax	生の、熱い……ぜんぶ伝わってくる……
+02_1回目.md	152	mori	focus-chan	climax	ひよりちゃんの中も、すごく熱いよ
+02_1回目.md	153	hiyori	self	climax	……えへへ。おそろい、ですね
+02_1回目.md	154	mori	focus	climax	ひぁ……っ！　お、奥……とどいてる……っ
+02_1回目.md	155	mori	focus-chan	climax	ひよりちゃん、いま、どうなってるの？
+02_1回目.md	156	hiyori	expect	climax	か、監督さん、いじわる……
+02_1回目.md	157	mori	focus	climax	ちゃんと言ってみて
+02_1回目.md	158	hiyori	polite	talk	……森さんのおちんちんが……生で、ひよりの中に……ぜんぶ、はいってます……
+02_1回目.md	159	hiyori	cont	talk	……いま、きゅってなったね
+02_1回目.md	160	mori	focus	talk	い、言わないでぇ……っ
+02_1回目.md	161	mori	focus	talk	動くよ。つらかったら言ってね
+02_1回目.md	162	hiyori	moan	sex	あっ……森さん……っ、ゆっくりなのに奥、こすれて……っ。声、とまんない……
+02_1回目.md	163	hiyori	self	talk	あの……森さん。ひより、上、乗ってもいいですか……？
+02_1回目.md	164	mori	focus	talk	上？
+02_1回目.md	165	hiyori	expect	talk	森さんの顔……上から、見てみたくて
+02_1回目.md	166	mori	focus	talk	いいよ。じゃあ、交代しよう
+02_1回目.md	167	hiyori	wa	sex	ふ、ぁ……っ、ふかい……っ。さっきより、奥まで来てる……
+02_1回目.md	168	mori	focus	sex	大丈夫？　無理しないで
+02_1回目.md	169	hiyori	self	sex	えへへ……森さんの顔、ぜんぶ見える。ここ、特等席だ……
+02_1回目.md	170	mori	focus-chan	sex	特等席か。じゃあ俺も、ひよりちゃんの顔をずっと見てられるね
+02_1回目.md	171	mori	focus	sex	や……っ、それは、ずるい……
+02_1回目.md	172	mori	focus	sex	森さん、いま……すっごい顔してる……
+02_1回目.md	173	mori	focus-chan	sex	ひよりちゃんが、上手だからだよ
+02_1回目.md	174	hiyori	tic	sex	ほんと……？　えっ、うれしい……っ。じゃあ、もっと……
+02_1回目.md	175	director	after	sex	ひよりちゃん……それ、すごくいい……
+02_1回目.md	176	director	before	sex	ひよりちゃん、自分で動いてるの？
+02_1回目.md	177	hiyori	self	sex	だって……ひよりが動くと、森さんの顔、変わるんです。それが、もっと見たくて……
+02_1回目.md	178	director	prompt	sex	森さんの顔、どう？
+02_1回目.md	179	hiyori	expect	sex	……かわいい、です。気持ちよさそうで、かわいい……
+02_1回目.md	180	hiyori	moan	sex	ひぁんっ……！　そこ……っ、おく、あたって……っ
+02_1回目.md	181	mori	focus	sex	そこ、らめなのに……っ。こし、とまんにゃい……っ♡
+02_1回目.md	182	hiyori	moan	sex	おく、とんとんって……しゅきぃ……っ。もりさんの、しゅき……っ。きもちぃ、きもちぃの……っ♡
+02_1回目.md	183	mori	focus	climax	いいよ。見てるから
+02_1回目.md	184	hiyori	self	climax	みてて……っ、ひより、またイっちゃう……っ。イく、イっちゃ……っ！
+02_1回目.md	185	mori	focus	climax	……大丈夫？
+02_1回目.md	186	hiyori	self	climax	ん……だいじょぶ……。ひより、今日、イってばっかり……♡
+02_1回目.md	187	mori	focus	climax	森さんの心臓も、どきどきしてる……
+02_1回目.md	188	mori	focus-chan	climax	ひよりちゃんのせいだよ
+02_1回目.md	189	mori	focus	climax	うしろ、向ける？
+02_1回目.md	190	hiyori	expect	climax	あ……抜けちゃう……
+02_1回目.md	191	mori	focus	climax	ふぁ……っ、ちがうとこ、当たって……っ。うしろからだと、こんな……っ
+02_1回目.md	192	mori	focus	climax	気持ちいい、のに……森さんの顔、見えない……っ
+02_1回目.md	193	mori	focus	climax	……うしろからでも、顔、見えた……
+02_1回目.md	194	mori	focus	climax	見えてる？
+02_1回目.md	195	hiyori	expect	climax	見えてます……森さんの顔、ちゃんと……っ
+02_1回目.md	196	mori	focus-chan	climax	ひよりちゃん、ほんとに顔を見るのが好きなんだね
+02_1回目.md	197	mori	focus	climax	すき……だいすき……っ。森さんの、いまの顔も……
+02_1回目.md	198	hiyori	moan	climax	あっ、あ……っ、はやい……っ。はげしいの、きもちぃ……っ♡
+02_1回目.md	199	mori	focus	climax	大丈夫？　強すぎない？
+02_1回目.md	200	hiyori	expect	climax	らいじょぶ……っ、もっと……もっと、して……っ♡
+02_1回目.md	201	mori	focus	climax	腕、つらかったら、そのまま楽にしてていいよ
+02_1回目.md	202	hiyori	moan	climax	かがみの、もりさん……っ、かおすごい……っ。しゅき、そのかお、しゅき……っ♡
+02_1回目.md	203	hiyori	self	climax	また、きちゃう……っ。とまんないよぉ……っ、ひより、またイっちゃう……っ！
+02_1回目.md	204	mori	focus	climax	大丈夫？　少し休む？
+02_1回目.md	205	hiyori	expect	climax	ううん……だいじょぶ。最後は、森さんの顔、見ながらがいい……
+02_1回目.md	206	mori	focus	climax	うん。そうしよう
+02_1回目.md	207	mori	focus-chan	climax	……ひよりちゃん、離してくれないね
+02_1回目.md	208	hiyori	moan	climax	だって……これ、しゅき……。ぎゅってされて、おく、ずっと……しゅき……♡
+02_1回目.md	209	mori	focus	talk	もりさん……もっと、ぎゅって……。ひよりのおく、もりさんで、いっぱいにして……
+02_1回目.md	210	mori	focus-chan	talk	ひよりちゃん……かわいい……
+02_1回目.md	211	hiyori	moan	talk	もりさんも……っ、いまのかお、しゅき……っ。しゅき、しゅき……っ♡
+02_1回目.md	212	hiyori	moan	climax	おく、ずんってされるの……きもちぃ……っ。もう、わかんにゃい……っ♡
+02_1回目.md	213	mori	focus-chan	climax	ひよりちゃん……もう、出そう……
+02_1回目.md	214	hiyori	self	climax	でるとき……め、そらしちゃ、やぁ……っ。ひより、みてる、から……っ♡
+02_1回目.md	215	hiyori	cont	climax	……うん。見てて
+02_1回目.md	216	hiyori	polite	climax	……そのとき、男優さんの顔、ちゃんと見ててもいいですか？
+02_1回目.md	217	hiyori	self	climax	ひより、ちゃん……っ
+02_1回目.md	218	hiyori	cont	talk	……男の人が、ひよりの中で出すときの、すっごく気持ちよさそうな顔。あれ見るの、大好きなんです
+02_1回目.md	219	hiyori	moan	talk	あ……っ、もりさん……いっしょ、いっしょにイく……っ！
+02_1回目.md	220	hiyori	cont	climax	……でてる……もりさんの、いちばんおくに……ぜんぶ……♡
+02_1回目.md	221	hiyori	polite	talk	いちばん奥に、中出し……してもらいます
+02_1回目.md	222	hiyori	self	sex	……見ちゃった。森さんの、いちばん気持ちいい顔。えへへ
+02_1回目.md	223	hiyori	cont	sex	……見られちゃったな。けっこう恥ずかしいね、これ
+02_1回目.md	224	hiyori	self	sex	ひよりは、うれしかったです。すっごく
+02_1回目.md	225	mori	focus	sex	最後まで、ずっと目を開けてたね
+02_1回目.md	226	hiyori	self	sex	だって……そらしちゃやだって言ったの、ひよりのほうだもん
+02_1回目.md	227	director	after	sex	そうだったね。……ありがとう、ひよりちゃん
+02_1回目.md	228	director	cue	sex	森さん、ゆっくりお願いします。Bカメ、寄ります
+02_1回目.md	229	hiyori	polite	sex	うぅ……そこ、撮っちゃうんですかぁ……
+02_1回目.md	230	director	prompt	sex	大事なカットだからね。ごめんね
+02_1回目.md	231	director	chan	sex	ひよりちゃん、もうちょっとだけ、そのままね
+02_1回目.md	232	hiyori	echo	sex	うぅ……はい……っ
+02_1回目.md	233	mori	focus	sex	お疲れさま。よくがんばったね
+02_1回目.md	234	yui	focus	sex	冷えちゃうからね
+02_1回目.md	235	hiyori	self	sex	ありがとうございます、ユイさん……。ひより、髪ぐちゃぐちゃですよね
+02_1回目.md	236	yui	focus	sex	ううん。いまの顔、すごくいいよ
+03_中間インタビュー.md	001	manami	focus-chan	talk	ひよりちゃん、大丈夫？　このまま続けても平気？
+03_中間インタビュー.md	002	hiyori	expect	talk	はい……だいじょぶです。真奈美さん、ありがとうございます。のど、からからで
+03_中間インタビュー.md	003	manami	focus	talk	ゆっくり飲んでね。終わったら、すぐシャワーだから
+03_中間インタビュー.md	004	director	after	talk	ひよりちゃん、お疲れさま。初めての撮影、どうだった？
+03_中間インタビュー.md	005	hiyori	expect	talk	……頭、真っ白です。カメラあるの、途中から忘れてました
+03_中間インタビュー.md	006	director	focus	talk	忘れちゃったの？　どのへんから？
+03_中間インタビュー.md	007	hiyori	expect	talk	えっと……お口でしてるときは、まだ覚えてたんです。赤いランプ、ちゃんと見えてたから。でも、いっぱい触られてからは……もう、ぜんぜん
+03_中間インタビュー.md	008	director	focus	talk	レンズ、ずっと寄ってたのに？
+03_中間インタビュー.md	009	hiyori	self	talk	うそ……ぜんぜん気づかなかったです。ひより、自分の声しか聞こえてなくて……
+03_中間インタビュー.md	010	director	focus	talk	いまは？　カメラ、思い出した？
+03_中間インタビュー.md	011	hiyori	self	talk	……はい。赤いランプ見たら、急に恥ずかしくなってきました。えへへ
+03_中間インタビュー.md	012	director	focus	talk	声も、いっぱい出てたもんね。音声さん、ずっとにこにこしてたよ
+03_中間インタビュー.md	013	hiyori	polite	talk	ひゃあ……！　もう、音声さんの顔、見られないです……
+03_中間インタビュー.md	014	director	focus	talk	男優さんは、どうだった？
+03_中間インタビュー.md	015	hiyori	expect	talk	やさしかったです……ずっと『大丈夫？』って聞いてくれて。最初のちゅーも、すっごくゆっくりで……あ、この人なら大丈夫って思えたんです
+03_中間インタビュー.md	016	director	chan	talk	ひよりちゃんからも、いっぱいキスしてたね
+03_中間インタビュー.md	017	hiyori	self	talk	えへへ……バレてました？　だって、森さ……男優さんのちゅー、気持ちよかったんだもん
+03_中間インタビュー.md	018	hiyori	moan	talk	じゃあ、何回イったか覚えてる？
+03_中間インタビュー.md	019	hiyori	cont	climax	えっと……最初は、いっぱい舐められてたときで……次は上に乗ってたとき……で、うしろからのときも……
+03_中間インタビュー.md	020	hiyori	polite	climax	えっと……3回？　4回？　わかんないです……
+03_中間インタビュー.md	021	hiyori	moan	climax	わかんなくなるくらい、イっちゃったんだ
+03_中間インタビュー.md	022	hiyori	cont	climax	うぅ……そうみたいです……
+03_中間インタビュー.md	023	hiyori	moan	climax	いつも、そんなにイっちゃうの？
+03_中間インタビュー.md	024	hiyori	polite	climax	お店でも、感じやすいねって言われますけど……今日は、とくべつかもです
+03_中間インタビュー.md	025	director	focus	climax	出されたとき、男優さんの顔は見えた？
+03_中間インタビュー.md	026	hiyori	self	climax	見えました……すっごく気持ちよさそうで。ひより、あれでまたイっちゃった
+03_中間インタビュー.md	027	director	focus	climax	どんな顔だった？
+03_中間インタビュー.md	028	hiyori	expect	climax	眉がぎゅってなって、息を止めてて……それでも、ずっとひよりのこと見ててくれて。奥があったかくなるのといっしょに、顔がふわってほどけていくんです。あれ見たら、お腹の中がきゅーってなって……止まんなかったです
+03_中間インタビュー.md	029	hiyori	polite	climax	……そのとき、男優さんの顔、ちゃんと見ててもいいですか？
+03_中間インタビュー.md	030	director	focus	climax	いま、お腹の中はどうなってる？
+03_中間インタビュー.md	031	hiyori	moan	climax	……まだ、あったかいです
+03_中間インタビュー.md	032	director	focus	climax	どんなふうに？
+03_中間インタビュー.md	033	hiyori	moan	climax	奥のほうにじんわり残ってて……ちょっと動くと、とろって……あっ、やだ。いまのなしで……っ
+03_中間インタビュー.md	034	director	focus	climax	抜いたとき、いっぱいあふれてたもんね。カメラ、ばっちり撮ってたよ
+03_中間インタビュー.md	035	hiyori	polite	climax	あれも、撮ってたんですか……
+03_中間インタビュー.md	036	director	chan	climax	ひよりちゃん、朝のインタビューで自分が何て言ったか、覚えてる？
+03_中間インタビュー.md	037	hiyori	expect	climax	……お、覚えてないです
+03_中間インタビュー.md	038	director	focus	climax	ほんとに？
+03_中間インタビュー.md	039	hiyori	expect	climax	お口の中に、せーし、出してもらいます……
+03_中間インタビュー.md	040	hiyori	moan	climax	たぶん、すぐイっちゃいます……
+03_中間インタビュー.md	041	hiyori	polite	climax	いちばん奥に、中出し……してもらいます
+03_中間インタビュー.md	042	director	focus	climax	インタビューで言ってたこと、ぜんぶ本当になったね
+03_中間インタビュー.md	043	hiyori	polite	climax	やだ、言わないでくださいぃ……
+03_中間インタビュー.md	044	director	focus	climax	隠れちゃった。顔、見せて？
+03_中間インタビュー.md	045	hiyori	expect	climax	むりです……いま、ぜったい変な顔してます……
+03_中間インタビュー.md	046	hiyori	polite	climax	じゃあ、そんなひよりちゃんに、お知らせです
+03_中間インタビュー.md	047	hiyori	polite	climax	……なんですか？
+03_中間インタビュー.md	048	director	focus	climax	次は、男優さん二人と、してもらうよ
+03_中間インタビュー.md	049	hiyori	wa	climax	ふ、ふたり……！？
+03_中間インタビュー.md	050	director	chan	climax	そう、ふたり。さっきの男優さんと、ひよりちゃんがまだ会ったことのない男優さん
+03_中間インタビュー.md	051	hiyori	echo	climax	まだ、会ったことない人……
+03_中間インタビュー.md	052	hiyori	polite	climax	……ってことは、気持ちいい顔、2つも見られるんですか？
+03_中間インタビュー.md	053	director	chan	climax	そこなんだ。ひよりちゃんらしいね
+03_中間インタビュー.md	054	hiyori	self	climax	えへへ……だって、いちばん好きなとこだから
+03_中間インタビュー.md	055	director	focus	climax	無理そうだったら、いつでも言ってね
+03_中間インタビュー.md	056	hiyori	polite	climax	はい。……でも、ちょっと楽しみかもです
+03_中間インタビュー.md	057	director	focus	climax	もうひとりがどんな人か、気になる？
+03_中間インタビュー.md	058	hiyori	expect	climax	気になります……でも、会うまでのお楽しみにしときます
+03_中間インタビュー.md	059	director	focus	climax	じゃあ、休憩にしようか
+04_2回目_前半.md	001	manami	before	talk	ひよりちゃん、タオルとガウン、ここに置いとくね
+04_2回目_前半.md	002	hiyori	polite	talk	はーい！　真奈美さん、ありがとうございます
+04_2回目_前半.md	003	hiyori	tic	talk	えっ、うれしい！　唐揚げだ！
+04_2回目_前半.md	004	manami	focus	talk	朝のインタビューで、好きって言ってたでしょ。監督さんが、わざわざこれにしてくれたんだって
+04_2回目_前半.md	005	hiyori	polite	talk	ほんとですか！　監督さん、ありがとうございます！
+04_2回目_前半.md	006	director	before	talk	いっぱい食べてね。次も、体力いるから
+04_2回目_前半.md	007	hiyori	polite	talk	いただきます！
+04_2回目_前半.md	008	director	focus	talk	おいしい……！　唐揚げって、なんでこんなに元気出るんだろ
+04_2回目_前半.md	009	manami	check	talk	体、どこか痛いところはない？
+04_2回目_前半.md	010	hiyori	self	talk	ぜんぜんです！　ちょっと腰がふわふわしてるくらいで……えへへ
+04_2回目_前半.md	011	manami	check	talk	午後はふたりだけど、本当に大丈夫？　いまなら、まだ内容を変えられるからね
+04_2回目_前半.md	012	hiyori	self	talk	……ほんとは、ちょっとどきどきしてます。でも、やってみたいんです。ひより、自分でまるつけたから
+04_2回目_前半.md	013	manami	focus	talk	わかった。じゃあ、わたしはずっとそばで見てるね
+04_2回目_前半.md	014	yui	focus	talk	わ、目のまわり、けっこう流れちゃったね。いっぱい泣いた？
+04_2回目_前半.md	015	hiyori	expect	talk	泣いてないです……たぶん
+04_2回目_前半.md	016	yui	focus	talk	二回目は、リップを少しだけ濃くしとくね。白に負けないように
+04_2回目_前半.md	017	yui	focus	talk	わ、かわいい……！　ユイさん、魔法使いみたい
+04_2回目_前半.md	018	yui	focus	talk	白、似合うね。さっきとぜんぜん雰囲気ちがう
+04_2回目_前半.md	019	hiyori	self	talk	えへへ……なんか、ひよりじゃないみたいです
+04_2回目_前半.md	020	director	prompt	talk	ひよりちゃん、ベッドの真ん中に座って、前を向いててね。もうひとりの男優さんの顔は、カメラが回ってからのお楽しみ
+04_2回目_前半.md	021	mori	focus	sex	また、よろしくね。大丈夫？
+04_2回目_前半.md	022	hiyori	expect	sex	はい。森さんがいるから、ちょっと安心です
+04_2回目_前半.md	023	director	after	sex	最初はふたりで触ってもらって、電マも使うね。そのあとは、ひよりちゃんがお口でふたりに。それから前とうしろから、いっしょに。最後は、ふたりとも、ひよりちゃんの中で
+04_2回目_前半.md	024	director	before	sex	止めたいときは？
+04_2回目_前半.md	025	hiyori	expect	sex	『ストップ』って言います
+04_2回目_前半.md	026	director	focus	sex	お口がふさがってたら？
+04_2回目_前半.md	027	hiyori	expect	sex	シーツか、男優さんの体を2回トントン、です
+04_2回目_前半.md	028	kurosaki	after	sex	……わかった。すぐ止める
+04_2回目_前半.md	029	mori	care	sex	僕もすぐ止めるからね。無理しないで、ゆっくりね
+04_2回目_前半.md	030	hiyori	self	sex	はい。ひより、がんばります！
+04_2回目_前半.md	031	director	prompt	sex	じゃあ、ひよりちゃん。うしろ、振り向いてみて
+04_2回目_前半.md	032	hiyori	polite	sex	よろしくお願いします……って、近いです、ふたりとも……
+04_2回目_前半.md	033	kurosaki	address	sex	黒崎。……よろしく、ひより
+04_2回目_前半.md	034	hiyori	polite	sex	あの……頭のカメラ、ずっと回ってるんですか？
+04_2回目_前半.md	035	kurosaki	focus	sex	ああ。ひよりの顔、ぜんぶ撮る
+04_2回目_前半.md	036	kurosaki	focus	sex	ぜ、ぜんぶ……
+04_2回目_前半.md	037	mori	to-kurosaki	sex	黒崎くん、無口だけど、やさしいから
+04_2回目_前半.md	038	kurosaki	after	sex	……余計なこと言わなくていい
+04_2回目_前半.md	039	director	ask-kurosaki	sex	黒崎くん、ひよりちゃんの第一印象は？
+04_2回目_前半.md	040	kurosaki	expect	sex	……ちっさい
+04_2回目_前半.md	041	hiyori	self	sex	ち、ちっさいって……！　ひより、152センチあります！
+04_2回目_前半.md	042	kurosaki	focus	sex	かわいいってことだよ、たぶん
+04_2回目_前半.md	043	kurosaki	deny	sex	……言ってない
+04_2回目_前半.md	044	director	prompt	sex	森さんから見て、二回目のひよりちゃんは？
+04_2回目_前半.md	045	mori	expect	sex	白も似合うね。さっきより、ちょっと大人っぽい
+04_2回目_前半.md	046	hiyori	tic	sex	え……うれしい……
+04_2回目_前半.md	047	director	prompt	sex	ひよりちゃん、いまどんな気持ち？
+04_2回目_前半.md	048	hiyori	expect	sex	えっと……前が森さんで、ほっとしてて……うしろの黒崎さんはまだ知らない人だから、どきどきしてて……
+04_2回目_前半.md	049	hiyori	self	talk	……ひより、サンドイッチの具になっちゃったみたい。えへへ
+04_2回目_前半.md	050	hiyori	moan	talk	ん……ちゅ、ふ……んむ……
+04_2回目_前半.md	051	mori	focus	talk	はぁ……っ。森さん、ちゅー、もっと……
+04_2回目_前半.md	052	mori	focus	talk	うん。いっぱいしようね
+04_2回目_前半.md	053	hiyori	moan	talk	んっ……！　ん、んむぅ……っ
+04_2回目_前半.md	054	kurosaki	focus	foreplay	ぷはっ……ひゃ、耳……っ、だめ……っ
+04_2回目_前半.md	055	kurosaki	focus	foreplay	……ここか
+04_2回目_前半.md	056	kurosaki	focus	sex	ひゃ、ぁ……っ。みみ、なめちゃ……っ。音、ぜんぶ聞こえちゃう……っ。そこ、ひよりの弱いとこ……なんで、わかるの……っ
+04_2回目_前半.md	057	kurosaki	focus	sex	声でわかる
+04_2回目_前半.md	058	hiyori	moan	sex	あっ……ホック、外されちゃった……
+04_2回目_前半.md	059	hiyori	moan	sex	やぁ……さきっぽ、たっちゃってる……
+04_2回目_前半.md	060	kurosaki	focus	sex	やだ……見えちゃってる……
+04_2回目_前半.md	061	kurosaki	focus	sex	きれいだよ。隠さないで
+04_2回目_前半.md	062	mori	focus	sex	……隠すの、もったいないだろ
+04_2回目_前半.md	063	hiyori	moan	sex	あっ……ん、森さん、そこ……っ。黒崎さんも、いっしょ……っ
+04_2回目_前半.md	064	hiyori	moan	sex	やっ……舌で、ころころしちゃ、やぁ……っ。ちゅうって、吸ったら……っ
+04_2回目_前半.md	065	kurosaki	focus	sex	ここも、好きなんだね
+04_2回目_前半.md	066	kurosaki	focus	sex	ん、ぁ……っ、そっちも……っ
+04_2回目_前半.md	067	hiyori	moan	sex	やっ、どっちの手……？　わかんない、ぜんぶ気持ちいい……っ
+04_2回目_前半.md	068	kurosaki	focus	sex	いい声
+04_2回目_前半.md	069	kurosaki	focus	sex	やだ、聞かないで……っ
+04_2回目_前半.md	070	kurosaki	focus	sex	聞かせて。かわいい声だよ
+04_2回目_前半.md	071	kurosaki	focus	sex	は、ぁ……っ。そこ、さわったら……濡れてるの、ばれちゃう……っ
+04_2回目_前半.md	072	kurosaki	focus	sex	……もう、ばれてる
+04_2回目_前半.md	073	kurosaki	focus	sex	あ……ぜんぶ、脱がされちゃった……
+04_2回目_前半.md	074	kurosaki	focus	sex	鏡、見ちゃった……ふたりがかりなんて、ずるい……っ
+04_2回目_前半.md	075	kurosaki	focus	sex	ずるくない
+04_2回目_前半.md	076	mori	care	sex	大丈夫？　ゆっくりね
+04_2回目_前半.md	077	hiyori	expect	sex	ひぁっ……！　黒崎さんの指、はいって……っ
+04_2回目_前半.md	078	hiyori	moan	sex	やっ、だめ……いっしょにされたら、ひより……っ
+04_2回目_前半.md	079	mori	focus	sex	気持ちいい？
+04_2回目_前半.md	080	hiyori	moan	sex	きもちぃ……っ、きもちいいです……っ。黒崎さんの指、はやい……っ。そこ、そこばっかり……っ♡
+04_2回目_前半.md	081	mori	focus	sex	ここだろ
+04_2回目_前半.md	082	hiyori	moan	sex	あっ、そこ……っ、しゅき……っ。そこ、しゅき、しゅきぃ……っ♡
+04_2回目_前半.md	083	hiyori	self	climax	イく……っ、イっちゃう……っ。ひより、イっちゃう……っ！♡
+04_2回目_前半.md	084	hiyori	cont	climax	……早いな
+04_2回目_前半.md	085	kurosaki	focus	climax	だ、だって……っ。ふたりでするから……っ
+04_2回目_前半.md	086	kurosaki	focus	climax	かわいかったよ
+04_2回目_前半.md	087	mori	focus	climax	まだイけるだろ
+04_2回目_前半.md	088	mori	focus	climax	え……っ、うそ、待って……っ
+04_2回目_前半.md	089	mori	focus	climax	当てるよ。つらかったら言ってね
+04_2回目_前半.md	090	hiyori	self	climax	で、電マ……ひより、すぐイっちゃうって言ったのに……っ
+04_2回目_前半.md	091	hiyori	moan	climax	んぁっ……！　イった、いまイったのにぃ……っ、まだ、するの……っ？♡
+04_2回目_前半.md	092	kurosaki	focus	climax	らめ、らめぇ……っ。ぶるぶる、しゅごいの……っ。おくまで、ひびいて……っ♡
+04_2回目_前半.md	093	hiyori	moan	climax	やだ……おと、えっちなおと、しちゃってる……っ。とまんにゃい……っ。こし、とまんにゃいの……っ。また、きちゃう……イく、イっちゃ……っ！♡
+04_2回目_前半.md	094	hiyori	self	climax	は、ぁ……っ。また、イっちゃった……っ。ひより、へんになっちゃう……♡
+04_2回目_前半.md	095	kurosaki	focus	climax	大丈夫？
+04_2回目_前半.md	096	hiyori	expect	climax	……やめちゃ、やだぁ……
+04_2回目_前半.md	097	kurosaki	focus	climax	なら、もう一回
+04_2回目_前半.md	098	hiyori	moan	climax	あっ、ゆび、ふたつ……っ。おなかのなか、いっぱい……っ
+04_2回目_前半.md	099	kurosaki	focus-chan	climax	ひよりちゃん、いまどんな感じ？
+04_2回目_前半.md	100	hiyori	moan	climax	わかんにゃい……っ。ずっとふわふわしてて……きもちぃのしか、わかんないの……っ
+04_2回目_前半.md	101	director	after	climax	じゃあ、カメラ見てみて
+04_2回目_前半.md	102	mori	focus	climax	ちゃんと見てるからね
+04_2回目_前半.md	103	hiyori	moan	climax	やっ、見ないで……っ。また、また来ちゃう……っ♡
+04_2回目_前半.md	104	hiyori	moan	climax	みて……っ、やっぱり、みてて……っ。ひよりの、きもちぃかお……ぜんぶ、みてて……っ♡
+04_2回目_前半.md	105	hiyori	moan	climax	おく、ぐりぐりって……しゅきぃ♡……っ。ふたりとも、しゅき……っ。きもちぃ、きもちぃの……っ。イく、イく……っ♡
+04_2回目_前半.md	106	kurosaki	focus	climax	はぁ……っ、はぁ……っ。ふ、ぅ……♡
+04_2回目_前半.md	107	kurosaki	focus	climax	……いい顔
+04_2回目_前半.md	108	hiyori	self	climax	いま、なんかい……？　ひより、もう、わかんない……
+04_2回目_前半.md	109	kurosaki	focus	climax	よくがんばったね
+04_2回目_前半.md	110	hiyori	self	climax	ひより、とけちゃいそう……
+04_2回目_前半.md	111	director	after	climax	起きられる？　今度は、ひよりちゃんがふたりを気持ちよくしてあげて
+04_2回目_前半.md	112	hiyori	expect	climax	わ……ふたりぶん……
+04_2回目_前半.md	113	director	focus	climax	どっちからにする？
+04_2回目_前半.md	114	hiyori	self	climax	えっと……じゃあ、知ってるほうから……えへへ
+04_2回目_前半.md	115	hiyori	cont	climax	……俺は後回しか
+04_2回目_前半.md	116	hiyori	polite	climax	ち、ちがいます……黒崎さんも、ちゃんとあとで……
+04_2回目_前半.md	117	hiyori	self	climax	ひよりがお口でいっぱい舐めて、気持ちよくしてあげます
+04_2回目_前半.md	118	mori	focus	climax	ん……ちゅ……森さんの、知ってる味……
+04_2回目_前半.md	119	hiyori	moan	climax	れろ……ん、ちゅ……れる……っ
+04_2回目_前半.md	120	mori	focus	climax	上手だね。苦しかったら、トントンね
+04_2回目_前半.md	121	mori	focus	climax	ん、むぅ……っ
+04_2回目_前半.md	122	hiyori	moan	climax	んっ、じゅぷ……っ。ちゅぷ……んむぅ……
+04_2回目_前半.md	123	hiyori	moan	climax	ん、んむ……ひもひ、いい……れふか……？
+04_2回目_前半.md	124	hiyori	moan	climax	うん。すごく気持ちいいよ。ひよりちゃんの口、あったかいね
+04_2回目_前半.md	125	hiyori	cont	climax	……こっちも、忘れるなよ
+04_2回目_前半.md	126	hiyori	moan	climax	んっ、んぅ……ふぁい……
+04_2回目_前半.md	127	kurosaki	focus	climax	ちゅぽっ……ぷは、ぁ……っ。黒崎さんのも……ね？
+04_2回目_前半.md	128	hiyori	moan	climax	……やっとか
+04_2回目_前半.md	129	hiyori	moan	climax	ん、ぷ……っ、んむ……
+04_2回目_前半.md	130	hiyori	cont	climax	……っ、いい
+04_2回目_前半.md	131	kurosaki	focus	climax	ん……ほんほ……？
+04_2回目_前半.md	132	hiyori	expect	climax	んふ……ふぅ……っ
+04_2回目_前半.md	133	kurosaki	focus	climax	ぷは……黒崎さんも、そういう顔するんだ……
+04_2回目_前半.md	134	kurosaki	focus	climax	……うるさい。続けろ
+04_2回目_前半.md	135	hiyori	moan	climax	んぐ……っ、ぢゅるっ……んむ……
+04_2回目_前半.md	136	hiyori	cont	climax	……っ、そこ
+04_2回目_前半.md	137	kurosaki	focus	climax	ん……ほこ……？　ほこ、ひゅき……？
+04_2回目_前半.md	138	hiyori	expect	climax	……生意気だな
+04_2回目_前半.md	139	hiyori	moan	climax	くぽっ……ん、じゅぷ……ちゅぽっ……はぁ……っ
+04_2回目_前半.md	140	hiyori	moan	climax	ぷはっ……んむ……こっちも、ちゃんと……ね？　どっちの顔も、見たいの……
+04_2回目_前半.md	141	kurosaki	focus	climax	森さん、いま、ちょっと苦しそうな顔……かわいい
+04_2回目_前半.md	142	mori	focus-chan	climax	ひよりちゃん、どっちが好き？
+04_2回目_前半.md	143	hiyori	expect	climax	ん……ろっひも……ひゅき……
+04_2回目_前半.md	144	mori	focus	climax	んぐ……っ、ぐぷ……ん、ふ……っ
+04_2回目_前半.md	145	mori	focus	climax	無理しないでね。……すごく上手だよ
+04_2回目_前半.md	146	mori	focus	climax	ふたりの顔、どう？
+04_2回目_前半.md	147	hiyori	self	climax	はぁ……っ。どっちも、すっごく気持ちよさそうです……ひより、ずっと見てたい……
+04_2回目_前半.md	148	mori	focus	climax	ふたりの……お、おちんちん……どっちも、ひよりの手の中でびくびくしてる……
+04_2回目_前半.md	149	mori	focus	climax	言っちゃったね
+04_2回目_前半.md	150	hiyori	moan	climax	れろ……ん、ちゅ……ほら。こうしたら、いっしょに見られる……
+04_2回目_前半.md	151	mori	focus-chan	climax	欲張りだね、ひよりちゃん
+04_2回目_前半.md	152	hiyori	self	climax	えへへ……ひより、欲張りなんです
+04_2回目_前半.md	153	hiyori	cont	climax	……っ、上手いな
+04_2回目_前半.md	154	mori	focus	climax	ふふ……ほめられちゃった……
+04_2回目_前半.md	155	hiyori	moan	climax	ちゅっ、ちゅ……んむぅ……っ、ふぁ……おっひぃ……
+04_2回目_前半.md	156	kurosaki	focus	climax	ひより
+04_2回目_前半.md	157	kurosaki	focus	climax	そのまま、顔上げてろ
+04_2回目_前半.md	158	hiyori	moan	climax	ん……ふぁい……
+04_2回目_前半.md	159	hiyori	moan	climax	じゅぷ……ちゅぽ……んむ、ぢゅるっ……
+04_2回目_前半.md	160	director	before	climax	いい顔してるね、ひよりちゃん
+04_2回目_前半.md	161	hiyori	polite	climax	ぷはっ……はぁ……っ。ふたりのおかげです。ふたりとも……もっと、気持ちいい顔、見せて……？
+04_2回目_前半.md	162	hiyori	cont	climax	……見せてやるよ
+04_2回目_前半.md	163	director	chan	climax	じゃあ、ひよりちゃん。そのまま、四つん這いになってみて
+04_2回目_前半.md	164	hiyori	echo	climax	四つん這い……ってことは……
+04_2回目_前半.md	165	director	focus	climax	大丈夫？　ゆっくりでいいからね
+05_2回目_後半.md	001	kurosaki	focus-chan	sex	ひよりちゃん。苦しくなったら、ここね。とん、とん、って二回
+05_2回目_後半.md	002	hiyori	polite	sex	……はい。だいじょうぶ、です
+05_2回目_後半.md	003	mori	focus	sex	ほんとに？
+05_2回目_後半.md	004	hiyori	expect	sex	ほんとです。……森さんの、もう一回ひよりのお口にください
+05_2回目_後半.md	005	mori	focus-chan	sex	うん。ひよりちゃんのペースでいいからね
+05_2回目_後半.md	006	mori	focus	sex	ちゅっ……
+05_2回目_後半.md	007	hiyori	moan	sex	れろ……ん、ちゅ……っ、ちゅぷ……
+05_2回目_後半.md	008	hiyori	moan	sex	ん……んむ、おっひ……
+05_2回目_後半.md	009	mori	care	sex	ゆっくりね
+05_2回目_後半.md	010	hiyori	moan	sex	んむ……っ、ぢゅるっ……
+05_2回目_後半.md	011	kurosaki	focus	sex	入れるぞ
+05_2回目_後半.md	012	hiyori	moan	sex	ん……ふぁい……
+05_2回目_後半.md	013	hiyori	moan	sex	んぐっ……！　んむぅっ……
+05_2回目_後半.md	014	mori	focus	sex	ぷはっ……は、ぁ……っ
+05_2回目_後半.md	015	hiyori	moan	sex	んんっ……！　うしろ、はいって……っ、お口、とまっちゃう……っ
+05_2回目_後半.md	016	mori	focus	sex	大丈夫？　無理しなくていいからね
+05_2回目_後半.md	017	hiyori	expect	sex	むりじゃないです……っ、黒崎さんのが、あつくて……びっくりしただけ……
+05_2回目_後半.md	018	mori	focus	sex	痛いか
+05_2回目_後半.md	019	mori	focus	sex	いたくない……っ、ふかくて……お腹の奥まで、きてる……
+05_2回目_後半.md	020	mori	focus-chan	sex	ひよりちゃん、いま、うしろに何が入ってるの？　ちゃんと言ってみて
+05_2回目_後半.md	021	hiyori	expect	talk	黒崎さんの……お、おちんちんが……なまで、うしろから……っ
+05_2回目_後半.md	022	director	focus	talk	それに、ちがうの……森さんのと、かたちがぜんぜんちがう……っ
+05_2回目_後半.md	023	director	focus	talk	どう違うの？
+05_2回目_後半.md	024	hiyori	expect	talk	黒崎さんのは……かたくて、ながくて……森さんのは、ふとくて、やさしい……
+05_2回目_後半.md	025	hiyori	cont	talk	……比べんな
+05_2回目_後半.md	026	mori	focus	talk	比べられちゃったね
+05_2回目_後半.md	027	hiyori	moan	talk	あむ……っ、ん、ちゅぷ……
+05_2回目_後半.md	028	hiyori	moan	sex	んぐっ、んむぅっ……！　ん、ぐ……っ、んぅ……っ
+05_2回目_後半.md	029	hiyori	moan	sex	ぢゅるっ……んく、んぅ……っ
+05_2回目_後半.md	030	mori	focus	sex	苦しかったら、お口はおやすみしていいからね
+05_2回目_後半.md	031	mori	focus	sex	んーん……っ、やら……もりひゃんのも……ひたい……
+05_2回目_後半.md	032	mori	focus	sex	いい声。……力、抜け
+05_2回目_後半.md	033	hiyori	wa	sex	ふ、ぅ……っ、むり……っ、ぬけない……っ、ぜんぶぎゅってなっちゃう……っ
+05_2回目_後半.md	034	mori	focus-chan	sex	ひよりちゃん、うしろはどんな感じ？
+05_2回目_後半.md	035	hiyori	moan	sex	はやいです……っ、奥、とんとんって……ずっとノックされてるみたい……っ
+05_2回目_後半.md	036	director	focus	sex	前は？
+05_2回目_後半.md	037	hiyori	expect	sex	前は……森さんのが、お口のなかでぴくってしてて……かわいい……
+05_2回目_後半.md	038	director	focus	sex	かわいいって言われたの、はじめてだな
+05_2回目_後半.md	039	mori	focus	sex	どっちが気持ちいいの？
+05_2回目_後半.md	040	hiyori	expect	sex	えらべない……っ、どっちに揺れてるのか、わかんない……っ
+05_2回目_後半.md	041	hiyori	moan	sex	んっ……んくっ……じゅぷ、じゅぷ……っ
+05_2回目_後半.md	042	mori	focus	sex	ちゃんと見てくれてるね。えらいね
+05_2回目_後半.md	043	hiyori	moan	sex	ん、んむ……ひもひ、いい……？
+05_2回目_後半.md	044	mori	focus	sex	うん。すごく気持ちいいよ
+05_2回目_後半.md	045	mori	focus	sex	んふ……っ
+05_2回目_後半.md	046	mori	focus-chan	sex	ひよりちゃん、その顔、反則だよ
+05_2回目_後半.md	047	director	prompt	sex	いいよ、ひよりちゃん。そのまま森さんのこと、見ててあげて
+05_2回目_後半.md	048	kurosaki	focus	sex	カメラにいっぱい見られて、感じちゃった？
+05_2回目_後半.md	049	hiyori	expect	sex	……締まったな
+05_2回目_後半.md	050	hiyori	moan	sex	んんっ……！　んむぅっ、んぐ……っ
+05_2回目_後半.md	051	hiyori	moan	sex	ぷぁっ……らめ、らめぇ……っ、うしろ、しゅごい……っ、くろさきさんの、しゅきぃ……っ♡
+05_2回目_後半.md	052	hiyori	moan	climax	イっちゃう、イっちゃう……っ、お口……おくち、ほしい……っ♡
+05_2回目_後半.md	053	mori	focus	climax	イけ、ひより
+05_2回目_後半.md	054	hiyori	moan	climax	んんっ、んむぅっ……！♡
+05_2回目_後半.md	055	mori	focus	climax	はぁ……っ、は、ぁ……っ
+05_2回目_後半.md	056	hiyori	moan	climax	イっちゃった……森さんの、お口に入れたまま……♡
+05_2回目_後半.md	057	kurosaki	focus	climax	いいんだよ。いまの顔、すごくかわいかった
+05_2回目_後半.md	058	hiyori	polite	climax	え……見てたんですか……？
+05_2回目_後半.md	059	mori	focus-chan	climax	見てたよ。ひよりちゃんが見てくれるから、こっちも見ちゃう
+05_2回目_後半.md	060	mori	focus	climax	……ずるい……
+05_2回目_後半.md	061	mori	focus-chan	climax	ひよりちゃん、いま何回目？
+05_2回目_後半.md	062	director	after	climax	……わかんない……よっつめ……？
+05_2回目_後半.md	063	director	before	climax	大丈夫？　ちょっと休む？
+05_2回目_後半.md	064	hiyori	expect	climax	……だいじょうぶ、です
+05_2回目_後半.md	065	manami	focus	climax	まだしたいの？
+05_2回目_後半.md	066	hiyori	expect	climax	……したい、です。……もう、言わせないでくださいぃ
+05_2回目_後半.md	067	manami	focus	climax	じゃあ、ふたり入れ替わってみようか
+05_2回目_後半.md	068	mori	focus	climax	はい、お水。ゆっくり飲んでね
+05_2回目_後半.md	069	mori	focus	climax	ん……つめたい……おいしい……
+05_2回目_後半.md	070	kurosaki	focus	climax	あ……っ、ぬけちゃった……
+05_2回目_後半.md	071	mori	focus	climax	今度は、森さんがうしろ……
+05_2回目_後半.md	072	mori	care	climax	うん。ゆっくりね
+05_2回目_後半.md	073	mori	focus	climax	……で、黒崎さんが、前……
+05_2回目_後半.md	074	kurosaki	focus	climax	合図はここ。二回な
+05_2回目_後半.md	075	kurosaki	focus	climax	……はい
+05_2回目_後半.md	076	kurosaki	focus	climax	それと、こっち見ろ
+05_2回目_後半.md	077	kurosaki	focus	climax	黒崎さんの目と、カメラ……どっちも、ひよりの顔、ぜんぶ見てる……
+05_2回目_後半.md	078	kurosaki	focus	climax	ああ。だから、そらすな
+05_2回目_後半.md	079	director	after	climax	いいね、ひよりちゃん。そのレンズの向こうで、見てる人と目が合ってるよ
+05_2回目_後半.md	080	hiyori	echo	climax	……はずかしい……でも、そらさない……
+05_2回目_後半.md	081	hiyori	moan	climax	れろ……っ、ちゅ……ん、れろぉ……
+05_2回目_後半.md	082	hiyori	moan	climax	くぽっ……んむ、じゅぷ……っ
+05_2回目_後半.md	083	hiyori	moan	climax	んぅっ……！　んむ……っ
+05_2回目_後半.md	084	kurosaki	focus	climax	んぐっ……！
+05_2回目_後半.md	085	kurosaki	focus	climax	……平気か
+05_2回目_後半.md	086	hiyori	moan	climax	ん、んむ……へいひ……
+05_2回目_後半.md	087	kurosaki	focus	climax	は、ぁ……っ、森さんの、しってる……っ
+05_2回目_後半.md	088	kurosaki	focus	climax	覚えててくれたんだ
+05_2回目_後半.md	089	hiyori	moan	climax	おぼえてる……っ、かたちも、あったかいのも……ゆっくり待ってくれるのも……ぜんぶ……
+05_2回目_後半.md	090	mori	focus-chan	climax	ひよりちゃんの中も、さっきよりずっとあったかいね
+05_2回目_後半.md	091	mori	focus	climax	それは……黒崎さんが、いっぱいあっためたから……っ
+05_2回目_後半.md	092	mori	focus	climax	……言い方
+05_2回目_後半.md	093	hiyori	moan	climax	あむ……っ、ちゅぷ、じゅぷ……っ
+05_2回目_後半.md	094	director	after	climax	ひよりちゃん、鏡に何が映ってるの？
+05_2回目_後半.md	095	hiyori	self	climax	ぷはっ……やだ……ひより、すごい顔してる……っ、ふたりにはさまれて……っ
+05_2回目_後半.md	096	kurosaki	focus	climax	どんな顔？
+05_2回目_後半.md	097	hiyori	expect	climax	とろとろで……っ、お口、黒崎さんので、いっぱいで……よだれ、とまんない……
+05_2回目_後半.md	098	kurosaki	focus	climax	すごくきれいだよ
+05_2回目_後半.md	099	kurosaki	focus	climax	森さん……鏡のなかに、いた……っ
+05_2回目_後半.md	100	kurosaki	focus	climax	うん。ここにいるよ
+05_2回目_後半.md	101	kurosaki	focus	climax	ひより。口、休むな
+05_2回目_後半.md	102	hiyori	moan	climax	ふぁい……っ、ん、んむ……ごめ、なひゃ……
+05_2回目_後半.md	103	hiyori	moan	climax	んっ、んむ……くぽっ、じゅぽ……っ
+05_2回目_後半.md	104	kurosaki	focus-chan	climax	ひよりちゃん、上においで
+05_2回目_後半.md	105	hiyori	polite	climax	……森さんの上、いいんですか……？
+05_2回目_後半.md	106	kurosaki	focus-chan	climax	うん。今度はひよりちゃんにおまかせ
+05_2回目_後半.md	107	hiyori	wa	climax	ふ、ぁ……っ、ふかい……っ
+05_2回目_後半.md	108	mori	focus	climax	痛くない？
+05_2回目_後半.md	109	hiyori	expect	climax	痛くないです……っ、気持ちいい……
+05_2回目_後半.md	110	mori	focus	climax	森さんの顔、上から見るの……すき……っ
+05_2回目_後半.md	111	mori	focus-chan	climax	下から見るひよりちゃんも、いい眺めだよ
+05_2回目_後半.md	112	hiyori	self	climax	えへへ……はずかしい……
+05_2回目_後半.md	113	kurosaki	focus	climax	こっちも、忘れんな
+05_2回目_後半.md	114	kurosaki	focus	climax	……はい
+05_2回目_後半.md	115	kurosaki	focus	climax	ちゅっ……あむ……っ
+05_2回目_後半.md	116	hiyori	moan	climax	んむっ……ん、ちゅぷ……っ、んぐ……
+05_2回目_後半.md	117	kurosaki	focus	climax	ぷはっ……むずかし……っ
+05_2回目_後半.md	118	kurosaki	focus	climax	ふたりとも、いっぺんに気持ちよくしたいのに……どっちか、とまっちゃう……
+05_2回目_後半.md	119	kurosaki	focus	climax	焦んな
+05_2回目_後半.md	120	kurosaki	focus-chan	climax	ひよりちゃん、上手だよ。ゆっくりでいいから
+05_2回目_後半.md	121	hiyori	polite	climax	ゆっくり……がんばります……っ
+05_2回目_後半.md	122	director	after	climax	ひよりちゃん、腰とお口、いっしょに動かしてみて
+05_2回目_後半.md	123	hiyori	moan	climax	んっ、んむ……じゅぷっ、ん、ふ……っ
+05_2回目_後半.md	124	kurosaki	focus	climax	はふ……っ、森さん……っ、黒崎さん……っ、気持ちいい……？
+05_2回目_後半.md	125	hiyori	expect	climax	うん……すごく
+05_2回目_後半.md	126	hiyori	cont	climax	……ああ。上手い
+05_2回目_後半.md	127	hiyori	self	climax	えへへ……ほめられちゃった……っ
+05_2回目_後半.md	128	director	after	climax	ひよりちゃん、自分から腰振ってるの？
+05_2回目_後半.md	129	director	before	climax	やだ……っ、言わないで……っ、腰がかってに……とまんないの……っ
+05_2回目_後半.md	130	director	focus	climax	ふたりとも、どんな顔してるの？
+05_2回目_後半.md	131	hiyori	expect	climax	森さんは……っ、下でやさしい顔して……ちょっとだけ、くるしそう……っ
+05_2回目_後半.md	132	mori	focus	climax	黒崎さんは？
+05_2回目_後半.md	133	hiyori	expect	climax	黒崎さんは……こわい顔なのに……レンズの下で、目だけ気持ちよさそう……っ
+05_2回目_後半.md	134	hiyori	cont	climax	……言うな
+05_2回目_後半.md	135	kurosaki	focus	climax	黒崎さん、耳、赤い……っ
+05_2回目_後半.md	136	kurosaki	focus	climax	……うるせ
+05_2回目_後半.md	137	mori	focus	climax	ひぁっ……！　そこ、らめ……っ
+05_2回目_後半.md	138	hiyori	moan	climax	んむっ、ちゅぷ……ひもひぃ……っ、んぅ、ひゅき……っ♡
+05_2回目_後半.md	139	hiyori	moan	climax	ぷぁっ……きもちぃ……っ、もりさんの、おく、とんとんって……しゅきぃ……っ、とまんにゃい……っ♡
+05_2回目_後半.md	140	kurosaki	focus-chan	climax	いいよ、ひよりちゃん。そのまま……
+05_2回目_後半.md	141	hiyori	moan	climax	イっちゃ……っ、イっちゃう……っ、あ、ぁっ……！♡
+05_2回目_後半.md	142	mori	focus-chan	climax	ひよりちゃん……っ、すごいね……
+05_2回目_後半.md	143	hiyori	moan	climax	……また、イっちゃった……♡
+05_2回目_後半.md	144	mori	focus	climax	まだイけるだろ
+05_2回目_後半.md	145	hiyori	polite	climax	……イけ、ます……っ
+05_2回目_後半.md	146	mori	focus	climax	ほんとに大丈夫？　無理しないでね
+05_2回目_後半.md	147	hiyori	expect	climax	だいじょうぶ……もっと、ふたりの顔、見たい……
+05_2回目_後半.md	148	hiyori	self	climax	ひより、うしろ向け
+05_2回目_後半.md	149	hiyori	ack	climax	はい……っ
+05_2回目_後半.md	150	mori	focus	climax	手、つないでよっか
+05_2回目_後半.md	151	mori	focus	climax	……うん……
+05_2回目_後半.md	152	kurosaki	focus	climax	あぁっ……！
+05_2回目_後半.md	153	kurosaki	focus	climax	くろさきさん、はやい……っ、おく、ずっとあたって……っ、あたま、へんになっちゃう……っ
+05_2回目_後半.md	154	kurosaki	focus	climax	もっと聞かせろ
+05_2回目_後半.md	155	kurosaki	focus	climax	きいて……っ、ひよりのこえ……ぜんぶ、きいて……っ
+05_2回目_後半.md	156	hiyori	moan	climax	もう、わかんない……っ、きもちぃしか、わかんない……っ♡
+05_2回目_後半.md	157	kurosaki	focus-chan	climax	ひよりちゃん、鏡、見える？
+05_2回目_後半.md	158	hiyori	moan	climax	みえる……っ、くろさきさん、うつってる……っ、くろさきさんも、きもちぃ……？
+05_2回目_後半.md	159	hiyori	cont	climax	……ああ
+05_2回目_後半.md	160	hiyori	cont	climax	……出すぞ
+05_2回目_後半.md	161	kurosaki	focus	climax	だして……っ、なか、ちょうだい……っ♡
+05_2回目_後半.md	162	mori	focus	climax	ふたりとも、ひよりの中で……っ、顔、見せて……っ♡
+05_2回目_後半.md	163	kurosaki	focus	climax	あ、ぁっ……！　なか、あつい……っ、くろさきさんの、いっぱい……っ♡
+05_2回目_後半.md	164	hiyori	moan	climax	……黒崎さんの、あったかいの……こぼれちゃう……
+05_2回目_後半.md	165	kurosaki	focus-chan	climax	ひよりちゃん、まだいける？
+05_2回目_後半.md	166	hiyori	expect	climax	……いけます……っ
+05_2回目_後半.md	167	kurosaki	focus	climax	じゃあ、こっち、おいで
+05_2回目_後半.md	168	mori	focus	climax	……森さんも、ちょうだい……っ
+05_2回目_後半.md	169	hiyori	moan	talk	もりさんの、はいってきた……っ、あったかい……っ♡
+05_2回目_後半.md	170	director	prompt	climax	ひよりちゃん、こっち見てて
+05_2回目_後半.md	171	hiyori	echo	climax	みてる……ずっと、みてる……っ
+05_2回目_後半.md	172	mori	care	climax	ゆっくりね……って、言いたいけど
+05_2回目_後半.md	173	mori	focus-chan	climax	ごめん、ひよりちゃん。もう、もたないかも
+05_2回目_後半.md	174	mori	focus	climax	いいの……っ、もりさんの、ほしい……っ、いちばん奥に……なか、だし……して……っ♡
+05_2回目_後半.md	175	mori	focus	climax	森さん……っ、目、そらさないで……いっしょがいい……っ、いっしょ、いっしょに……っ
+05_2回目_後半.md	176	mori	focus	climax	うん。見てるよ。いっしょにね
+05_2回目_後半.md	177	mori	focus	climax	いく……っ、いっちゃう……っ、もりさん……っ♡
+05_2回目_後半.md	178	mori	focus-chan	climax	……ひよりちゃん……っ
+05_2回目_後半.md	179	hiyori	moan	climax	あ……っ、森さんのも……あったかい……っ、しゅき……♡
+05_2回目_後半.md	180	hiyori	cont	talk	……見ちゃった。ふたつとも……
+05_2回目_後半.md	181	mori	focus-chan	sex	ひよりちゃん、そのまま。ちょっとだけ、脚、開いててね
+05_2回目_後半.md	182	mori	focus	sex	……こぼれてるの、ぜんぶ映っちゃう……
+05_2回目_後半.md	183	hiyori	polite	sex	……み、見ないでって……言っちゃだめなんですよね……
+05_2回目_後半.md	184	director	after	sex	言ってもいいよ。撮るけどね
+05_2回目_後半.md	185	mori	focus	sex	大丈夫？
+05_2回目_後半.md	186	hiyori	self	sex	……ひより、いま、どんな顔してます……？
+05_2回目_後半.md	187	mori	focus	sex	すごくいい顔してるよ
+05_2回目_後半.md	188	mori	focus	sex	……とろけてる
+05_2回目_後半.md	189	hiyori	self	sex	……ふたりぶん、お腹いっぱい……えへへ
+06_終了後インタビュー.md	001	mori	focus-chan	talk	ひよりちゃん、お疲れさま。少しゆっくりしててね
+06_終了後インタビュー.md	002	kurosaki	focus	talk	……お疲れ
+06_終了後インタビュー.md	003	kurosaki	focus-chan	talk	ひよりちゃん、こっち見られる？
+06_終了後インタビュー.md	004	hiyori	expect	talk	……はい……
+06_終了後インタビュー.md	005	director	after	talk	どうだった？
+06_終了後インタビュー.md	006	hiyori	expect	talk	……すごかった、です……まだ、体がふわふわしてる……
+06_終了後インタビュー.md	007	director	focus	talk	ふわふわ？
+06_終了後インタビュー.md	008	hiyori	expect	talk	はい……どこにも力が入らなくて。シーツがこすれるだけで、ぴくってなっちゃうんです
+06_終了後インタビュー.md	009	director	focus	talk	ほら……ね？
+06_終了後インタビュー.md	010	hiyori	expect	talk	ほんとだ。まだ敏感なんだね
+06_終了後インタビュー.md	011	hiyori	cont	talk	……いじわる
+06_終了後インタビュー.md	012	director	focus	talk	何回イッたの？
+06_終了後インタビュー.md	013	hiyori	expect	talk	……数えられなかったです
+06_終了後インタビュー.md	014	director	focus	talk	1回目のときは、3回か4回って言ってたよね
+06_終了後インタビュー.md	015	hiyori	polite	talk	途中までは、がんばって数えてたんですよ？　でも……イってるのに、またすぐ次がきて。どこからどこまでが1回なのか、わかんなくなっちゃって……
+06_終了後インタビュー.md	016	director	focus	talk	今日はじめて会った男優さんもいたけど、どうだった？
+06_終了後インタビュー.md	017	hiyori	expect	talk	最初は、ちょっとこわい人かなって思ったんです。でも、ずっとひよりの合図を気にしてくれてて……途中で、耳が赤くなってるの、見ちゃいました
+06_終了後インタビュー.md	018	director	focus	talk	その男優さんのカメラ、ずっと見つめてたね
+06_終了後インタビュー.md	019	hiyori	polite	talk	あれ、ずるいです……目の前にレンズがあって、知らない誰かに見られてるみたいで。ずっとドキドキしてました
+06_終了後インタビュー.md	020	director	focus	talk	いちばん気持ちよかった瞬間は？
+06_終了後インタビュー.md	021	hiyori	moan	talk	……うしろから突かれながら、前の森さ……あっ、前の男優さんのを咥えてたとき……頭の中、ぜんぶ飛んじゃった
+06_終了後インタビュー.md	022	director	focus	talk	いま、名前言いかけたね
+06_終了後インタビュー.md	023	hiyori	polite	talk	い、言ってないです……！
+06_終了後インタビュー.md	024	director	focus	talk	お口ふさがってるの、苦しくなかった？
+06_終了後インタビュー.md	025	hiyori	expect	talk	ちょっとだけ、涙は出ちゃいましたけど……ぜんぜん、いやじゃなかったです。合図もちゃんと決めてたし、男優さんたちがずっと気にかけてくれてたから……声が出せないぶん、気持ちいいのがぜんぶ、体の中にたまっていくみたいで……
+06_終了後インタビュー.md	026	director	focus	talk	二人の顔は見えた？
+06_終了後インタビュー.md	027	hiyori	self	talk	ちゃんと見ました。二人とも、すっごく気持ちよさそうで……ひより、幸せでした
+06_終了後インタビュー.md	028	director	focus	talk	どんな顔だった？
+06_終了後インタビュー.md	029	hiyori	expect	talk	うしろから出してくれた男優さんは、ずっとクールだったのに、最後だけ眉毛がぎゅってなって。前から出してくれた男優さんは、やさしい顔のまま、くしゃって……
+06_終了後インタビュー.md	030	director	focus	talk	どっちの顔が好きだった？
+06_終了後インタビュー.md	031	hiyori	expect	talk	えー、選べないです……！　どっちも、いちばんです。……気持ちいい顔、ほんとに2つも見ちゃった
+06_終了後インタビュー.md	032	director	focus	talk	最後、『顔、見せて』っておねだりしてたね
+06_終了後インタビュー.md	033	hiyori	polite	talk	……言ってました？　やだ、ぜんぜん覚えてない……でも、ほんとに見たかったんです
+06_終了後インタビュー.md	034	director	focus	talk	いま、お腹の中はどうなってる？
+06_終了後インタビュー.md	035	hiyori	moan	talk	……ふたりぶんの、せーし……まだ、あったかいです……
+06_終了後インタビュー.md	036	director	focus	talk	いま、いちばん何がしたい？
+06_終了後インタビュー.md	037	hiyori	expect	talk	えっと……唐揚げとプリン、食べたいです。あと、レモンサワー
+06_終了後インタビュー.md	038	director	focus	talk	さっき、お腹いっぱいって言ってなかった？
+06_終了後インタビュー.md	039	hiyori	expect	talk	そ、それは別腹です……！
+06_終了後インタビュー.md	040	hiyori	polite	talk	はい、じゃあいったん止めます。ひよりちゃん、お疲れさま
+06_終了後インタビュー.md	041	manami	focus	talk	立てる？　お水飲もうか
+06_終了後インタビュー.md	042	hiyori	expect	talk	真奈美さぁん……脚、ぜんぜん力入らないです……
+06_終了後インタビュー.md	043	manami	focus	talk	このあと最後のコメントだけど、いけそう？　しんどかったら言ってね
+06_終了後インタビュー.md	044	hiyori	self	talk	はい！　シャワー浴びたら、ひより、またがんばります！
+06_終了後インタビュー.md	045	manami	focus-chan	talk	ひよりちゃん、今日の撮影を振り返って、どうだった？
+06_終了後インタビュー.md	046	hiyori	expect	talk	最初はすっごく緊張してたけど……みなさん優しくて、楽しかったです！
+06_終了後インタビュー.md	047	manami	focus	talk	朝より、いい顔してるね
+06_終了後インタビュー.md	048	hiyori	self	talk	えへへ……朝のひよりより、ちょっとだけ……えっちになっちゃったかもです
+06_終了後インタビュー.md	049	manami	focus	talk	お店のお客さんに、ひと言お願い
+06_終了後インタビュー.md	050	hiyori	polite	talk	Lovely Bloomでも待ってます。今度はお兄さんの気持ちいい顔、ひよりに見せてね
+06_終了後インタビュー.md	051	manami	focus	talk	次はどんな撮影をしてみたい？
+06_終了後インタビュー.md	052	hiyori	expect	talk	……次は、見てくれてる人と目を合わせながら、してみたいです
+06_終了後インタビュー.md	053	kurosaki	focus	talk	目を合わせながら？
+06_終了後インタビュー.md	054	hiyori	expect	talk	はい。画面の向こうの人の顔って、ひよりからは見えないから……せめて目だけでも、ちゃんと合わせたいなって
+06_終了後インタビュー.md	055	kurosaki	focus	talk	じゃあ最後に、カメラに向かってひと言
+06_終了後インタビュー.md	056	hiyori	self	talk	星野ひより、22歳でした！　最後まで見てくれて、ありがとう
+06_終了後インタビュー.md	057	hiyori	polite	talk	はい、オッケーです！
+06_終了後インタビュー.md	058	director	focus	talk	お疲れさま。ほんとによくがんばったね
+06_終了後インタビュー.md	059	yui	focus	talk	最後の笑顔、今日いちばんかわいかったよ
+06_終了後インタビュー.md	060	kurosaki	focus	talk	お疲れさま。大丈夫？　今日は帰ったら、ゆっくり休んでね
+06_終了後インタビュー.md	061	hiyori	expect	talk	はい！　森さん、ありがとうございました
+06_終了後インタビュー.md	062	hiyori	cont	talk	……いい顔だった
+06_終了後インタビュー.md	063	hiyori	tic	talk	えっ、うれしい！
+06_終了後インタビュー.md	064	hiyori	cont	talk	……男の人が、ひよりの中で出すときの、すっごく気持ちよさそうな顔。あれ見るの、大好きなんです
+
